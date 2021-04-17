@@ -10,7 +10,6 @@
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C4955262B58E4007FA94E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4954262B58E4007FA94E /* ViewController.swift */; };
-		CE7C4958262B58E4007FA94E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4956262B58E4007FA94E /* Main.storyboard */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
 		CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE7C4954262B58E4007FA94E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE7C4957262B58E4007FA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE7C4959262B58E5007FA94E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7C495C262B58E5007FA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7C495E262B58E5007FA94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				CE7C4950262B58E4007FA94E /* AppDelegate.swift */,
 				CE7C4952262B58E4007FA94E /* SceneDelegate.swift */,
 				CE7C4954262B58E4007FA94E /* ViewController.swift */,
-				CE7C4956262B58E4007FA94E /* Main.storyboard */,
 				CE7C4959262B58E5007FA94E /* Assets.xcassets */,
 				CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */,
 				CE7C495E262B58E5007FA94E /* Info.plist */,
@@ -77,6 +74,7 @@
 				CE7C4949262B58E4007FA94E /* Sources */,
 				CE7C494A262B58E4007FA94E /* Frameworks */,
 				CE7C494B262B58E4007FA94E /* Resources */,
+				CE7C4966262B6031007FA94E /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -126,11 +124,31 @@
 			files = (
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
-				CE7C4958262B58E4007FA94E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE7C4966262B6031007FA94E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE7C4949262B58E4007FA94E /* Sources */ = {
@@ -146,14 +164,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE7C4956262B58E4007FA94E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE7C4957262B58E4007FA94E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +299,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				INFOPLIST_FILE = Workplaces/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.Workplaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				INFOPLIST_FILE = Workplaces/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.Workplaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
