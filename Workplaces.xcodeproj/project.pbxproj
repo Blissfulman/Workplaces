@@ -16,6 +16,8 @@
 		CE7C4955262B58E4007FA94E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4954262B58E4007FA94E /* ViewController.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
 		CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */; };
+		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
+		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		CE7C4959262B58E5007FA94E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7C495C262B58E5007FA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7C495E262B58E5007FA94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				CE7C4959262B58E5007FA94E /* Assets.xcassets */,
 				CE1331B5262C45C80086433C /* Icons.xcassets */,
 				CE1331AE262C40550086433C /* Palette.xcassets */,
+				CEB8B87D262CA92900F030ED /* Images.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				CE1331B2262C431D0086433C /* Palette.swift */,
 				CE1331B8262C4B340086433C /* Icons.swift */,
+				CEB8B880262CAA9E00F030ED /* Images.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
+				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
@@ -322,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7C4955262B58E4007FA94E /* ViewController.swift in Sources */,
+				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
