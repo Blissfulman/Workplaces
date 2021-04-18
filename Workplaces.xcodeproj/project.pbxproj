@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
+		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C4955262B58E4007FA94E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4954262B58E4007FA94E /* ViewController.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
+		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +39,156 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE133197262C25900086433C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CE1331A5262C27070086433C /* SingIn */,
+				CE1331A6262C2D370086433C /* SingUp */,
+				CE1331A7262C2D430086433C /* Feed */,
+				CE1331A9262C2D690086433C /* Profile */,
+				CE1331A8262C2D630086433C /* NewPost */,
+				CE1331A0262C265B0086433C /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CE133198262C25A90086433C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE133199262C25C60086433C /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE133199262C25C60086433C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CE7C4959262B58E5007FA94E /* Assets.xcassets */,
+				CE1331AE262C40550086433C /* Palette.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		CE13319A262C25E70086433C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE13319B262C26000086433C /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
+				CE13319D262C262F0086433C /* Common */,
+				CE13319E262C26340086433C /* Helpers */,
+				CE13319F262C263E0086433C /* Services */,
+			);
+			path = "Business logic";
+			sourceTree = "<group>";
+		};
+		CE13319C262C26150086433C /* Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		CE13319D262C262F0086433C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE13319E262C26340086433C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE13319F262C263E0086433C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE1331A0262C265B0086433C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE1331A4262C26E60086433C /* ViewControllers */,
+				CE1331A3262C26D90086433C /* Views */,
+				CE1331A2262C26D00086433C /* Extensions */,
+				CE1331A1262C26CA0086433C /* Style */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE1331A1262C26CA0086433C /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				CE1331B2262C431D0086433C /* Palette.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		CE1331A2262C26D00086433C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE1331A3262C26D90086433C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE1331A4262C26E60086433C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE1331A5262C27070086433C /* SingIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingIn;
+			sourceTree = "<group>";
+		};
+		CE1331A6262C2D370086433C /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
+		CE1331A7262C2D430086433C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		CE1331A8262C2D630086433C /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		CE1331A9262C2D690086433C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		CE7C4944262B58E4007FA94E = {
 			isa = PBXGroup;
 			children = (
@@ -54,10 +208,14 @@
 		CE7C494F262B58E4007FA94E /* Workplaces */ = {
 			isa = PBXGroup;
 			children = (
+				CE133198262C25A90086433C /* Resources */,
+				CE13319C262C26150086433C /* Client */,
+				CE13319B262C26000086433C /* Business logic */,
+				CE13319A262C25E70086433C /* Models */,
+				CE133197262C25900086433C /* Presentation */,
 				CE7C4950262B58E4007FA94E /* AppDelegate.swift */,
 				CE7C4952262B58E4007FA94E /* SceneDelegate.swift */,
 				CE7C4954262B58E4007FA94E /* ViewController.swift */,
-				CE7C4959262B58E5007FA94E /* Assets.xcassets */,
 				CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */,
 				CE7C495E262B58E5007FA94E /* Info.plist */,
 			);
@@ -123,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
+				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +317,7 @@
 				CE7C4955262B58E4007FA94E /* ViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
+				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
