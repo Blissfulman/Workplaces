@@ -31,7 +31,6 @@
 		CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */; };
 		CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */; };
 		CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */; };
-		CEE7FBBE262D65BA001D5DAD /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
 		CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */; };
 		CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */; };
@@ -66,7 +65,6 @@
 		CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
 		CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInDoneViewController.xib; sourceTree = "<group>"; };
 		CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilledButton.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */,
-				CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 			);
 			path = Views;
@@ -258,6 +255,17 @@
 			path = SignUpSecond;
 			sourceTree = "<group>";
 		};
+		CE573798262DF96100A6DC20 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CE7C4950262B58E4007FA94E /* AppDelegate.swift */,
+				CE7C4952262B58E4007FA94E /* SceneDelegate.swift */,
+				CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */,
+				CE7C495E262B58E5007FA94E /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		CE7C4944262B58E4007FA94E = {
 			isa = PBXGroup;
 			children = (
@@ -282,10 +290,7 @@
 				CE13319B262C26000086433C /* Business logic */,
 				CE13319A262C25E70086433C /* Models */,
 				CE133197262C25900086433C /* Presentation */,
-				CE7C4950262B58E4007FA94E /* AppDelegate.swift */,
-				CE7C4952262B58E4007FA94E /* SceneDelegate.swift */,
-				CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */,
-				CE7C495E262B58E5007FA94E /* Info.plist */,
+				CE573798262DF96100A6DC20 /* Supporting files */,
 			);
 			path = Workplaces;
 			sourceTree = "<group>";
@@ -402,7 +407,6 @@
 				CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
-				CEE7FBBE262D65BA001D5DAD /* CustomTextField.xib in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CEB8B893262CACEF00F030ED /* ZeroScreenViewController.xib in Resources */,
@@ -598,7 +602,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
-				INFOPLIST_FILE = Workplaces/Info.plist;
+				INFOPLIST_FILE = "Workplaces/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,7 +622,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
-				INFOPLIST_FILE = Workplaces/Info.plist;
+				INFOPLIST_FILE = "Workplaces/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
