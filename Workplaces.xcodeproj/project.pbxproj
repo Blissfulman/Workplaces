@@ -29,7 +29,7 @@
 		CEE7FBBE262D65BA001D5DAD /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
 		CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */; };
-		CEE7FBC8262D826B001D5DAD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* CustomButton.swift */; };
+		CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */; };
 		CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */; };
 		CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,7 @@
 		CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
 		CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInDoneViewController.xib; sourceTree = "<group>"; };
-		CEE7FBC7262D826B001D5DAD /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilledButton.swift; sourceTree = "<group>"; };
 		CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,9 +78,7 @@
 		CE133197262C25900086433C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				CEE7FBAE262D4F14001D5DAD /* Login */,
-				CE1331A5262C27070086433C /* SingIn */,
-				CEE7FBC0262D8039001D5DAD /* SignInDone */,
+				CEE7FBD0262DC0D5001D5DAD /* SignIn */,
 				CE1331A6262C2D370086433C /* SingUp */,
 				CE1331A7262C2D430086433C /* Feed */,
 				CE1331A9262C2D690086433C /* Profile */,
@@ -190,7 +188,7 @@
 			children = (
 				CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */,
 				CEE7FBBD262D65BA001D5DAD /* CustomTextField.xib */,
-				CEE7FBC7262D826B001D5DAD /* CustomButton.swift */,
+				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +306,16 @@
 			path = SignInDone;
 			sourceTree = "<group>";
 		};
+		CEE7FBD0262DC0D5001D5DAD /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CEE7FBAE262D4F14001D5DAD /* Login */,
+				CE1331A5262C27070086433C /* SingIn */,
+				CEE7FBC0262D8039001D5DAD /* SignInDone */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,7 +425,7 @@
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
-				CEE7FBC8262D826B001D5DAD /* CustomButton.swift in Sources */,
+				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */,

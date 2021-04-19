@@ -11,7 +11,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private weak var enterButton: CustomButton!
+    @IBOutlet private weak var enterButton: MainFilledButton!
     
     // MARK: - UIViewController
     
