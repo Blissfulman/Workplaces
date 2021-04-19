@@ -9,20 +9,31 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     
-    @IBOutlet private weak var enterButton: UIButton!
+    @IBOutlet private weak var enterButton: CustomButton!
     
-    // MARK: - Lifecycle methods
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+//        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction private func enterButtonTapped() {
+        let signInVC = SignInViewController()
+        navigationController?.pushViewController(signInVC, animated: true)
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
-        enterButton.layer.cornerRadius = 14
     }
 }

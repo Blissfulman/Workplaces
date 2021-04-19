@@ -1,13 +1,13 @@
 //
-//  ZeroScreenViewController.swift
+//  SignInDoneViewController.swift
 //  Workplaces
 //
-//  Created by Evgeny Novgorodov on 18.04.2021.
+//  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
 import UIKit
 
-class ZeroScreenViewController: UIViewController {
+final class SignInDoneViewController: UIViewController {
     
     // MARK: - UIViewController
     
@@ -19,6 +19,6 @@ class ZeroScreenViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
