@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  AuthorizationCoordinator.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 19.04.2021.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol LoginCoordinatorProtocol {
+protocol AuthorizationCoordinatorProtocol {
     func start()
 }
 
-final class LoginCoordinator: LoginCoordinatorProtocol {
+final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     
     private weak var navigationController: UINavigationController?
     

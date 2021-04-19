@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var coordinator: LoginCoordinatorProtocol!
+    var coordinator: AuthorizationCoordinatorProtocol!
     
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController()
         window?.rootViewController = navigationController
-        coordinator = LoginCoordinator(navigationController: navigationController)
+        coordinator = AuthorizationCoordinator(navigationController: navigationController)
         coordinator.start()
         window?.makeKeyAndVisible()
     }

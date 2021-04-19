@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="enterButtonBottomConstraint" destination="m0G-Di-RD4" id="7Nh-XC-Ze5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,13 +34,8 @@
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
                     <rect key="frame" x="32" y="156" width="350" height="17"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-rh-Y0p">
-                    <rect key="frame" x="0.0" y="44" width="414" height="4"/>
-                    <color key="progressTintColor" name="orange"/>
-                    <color key="trackTintColor" name="lightGreyBlue"/>
-                </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
                     <rect key="frame" x="16" y="790" width="382" height="56"/>
                     <color key="backgroundColor" name="lightGreyBlue"/>
@@ -55,8 +51,8 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
-                    <rect key="frame" x="156" y="738" width="102" height="32"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="17"/>
+                    <rect key="frame" x="159" y="739" width="96" height="31"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Регистрация">
                         <color key="titleColor" name="orange"/>
                     </state>
@@ -68,10 +64,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="rlT-M0-OZj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="46" id="92E-7O-VJw"/>
                 <constraint firstItem="I8i-dH-VUs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BTX-VT-fcj"/>
                 <constraint firstItem="WKZ-5L-VY9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EQO-vW-b7o"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OqA-rh-Y0p" secondAttribute="trailing" id="HJF-R7-Dbd"/>
-                <constraint firstItem="rlT-M0-OZj" firstAttribute="top" secondItem="OqA-rh-Y0p" secondAttribute="bottom" constant="42" id="QLQ-4e-InO"/>
                 <constraint firstItem="rlT-M0-OZj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="QYU-nP-rQh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACl-g1-wIO" secondAttribute="trailing" constant="32" id="YVx-34-DEN"/>
                 <constraint firstItem="ACl-g1-wIO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="c4K-3g-Vhu"/>
@@ -79,8 +74,6 @@
                 <constraint firstItem="WKZ-5L-VY9" firstAttribute="top" secondItem="I8i-dH-VUs" secondAttribute="bottom" constant="20" id="iKG-ap-S3p"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="16" id="m0G-Di-RD4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rlT-M0-OZj" secondAttribute="trailing" constant="32" id="mhI-q5-CcJ"/>
-                <constraint firstItem="OqA-rh-Y0p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uel-nj-40G"/>
-                <constraint firstItem="OqA-rh-Y0p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xgi-cf-hSk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKZ-5L-VY9" secondAttribute="trailing" constant="16" id="zGO-Kp-17a"/>
             </constraints>
             <point key="canvasLocation" x="128.98550724637681" y="88.392857142857139"/>

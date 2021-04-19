@@ -88,8 +88,8 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0">
-                    <rect key="frame" x="119" y="688.5" width="176" height="32"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="17"/>
+                    <rect key="frame" x="124.5" y="688.5" width="165" height="31"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Регистрация по почте">
                         <color key="titleColor" name="orange"/>
                     </state>
