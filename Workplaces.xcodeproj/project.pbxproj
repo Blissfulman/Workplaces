@@ -11,6 +11,7 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
+		CE573784262DC4A900A6DC20 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* LoginCoordinator.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		CE573783262DC4A900A6DC20 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 		CEE7FBD0262DC0D5001D5DAD /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				CE573783262DC4A900A6DC20 /* LoginCoordinator.swift */,
 				CEE7FBAE262D4F14001D5DAD /* Login */,
 				CE1331A5262C27070086433C /* SingIn */,
 				CEE7FBC0262D8039001D5DAD /* SignInDone */,
@@ -419,6 +422,7 @@
 			files = (
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
+				CE573784262DC4A900A6DC20 /* LoginCoordinator.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CEB8B892262CACEF00F030ED /* ZeroScreenViewController.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,

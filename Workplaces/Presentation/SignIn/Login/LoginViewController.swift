@@ -7,11 +7,17 @@
 
 import UIKit
 
-final class LoginViewController: UIViewController {
+protocol LoginScreenCoordinable {
+    var didTapEnterButton: (() -> Void)? { get set }
+    var didTapRegistrationByEmail: (() -> Void)? { get set }
+}
+
+final class LoginViewController: UIViewController, LoginScreenCoordinable {
     
-    // MARK: - IBOutlets
+    // MARK: - Public properties
     
-    @IBOutlet private weak var enterButton: MainFilledButton!
+    var didTapEnterButton: (() -> Void)?
+    var didTapRegistrationByEmail: (() -> Void)?
     
     // MARK: - UIViewController
     
@@ -25,11 +31,14 @@ final class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    // MARK: - IBActions
+    // MARK: - Actions
     
     @IBAction private func enterButtonTapped() {
-        let signInVC = SignInViewController()
-        navigationController?.pushViewController(signInVC, animated: true)
+        didTapEnterButton?()
+    }
+    
+    @IBAction private func registrationByEmailTapped() {
+        didTapRegistrationByEmail?()
     }
     
     // MARK: - Private methods

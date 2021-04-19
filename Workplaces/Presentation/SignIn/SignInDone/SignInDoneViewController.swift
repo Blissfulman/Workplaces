@@ -7,13 +7,27 @@
 
 import UIKit
 
-final class SignInDoneViewController: UIViewController {
+protocol SignInDoneScreenCoordinable {
+    var didTapToFeedButton: (() -> Void)? { get set }
+}
+
+final class SignInDoneViewController: UIViewController, SignInDoneScreenCoordinable {
+    
+    // MARK: - Public properties
+    
+    var didTapToFeedButton: (() -> Void)?
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func toFeedButtonTapped() {
+        didTapToFeedButton?()
     }
     
     // MARK: - Private methods

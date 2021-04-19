@@ -7,14 +7,38 @@
 
 import UIKit
 
-final class SignInViewController: UIViewController {
+protocol SignInScreenCoordinable {
+    var didTapRegisterButton: (() -> Void)? { get set }
+    var didTapEnterButton: (() -> Void)? { get set }
+}
 
+final class SignInViewController: UIViewController, SignInScreenCoordinable {
+    
+    // MARK: - Public properties
+    
+    var didTapRegisterButton: (() -> Void)?
+    var didTapEnterButton: (() -> Void)?
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+    
+    // MARK: - Actions
+    
+    @IBAction private func registerButtonTapped() {
+        didTapRegisterButton?()
+    }
+    
+    @IBAction private func enterButtonTapped() {
+        didTapEnterButton?()
+    }
+    
+//    @objc private func closeButtonTapped() {
+//        navigationController?.popViewController(animated: true)
+//    }
     
     // MARK: - Private methods
     
@@ -26,16 +50,5 @@ final class SignInViewController: UIViewController {
 //                                                target: self,
 //                                                action: #selector(closeButtonTapped))
 //        navigationItem.leftBarButtonItem = backBarButtonItem
-    }
-    
-    // MARK: - IBActions
-    
-    @IBAction private func enterButtonTapped() {
-        let signInDoneVC = SignInDoneViewController()
-        navigationController?.pushViewController(signInDoneVC, animated: true)
-    }
-    
-    @objc private func closeButtonTapped() {
-        navigationController?.popViewController(animated: true)
     }
 }
