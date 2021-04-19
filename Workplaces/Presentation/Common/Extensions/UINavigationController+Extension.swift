@@ -11,7 +11,10 @@ extension UINavigationController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.tintColor = Palette.orange
-        navigationBar.titleTextAttributes = [.font: Fonts.bodyLarge]
+        let navigationBarApperance = UINavigationBarAppearance()
+        navigationBarApperance.backgroundColor = .white
+        navigationBarApperance.titleTextAttributes = [.font: Fonts.bodyLarge]
+        navigationBar.standardAppearance = navigationBarApperance
+        navigationBar.tintColor = Palette.grey
     }
 }

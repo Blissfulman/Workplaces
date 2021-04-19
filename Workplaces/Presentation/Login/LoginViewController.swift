@@ -17,7 +17,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupUI()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,5 +35,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
+        navigationItem.backButtonTitle = ""
     }
 }
