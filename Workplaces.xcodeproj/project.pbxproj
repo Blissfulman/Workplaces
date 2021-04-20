@@ -19,6 +19,7 @@
 		CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */; };
 		CE09D77D262EB502009A96B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77C262EB502009A96B3 /* User.swift */; };
 		CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77F262EBA13009A96B3 /* Typealiases.swift */; };
+		CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D782262EC90D009A96B3 /* LoadingView.swift */; };
 		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
@@ -66,6 +67,7 @@
 		CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		CE09D77C262EB502009A96B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE09D77F262EBA13009A96B3 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		CE09D782262EC90D009A96B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
+				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
+				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,

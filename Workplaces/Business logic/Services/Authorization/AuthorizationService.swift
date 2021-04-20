@@ -26,7 +26,11 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     func registerUser(withEmail email: String,
                       andPassword password: String,
                       completion: @escaping (Result<Bool, Error>) -> Void) {
+        LoadingView.show()
+        
         Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
+            LoadingView.hide()
+            
             if let error = error {
                 completion(.failure(error))
                 return
@@ -38,7 +42,11 @@ final class AuthorizationService: AuthorizationServiceProtocol {
     func signIn(withEmail email: String,
                 andPassword password: String,
                 completion: @escaping (Result<Bool, Error>) -> Void) {
+        LoadingView.show()
+        
         Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+            LoadingView.hide()
+            
             if let error = error {
                 completion(.failure(error))
                 return

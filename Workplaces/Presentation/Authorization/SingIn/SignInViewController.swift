@@ -86,6 +86,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     private func setupUI() {
         title = "Вход по почте"
+        navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
