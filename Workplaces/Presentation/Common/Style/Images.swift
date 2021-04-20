@@ -10,6 +10,6 @@ import UIKit
 enum Images {
     static let loginScreen = #imageLiteral(resourceName: "login_screen")
     static let loginDoneScreen = #imageLiteral(resourceName: "login_done_screen")
-    static let zeroScreen = #imageLiteral(resourceName: "zero_screen")
+    static let errorScreen = #imageLiteral(resourceName: "error_screen")
     static let noDataScreen = #imageLiteral(resourceName: "no_data_screen")
 }

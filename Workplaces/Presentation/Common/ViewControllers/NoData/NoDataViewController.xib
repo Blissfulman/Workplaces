@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="Workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoDataViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,33 +25,36 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error_screen" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-OB-2ba">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_data_screen" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-OB-2ba">
                     <rect key="frame" x="107" y="202" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="MRY-7e-iwe"/>
                         <constraint firstAttribute="height" constant="200" id="qBU-y1-gmP"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Упс..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8t-xX-xbc">
-                    <rect key="frame" x="161.5" y="427" width="91.5" height="42"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пустота" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8t-xX-xbc">
+                    <rect key="frame" x="139" y="427" width="136.5" height="42"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-gk-mA5">
-                    <rect key="frame" x="130" y="477" width="154" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Если молчать, люди никогда не узнают о вас" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-gk-mA5">
+                    <rect key="frame" x="89.5" y="477" width="235" height="37.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="235" id="JNL-sO-Pan"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <color key="textColor" name="middleGrey"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fku-Oi-T84">
-                    <rect key="frame" x="170" y="521" width="74" height="31"/>
+                    <rect key="frame" x="156" y="539.5" width="102" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Обновить">
+                    <state key="normal" title="Создать пост">
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="refreshButtonTapped" destination="-1" eventType="touchUpInside" id="JVM-TE-jgX"/>
+                        <action selector="createPostButtonTapped" destination="-1" eventType="touchUpInside" id="hjV-sv-Qdd"/>
                     </connections>
                 </button>
             </subviews>
@@ -71,7 +74,7 @@
         </view>
     </objects>
     <resources>
-        <image name="error_screen" width="200" height="200"/>
+        <image name="no_data_screen" width="200" height="200"/>
         <namedColor name="middleGrey">
             <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
