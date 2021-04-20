@@ -19,12 +19,9 @@ enum Icons {
     static let crossSmall = #imageLiteral(resourceName: "24-cross_small")
     static let calendar = #imageLiteral(resourceName: "24-calendar")
     
-    static let home = #imageLiteral(resourceName: "home")
-    static let homeActive = #imageLiteral(resourceName: "home_active")
+    static let feed = #imageLiteral(resourceName: "feed")
     static let newPost = #imageLiteral(resourceName: "new_post")
-    static let newPostActive = #imageLiteral(resourceName: "new_post_active")
     static let profile = #imageLiteral(resourceName: "profile")
-    static let profileActive = #imageLiteral(resourceName: "profile_active")
     static let like = #imageLiteral(resourceName: "like")
     static let liked = #imageLiteral(resourceName: "liked")
     

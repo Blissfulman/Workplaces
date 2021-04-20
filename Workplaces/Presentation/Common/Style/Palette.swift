@@ -14,4 +14,5 @@ enum Palette {
     static let grey = UIColor(named: "grey")
     static let lightGrey = UIColor(named: "lightGrey")
     static let lightGreyBlue = UIColor(named: "lightGreyBlue")
+    static let white = UIColor.white
 }
