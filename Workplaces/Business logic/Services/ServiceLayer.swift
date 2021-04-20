@@ -8,6 +8,7 @@
 // MARK: - Protocols
 
 protocol ServiceLayerProtocol {
+    /// Сервис авторизации.
     var authorizationService: AuthorizationServiceProtocol { get }
 }
 

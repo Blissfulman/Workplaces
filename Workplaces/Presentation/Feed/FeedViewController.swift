@@ -23,7 +23,9 @@ final class FeedViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signOut() {
-        authorizationService.signOut()
+        authorizationService.signOut { [weak self] error in
+            self?.showAlert(error)
+        }
     }
     
     // MARK: - Private methods

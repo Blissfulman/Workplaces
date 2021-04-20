@@ -10,13 +10,27 @@ import FirebaseAuth
 // MARK: - Protocols
 
 protocol AuthorizationServiceProtocol {
+    /// Регистрация нового пользоваталя.
+    /// - Parameters:
+    ///   - email: E-mail пользователя.
+    ///   - password: Пароль пользователя.
+    ///   - completion: Замыкание, в которое возвращается результат выполнения запроса.
     func registerUser(withEmail email: String,
                       andPassword password: String,
                       completion: @escaping (Result<Bool, Error>) -> Void)
+    
+    /// Авторизация зарегистрированного пользователя.
+    /// - Parameters:
+    ///   - email: E-mail пользователя.
+    ///   - password: Пароль пользователя.
+    ///   - completion: Замыкание, в которое возвращается результат выполнения запроса.
     func signIn(withEmail email: String,
                 andPassword password: String,
                 completion: @escaping (Result<Bool, Error>) -> Void)
-    func signOut()
+    
+    /// Разавторизация пользователя.
+    /// - Parameter errorHandler: Обработчик ошибки выполнения запроса.
+    func signOut(errorHandler: @escaping (Error) -> Void)
 }
 
 final class AuthorizationService: AuthorizationServiceProtocol {
@@ -55,11 +69,11 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         }
     }
     
-    func signOut() {
+    func signOut(errorHandler: @escaping (Error) -> Void) {
         do {
             try Auth.auth().signOut()
         } catch {
-            print(error.localizedDescription)
+            errorHandler(error)
         }
     }
 }

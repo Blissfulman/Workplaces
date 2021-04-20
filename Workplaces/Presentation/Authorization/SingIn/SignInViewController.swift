@@ -63,7 +63,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         authorizationService.signIn(withEmail: email, andPassword: password) { [weak self] result in
             switch result {
             case .success:
-                print("Success!!!")
+                print("Успешная авторизация!")
                 self?.didTapEnterButton?()
             case let .failure(error):
                 self?.showAlert(error)
@@ -75,6 +75,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         guard let userInfo = notification.userInfo,
               let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue
+        // Временно захардкожено, не уделял пока этому время
         enterButtonBottomConstraint.constant = 16 + keyboardFrame.height
     }
     
