@@ -3,11 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		79161C81600E63AB596D2013 /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125048DC14DF106A62182E6E /* Pods_Workplaces.framework */; };
+		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
+		CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */; };
+		CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarController.swift */; };
+		CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */; };
+		CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */; };
+		CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */; };
+		CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */; };
+		CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */; };
+		CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */; };
 		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
@@ -44,6 +53,15 @@
 		125048DC14DF106A62182E6E /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DD128178CA1947191E00DE /* Pods-Workplaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.debug.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.debug.xcconfig"; sourceTree = "<group>"; };
 		72E26D82E98E0D2A931F4F63 /* Pods-Workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.release.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.release.xcconfig"; sourceTree = "<group>"; };
+		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		CE09D766262E8C10009A96B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
+		CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -96,17 +114,33 @@
 				17DD128178CA1947191E00DE /* Pods-Workplaces.debug.xcconfig */,
 				72E26D82E98E0D2A931F4F63 /* Pods-Workplaces.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE09D760262E07CD009A96B3 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CE09D765262E8BD9009A96B3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE09D766262E8C10009A96B3 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		CE133197262C25900086433C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				CEE7FBD0262DC0D5001D5DAD /* Authorization */,
+				CE09D765262E8BD9009A96B3 /* TabBar */,
 				CE1331A7262C2D430086433C /* Feed */,
-				CE1331A9262C2D690086433C /* Profile */,
 				CE1331A8262C2D630086433C /* NewPost */,
+				CE1331A9262C2D690086433C /* Profile */,
 				CE1331A0262C265B0086433C /* Common */,
 			);
 			path = Presentation;
@@ -173,6 +207,8 @@
 		CE13319F262C263E0086433C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE09D75D262E0502009A96B3 /* ServiceLayer.swift */,
+				CE09D760262E07CD009A96B3 /* Authorization */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -245,6 +281,8 @@
 		CE1331A7262C2D430086433C /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */,
+				CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -252,6 +290,8 @@
 		CE1331A8262C2D630086433C /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
+				CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */,
+				CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */,
 			);
 			path = NewPost;
 			sourceTree = "<group>";
@@ -259,6 +299,8 @@
 		CE1331A9262C2D690086433C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
+				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -432,15 +474,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */,
 				CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
+				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CEB8B893262CACEF00F030ED /* ZeroScreenViewController.xib in Resources */,
 				CE573790262DEEC700A6DC20 /* SignUpSecondViewController.xib in Resources */,
+				CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CEE7FBB2262D4F29001D5DAD /* LoginViewController.xib in Resources */,
@@ -518,17 +563,23 @@
 			files = (
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
+				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
+				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
+				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CEB8B892262CACEF00F030ED /* ZeroScreenViewController.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
+				CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */,
+				CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
+				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
