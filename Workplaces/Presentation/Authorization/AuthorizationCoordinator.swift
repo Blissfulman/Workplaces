@@ -63,7 +63,7 @@ final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     private func showSignInDoneScreen() {
         let signInDoneVC = SignInDoneViewController()
         signInDoneVC.didTapToFeedButton = {
-            print("Go to feed")
+            print("Переход к ленте...")
         }
         navigationController?.pushViewController(signInDoneVC, animated: true)
     }
@@ -75,8 +75,8 @@ final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
         }
         
         let signUpFirstVC = SignUpFirstViewController()
-        signUpFirstVC.didTapNextButton = { [weak self] in
-            self?.showSignUpSecondScreen()
+        signUpFirstVC.didTapNextButton = { [weak self] user, password in
+            self?.showSignUpSecondScreen(user: user, password: password)
         }
         signUpFirstVC.didTapAlreadyRegisteredButton = { [weak self] in
             self?.showSignInScreen()
@@ -84,8 +84,11 @@ final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
         navigationController?.pushViewController(signUpFirstVC, animated: true)
     }
     
-    private func showSignUpSecondScreen() {
-        let signUpSecondVC = SignUpSecondViewController()
+    private func showSignUpSecondScreen(user: User, password: String?) {
+        let signUpSecondVC = SignUpSecondViewController(user: user, password: password)
+        signUpSecondVC.didTapRegisterButton = {
+            print("Регистрация прошла успешно!")
+        }
         navigationController?.pushViewController(signUpSecondVC, animated: true)
     }
 }

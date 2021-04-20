@@ -17,6 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpSecondViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="bithdayTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
+                <outlet property="cityTextField" destination="iEh-H0-W4S" id="05z-xc-gAj"/>
+                <outlet property="nameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,9 +34,9 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
-                    <rect key="frame" x="32" y="156" width="350" height="17"/>
+                    <rect key="frame" x="32" y="156" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7L2-Ow-d4M">
                     <rect key="frame" x="0.0" y="44" width="414" height="4"/>
@@ -42,19 +45,22 @@
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-nc-WXc" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
                     <rect key="frame" x="16" y="762" width="382" height="56"/>
-                    <color key="backgroundColor" name="lightGreyBlue"/>
+                    <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="ElK-aG-KD9"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Зарегистрироваться">
-                        <color key="titleColor" name="middleGrey"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="registerButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Город" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
-                    <rect key="frame" x="32" y="221" width="350" height="17"/>
+                    <rect key="frame" x="32" y="222" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -82,9 +88,6 @@
     <resources>
         <namedColor name="lightGreyBlue">
             <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="middleGrey">
-            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

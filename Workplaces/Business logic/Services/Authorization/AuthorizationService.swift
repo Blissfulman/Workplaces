@@ -28,7 +28,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
                       completion: @escaping (Result<Bool, Error>) -> Void) {
         LoadingView.show()
         
-        Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { _, error in
             LoadingView.hide()
             
             if let error = error {
@@ -44,7 +44,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
                 completion: @escaping (Result<Bool, Error>) -> Void) {
         LoadingView.show()
         
-        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
             LoadingView.hide()
             
             if let error = error {

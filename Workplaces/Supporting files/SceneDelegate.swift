@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func checkAuthorization() {
-        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+        Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self else { return }
             if user == nil {
                 let navigationController = UINavigationController()

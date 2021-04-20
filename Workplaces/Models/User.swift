@@ -5,12 +5,20 @@
 //  Created by Evgeny Novgorodov on 20.04.2021.
 //
 
-import  Foundation
+import Foundation
 
 struct User {
-    let name: String
-    let login: String
-    let email: String
-    let birthday: Date
-    let city: String
+    var name: String?
+    var login: String?
+    var email: String?
+    var birthday: Date?
+    var city: String?
+    
+    init(name: String? = nil, login: String? = nil, email: String? = nil, birthday: Date? = nil, city: String? = nil) {
+        self.name = name
+        self.login = login
+        self.email = email
+        self.birthday = birthday
+        self.city = city
+    }
 }

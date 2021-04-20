@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpFirstScreenCoordinable {
-    var didTapNextButton: VoidBlock? { get set }
+    var didTapNextButton: ((User, String?) -> Void)? { get set }
     var didTapAlreadyRegisteredButton: VoidBlock? { get set }
 }
 
@@ -18,8 +18,18 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     
     // MARK: - Public properties
     
-    var didTapNextButton: VoidBlock?
+    var didTapNextButton: ((User, String?) -> Void)?
     var didTapAlreadyRegisteredButton: VoidBlock?
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private weak var loginTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    
+    // MARK: - Private properties
+    
+    private var user = User()
     
     // MARK: - UIViewController
     
@@ -28,10 +38,17 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
         setupUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     // MARK: - Actions
     
     @IBAction private func nextButtonTapped() {
-        didTapNextButton?()
+        user.login = loginTextField.text
+        user.email = emailTextField.text
+        didTapNextButton?(user, passwordTextField.text)
     }
     
     @IBAction private func alreadyRegisteredButtonTapped() {
