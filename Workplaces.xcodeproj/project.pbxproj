@@ -17,6 +17,7 @@
 		CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */; };
 		CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */; };
 		CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */; };
+		CE09D77D262EB502009A96B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77C262EB502009A96B3 /* User.swift */; };
 		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
@@ -62,6 +63,7 @@
 		CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		CE09D77C262EB502009A96B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		CE13319A262C25E70086433C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE09D77C262EB502009A96B3 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
+				CE09D77D262EB502009A96B3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

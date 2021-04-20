@@ -26,9 +26,9 @@ final class FeedViewController: UIViewController {
         authorizationService.signOut()
     }
     
-    // MARK: - Private properties
+    // MARK: - Private methods
     
     private func setupUI() {
-        view.backgroundColor = Palette.white
+        navigationItem.title = "Популярное"
     }
 }

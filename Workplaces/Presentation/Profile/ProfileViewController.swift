@@ -8,9 +8,17 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-
+    
+    // MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Palette.white
+        setupUI()
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupUI() {
+        navigationItem.title = "Профиль"
     }
 }

@@ -20,15 +20,12 @@ final class TabBarController: UITabBarController {
         
         let feedVC = UINavigationController(rootViewController: FeedViewController())
         feedVC.tabBarItem.image = Icons.feed
-        feedVC.title = "Популярное"
         
         let newPostVC = UINavigationController(rootViewController: NewPostViewController())
         newPostVC.tabBarItem.image = Icons.newPost
-        newPostVC.title = "Новый пост"
         
         let profileVC = UINavigationController(rootViewController: ProfileViewController())
         profileVC.tabBarItem.image = Icons.profile
-        profileVC.title = "Профиль"
         
         viewControllers = [feedVC, newPostVC, profileVC]
     }
