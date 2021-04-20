@@ -5,6 +5,8 @@
 //  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
+// MARK: - Protocols
+
 protocol ServiceLayerProtocol {
     var authorizationService: AuthorizationServiceProtocol { get }
 }

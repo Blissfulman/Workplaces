@@ -7,11 +7,13 @@
 
 import FirebaseAuth
 
+// MARK: - Protocols
+
 protocol AuthorizationServiceProtocol {
     func registerUser(withEmail email: String,
                       andPassword password: String,
                       completion: @escaping (Result<Bool, Error>) -> Void)
-    func sisnIn(withEmail email: String,
+    func signIn(withEmail email: String,
                 andPassword password: String,
                 completion: @escaping (Result<Bool, Error>) -> Void)
     func signOut()
@@ -33,7 +35,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         }
     }
     
-    func sisnIn(withEmail email: String,
+    func signIn(withEmail email: String,
                 andPassword password: String,
                 completion: @escaping (Result<Bool, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in

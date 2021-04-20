@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.coordinator = AuthorizationCoordinator(navigationController: navigationController)
                 self.coordinator.start()
             } else {
-                print("User already exists")
                 let tabBarController = TabBarController()
                 self.window?.rootViewController = tabBarController
             }

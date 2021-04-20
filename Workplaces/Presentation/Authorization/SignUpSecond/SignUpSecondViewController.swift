@@ -7,9 +7,21 @@
 
 import UIKit
 
-class SignUpSecondViewController: UIViewController {
+// MARK: - Protocols
 
+final class SignUpSecondViewController: UIViewController {
+    
+    // MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupUI() {
+        title = "Регистрация"
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

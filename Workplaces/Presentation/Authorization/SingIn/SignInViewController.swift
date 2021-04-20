@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol SignInScreenCoordinable {
     var didTapRegisterButton: (() -> Void)? { get set }
     var didTapEnterButton: (() -> Void)? { get set }
@@ -51,22 +53,22 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     // MARK: - Actions
     
     @IBAction private func registerButtonTapped() {
-        guard let email = emailOrLoginTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else { return }
-        
-        authorizationService.registerUser(withEmail: email, andPassword: password) { result in
-            switch result {
-            case .success:
-                print("Success!!!")
-            case let .failure(error):
-                print(error)
-            }
-        }
         didTapRegisterButton?()
     }
     
     @IBAction private func enterButtonTapped() {
-        didTapEnterButton?()
+        guard let email = emailOrLoginTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else { return }
+        
+        authorizationService.signIn(withEmail: email, andPassword: password) { [weak self] result in
+            switch result {
+            case .success:
+                print("Success!!!")
+                self?.didTapEnterButton?()
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -80,20 +82,11 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         enterButtonBottomConstraint.constant = 16
     }
     
-//    @objc private func closeButtonTapped() {
-//        navigationController?.popViewController(animated: true)
-//    }
-    
     // MARK: - Private methods
     
     private func setupUI() {
         title = "Вход по почте"
         navigationController?.setNavigationBarHidden(false, animated: true)
-//        let backBarButtonItem = UIBarButtonItem(image: Icons.crossSmall,
-//                                                style: .plain,
-//                                                target: self,
-//                                                action: #selector(closeButtonTapped))
-//        navigationItem.leftBarButtonItem = backBarButtonItem
     }
     
     private func registerForKeyboardNotifications() {

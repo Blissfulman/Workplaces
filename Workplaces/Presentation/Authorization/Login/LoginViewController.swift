@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol LoginScreenCoordinable {
     var didTapEnterButton: (() -> Void)? { get set }
     var didTapRegistrationByEmail: (() -> Void)? { get set }

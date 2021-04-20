@@ -7,13 +7,19 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol AuthorizationCoordinatorProtocol {
     func start()
 }
 
 final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     
+    // MARK: - Private properties
+    
     private weak var navigationController: UINavigationController?
+    
+    // MARK: - Initializers
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -32,19 +38,24 @@ final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
         loginVC.didTapEnterButton = { [weak self] in
             self?.showSignInScreen()
         }
-        loginVC.didTapRegistrationByEmail = {
-            print("Registration by E-mail...")
+        loginVC.didTapRegistrationByEmail = { [weak self] in
+            self?.showSignUpFirstScreen()
         }
         navigationController?.pushViewController(loginVC, animated: false)
     }
     
     private func showSignInScreen() {
+        guard navigationController?.viewControllers.first(where: { $0 is SignInViewController }) == nil else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
         let signInVC = SignInViewController()
         signInVC.didTapEnterButton = { [weak self] in
             self?.showSignInDoneScreen()
         }
-        signInVC.didTapRegisterButton = {
-            print("Registration...")
+        signInVC.didTapRegisterButton = { [weak self] in
+            self?.showSignUpFirstScreen()
         }
         navigationController?.pushViewController(signInVC, animated: true)
     }
@@ -55,5 +66,26 @@ final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
             print("Go to feed")
         }
         navigationController?.pushViewController(signInDoneVC, animated: true)
+    }
+    
+    private func showSignUpFirstScreen() {
+        guard navigationController?.viewControllers.first(where: { $0 is SignUpFirstViewController }) == nil else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        let signUpFirstVC = SignUpFirstViewController()
+        signUpFirstVC.didTapNextButton = { [weak self] in
+            self?.showSignUpSecondScreen()
+        }
+        signUpFirstVC.didTapAlreadyRegisteredButton = { [weak self] in
+            self?.showSignInScreen()
+        }
+        navigationController?.pushViewController(signUpFirstVC, animated: true)
+    }
+    
+    private func showSignUpSecondScreen() {
+        let signUpSecondVC = SignUpSecondViewController()
+        navigationController?.pushViewController(signUpSecondVC, animated: true)
     }
 }

@@ -50,6 +50,9 @@
                     <state key="normal" title="Уже зарегистрирован">
                         <color key="titleColor" name="middleGrey"/>
                     </state>
+                    <connections>
+                        <action selector="alreadyRegisteredButtonTapped" destination="-1" eventType="touchUpInside" id="osC-TY-2I3"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqh-yA-vbi">
                     <rect key="frame" x="183.5" y="711" width="47" height="31"/>
@@ -57,6 +60,9 @@
                     <state key="normal" title="Далее">
                         <color key="titleColor" name="orange"/>
                     </state>
+                    <connections>
+                        <action selector="nextButtonTapped" destination="-1" eventType="touchUpInside" id="OdG-O9-RfQ"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
                     <rect key="frame" x="32" y="221" width="350" height="17"/>

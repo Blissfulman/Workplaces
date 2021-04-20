@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Protocols
+
 protocol SignInDoneScreenCoordinable {
     var didTapToFeedButton: (() -> Void)? { get set }
 }
