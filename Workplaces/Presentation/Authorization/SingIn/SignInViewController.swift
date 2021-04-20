@@ -16,12 +16,18 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private weak var emailOrLoginTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var enterButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Public properties
     
     var didTapRegisterButton: (() -> Void)?
     var didTapEnterButton: (() -> Void)?
+    
+    // MARK: - Private properties
+    
+    private let authorizationService = ServiceLayer.shared.authorizationService
     
     // MARK: - Deinitialization
     
@@ -45,6 +51,17 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     // MARK: - Actions
     
     @IBAction private func registerButtonTapped() {
+        guard let email = emailOrLoginTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else { return }
+        
+        authorizationService.registerUser(withEmail: email, andPassword: password) { result in
+            switch result {
+            case .success:
+                print("Success!!!")
+            case let .failure(error):
+                print(error)
+            }
+        }
         didTapRegisterButton?()
     }
     

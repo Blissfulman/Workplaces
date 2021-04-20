@@ -17,7 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="emailOrLoginTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
                 <outlet property="enterButtonBottomConstraint" destination="m0G-Di-RD4" id="7Nh-XC-Ze5"/>
+                <outlet property="passwordTextField" destination="ACl-g1-wIO" id="5fz-4u-IVr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
