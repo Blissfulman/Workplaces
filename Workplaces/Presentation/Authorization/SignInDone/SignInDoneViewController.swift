@@ -10,14 +10,14 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignInDoneScreenCoordinable {
-    var didTapToFeedButton: (() -> Void)? { get set }
+    var didTapToFeedButton: VoidBlock? { get set }
 }
 
 final class SignInDoneViewController: UIViewController, SignInDoneScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapToFeedButton: (() -> Void)?
+    var didTapToFeedButton: VoidBlock?
     
     // MARK: - UIViewController
     

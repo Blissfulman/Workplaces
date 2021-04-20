@@ -10,16 +10,16 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpFirstScreenCoordinable {
-    var didTapNextButton: (() -> Void)? { get set }
-    var didTapAlreadyRegisteredButton: (() -> Void)? { get set }
+    var didTapNextButton: VoidBlock? { get set }
+    var didTapAlreadyRegisteredButton: VoidBlock? { get set }
 }
 
 final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapNextButton: (() -> Void)?
-    var didTapAlreadyRegisteredButton: (() -> Void)?
+    var didTapNextButton: VoidBlock?
+    var didTapAlreadyRegisteredButton: VoidBlock?
     
     // MARK: - UIViewController
     

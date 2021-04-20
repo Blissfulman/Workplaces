@@ -10,16 +10,16 @@ import UIKit
 // MARK: - Protocols
 
 protocol LoginScreenCoordinable {
-    var didTapEnterButton: (() -> Void)? { get set }
-    var didTapRegistrationByEmail: (() -> Void)? { get set }
+    var didTapEnterButton: VoidBlock? { get set }
+    var didTapRegistrationByEmail: VoidBlock? { get set }
 }
 
 final class LoginViewController: UIViewController, LoginScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapEnterButton: (() -> Void)?
-    var didTapRegistrationByEmail: (() -> Void)?
+    var didTapEnterButton: VoidBlock?
+    var didTapRegistrationByEmail: VoidBlock?
     
     // MARK: - UIViewController
     

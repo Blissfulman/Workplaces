@@ -10,8 +10,8 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignInScreenCoordinable {
-    var didTapRegisterButton: (() -> Void)? { get set }
-    var didTapEnterButton: (() -> Void)? { get set }
+    var didTapRegisterButton: VoidBlock? { get set }
+    var didTapEnterButton: VoidBlock? { get set }
 }
 
 final class SignInViewController: UIViewController, SignInScreenCoordinable {
@@ -24,8 +24,8 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapRegisterButton: (() -> Void)?
-    var didTapEnterButton: (() -> Void)?
+    var didTapRegisterButton: VoidBlock?
+    var didTapEnterButton: VoidBlock?
     
     // MARK: - Private properties
     
