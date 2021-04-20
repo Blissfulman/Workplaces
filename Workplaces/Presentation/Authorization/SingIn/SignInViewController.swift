@@ -66,7 +66,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
                 print("Success!!!")
                 self?.didTapEnterButton?()
             case let .failure(error):
-                print(error)
+                self?.showAlert(error)
             }
         }
     }

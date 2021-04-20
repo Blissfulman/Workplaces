@@ -60,7 +60,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     @IBAction private func registerButtonTapped() {
         guard let email = userFirstScreen.email, !email.isEmpty,
               let password = passwordFirstScreen, !password.isEmpty else {
-            print("Необходимо было ввести email и пароль")
+            showAlert("Необходимо было ввести email и пароль")
             return
         }
         
@@ -69,7 +69,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
             case .success:
                 self?.didTapRegisterButton?()
             case let .failure(error):
-                print(error.localizedDescription)
+                self?.showAlert(error)
             }
         }
     }
