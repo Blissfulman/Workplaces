@@ -36,15 +36,14 @@
 		CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
-		CEB8B892262CACEF00F030ED /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B890262CACEF00F030ED /* ZeroScreenViewController.swift */; };
-		CEB8B893262CACEF00F030ED /* ZeroScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B891262CACEF00F030ED /* ZeroScreenViewController.xib */; };
+		CEB8B892262CACEF00F030ED /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B890262CACEF00F030ED /* ErrorViewController.swift */; };
+		CEB8B893262CACEF00F030ED /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B891262CACEF00F030ED /* ErrorViewController.xib */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
 		CEE7FBB2262D4F29001D5DAD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB0262D4F29001D5DAD /* LoginViewController.xib */; };
 		CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */; };
 		CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */; };
-		CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
 		CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */; };
 		CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */; };
@@ -86,15 +85,14 @@
 		CE7C495E262B58E5007FA94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		CEB8B890262CACEF00F030ED /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
-		CEB8B891262CACEF00F030ED /* ZeroScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroScreenViewController.xib; sourceTree = "<group>"; };
+		CEB8B890262CACEF00F030ED /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		CEB8B891262CACEF00F030ED /* ErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEE7FBB0262D4F29001D5DAD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
-		CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
 		CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInDoneViewController.xib; sourceTree = "<group>"; };
 		CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilledButton.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		CE1331A3262C26D90086433C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEE7FBBA262D6562001D5DAD /* CustomTextField.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 			);
@@ -264,7 +261,7 @@
 		CE1331A4262C26E60086433C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEB8B889262CACBD00F030ED /* ZeroScreen */,
+				CEB8B889262CACBD00F030ED /* Error */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -366,13 +363,13 @@
 			path = Workplaces;
 			sourceTree = "<group>";
 		};
-		CEB8B889262CACBD00F030ED /* ZeroScreen */ = {
+		CEB8B889262CACBD00F030ED /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				CEB8B890262CACEF00F030ED /* ZeroScreenViewController.swift */,
-				CEB8B891262CACEF00F030ED /* ZeroScreenViewController.xib */,
+				CEB8B890262CACEF00F030ED /* ErrorViewController.swift */,
+				CEB8B891262CACEF00F030ED /* ErrorViewController.xib */,
 			);
-			path = ZeroScreen;
+			path = Error;
 			sourceTree = "<group>";
 		};
 		CEE7FBA0262D4417001D5DAD /* Fonts */ = {
@@ -492,7 +489,7 @@
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
 				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
-				CEB8B893262CACEF00F030ED /* ZeroScreenViewController.xib in Resources */,
+				CEB8B893262CACEF00F030ED /* ErrorViewController.xib in Resources */,
 				CE573790262DEEC700A6DC20 /* SignUpSecondViewController.xib in Resources */,
 				CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
@@ -579,7 +576,7 @@
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
-				CEB8B892262CACEF00F030ED /* ZeroScreenViewController.swift in Sources */,
+				CEB8B892262CACEF00F030ED /* ErrorViewController.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
 				CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */,
@@ -592,7 +589,6 @@
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
-				CEE7FBBB262D6562001D5DAD /* CustomTextField.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
 				CE09D77D262EB502009A96B3 /* User.swift in Sources */,
 			);
