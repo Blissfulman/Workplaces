@@ -20,13 +20,9 @@ final class ServiceLayer: ServiceLayerProtocol {
     
     // MARK: - Public properties
     
-    let authorizationService: AuthorizationServiceProtocol
+    let authorizationService: AuthorizationServiceProtocol = AuthorizationService()
     
     // MARK: - Initializers
     
-    private init(authorizationService: AuthorizationServiceProtocol = AuthorizationService()) {
-        self.authorizationService = authorizationService
-    }
-    
-    // MARK: - Public methods
+    private init() {}
 }
