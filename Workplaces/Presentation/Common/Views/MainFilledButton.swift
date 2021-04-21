@@ -14,4 +14,9 @@ final class MainFilledButton: UIButton {
         layer.cornerRadius = 14
         clipsToBounds = true
     }
+    
+    override func layoutSubviews() {
+        backgroundColor = isEnabled ? Palette.orange : Palette.lightGreyBlue
+        titleLabel?.textColor = isEnabled ? Palette.white : Palette.middleGrey
+    }
 }
