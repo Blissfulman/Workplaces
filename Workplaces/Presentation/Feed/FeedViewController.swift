@@ -11,7 +11,18 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let authorizationService = ServiceLayer.shared.authorizationService
+    private let authorizationService: AuthorizationServiceProtocol
+    
+    // MARK: - Initializers
+    
+    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+        self.authorizationService = authorizationService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UIViewController
     

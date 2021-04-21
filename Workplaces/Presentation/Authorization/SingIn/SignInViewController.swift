@@ -29,9 +29,20 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Private properties
     
-    private let authorizationService = ServiceLayer.shared.authorizationService
+    private let authorizationService: AuthorizationServiceProtocol
     
-    // MARK: - Deinitialization
+    // MARK: - Initializers
+    
+    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+        self.authorizationService = authorizationService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Deinitializer
     
     deinit {
         removeKeyboardNotifications()
@@ -60,7 +71,10 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         guard let email = emailOrLoginTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else { return }
         
+        LoadingView.show()
         authorizationService.signIn(withEmail: email, andPassword: password) { [weak self] result in
+            LoadingView.hide()
+            
             switch result {
             case .success:
                 print("Успешная авторизация!")

@@ -29,8 +29,4 @@ final class TabBarController: UITabBarController {
         
         viewControllers = [feedVC, newPostVC, profileVC]
     }
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        print("Selected \(item) item")
-    }
 }

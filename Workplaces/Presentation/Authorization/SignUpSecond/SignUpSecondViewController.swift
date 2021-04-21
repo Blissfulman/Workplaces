@@ -29,14 +29,17 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     private let userFirstScreen: User
     private let passwordFirstScreen: String?
-    private let authorizationService = ServiceLayer.shared.authorizationService
+    private let authorizationService: AuthorizationServiceProtocol
     
     // MARK: - Initializers
     
-    init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil, user: User, password: String?) {
+    init(user: User,
+         password: String?,
+         authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
         self.userFirstScreen = user
         self.passwordFirstScreen = password
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.authorizationService = authorizationService
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +67,10 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
             return
         }
         
+        LoadingView.show()
         authorizationService.registerUser(withEmail: email, andPassword: password) { [weak self] result in
+            LoadingView.hide()
+            
             switch result {
             case .success:
                 self?.didTapRegisterButton?()
