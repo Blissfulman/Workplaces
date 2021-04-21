@@ -26,26 +26,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_screen" translatesAutoresizingMaskIntoConstraints="NO" id="vVH-ho-YA3">
-                    <rect key="frame" x="107" y="182.5" width="200" height="200"/>
+                    <rect key="frame" x="107" y="188.5" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="7PT-mL-0bg"/>
                         <constraint firstAttribute="height" constant="200" id="PfT-wW-20s"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workplaces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw1-Mc-pjL">
-                    <rect key="frame" x="112.5" y="382.5" width="189" height="47"/>
+                    <rect key="frame" x="113" y="388.5" width="188" height="42"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Найди своё место" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-Bt-1IQ">
-                    <rect key="frame" x="139.5" y="437.5" width="135" height="21"/>
+                    <rect key="frame" x="139" y="438.5" width="136.5" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <color key="textColor" name="middleGrey"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJF-fZ-8Sc" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="25" y="538.5" width="364" height="56"/>
+                    <rect key="frame" x="25" y="537.5" width="364" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="3pm-Jb-nkq"/>
@@ -59,7 +59,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3my-r6-Dg9">
-                    <rect key="frame" x="35.5" y="610.5" width="343" height="54"/>
+                    <rect key="frame" x="35.5" y="609.5" width="343" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-TP-BrT">
                             <rect key="frame" x="0.0" y="0.0" width="109" height="54"/>
@@ -88,7 +88,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0">
-                    <rect key="frame" x="124.5" y="689.5" width="165" height="33"/>
+                    <rect key="frame" x="124.5" y="688.5" width="165" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Регистрация по почте">
                         <color key="titleColor" name="orange"/>

@@ -17,6 +17,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="button" destination="fku-Oi-T84" id="cfh-V6-EKq"/>
+                <outlet property="imageView" destination="bUv-OB-2ba" id="ury-QO-Z8j"/>
+                <outlet property="subtitleLabel" destination="aYY-gk-mA5" id="Ufd-pE-8da"/>
+                <outlet property="titleLabel" destination="u8t-xX-xbc" id="3xT-eY-sDz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,7 +42,7 @@
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-gk-mA5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Что-то пошло не так" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-gk-mA5">
                     <rect key="frame" x="130" y="477" width="154" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <color key="textColor" name="middleGrey"/>
@@ -51,13 +55,14 @@
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="refreshButtonTapped" destination="-1" eventType="touchUpInside" id="JVM-TE-jgX"/>
+                        <action selector="buttonTapped" destination="-1" eventType="touchUpInside" id="JVM-TE-jgX"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="aYY-gk-mA5" firstAttribute="width" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="0K2-B1-Sc9"/>
                 <constraint firstItem="bUv-OB-2ba" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="SOq-6K-DOS"/>
                 <constraint firstItem="aYY-gk-mA5" firstAttribute="top" secondItem="u8t-xX-xbc" secondAttribute="bottom" constant="8" id="SSU-Qq-tDK"/>
                 <constraint firstItem="aYY-gk-mA5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W3j-e2-ShS"/>
