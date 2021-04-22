@@ -9,7 +9,7 @@ import UIKit
 
 enum Icons {
     static let geo = #imageLiteral(resourceName: "36-geo")
-    static let image = #imageLiteral(resourceName: "36-img")
+    static let image = #imageLiteral(resourceName: "36-image")
     static let send = #imageLiteral(resourceName: "36-send")
     static let trash = #imageLiteral(resourceName: "36-trash")
     static let edit = #imageLiteral(resourceName: "32-edit")
