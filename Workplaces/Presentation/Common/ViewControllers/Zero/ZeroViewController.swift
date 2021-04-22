@@ -1,5 +1,5 @@
 //
-//  ErrorViewController.swift
+//  ZeroViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 18.04.2021.
@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ErrorScreenCoordinable {
+protocol ZeroScreenCoordinable {
     var didTapButton: VoidBlock { get set }
 }
 
-final class ErrorViewController: UIViewController, ErrorScreenCoordinable {
+final class ZeroViewController: UIViewController, ZeroScreenCoordinable {
     
     // MARK: - Nested types
     

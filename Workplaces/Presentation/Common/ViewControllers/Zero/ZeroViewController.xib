@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="Workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZeroViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="fku-Oi-T84" id="cfh-V6-EKq"/>
                 <outlet property="imageView" destination="bUv-OB-2ba" id="ury-QO-Z8j"/>
