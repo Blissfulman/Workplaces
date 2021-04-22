@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpSecondViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="bithdayTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
+                <outlet property="cityTextField" destination="iEh-H0-W4S" id="05z-xc-gAj"/>
+                <outlet property="nameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN">
+                    <rect key="frame" x="32" y="90" width="350" height="18"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
+                    <rect key="frame" x="32" y="156" width="350" height="18"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7L2-Ow-d4M">
+                    <rect key="frame" x="0.0" y="44" width="414" height="4"/>
+                    <color key="progressTintColor" name="orange"/>
+                    <color key="trackTintColor" name="lightGreyBlue"/>
+                </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-nc-WXc" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="762" width="382" height="56"/>
+                    <color key="backgroundColor" name="orange"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="ElK-aG-KD9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <state key="normal" title="Зарегистрироваться">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="registerButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Город" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
+                    <rect key="frame" x="32" y="222" width="350" height="18"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7L2-Ow-d4M" secondAttribute="trailing" id="1p6-SH-CiR"/>
+                <constraint firstItem="4oU-tD-sUg" firstAttribute="top" secondItem="7Os-rp-pcN" secondAttribute="bottom" constant="48" id="3pI-bM-n4e"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S8u-nc-WXc" secondAttribute="bottom" constant="44" id="4Ow-FS-dvX"/>
+                <constraint firstItem="S8u-nc-WXc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5Ej-7a-YO2"/>
+                <constraint firstItem="7L2-Ow-d4M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Crc-ES-PEK"/>
+                <constraint firstAttribute="trailing" secondItem="4oU-tD-sUg" secondAttribute="trailing" constant="32" id="HLj-Jc-7pN"/>
+                <constraint firstItem="7Os-rp-pcN" firstAttribute="top" secondItem="7L2-Ow-d4M" secondAttribute="bottom" constant="42" id="Irp-5U-lhb"/>
+                <constraint firstItem="7Os-rp-pcN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="KhS-SS-3rQ"/>
+                <constraint firstAttribute="trailing" secondItem="iEh-H0-W4S" secondAttribute="trailing" constant="32" id="Lhp-TB-nq6"/>
+                <constraint firstAttribute="trailing" secondItem="7Os-rp-pcN" secondAttribute="trailing" constant="32" id="UZ1-Ik-YW8"/>
+                <constraint firstItem="iEh-H0-W4S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="blN-V2-Te2"/>
+                <constraint firstItem="4oU-tD-sUg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="f77-Lt-KG3"/>
+                <constraint firstAttribute="trailing" secondItem="S8u-nc-WXc" secondAttribute="trailing" constant="16" id="ii4-Fv-EWl"/>
+                <constraint firstItem="iEh-H0-W4S" firstAttribute="top" secondItem="4oU-tD-sUg" secondAttribute="bottom" constant="48" id="lto-VO-N12"/>
+                <constraint firstItem="7L2-Ow-d4M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oV1-R0-JJ6"/>
+            </constraints>
+            <point key="canvasLocation" x="35" y="94"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="lightGreyBlue">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

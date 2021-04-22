@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="emailOrLoginTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
+                <outlet property="enterButtonBottomConstraint" destination="m0G-Di-RD4" id="7Nh-XC-Ze5"/>
+                <outlet property="passwordTextField" destination="ACl-g1-wIO" id="5fz-4u-IVr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш e-mail или логин" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
+                    <rect key="frame" x="32" y="90" width="350" height="18"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
+                    <rect key="frame" x="32" y="156" width="350" height="17"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="16" y="790" width="382" height="56"/>
+                    <color key="backgroundColor" name="lightGreyBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="i4Q-ha-Yhw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <state key="normal" title="Войти">
+                        <color key="titleColor" name="middleGrey"/>
+                    </state>
+                    <connections>
+                        <action selector="enterButtonTapped" destination="-1" eventType="touchUpInside" id="8RF-il-9Gn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
+                    <rect key="frame" x="159" y="739" width="96" height="31"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <state key="normal" title="Регистрация">
+                        <color key="titleColor" name="orange"/>
+                    </state>
+                    <connections>
+                        <action selector="registerButtonTapped" destination="-1" eventType="touchUpInside" id="fc8-Y7-v1Q"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="rlT-M0-OZj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="46" id="92E-7O-VJw"/>
+                <constraint firstItem="I8i-dH-VUs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BTX-VT-fcj"/>
+                <constraint firstItem="WKZ-5L-VY9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EQO-vW-b7o"/>
+                <constraint firstItem="rlT-M0-OZj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="QYU-nP-rQh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACl-g1-wIO" secondAttribute="trailing" constant="32" id="YVx-34-DEN"/>
+                <constraint firstItem="ACl-g1-wIO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="c4K-3g-Vhu"/>
+                <constraint firstItem="ACl-g1-wIO" firstAttribute="top" secondItem="rlT-M0-OZj" secondAttribute="bottom" constant="48" id="gUC-a1-Zde"/>
+                <constraint firstItem="WKZ-5L-VY9" firstAttribute="top" secondItem="I8i-dH-VUs" secondAttribute="bottom" constant="20" id="iKG-ap-S3p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="16" id="m0G-Di-RD4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rlT-M0-OZj" secondAttribute="trailing" constant="32" id="mhI-q5-CcJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKZ-5L-VY9" secondAttribute="trailing" constant="16" id="zGO-Kp-17a"/>
+            </constraints>
+            <point key="canvasLocation" x="128.98550724637681" y="88.392857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="lightGreyBlue">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="middleGrey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
