@@ -269,22 +269,22 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		CE1331A5262C27070086433C /* SingIn */ = {
+		CE1331A5262C27070086433C /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
 				CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */,
 				CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */,
 			);
-			path = SingIn;
+			path = SignIn;
 			sourceTree = "<group>";
 		};
-		CE1331A6262C2D370086433C /* SingUpFirst */ = {
+		CE1331A6262C2D370086433C /* SignUpFirst */ = {
 			isa = PBXGroup;
 			children = (
 				CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */,
 				CE573789262DEEB000A6DC20 /* SignUpFirstViewController.xib */,
 			);
-			path = SingUpFirst;
+			path = SignUpFirst;
 			sourceTree = "<group>";
 		};
 		CE1331A7262C2D430086433C /* Feed */ = {
@@ -366,6 +366,15 @@
 			path = Workplaces;
 			sourceTree = "<group>";
 		};
+		CE8954722631385E0082D200 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				CE1331A6262C2D370086433C /* SignUpFirst */,
+				CE573796262DF49A00A6DC20 /* SignUpSecond */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		CEC69484262ED0BF00043040 /* Zero */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,9 +416,8 @@
 			children = (
 				CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */,
 				CEE7FBAE262D4F14001D5DAD /* Login */,
-				CE1331A5262C27070086433C /* SingIn */,
-				CE1331A6262C2D370086433C /* SingUpFirst */,
-				CE573796262DF49A00A6DC20 /* SignUpSecond */,
+				CE1331A5262C27070086433C /* SignIn */,
+				CE8954722631385E0082D200 /* SignUp */,
 				CEE7FBC0262D8039001D5DAD /* SignInDone */,
 			);
 			path = Authorization;
