@@ -11,7 +11,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    private var coordinator: AuthorizationCoordinator!
+    var coordinator: AuthorizationCoordinator!
     
     func scene(
         _ scene: UIScene,

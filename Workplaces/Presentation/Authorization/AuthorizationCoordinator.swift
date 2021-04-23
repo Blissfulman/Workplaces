@@ -35,12 +35,27 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     
     private func showLoginScreen() {
         let loginVC = LoginViewController()
+        
         loginVC.didTapEnterButton = { [weak self] in
             self?.showSignInScreen()
         }
-        loginVC.didTapRegistrationByEmail = { [weak self] in
+        
+        loginVC.didTapEnterByGoogleButton = {
+            
+        }
+        
+        loginVC.didTapEnterByFacebookButton = {
+            
+        }
+        
+        loginVC.didTapEnterByVKButton = {
+            
+        }
+        
+        loginVC.didTapSignUpByEmail = { [weak self] in
             self?.showSignUpFirstScreen()
         }
+        
         navigationController?.pushViewController(loginVC, animated: false)
     }
     
@@ -51,20 +66,25 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signInVC = SignInViewController()
+        
         signInVC.didTapEnterButton = { [weak self] in
             self?.showSignInDoneScreen()
         }
+        
         signInVC.didTapRegisterButton = { [weak self] in
             self?.showSignUpFirstScreen()
         }
+        
         navigationController?.pushViewController(signInVC, animated: true)
     }
     
     private func showSignInDoneScreen() {
         let signInDoneVC = SignInDoneViewController()
-        signInDoneVC.didTapToFeedButton = {
-            print("Переход к ленте...")
+        
+        signInDoneVC.didTapToFeedButton = { [weak self] in
+            self?.showTabBarController()
         }
+        
         navigationController?.pushViewController(signInDoneVC, animated: true)
     }
     
@@ -75,20 +95,33 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signUpFirstVC = SignUpFirstViewController()
+        
         signUpFirstVC.didTapNextButton = { [weak self] user, password in
             self?.showSignUpSecondScreen(user: user, password: password)
         }
+        
         signUpFirstVC.didTapAlreadyRegisteredButton = { [weak self] in
             self?.showSignInScreen()
         }
+        
         navigationController?.pushViewController(signUpFirstVC, animated: true)
     }
     
     private func showSignUpSecondScreen(user: User, password: String?) {
         let signUpSecondVC = SignUpSecondViewController(user: user, password: password)
-        signUpSecondVC.didTapRegisterButton = {
-            print("Регистрация прошла успешно!")
+        
+        signUpSecondVC.didTapRegisterButton = { [weak self] in
+            self?.showSignInDoneScreen()
         }
+        
         navigationController?.pushViewController(signUpSecondVC, animated: true)
+    }
+    
+    private func showTabBarController() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            print("Window access error")
+            return
+        }
+        sceneDelegate.window?.rootViewController = TabBarController()
     }
 }

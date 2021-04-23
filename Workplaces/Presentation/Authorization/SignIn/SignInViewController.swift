@@ -77,7 +77,6 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
             
             switch result {
             case .success:
-                print("Успешная авторизация!")
                 self?.didTapEnterButton?()
             case let .failure(error):
                 self?.showAlert(error)

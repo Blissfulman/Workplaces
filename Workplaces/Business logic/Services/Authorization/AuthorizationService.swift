@@ -32,9 +32,18 @@ protocol AuthorizationService {
         completion: @escaping (Result<Void, Error>) -> Void
     )
     
+    /// Авторизация с помощью аккаунта Google.
+    func signInByGoogle()
+    
+    /// Авторизация с помощью аккаунта Facebook.
+    func signInByFacebook()
+    
+    /// Авторизация с помощью аккаунта VK.
+    func signInByVK()
+    
     /// Разавторизация пользователя.
     /// - Parameter errorHandler: Обработчик ошибки выполнения запроса.
-    func signOut(errorHandler: @escaping (Error) -> Void)
+    func signOut()
 }
 
 final class AuthorizationServiceImpl: AuthorizationService {
@@ -46,7 +55,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
         andPassword password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        
+        Bool.random() ? completion(.success(())) : completion(.failure(TestError.unknownError))
     }
     
     func signIn(
@@ -54,10 +63,22 @@ final class AuthorizationServiceImpl: AuthorizationService {
         andPassword password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        Bool.random() ? completion(.success(())) : completion(.failure(TestError.credentialError))
+    }
+    
+    func signInByGoogle() {
         
     }
     
-    func signOut(errorHandler: @escaping (Error) -> Void) {
+    func signInByFacebook() {
+        
+    }
+    
+    func signInByVK() {
+        
+    }
+    
+    func signOut() {
         
     }
 }

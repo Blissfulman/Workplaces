@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE02A3862632D797006291E5 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02A3852632D797006291E5 /* TestError.swift */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE02A3852632D797006291E5 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		CE13319D262C262F0086433C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE02A3852632D797006291E5 /* TestError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
+				CE02A3862632D797006291E5 /* TestError.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,

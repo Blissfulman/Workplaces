@@ -34,9 +34,15 @@ final class FeedViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signOut() {
-        authorizationService.signOut { [weak self] error in
-            self?.showAlert(error)
+        authorizationService.signOut()
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            print("Window access error")
+            return
         }
+        let navigationController = UINavigationController()
+        sceneDelegate.window?.rootViewController = navigationController
+        sceneDelegate.coordinator = AuthorizationCoordinatorImpl(navigationController: navigationController)
+        sceneDelegate.coordinator.start()
     }
     
     // MARK: - Private methods
