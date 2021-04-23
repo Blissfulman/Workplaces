@@ -16,7 +16,7 @@ protocol SignInScreenCoordinable {
 
 final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var emailOrLoginTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -29,11 +29,11 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Private properties
     
-    private let authorizationService: AuthorizationServiceProtocol
+    private let authorizationService: AuthorizationService
     
     // MARK: - Initializers
     
-    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+    init(authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService) {
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }

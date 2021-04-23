@@ -5,36 +5,25 @@
 //  Created by Evgeny Novgorodov on 17.04.2021.
 //
 
-import Firebase
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    private var coordinator: AuthorizationCoordinatorProtocol!
+    private var coordinator: AuthorizationCoordinator!
     
-    func scene(_ scene: UIScene,
-               willConnectTo session: UISceneSession,
-               options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        checkAuthorization()
+        let navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        coordinator = AuthorizationCoordinatorImpl(navigationController: navigationController)
+        coordinator.start()
         window?.makeKeyAndVisible()
-    }
-    
-    private func checkAuthorization() {
-        Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            guard let self = self else { return }
-            if user == nil {
-                let navigationController = UINavigationController()
-                self.window?.rootViewController = navigationController
-                self.coordinator = AuthorizationCoordinator(navigationController: navigationController)
-                self.coordinator.start()
-            } else {
-                let tabBarController = TabBarController()
-                self.window?.rootViewController = tabBarController
-            }
-        }
     }
 }

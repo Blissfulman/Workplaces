@@ -9,7 +9,7 @@
 
 protocol ServiceLayerProtocol {
     /// Сервис авторизации.
-    var authorizationService: AuthorizationServiceProtocol { get }
+    var authorizationService: AuthorizationService { get }
 }
 
 final class ServiceLayer: ServiceLayerProtocol {
@@ -20,7 +20,7 @@ final class ServiceLayer: ServiceLayerProtocol {
     
     // MARK: - Public properties
     
-    let authorizationService: AuthorizationServiceProtocol = AuthorizationService()
+    let authorizationService: AuthorizationService = AuthorizationServiceImpl()
     
     // MARK: - Initializers
     

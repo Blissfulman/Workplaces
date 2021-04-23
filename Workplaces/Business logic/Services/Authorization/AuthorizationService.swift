@@ -5,11 +5,11 @@
 //  Created by Evgeny Novgorodov on 20.04.2021.
 //
 
-import FirebaseAuth
+import Foundation
 
 // MARK: - Protocols
 
-protocol AuthorizationServiceProtocol {
+protocol AuthorizationService {
     /// Регистрация нового пользоваталя.
     /// - Parameters:
     ///   - email: E-mail пользователя.
@@ -37,7 +37,7 @@ protocol AuthorizationServiceProtocol {
     func signOut(errorHandler: @escaping (Error) -> Void)
 }
 
-final class AuthorizationService: AuthorizationServiceProtocol {
+final class AuthorizationServiceImpl: AuthorizationService {
     
     // MARK: - Public methods
     
@@ -46,13 +46,7 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         andPassword password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            completion(.success(()))
-        }
+        
     }
     
     func signIn(
@@ -60,20 +54,10 @@ final class AuthorizationService: AuthorizationServiceProtocol {
         andPassword password: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            completion(.success(()))
-        }
+        
     }
     
     func signOut(errorHandler: @escaping (Error) -> Void) {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            errorHandler(error)
-        }
+        
     }
 }

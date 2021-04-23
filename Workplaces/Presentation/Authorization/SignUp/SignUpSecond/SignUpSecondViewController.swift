@@ -19,7 +19,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     var didTapRegisterButton: VoidBlock?
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var bithdayTextField: UITextField!
@@ -29,13 +29,14 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     private let userFirstScreen: User
     private let passwordFirstScreen: String?
-    private let authorizationService: AuthorizationServiceProtocol
+    private let authorizationService: AuthorizationService
     
     // MARK: - Initializers
     
     init(user: User,
          password: String?,
-         authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
+    ) {
         self.userFirstScreen = user
         self.passwordFirstScreen = password
         self.authorizationService = authorizationService

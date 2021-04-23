@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol AuthorizationCoordinatorProtocol {
+protocol AuthorizationCoordinator {
     func start()
 }
 
-final class AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
+final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     
     // MARK: - Private properties
     

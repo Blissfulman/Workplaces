@@ -26,7 +26,7 @@ final class ZeroViewController: UIViewController, ZeroScreenCoordinable {
     
     var didTapButton: VoidBlock
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!

@@ -11,11 +11,11 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let authorizationService: AuthorizationServiceProtocol
+    private let authorizationService: AuthorizationService
     
     // MARK: - Initializers
     
-    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+    init(authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService) {
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }

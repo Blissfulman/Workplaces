@@ -21,7 +21,7 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     var didTapNextButton: ((User, String?) -> Void)?
     var didTapAlreadyRegisteredButton: VoidBlock?
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var loginTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
