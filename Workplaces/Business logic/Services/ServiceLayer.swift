@@ -5,14 +5,7 @@
 //  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
-// MARK: - Protocols
-
-protocol ServiceLayerProtocol {
-    /// Сервис авторизации.
-    var authorizationService: AuthorizationService { get }
-}
-
-final class ServiceLayer: ServiceLayerProtocol {
+final class ServiceLayer {
     
     // MARK: - Static properties
     
@@ -20,7 +13,7 @@ final class ServiceLayer: ServiceLayerProtocol {
     
     // MARK: - Public properties
     
-    let authorizationService: AuthorizationService = AuthorizationServiceImpl()
+    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl()
     
     // MARK: - Initializers
     
