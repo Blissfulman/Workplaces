@@ -40,7 +40,12 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
             self?.showSignInScreen()
         }
         
-        loginVC.didTapEnterByGoogleButton = {
+        loginVC.didTapEnterByGoogleButton = { [weak self] in
+            // Test
+            let zeroScreen = ZeroViewController(viewType: .noData) {
+                print("Tap")
+            }
+            self?.navigationController?.pushViewController(zeroScreen, animated: true)
             
         }
         

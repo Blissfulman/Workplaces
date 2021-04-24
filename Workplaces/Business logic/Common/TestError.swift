@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum TestError: Error {
+enum TestError: Error, LocalizedError {
     case credentialError
     case unknownError
     
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
         case .credentialError:
             return "Credential error"
