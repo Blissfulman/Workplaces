@@ -40,21 +40,22 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
             self?.showSignInScreen()
         }
         
-        loginVC.didTapEnterByGoogleButton = { [weak self] in
+        loginVC.didTapEnterByGoogleButton = {
+            
+        }
+        
+        loginVC.didTapEnterByFacebookButton = { [weak self] in
             // Test
-            let zeroScreen = ZeroViewController(viewType: .noData) {
+            let newZeroScreen = ZeroViewController(viewType: .noData)
+            self?.navigationController?.pushViewController(newZeroScreen, animated: true)
+        }
+        
+        loginVC.didTapEnterByVKButton = { [weak self] in
+            // Test
+            let newZeroScreen = ZeroViewController(viewType: .error) {
                 print("Tap")
             }
-            self?.navigationController?.pushViewController(zeroScreen, animated: true)
-            
-        }
-        
-        loginVC.didTapEnterByFacebookButton = {
-            
-        }
-        
-        loginVC.didTapEnterByVKButton = {
-            
+            self?.navigationController?.pushViewController(newZeroScreen, animated: true)
         }
         
         loginVC.didTapSignUpByEmail = { [weak self] in
