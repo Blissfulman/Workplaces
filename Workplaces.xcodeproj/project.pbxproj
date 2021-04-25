@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,7 @@
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
-		CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */; };
+		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarController.swift */; };
 		CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */; };
 		CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */; };
@@ -45,6 +45,9 @@
 		CE8F1BBE2634A9BB00C0C52C /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE8F1BC12634A9BB00C0C52C /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; };
 		CE8F1BC22634A9BB00C0C52C /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE22635194400C0C52C /* AuthorizationService.swift */; };
+		CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE9263519BA00C0C52C /* FeedService.swift */; };
+		CE8F1BEE26351A3000C0C52C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BED26351A3000C0C52C /* Post.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
@@ -104,7 +107,7 @@
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
-		CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
@@ -140,6 +143,9 @@
 		CE8F1BB42634A9BB00C0C52C /* WorkplacesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F1BBB2634A9BB00C0C52C /* WorkplacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesAPITests.swift; sourceTree = "<group>"; };
 		CE8F1BBD2634A9BB00C0C52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8F1BE22635194400C0C52C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		CE8F1BE9263519BA00C0C52C /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		CE8F1BED26351A3000C0C52C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
@@ -211,14 +217,6 @@
 			path = Zero;
 			sourceTree = "<group>";
 		};
-		CE09D760262E07CD009A96B3 /* Authorization */ = {
-			isa = PBXGroup;
-			children = (
-				CE09D762262E0EDD009A96B3 /* AuthorizationService.swift */,
-			);
-			path = Authorization;
-			sourceTree = "<group>";
-		};
 		CE09D765262E8BD9009A96B3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				CE09D77C262EB502009A96B3 /* User.swift */,
+				CE8F1BED26351A3000C0C52C /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,7 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				CE09D75D262E0502009A96B3 /* ServiceLayer.swift */,
-				CE09D760262E07CD009A96B3 /* Authorization */,
+				CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */,
+				CE8F1BDE2635173F00C0C52C /* Protocols */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -526,6 +526,15 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CE8F1BDE2635173F00C0C52C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE8F1BE22635194400C0C52C /* AuthorizationService.swift */,
+				CE8F1BE9263519BA00C0C52C /* FeedService.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CEE7FBA0262D4417001D5DAD /* Fonts */ = {
@@ -795,11 +804,13 @@
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
+				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
+				CE8F1BEE26351A3000C0C52C /* Post.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
 				CE8F1B6C263470ED00C0C52C /* UITextField+Extension.swift in Sources */,
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
-				CE09D763262E0EDD009A96B3 /* AuthorizationService.swift in Sources */,
+				CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */,
 				CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */,
 				CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
@@ -807,6 +818,7 @@
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
+				CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */,
 				CE02A3862632D797006291E5 /* TestError.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,

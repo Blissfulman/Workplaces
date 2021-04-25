@@ -21,24 +21,21 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var firstNameTextField: UITextField!
+    @IBOutlet private weak var secondNameTextField: UITextField!
     @IBOutlet private weak var bithdayTextField: UITextField!
-    @IBOutlet private weak var cityTextField: UITextField!
     
     // MARK: - Private properties
     
-    private let userFirstScreen: User
-    private let passwordFirstScreen: String?
+    private let credentialData: CredentialData
     private let authorizationService: AuthorizationService
     
     // MARK: - Initializers
     
-    init(user: User,
-         password: String?,
+    init(credentialData: CredentialData,
          authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
-        self.userFirstScreen = user
-        self.passwordFirstScreen = password
+        self.credentialData = credentialData
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,8 +59,8 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     // MARK: - Actions
     
     @IBAction private func registerButtonTapped() {
-        guard let email = userFirstScreen.email, !email.isEmpty,
-              let password = passwordFirstScreen, !password.isEmpty else {
+        guard let email = credentialData.email, !email.isEmpty,
+              let password = credentialData.password, !password.isEmpty else {
             showAlert("Необходимо было ввести email и пароль")
             return
         }
