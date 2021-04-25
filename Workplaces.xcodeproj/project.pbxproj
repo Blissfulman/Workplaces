@@ -48,6 +48,7 @@
 		CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE22635194400C0C52C /* AuthorizationService.swift */; };
 		CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE9263519BA00C0C52C /* FeedService.swift */; };
 		CE8F1BEE26351A3000C0C52C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BED26351A3000C0C52C /* Post.swift */; };
+		CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BF1263528BD00C0C52C /* ProfileService.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
@@ -146,6 +147,7 @@
 		CE8F1BE22635194400C0C52C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		CE8F1BE9263519BA00C0C52C /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		CE8F1BED26351A3000C0C52C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CE8F1BF1263528BD00C0C52C /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 			children = (
 				CE8F1BE22635194400C0C52C /* AuthorizationService.swift */,
 				CE8F1BE9263519BA00C0C52C /* FeedService.swift */,
+				CE8F1BF1263528BD00C0C52C /* ProfileService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
 				CE09D77D262EB502009A96B3 /* User.swift in Sources */,
+				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
