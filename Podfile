@@ -8,3 +8,11 @@ target 'Workplaces' do
   pod 'Apexy'
 
 end
+
+target 'WorkplacesAPI' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'Apexy'
+
+end
