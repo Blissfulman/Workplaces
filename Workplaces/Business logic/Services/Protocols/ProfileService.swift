@@ -15,5 +15,4 @@ protocol ProfileService {
     func fetchFriendList(completion: @escaping (Result<[User], Error>) -> Void)
     func addFriend(userID: String)
     func removeFriend(userID: String)
-    func newPost(post: Post)
 }
