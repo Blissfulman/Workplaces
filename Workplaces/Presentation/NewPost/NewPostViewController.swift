@@ -19,5 +19,6 @@ final class NewPostViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
+        
     }
 }

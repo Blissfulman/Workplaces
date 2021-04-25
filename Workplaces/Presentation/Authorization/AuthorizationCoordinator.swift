@@ -9,11 +9,13 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol AuthorizationCoordinator {
-    func start()
-}
+protocol AuthorizationCoordinator: Coordinator {}
 
 final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
+    
+    // MARK: - Public properties
+    
+    var onFinish: VoidBlock
     
     // MARK: - Private properties
     
@@ -21,8 +23,9 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, onFinish: @escaping VoidBlock) {
         self.navigationController = navigationController
+        self.onFinish = onFinish
     }
     
     // MARK: - Public methods
@@ -124,10 +127,6 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
     
     private func showTabBarController() {
-        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-            print("Window access error")
-            return
-        }
-        sceneDelegate.window?.rootViewController = TabBarController()
+        onFinish()
     }
 }

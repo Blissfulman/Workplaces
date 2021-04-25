@@ -9,22 +9,32 @@ import Foundation
 
 final class AuthorizationServiceImpl: AuthorizationService {
     
-    // MARK: - Public methods
+    // MARK: - Private properties
     
-    func registerUser(
-        withEmail email: String,
-        andPassword password: String,
-        completion: @escaping VoidResultHandler
-    ) {
-        Bool.random() ? completion(.success(())) : completion(.failure(TestError.unknownError))
+    private let settingsStorage: SettingsStorage
+    
+    // MARK: - Initializers
+    
+    init(settingsStorage: SettingsStorage) {
+        self.settingsStorage = settingsStorage
     }
     
-    func signIn(
-        withEmail email: String,
-        andPassword password: String,
-        completion: @escaping VoidResultHandler
-    ) {
-        Bool.random() ? completion(.success(())) : completion(.failure(TestError.credentialError))
+    // MARK: - Public methods
+    
+    func registerUser(withEmail email: String, andPassword password: String, completion: @escaping VoidResultHandler) {
+        let result = Bool.random()
+        settingsStorage.saveAuthState(to: result)
+        result
+            ? completion(.success(()))
+            : completion(.failure(TestError.unknownError))
+    }
+    
+    func signIn(withEmail email: String, andPassword password: String, completion: @escaping VoidResultHandler) {
+        let result = Bool.random()
+        settingsStorage.saveAuthState(to: result)
+        result
+            ? completion(.success(()))
+            : completion(.failure(TestError.credentialError))
     }
     
     func signInByGoogle() {
@@ -40,7 +50,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     }
     
     func signOut() {
-        
+        settingsStorage.saveAuthState(to: false)
     }
     
     func refreshToken() {

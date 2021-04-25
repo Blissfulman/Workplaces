@@ -10,8 +10,7 @@ import UIKit
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
-    var coordinator: AuthorizationCoordinator!
+    var applicationCoordinator: ApplicationCoordinator!
     
     func scene(
         _ scene: UIScene,
@@ -20,10 +19,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController()
-        window?.rootViewController = navigationController
-        coordinator = AuthorizationCoordinatorImpl(navigationController: navigationController)
-        coordinator.start()
+        applicationCoordinator = ApplicationCoordinator(
+            window: window,
+            settingsStorage: ServiceLayer.shared.settingsStorage
+        )
+        applicationCoordinator.start()
         window?.makeKeyAndVisible()
     }
 }
