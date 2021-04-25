@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
-import Foundation
+import Apexy
 
 final class ServiceLayer {
     
@@ -15,13 +15,32 @@ final class ServiceLayer {
     
     // MARK: - Public properties
     
-    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(settingsStorage: settingsStorage)
-    lazy var feedService: FeedService = FeedServiceImpl()
-    lazy var newPostService: NewPostService = NewPostServiceImpl()
-    lazy var profileService: ProfileService = ProfileServiceImpl()
+    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
+                                                                                   settingsStorage: settingsStorage)
+    lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
+    lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
+    lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
     lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
+    
+    // MARK: - Private properties
+    
+    private lazy var apiClient: Client = {
+        return AlamofireClient(
+            baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            configuration: .ephemeral,
+            responseObserver: { [weak self] request, response, data, error in
+                self?.validateSession(responseError: error)
+            }
+        )
+    }()
     
     // MARK: - Initializers
     
     private init() {}
+    
+    // MARK: - Private methods
+    
+    private func validateSession(responseError: Error?) {
+        print(responseError?.localizedDescription ?? "No error")
+    }
 }

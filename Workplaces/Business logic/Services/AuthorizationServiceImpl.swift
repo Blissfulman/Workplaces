@@ -5,17 +5,19 @@
 //  Created by Evgeny Novgorodov on 20.04.2021.
 //
 
-import Foundation
+import Apexy
 
 final class AuthorizationServiceImpl: AuthorizationService {
     
     // MARK: - Private properties
     
+    private let apiClient: Client
     private let settingsStorage: SettingsStorage
     
     // MARK: - Initializers
     
-    init(settingsStorage: SettingsStorage) {
+    init(apiClient: Client, settingsStorage: SettingsStorage) {
+        self.apiClient = apiClient
         self.settingsStorage = settingsStorage
     }
     
