@@ -8,7 +8,10 @@
 import Foundation
 
 protocol FeedService {
-    func fetchFeedPosts(completion: @escaping (Result<[Post], Error>) -> Void)
+    
+    typealias PostsResultHandler = ResultHandler<[Post]>
+    
+    func fetchFeedPosts(completion: @escaping PostsResultHandler)
     func likePost()
     func unlikePost()
 }

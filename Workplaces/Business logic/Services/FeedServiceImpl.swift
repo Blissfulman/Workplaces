@@ -9,7 +9,7 @@ import Foundation
 
 final class FeedServiceImpl: FeedService {
     
-    func fetchFeedPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
+    func fetchFeedPosts(completion: @escaping PostsResultHandler) {
         
     }
     

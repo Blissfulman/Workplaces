@@ -14,7 +14,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     func registerUser(
         withEmail email: String,
         andPassword password: String,
-        completion: @escaping (Result<Void, Error>) -> Void
+        completion: @escaping VoidResultHandler
     ) {
         Bool.random() ? completion(.success(())) : completion(.failure(TestError.unknownError))
     }
@@ -22,7 +22,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     func signIn(
         withEmail email: String,
         andPassword password: String,
-        completion: @escaping (Result<Void, Error>) -> Void
+        completion: @escaping VoidResultHandler
     ) {
         Bool.random() ? completion(.success(())) : completion(.failure(TestError.credentialError))
     }

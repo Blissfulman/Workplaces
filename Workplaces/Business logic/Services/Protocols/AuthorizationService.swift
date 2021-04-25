@@ -8,6 +8,9 @@
 import Foundation
 
 protocol AuthorizationService {
+    
+    typealias VoidResultHandler = ResultHandler<Void>
+    
     /// Регистрация нового пользоваталя.
     /// - Parameters:
     ///   - email: E-mail пользователя.
@@ -16,7 +19,7 @@ protocol AuthorizationService {
     func registerUser(
         withEmail email: String,
         andPassword password: String,
-        completion: @escaping (Result<Void, Error>) -> Void
+        completion: @escaping VoidResultHandler
     )
     
     /// Авторизация зарегистрированного пользователя.
@@ -27,7 +30,7 @@ protocol AuthorizationService {
     func signIn(
         withEmail email: String,
         andPassword password: String,
-        completion: @escaping (Result<Void, Error>) -> Void
+        completion: @escaping VoidResultHandler
     )
     
     /// Авторизация с помощью аккаунта Google.

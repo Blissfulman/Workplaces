@@ -8,11 +8,16 @@
 import Foundation
 
 protocol ProfileService {
-    func fetchMyProfile(completion: @escaping (Result<User, Error>) -> Void)
-    func updateMyProfile(user: User, completion: @escaping (Result<User, Error>) -> Void)
-    func fetchMyPosts(completion: @escaping (Result<[Post], Error>) -> Void)
-    func fetchLikedPosts(completion: @escaping (Result<[Post], Error>) -> Void)
-    func fetchFriendList(completion: @escaping (Result<[User], Error>) -> Void)
+    
+    typealias UserResultHandler = ResultHandler<User>
+    typealias UsersResultHandler = ResultHandler<[User]>
+    typealias PostsResultHandler = ResultHandler<[Post]>
+    
+    func fetchMyProfile(completion: @escaping UserResultHandler)
+    func updateMyProfile(user: User, completion: @escaping UserResultHandler)
+    func fetchMyPosts(completion: @escaping PostsResultHandler)
+    func fetchLikedPosts(completion: @escaping PostsResultHandler)
+    func fetchFriendList(completion: @escaping UsersResultHandler)
     func addFriend(userID: String)
     func removeFriend(userID: String)
 }

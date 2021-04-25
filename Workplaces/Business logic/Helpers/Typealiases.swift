@@ -6,3 +6,4 @@
 //
 
 typealias VoidBlock = (() -> Void)
+typealias ResultHandler<T> = (Result<T, Error>) -> Void
