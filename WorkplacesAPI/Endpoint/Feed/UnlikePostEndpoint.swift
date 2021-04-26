@@ -7,7 +7,7 @@
 
 import Apexy
 
-public struct UnikePostEndpoint: EmptyEndpoint {
+public struct UnlikePostEndpoint: EmptyEndpoint {
     
     let postID: String
     

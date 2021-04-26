@@ -22,7 +22,7 @@
 		CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */; };
 		CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */; };
 		CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */; };
-		CE09D77D262EB502009A96B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77C262EB502009A96B3 /* User.swift */; };
+		CE09D77D262EB502009A96B3 /* CredentialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77C262EB502009A96B3 /* CredentialData.swift */; };
 		CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77F262EBA13009A96B3 /* Typealiases.swift */; };
 		CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D782262EC90D009A96B3 /* LoadingView.swift */; };
 		CE12A1DA2635F6C300EE6549 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1D92635F6C300EE6549 /* Post.swift */; };
@@ -59,7 +59,6 @@
 		CE8F1BC22634A9BB00C0C52C /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE22635194400C0C52C /* AuthorizationService.swift */; };
 		CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BE9263519BA00C0C52C /* FeedService.swift */; };
-		CE8F1BEE26351A3000C0C52C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BED26351A3000C0C52C /* Post.swift */; };
 		CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BF1263528BD00C0C52C /* ProfileService.swift */; };
 		CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BF926352E1E00C0C52C /* NewPostService.swift */; };
 		CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */; };
@@ -138,7 +137,7 @@
 		CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		CE09D77C262EB502009A96B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE09D77C262EB502009A96B3 /* CredentialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialData.swift; sourceTree = "<group>"; };
 		CE09D77F262EBA13009A96B3 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		CE09D782262EC90D009A96B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CE12A1D92635F6C300EE6549 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -179,7 +178,6 @@
 		CE8F1BBD2634A9BB00C0C52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8F1BE22635194400C0C52C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		CE8F1BE9263519BA00C0C52C /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
-		CE8F1BED26351A3000C0C52C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CE8F1BF1263528BD00C0C52C /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		CE8F1BF926352E1E00C0C52C /* NewPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostService.swift; sourceTree = "<group>"; };
 		CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServiceImpl.swift; sourceTree = "<group>"; };
@@ -323,8 +321,7 @@
 		CE13319A262C25E70086433C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D77C262EB502009A96B3 /* User.swift */,
-				CE8F1BED26351A3000C0C52C /* Post.swift */,
+				CE09D77C262EB502009A96B3 /* CredentialData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -577,8 +574,8 @@
 		CE8F1BCC2634A9DB00C0C52C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE12A1D92635F6C300EE6549 /* Post.swift */,
 				CE12A1FA2635F9C300EE6549 /* User.swift */,
+				CE12A1D92635F6C300EE6549 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -936,7 +933,6 @@
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
-				CE8F1BEE26351A3000C0C52C /* Post.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
 				CE8F1B6C263470ED00C0C52C /* UITextField+Extension.swift in Sources */,
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
@@ -960,7 +956,7 @@
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
-				CE09D77D262EB502009A96B3 /* User.swift in Sources */,
+				CE09D77D262EB502009A96B3 /* CredentialData.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1074,7 +1070,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1129,7 +1125,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

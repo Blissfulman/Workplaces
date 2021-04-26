@@ -6,6 +6,7 @@
 //
 
 import Apexy
+import WorkplacesAPI
 
 final class FeedServiceImpl: FeedService {
     
@@ -21,15 +22,18 @@ final class FeedServiceImpl: FeedService {
     
     // MARK: - Public methods
     
-    func fetchFeedPosts(completion: @escaping PostsResultHandler) {
-        
+    func fetchFeedPosts(completion: @escaping PostsResultHandler) -> Progress {
+        let endpoint = FeedPostsEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func likePost() {
-        
+    func likePost(postID: String, completion: @escaping VoidResultHandler) -> Progress {
+        let endpoint = LikePostEndpoint(postID: postID)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func unlikePost() {
-        
+    func unlikePost(postID: String, completion: @escaping VoidResultHandler) -> Progress {
+        let endpoint = UnlikePostEndpoint(postID: postID)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 }

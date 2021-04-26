@@ -6,6 +6,7 @@
 //
 
 import Apexy
+import WorkplacesAPI
 
 final class ProfileServiceImpl: ProfileService {
     

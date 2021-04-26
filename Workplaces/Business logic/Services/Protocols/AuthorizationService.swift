@@ -9,13 +9,11 @@ import Foundation
 
 protocol AuthorizationService {
     
-    typealias VoidResultHandler = ResultHandler<Void>
-    
     /// Регистрация нового пользоваталя.
     /// - Parameters:
     ///   - email: E-mail пользователя.
     ///   - password: Пароль пользователя.
-    ///   - completion: Замыкание, в которое возвращается результат выполнения запроса.
+    ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     func registerUser(
         withEmail email: String,
         andPassword password: String,
@@ -26,7 +24,7 @@ protocol AuthorizationService {
     /// - Parameters:
     ///   - email: E-mail пользователя.
     ///   - password: Пароль пользователя.
-    ///   - completion: Замыкание, в которое возвращается результат выполнения запроса.
+    ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     func signIn(
         withEmail email: String,
         andPassword password: String,
