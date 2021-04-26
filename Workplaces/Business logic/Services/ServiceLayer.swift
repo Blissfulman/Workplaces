@@ -18,8 +18,7 @@ final class ServiceLayer {
     
     lazy var apiClient: Client = {
         AlamofireClient(
-            requestInterceptor: TokenRequestInterceptor(baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
-                                                        accessToken: token),
+            requestInterceptor: AuthRequestInterceptor(baseURL: Constants.apiBaseURL, accessToken: accessToken),
             configuration: .ephemeral,
             responseObserver: { [weak self] request, response, data, error in
                 self?.validateSession(responseError: error)
@@ -28,12 +27,21 @@ final class ServiceLayer {
     }()
     
     lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
+                                                                                   authDataStorage: authDataStorage,
                                                                                    settingsStorage: settingsStorage)
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
     lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
     
     lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
+    lazy var authDataStorage: AuthDataStorage = AuthDataStorageImpl(storage: UserDefaults.standard)
+    
+    // MARK: - Private properties
+    
+    var accessToken: String {
+        print("Getting Access Token")
+        return authDataStorage.getAccessToken()
+    }
     
     // MARK: - Initializers
     

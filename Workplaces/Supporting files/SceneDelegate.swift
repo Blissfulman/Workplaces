@@ -21,7 +21,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         applicationCoordinator = ApplicationCoordinator(
             window: window,
-            settingsStorage: ServiceLayer.shared.settingsStorage
+            authDataStorage: ServiceLayer.shared.authDataStorage
         )
         applicationCoordinator.start()
         window?.makeKeyAndVisible()

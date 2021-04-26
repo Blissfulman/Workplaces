@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 // MARK: - Protocols
 
@@ -29,6 +30,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     private let credentialData: CredentialData
     private let authorizationService: AuthorizationService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
@@ -42,6 +44,12 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Deinitializer
+    
+    deinit {
+        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -65,17 +73,22 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
             return
         }
         
+        let credentialData = CredentialData(email: email, password: password)
+        
         LoadingView.show()
-        authorizationService.registerUser(withEmail: email, andPassword: password) { [weak self] result in
+        let progress = authorizationService.registerUser(credentialData: credentialData) { [weak self] result in
             LoadingView.hide()
             
             switch result {
-            case .success:
+            case let .success(authorizationData):
+                print(authorizationData.accessToken)
+                print(authorizationData.refreshToken)
                 self?.didTapRegisterButton?()
             case let .failure(error):
                 self?.showAlert(error)
             }
         }
+        progressList.append(progress)
     }
     
     // MARK: - Private methods

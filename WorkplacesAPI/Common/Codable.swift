@@ -10,8 +10,8 @@ import Foundation
 extension JSONEncoder {
     internal static let `default`: JSONEncoder = {
         let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+//        encoder.keyEncodingStrategy = .convertToSnakeCase
+//        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         return encoder
     }()
 }

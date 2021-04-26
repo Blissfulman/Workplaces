@@ -6,37 +6,45 @@
 //
 
 import Apexy
+import WorkplacesAPI
 
 final class AuthorizationServiceImpl: AuthorizationService {
     
     // MARK: - Private properties
     
     private let apiClient: Client
+    private let authDataStorage: AuthDataStorage
     private let settingsStorage: SettingsStorage
     
     // MARK: - Initializers
     
-    init(apiClient: Client, settingsStorage: SettingsStorage) {
+    init(apiClient: Client, authDataStorage: AuthDataStorage, settingsStorage: SettingsStorage) {
         self.apiClient = apiClient
+        self.authDataStorage = authDataStorage
         self.settingsStorage = settingsStorage
     }
     
     // MARK: - Public methods
     
-    func registerUser(withEmail email: String, andPassword password: String, completion: @escaping VoidResultHandler) {
-        let result = Bool.random()
-        settingsStorage.saveAuthState(to: result)
-        result
-            ? completion(.success(()))
-            : completion(.failure(TestError.unknownError))
+    func registerUser(
+        credentialData: CredentialData,
+        completion: @escaping AuthorizationDataResultHandler
+    ) -> Progress {
+        let endpoint = RegistrationEndpoint(credentialData: credentialData)
+        return apiClient.request(endpoint) { [weak self] result in
+            switch result {
+            case let .success(authorizationData):
+                self?.authDataStorage.saveAuthData(authorizationData)
+                completion(.success(authorizationData))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
     
-    func signIn(withEmail email: String, andPassword password: String, completion: @escaping VoidResultHandler) {
-        let result = Bool.random()
-        settingsStorage.saveAuthState(to: result)
-        result
-            ? completion(.success(()))
-            : completion(.failure(TestError.credentialError))
+    func signIn(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress {
+        let endpoint = LoginEndpoint(credentialData: credentialData)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func signInByGoogle() {
@@ -51,11 +59,13 @@ final class AuthorizationServiceImpl: AuthorizationService {
         
     }
     
-    func signOut() {
-        settingsStorage.saveAuthState(to: false)
+    func signOut(completion: @escaping VoidResultHandler) -> Progress {
+        let endpoint = LogoutEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func refreshToken() {
-        
+    func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress {
+        let endpoint = RefreshTokenEndpoint(refreshToken: authDataStorage.getRefreshToken())
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 }

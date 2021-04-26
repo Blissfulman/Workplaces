@@ -12,20 +12,20 @@ final class ApplicationCoordinator {
     // MARK: - Private properties
     
     private weak var window: UIWindow?
-    private let settingsStorage: SettingsStorage
+    private let authDataStorage: AuthDataStorage
     private var authorizationCoordinator: AuthorizationCoordinator?
     
     // MARK: - Initializers
     
-    init(window: UIWindow?, settingsStorage: SettingsStorage) {
+    init(window: UIWindow?, authDataStorage: AuthDataStorage) {
         self.window = window
-        self.settingsStorage = settingsStorage
+        self.authDataStorage = authDataStorage
     }
     
     // MARK: - Public methods
     
     func start() {
-        if settingsStorage.getAuthState() {
+        if !authDataStorage.getAccessToken().isEmpty {
             window?.rootViewController = TabBarController()
         } else {
             let navigationController = UINavigationController()

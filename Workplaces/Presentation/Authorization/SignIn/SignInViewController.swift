@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 // MARK: - Protocols
 
@@ -30,6 +31,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     // MARK: - Private properties
     
     private let authorizationService: AuthorizationService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
@@ -46,6 +48,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     deinit {
         removeKeyboardNotifications()
+        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -71,8 +74,10 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         guard let email = emailOrLoginTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else { return }
         
+        let credentialData = CredentialData(email: email, password: password)
+        
         LoadingView.show()
-        authorizationService.signIn(withEmail: email, andPassword: password) { [weak self] result in
+        let progress = authorizationService.signIn(credentialData: credentialData) { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -82,6 +87,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
                 self?.showAlert(error)
             }
         }
+        progressList.append(progress)
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {

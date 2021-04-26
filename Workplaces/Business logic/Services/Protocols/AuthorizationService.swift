@@ -6,30 +6,24 @@
 //
 
 import Foundation
+import WorkplacesAPI
 
 protocol AuthorizationService {
     
+    typealias AuthorizationDataResultHandler = ResultHandler<AuthorizationData>
+    
     /// Регистрация нового пользоваталя.
     /// - Parameters:
-    ///   - email: E-mail пользователя.
-    ///   - password: Пароль пользователя.
+    ///   - credentialData: Учётные данные для регистрации.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
-    func registerUser(
-        withEmail email: String,
-        andPassword password: String,
-        completion: @escaping VoidResultHandler
-    )
+    @discardableResult
+    func registerUser(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress
     
     /// Авторизация зарегистрированного пользователя.
     /// - Parameters:
-    ///   - email: E-mail пользователя.
-    ///   - password: Пароль пользователя.
+    ///   - credentialData: Учётные данные пользователя.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
-    func signIn(
-        withEmail email: String,
-        andPassword password: String,
-        completion: @escaping VoidResultHandler
-    )
+    func signIn(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress
     
     /// Авторизация с помощью аккаунта Google.
     func signInByGoogle()
@@ -41,8 +35,8 @@ protocol AuthorizationService {
     func signInByVK()
     
     /// Завершение сессии пользователя.
-    func signOut()
+    func signOut(completion: @escaping VoidResultHandler) -> Progress
     
     /// Обновление токена доступа.
-    func refreshToken()
+    func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress
 }

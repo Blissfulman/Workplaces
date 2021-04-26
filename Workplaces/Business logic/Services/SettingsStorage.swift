@@ -17,22 +17,23 @@ protocol SettingsStorage {
 final class SettingsStorageImpl: SettingsStorage {
     
     private let storage: BoolStorage
+    private let authStateKey = "AuthState"
     
     init(storage: BoolStorage) {
         self.storage = storage
     }
     
     func saveAuthState(to state: Bool) {
-        storage.set(state, forKey: "AuthState")
+        storage.set(state, forKey: authStateKey)
     }
     
     func getAuthState() -> Bool {
-        storage.bool(forKey: "AuthState")
+        storage.bool(forKey: authStateKey)
     }
 }
 
 protocol BoolStorage: AnyObject {
-    func set(_ value: Bool, forKey dafaultName: String)
+    func set(_ value: Bool, forKey defaultName: String)
     func bool(forKey defaultName: String) -> Bool
 }
 
