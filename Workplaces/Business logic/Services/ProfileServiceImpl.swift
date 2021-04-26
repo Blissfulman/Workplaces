@@ -30,15 +30,15 @@ final class ProfileServiceImpl: ProfileService {
         
     }
     
-    func fetchMyPosts(completion: @escaping PostsResultHandler) {
+    func fetchMyPosts(completion: @escaping PostListResultHandler) {
         
     }
     
-    func fetchLikedPosts(completion: @escaping PostsResultHandler) {
+    func fetchLikedPosts(completion: @escaping PostListResultHandler) {
         
     }
     
-    func fetchFriendList(completion: @escaping UsersResultHandler) {
+    func fetchFriendList(completion: @escaping UserListResultHandler) {
         
     }
     

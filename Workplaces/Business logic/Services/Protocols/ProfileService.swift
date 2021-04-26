@@ -8,17 +8,18 @@
 import WorkplacesAPI
 
 protocol ProfileService {
+    
     typealias User = WorkplacesAPI.User
     typealias Post = WorkplacesAPI.Post
     typealias UserResultHandler = ResultHandler<User>
-    typealias UsersResultHandler = ResultHandler<[User]>
-    typealias PostsResultHandler = ResultHandler<[Post]>
+    typealias UserListResultHandler = ResultHandler<[User]>
+    typealias PostListResultHandler = ResultHandler<[Post]>
     
     func fetchMyProfile(completion: @escaping UserResultHandler)
     func updateMyProfile(user: User, completion: @escaping UserResultHandler)
-    func fetchMyPosts(completion: @escaping PostsResultHandler)
-    func fetchLikedPosts(completion: @escaping PostsResultHandler)
-    func fetchFriendList(completion: @escaping UsersResultHandler)
+    func fetchMyPosts(completion: @escaping PostListResultHandler)
+    func fetchLikedPosts(completion: @escaping PostListResultHandler)
+    func fetchFriendList(completion: @escaping UserListResultHandler)
     func addFriend(userID: String)
     func removeFriend(userID: String)
 }

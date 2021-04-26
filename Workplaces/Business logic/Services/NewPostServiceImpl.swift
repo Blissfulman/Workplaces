@@ -22,7 +22,8 @@ final class NewPostServiceImpl: NewPostService {
     
     // MARK: - Public methods
     
-    func publishPost(post: Post) {
-        
+    func publishPost(post: Post, completion: @escaping PostResultHandler) -> Progress {
+        let endpoint = PublishPostEndpoint(post: post)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 }

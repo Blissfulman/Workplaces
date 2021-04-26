@@ -1,5 +1,5 @@
 //
-//  FeedPostsEndpoint.swift
+//  FeedPostListEndpoint.swift
 //  WorkplacesAPI
 //
 //  Created by Evgeny Novgorodov on 25.04.2021.
@@ -7,7 +7,7 @@
 
 import Apexy
 
-public struct FeedPostsEndpoint: JsonEndpoint {
+public struct FeedPostListEndpoint: JsonEndpoint {
     
     public typealias Content = [Post]
     

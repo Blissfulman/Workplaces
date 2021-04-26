@@ -22,8 +22,8 @@ final class FeedServiceImpl: FeedService {
     
     // MARK: - Public methods
     
-    func fetchFeedPosts(completion: @escaping PostsResultHandler) -> Progress {
-        let endpoint = FeedPostsEndpoint()
+    func fetchFeedPosts(completion: @escaping PostListResultHandler) -> Progress {
+        let endpoint = FeedPostListEndpoint()
         return apiClient.request(endpoint, completionHandler: completion)
     }
     

@@ -10,12 +10,12 @@ import WorkplacesAPI
 protocol FeedService {
     
     typealias Post = WorkplacesAPI.Post
-    typealias PostsResultHandler = ResultHandler<[Post]>
+    typealias PostListResultHandler = ResultHandler<[Post]>
     
     /// Получение постов ленты.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func fetchFeedPosts(completion: @escaping PostsResultHandler) -> Progress
+    func fetchFeedPosts(completion: @escaping PostListResultHandler) -> Progress
     
     /// Добавление лайка к посту.
     /// - Parameters:
