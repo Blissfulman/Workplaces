@@ -7,17 +7,13 @@
 
 import Apexy
 
-public struct FeedPostsEndpoint: Endpoint, URLRequestBuildable {
+public struct FeedPostsEndpoint: JsonEndpoint {
     
     public typealias Content = [Post]
-
+    
     public init() {}
     
     public func makeRequest() throws -> URLRequest {
-        return get(URL(string: "feed")!)
-    }
-
-    public func content(from response: URLResponse?, with body: Data) throws -> [Post] {
-        []
+        get(URL(string: "feed")!)
     }
 }
