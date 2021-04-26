@@ -9,13 +9,13 @@ import Apexy
 
 public struct UnlikePostEndpoint: EmptyEndpoint {
     
-    let postID: String
+    private let postID: String
     
     public init(postID: String) {
         self.postID = postID
     }
     
     public func makeRequest() throws -> URLRequest {
-        delete(URL(string: "\(postID)/like")!)
+        delete(URL(string: "feed/\(postID)/like")!)
     }
 }
