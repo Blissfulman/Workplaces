@@ -19,7 +19,10 @@ extension JSONEncoder {
 extension JSONDecoder {
     internal static let `default`: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "GMT")
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
 }

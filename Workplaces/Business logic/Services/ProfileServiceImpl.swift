@@ -34,8 +34,9 @@ final class ProfileServiceImpl: ProfileService {
         
     }
     
-    func fetchLikedPosts(completion: @escaping PostListResultHandler) {
-        
+    func fetchLikedPosts(completion: @escaping PostListResultHandler) -> Progress {
+        let endpoint = LikedPostListEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func fetchFriendList(completion: @escaping UserListResultHandler) {

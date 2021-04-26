@@ -8,11 +8,12 @@
 import Foundation
 
 public struct User: Identifiable, Codable {
+    
     public let id: String
     let firstName: String
     let lastName: String
-    let nickname: String
-    let avatarURL: URL
+    let nickname: String?
+    let avatarURL: URL?
     let birthday: Date
     
     enum CodingKeys: String, CodingKey {

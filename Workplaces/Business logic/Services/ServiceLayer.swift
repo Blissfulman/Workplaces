@@ -15,16 +15,7 @@ final class ServiceLayer {
     
     // MARK: - Public properties
     
-    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
-                                                                                   settingsStorage: settingsStorage)
-    lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
-    lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
-    lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
-    lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
-    
-    // MARK: - Private properties
-    
-    private lazy var apiClient: Client = {
+    lazy var apiClient: Client = {
         return AlamofireClient(
             baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
             configuration: .ephemeral,
@@ -33,6 +24,13 @@ final class ServiceLayer {
             }
         )
     }()
+    
+    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
+                                                                                   settingsStorage: settingsStorage)
+    lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
+    lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
+    lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
+    lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
     
     // MARK: - Initializers
     

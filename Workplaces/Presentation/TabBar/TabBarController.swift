@@ -17,6 +17,7 @@ final class TabBarController: UITabBarController {
     private func configureTabs() {
         tabBar.barTintColor = Palette.white
         tabBar.tintColor = Palette.orange
+        tabBar.unselectedItemTintColor = Palette.grey
         
         let feedVC = UINavigationController(rootViewController: FeedViewController())
         feedVC.tabBarItem.image = Icons.feed

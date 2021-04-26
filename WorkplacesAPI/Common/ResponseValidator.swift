@@ -35,7 +35,7 @@ internal enum ResponseValidator {
     private static func validateHTTPstatus(_ response: URLResponse?) throws {
         guard let httpResponse = response as? HTTPURLResponse,
             !(200..<300).contains(httpResponse.statusCode) else { return }
-
+        
         throw HTTPError(statusCode: httpResponse.statusCode, url: httpResponse.url)
     }
 }

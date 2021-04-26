@@ -18,7 +18,9 @@ protocol ProfileService {
     func fetchMyProfile(completion: @escaping UserResultHandler)
     func updateMyProfile(user: User, completion: @escaping UserResultHandler)
     func fetchMyPosts(completion: @escaping PostListResultHandler)
-    func fetchLikedPosts(completion: @escaping PostListResultHandler)
+    
+    @discardableResult
+    func fetchLikedPosts(completion: @escaping PostListResultHandler) -> Progress 
     func fetchFriendList(completion: @escaping UserListResultHandler)
     func addFriend(userID: String)
     func removeFriend(userID: String)
