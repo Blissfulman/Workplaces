@@ -16,7 +16,7 @@ final class ServiceLayer {
     // MARK: - Public properties
     
     lazy var apiClient: Client = {
-        return AlamofireClient(
+        AlamofireClient(
             baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
             configuration: .ephemeral,
             responseObserver: { [weak self] request, response, data, error in
@@ -30,6 +30,7 @@ final class ServiceLayer {
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
     lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
+    
     lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
     
     // MARK: - Initializers
