@@ -39,7 +39,7 @@
 		CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */; };
 		CE12A21B2636A94900EE6549 /* MyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */; };
 		CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */; };
-		CE12A2232636AA9E00EE6549 /* FreindListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2222636AA9E00EE6549 /* FreindListEndpoint.swift */; };
+		CE12A2232636AA9E00EE6549 /* FriendListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */; };
 		CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */; };
 		CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */; };
 		CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */; };
@@ -162,7 +162,7 @@
 		CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpoint.swift; sourceTree = "<group>"; };
 		CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpoint.swift; sourceTree = "<group>"; };
-		CE12A2222636AA9E00EE6549 /* FreindListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindListEndpoint.swift; sourceTree = "<group>"; };
+		CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpoint.swift; sourceTree = "<group>"; };
@@ -636,7 +636,7 @@
 				CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */,
 				CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */,
 				CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */,
-				CE12A2222636AA9E00EE6549 /* FreindListEndpoint.swift */,
+				CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */,
 				CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */,
 				CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */,
 			);
@@ -998,7 +998,7 @@
 				CE12A1F52635F91600EE6549 /* Codable.swift in Sources */,
 				CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */,
 				CE12A21B2636A94900EE6549 /* MyProfileEndpoint.swift in Sources */,
-				CE12A2232636AA9E00EE6549 /* FreindListEndpoint.swift in Sources */,
+				CE12A2232636AA9E00EE6549 /* FriendListEndpoint.swift in Sources */,
 				CE12A1F72635F91600EE6549 /* HTTPError.swift in Sources */,
 				CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */,
 				CE12A1FB2635F9C300EE6549 /* User.swift in Sources */,

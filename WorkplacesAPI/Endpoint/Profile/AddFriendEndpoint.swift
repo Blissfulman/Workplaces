@@ -11,7 +11,7 @@ public struct AddFriendEndpoint: EmptyEndpoint {
         
     private let userID: String
     
-    public init(userID: String) {
+    public init(userID: User.ID) {
         self.userID = userID
     }
     

@@ -22,16 +22,19 @@ final class ProfileServiceImpl: ProfileService {
     
     // MARK: - Public methods
     
-    func fetchMyProfile(completion: @escaping UserResultHandler) {
-        
+    func fetchMyProfile(completion: @escaping UserResultHandler) -> Progress {
+        let endpoint = MyProfileEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func updateMyProfile(user: User, completion: @escaping UserResultHandler) {
-        
+    func updateMyProfile(user: User, completion: @escaping UserResultHandler) -> Progress {
+        let endpoint = UpdatingMyProfileEndpoint(user: user)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func fetchMyPosts(completion: @escaping PostListResultHandler) {
-        
+    func fetchMyPosts(completion: @escaping PostListResultHandler) -> Progress {
+        let endpoint = MyPostListEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
     func fetchLikedPosts(completion: @escaping PostListResultHandler) -> Progress {
@@ -39,15 +42,18 @@ final class ProfileServiceImpl: ProfileService {
         return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func fetchFriendList(completion: @escaping UserListResultHandler) {
-        
+    func fetchFriendList(completion: @escaping UserListResultHandler) -> Progress {
+        let endpoint = FriendListEndpoint()
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func addFriend(userID: String) {
-        
+    func addFriend(userID: User.ID, completion: @escaping VoidResultHandler) -> Progress {
+        let endpoint = AddFriendEndpoint(userID: userID)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func removeFriend(userID: String) {
-        
+    func removeFriend(userID: User.ID, completion: @escaping VoidResultHandler) -> Progress {
+        let endpoint = RemoveFriendEndpoint(userID: userID)
+        return apiClient.request(endpoint, completionHandler: completion)
     }
 }

@@ -9,13 +9,16 @@ import Apexy
 
 public struct LikePostEndpoint: EmptyEndpoint {
     
-    private let postID: String
+    private let postID: Post.ID
+    private let token = ""
     
-    public init(postID: String) {
+    public init(postID: Post.ID) {
         self.postID = postID
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "feed/\(postID)/like")!, body: nil)
+        var request = post(URL(string: "feed/\(postID)/like")!, body: nil)
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        return request
     }
 }

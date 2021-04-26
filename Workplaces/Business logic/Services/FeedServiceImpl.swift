@@ -27,12 +27,12 @@ final class FeedServiceImpl: FeedService {
         return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func likePost(postID: String, completion: @escaping VoidResultHandler) -> Progress {
+    func likePost(postID: Post.ID, completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LikePostEndpoint(postID: postID)
         return apiClient.request(endpoint, completionHandler: completion)
     }
     
-    func unlikePost(postID: String, completion: @escaping VoidResultHandler) -> Progress {
+    func unlikePost(postID: Post.ID, completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = UnlikePostEndpoint(postID: postID)
         return apiClient.request(endpoint, completionHandler: completion)
     }

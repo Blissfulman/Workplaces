@@ -9,9 +9,9 @@ import Apexy
 
 public struct UnlikePostEndpoint: EmptyEndpoint {
     
-    private let postID: String
+    private let postID: Post.ID
     
-    public init(postID: String) {
+    public init(postID: Post.ID) {
         self.postID = postID
     }
     
