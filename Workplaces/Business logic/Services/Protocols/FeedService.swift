@@ -14,17 +14,20 @@ protocol FeedService {
     
     /// Получение постов ленты.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func fetchFeedPosts(completion: @escaping PostsResultHandler) -> Progress
     
     /// Добавление лайка к посту.
     /// - Parameters:
     ///   - postID: ID поста.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func likePost(postID: String, completion: @escaping VoidResultHandler) -> Progress
     
     /// Удаление лайка с поста.
     /// - Parameters:
     ///   - postID: ID поста.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func unlikePost(postID: String, completion: @escaping VoidResultHandler) -> Progress
 }

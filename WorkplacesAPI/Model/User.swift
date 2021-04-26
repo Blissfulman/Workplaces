@@ -14,4 +14,13 @@ public struct User: Identifiable, Codable {
     let nickname: String
     let avatarURL: URL
     let birthday: Date
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case nickname
+        case avatarURL = "avatar_url"
+        case birthday = "birth_day"
+    }
 }

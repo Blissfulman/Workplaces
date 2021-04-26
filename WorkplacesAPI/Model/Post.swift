@@ -15,4 +15,14 @@ public struct Post: Identifiable, Codable {
     let latitude: Double
     let author: User
     let likes: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case text
+        case imageURL = "image_url"
+        case longitude = "lon"
+        case latitude = "lat"
+        case author
+        case likes
+    }
 }

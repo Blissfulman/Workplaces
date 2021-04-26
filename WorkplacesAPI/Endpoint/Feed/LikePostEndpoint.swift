@@ -18,5 +18,4 @@ public struct LikePostEndpoint: EmptyEndpoint {
     public func makeRequest() throws -> URLRequest {
         post(URL(string: "\(postID)/like")!, body: nil)
     }
-
 }

@@ -35,6 +35,7 @@
 		CE12A1FB2635F9C300EE6549 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1FA2635F9C300EE6549 /* User.swift */; };
 		CE12A2012636773600EE6549 /* LikePostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2002636773600EE6549 /* LikePostEndpoint.swift */; };
 		CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2042636774100EE6549 /* UnlikePostEndpoint.swift */; };
+		CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */; };
 		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
@@ -150,6 +151,7 @@
 		CE12A1FA2635F9C300EE6549 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE12A2002636773600EE6549 /* LikePostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2042636774100EE6549 /* UnlikePostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikePostEndpoint.swift; sourceTree = "<group>"; };
+		CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostEndpoint.swift; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 		CEAF176E2635EA6D00DE0311 /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
+				CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */,
 			);
 			path = NewPost;
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 				CE12A1FB2635F9C300EE6549 /* User.swift in Sources */,
 				CE12A1DA2635F6C300EE6549 /* Post.swift in Sources */,
 				CE12A1E62635F8B600EE6549 /* EmptyEndpoint.swift in Sources */,
+				CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */,
 				CE12A1F62635F91600EE6549 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
