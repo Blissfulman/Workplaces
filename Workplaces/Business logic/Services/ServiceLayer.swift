@@ -6,6 +6,7 @@
 //
 
 import Apexy
+import WorkplacesAPI
 
 final class ServiceLayer {
     
@@ -17,7 +18,8 @@ final class ServiceLayer {
     
     lazy var apiClient: Client = {
         AlamofireClient(
-            baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            requestInterceptor: TokenRequestInterceptor(baseURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+                                                        accessToken: token),
             configuration: .ephemeral,
             responseObserver: { [weak self] request, response, data, error in
                 self?.validateSession(responseError: error)

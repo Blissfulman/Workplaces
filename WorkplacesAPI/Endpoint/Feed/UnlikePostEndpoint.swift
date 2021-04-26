@@ -16,6 +16,6 @@ public struct UnlikePostEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        delete(URL(string: "feed/\(postID)/like")!).addAccessToken()
+        delete(URL(string: "feed/\(postID)/like")!)
     }
 }

@@ -14,6 +14,6 @@ public struct FeedPostListEndpoint: JsonEndpoint {
     public init() {}
     
     public func makeRequest() throws -> URLRequest {
-        get(URL(string: "feed")!).addAccessToken()
+        get(URL(string: "feed")!)
     }
 }

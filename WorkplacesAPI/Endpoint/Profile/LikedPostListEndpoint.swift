@@ -14,6 +14,6 @@ public struct LikedPostListEndpoint: JsonEndpoint {
     public init() {}
     
     public func makeRequest() throws -> URLRequest {
-        get(URL(string: "feed/favorite")!).addAccessToken()
+        get(URL(string: "feed/favorite")!)
     }
 }

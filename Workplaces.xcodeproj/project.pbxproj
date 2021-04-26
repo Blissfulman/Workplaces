@@ -43,7 +43,7 @@
 		CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */; };
 		CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */; };
 		CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */; };
-		CE12A237263702F900EE6549 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A236263702F900EE6549 /* URLRequest.swift */; };
+		CE12A23D2637091C00EE6549 /* TokenRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A23C2637091C00EE6549 /* TokenRequestInterceptor.swift */; };
 		CE1331AF262C40550086433C /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331AE262C40550086433C /* Palette.xcassets */; };
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
@@ -167,7 +167,7 @@
 		CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpoint.swift; sourceTree = "<group>"; };
-		CE12A236263702F900EE6549 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		CE12A23C2637091C00EE6549 /* TokenRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequestInterceptor.swift; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -616,7 +616,7 @@
 				CE12A1F22635F91600EE6549 /* Codable.swift */,
 				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
 				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
-				CE12A236263702F900EE6549 /* URLRequest.swift */,
+				CE12A23C2637091C00EE6549 /* TokenRequestInterceptor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1008,10 +1008,10 @@
 				CE12A1DA2635F6C300EE6549 /* Post.swift in Sources */,
 				CE12A1E62635F8B600EE6549 /* EmptyEndpoint.swift in Sources */,
 				CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */,
+				CE12A23D2637091C00EE6549 /* TokenRequestInterceptor.swift in Sources */,
 				CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */,
 				CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */,
 				CE12A1F62635F91600EE6549 /* APIError.swift in Sources */,
-				CE12A237263702F900EE6549 /* URLRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

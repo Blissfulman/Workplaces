@@ -16,6 +16,6 @@ public struct LikePostEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "feed/\(postID)/like")!, body: nil).addAccessToken()
+        post(URL(string: "feed/\(postID)/like")!, body: nil)
     }
 }
