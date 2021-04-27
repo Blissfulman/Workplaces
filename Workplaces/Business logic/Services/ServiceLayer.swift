@@ -17,8 +17,10 @@ final class ServiceLayer {
     // MARK: - Public properties
     
     lazy var apiClient: Client = {
-        AlamofireClient(
-            requestInterceptor: AuthRequestInterceptor(baseURL: Constants.apiBaseURL, accessToken: accessToken),
+        let interceptor = AuthRequestInterceptor(baseURL: Constants.apiBaseURL, accessToken: { self.accessToken })
+        
+        return AlamofireClient(
+            requestInterceptor: interceptor,
             configuration: .ephemeral,
             responseObserver: { [weak self] _, _, _, error in
                 self?.validateSession(responseError: error)
