@@ -8,21 +8,23 @@
 import Foundation
 
 struct HTTPError: Error {
+    
     let statusCode: Int
     let url: URL?
-
+    
     var localizedDescription: String {
-        return HTTPURLResponse.localizedString(forStatusCode: statusCode)
+        HTTPURLResponse.localizedString(forStatusCode: statusCode)
     }
 }
 
 // MARK: - CustomNSError
 
 extension HTTPError: CustomNSError {
-    static var errorDomain = "Example.HTTPErrorDomain"
-
-    public var errorCode: Int { return statusCode }
-
+    
+    static var errorDomain = "Workplaces.HTTPErrorDomain"
+    
+    public var errorCode: Int { statusCode }
+    
     public var errorUserInfo: [String: Any] {
         var userInfo: [String: Any] = [NSLocalizedDescriptionKey: localizedDescription]
         userInfo[NSURLErrorKey] = url

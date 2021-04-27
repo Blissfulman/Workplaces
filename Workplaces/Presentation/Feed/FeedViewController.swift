@@ -50,18 +50,16 @@ final class FeedViewController: UIViewController {
         let progress = authorizationService.signOut { [weak self] result in
             switch result {
             case .success:
-                print("Log out success")
+                guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+                    print("Window access error")
+                    return
+                }
+                sceneDelegate.applicationCoordinator.start()
             case let .failure(error):
                 self?.showAlert(error)
             }
         }
         progressList.append(progress)
-        
-        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-            print("Window access error")
-            return
-        }
-        sceneDelegate.applicationCoordinator.start()
     }
     
     @IBAction private func testLikeAction() {

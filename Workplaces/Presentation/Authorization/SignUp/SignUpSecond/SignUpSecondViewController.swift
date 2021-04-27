@@ -34,8 +34,9 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     // MARK: - Initializers
     
-    init(userCredentials: UserCredentials,
-         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
+    init(
+        userCredentials: UserCredentials,
+        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
         self.userCredentials = userCredentials
         self.authorizationService = authorizationService
@@ -80,9 +81,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
             LoadingView.hide()
             
             switch result {
-            case let .success(authorizationData):
-                print(authorizationData.accessToken)
-                print(authorizationData.refreshToken)
+            case .success:
                 self?.didTapRegisterButton?()
             case let .failure(error):
                 self?.showAlert(error)

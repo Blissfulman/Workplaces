@@ -19,8 +19,8 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     
     /// Creates an `AuthRequestInterceptor` instance with specified base `URL` and access token.
     /// - Parameters:
-    ///   - baseURL: Базовый `URL` для адаптора.
-    ///   - accessToken: Токен доступа для адаптора.
+    ///   - baseURL: Base `URL` for adapter.
+    ///   - accessToken: Access token for adapter.
     public init(baseURL: URL, accessToken: String) {
         self.baseURL = baseURL
         self.accessToken = accessToken
@@ -31,8 +31,8 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     public func adapt(
         _ urlRequest: URLRequest,
         for session: Session,
-        completion: @escaping (Result<URLRequest, Error>) -> Void) {
-
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    ) {
         guard let url = urlRequest.url else {
             completion(.failure(URLError(.badURL)))
             return
@@ -49,9 +49,9 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         _ request: Request,
         for session: Session,
         dueTo error: Error,
-        completion: @escaping (RetryResult) -> Void) {
-        
-        return completion(.doNotRetryWithError(error))
+        completion: @escaping (RetryResult) -> Void
+    ) {
+        completion(.doNotRetryWithError(error))
     }
     
     // MARK: - Private methods

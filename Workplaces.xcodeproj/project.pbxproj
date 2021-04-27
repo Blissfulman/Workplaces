@@ -10,7 +10,6 @@
 		0604A44F35FEF294BCADFDCE /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */; };
 		3199FF836ED17EA279DDB128 /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD78BC1D1E9FA6DD36932DE /* Pods_Workplaces.framework */; };
 		C68C97F900542DB4CC350EA8 /* Pods_WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */; };
-		CE02A3862632D797006291E5 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02A3852632D797006291E5 /* TestError.swift */; };
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
@@ -142,7 +141,6 @@
 		29292A45FC12071B9651C796 /* Pods-WorkplacesAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPI.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPI/Pods-WorkplacesAPI.release.xcconfig"; sourceTree = "<group>"; };
 		5F4E10B01EB4746745599989 /* Pods-WorkplacesAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPI.debug.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPI/Pods-WorkplacesAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		BBA601C45707BE1116334C8C /* Pods-Workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.release.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.release.xcconfig"; sourceTree = "<group>"; };
-		CE02A3852632D797006291E5 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
@@ -363,17 +361,9 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		CE13319A262C25E70086433C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		CE13319B262C26000086433C /* Business logic */ = {
 			isa = PBXGroup;
 			children = (
-				CE13319D262C262F0086433C /* Common */,
 				CE13319E262C26340086433C /* Helpers */,
 				CE13319F262C263E0086433C /* Services */,
 			);
@@ -385,14 +375,6 @@
 			children = (
 			);
 			path = Client;
-			sourceTree = "<group>";
-		};
-		CE13319D262C262F0086433C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				CE02A3852632D797006291E5 /* TestError.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		CE13319E262C26340086433C /* Helpers */ = {
@@ -562,7 +544,6 @@
 				CE133198262C25A90086433C /* Resources */,
 				CE13319C262C26150086433C /* Client */,
 				CE13319B262C26000086433C /* Business logic */,
-				CE13319A262C25E70086433C /* Models */,
 				CE133197262C25900086433C /* Presentation */,
 				CE573798262DF96100A6DC20 /* Supporting files */,
 			);
@@ -1005,7 +986,6 @@
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
 				CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */,
-				CE02A3862632D797006291E5 /* TestError.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
 				CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,
