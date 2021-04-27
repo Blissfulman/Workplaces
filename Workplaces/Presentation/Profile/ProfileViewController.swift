@@ -39,6 +39,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func fetchProfile() {
+        // Тест загрузки лайкнутых постов
         profileService.fetchLikedPosts { result in
             switch result {
             case let .success(likedPosts):
