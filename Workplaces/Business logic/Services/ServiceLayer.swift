@@ -26,9 +26,9 @@ final class ServiceLayer {
         )
     }()
     
-    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
-                                                                                   authDataStorage: authDataStorage,
-                                                                                   settingsStorage: settingsStorage)
+    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(
+        apiClient: apiClient, authDataStorage: authDataStorage, settingsStorage: settingsStorage
+    )
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
     lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
@@ -39,7 +39,6 @@ final class ServiceLayer {
     // MARK: - Private properties
     
     var accessToken: String {
-        print("Getting Access Token")
         return authDataStorage.getAccessToken()
     }
     

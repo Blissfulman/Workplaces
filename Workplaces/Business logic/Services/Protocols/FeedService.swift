@@ -22,12 +22,12 @@ protocol FeedService {
     ///   - postID: ID поста.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func likePost(postID: String, completion: @escaping VoidResultHandler) -> Progress
+    func likePost(postID: Post.ID, completion: @escaping VoidResultHandler) -> Progress
     
     /// Удаление лайка с поста.
     /// - Parameters:
     ///   - postID: ID поста.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func unlikePost(postID: String, completion: @escaping VoidResultHandler) -> Progress
+    func unlikePost(postID: Post.ID, completion: @escaping VoidResultHandler) -> Progress
 }

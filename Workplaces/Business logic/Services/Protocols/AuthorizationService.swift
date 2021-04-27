@@ -23,6 +23,7 @@ protocol AuthorizationService {
     /// - Parameters:
     ///   - credentialData: Учётные данные пользователя.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func signIn(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress
     
     /// Авторизация с помощью аккаунта Google.
@@ -35,8 +36,12 @@ protocol AuthorizationService {
     func signInByVK()
     
     /// Завершение сессии пользователя.
+    /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func signOut(completion: @escaping VoidResultHandler) -> Progress
     
     /// Обновление токена доступа.
+    /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
+    @discardableResult
     func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress
 }
