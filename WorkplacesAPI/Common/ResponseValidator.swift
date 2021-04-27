@@ -7,10 +7,6 @@
 
 import Foundation
 
-private struct ResponseError: Decodable {
-    let error: APIError
-}
-
 /// Response validation helper.
 internal enum ResponseValidator {
     
@@ -27,7 +23,7 @@ internal enum ResponseValidator {
     
     private static func validateAPIResponse(_ response: URLResponse?, with body: Data) throws {
         let decoder = JSONDecoder.default
-        if let error = try? decoder.decode(ResponseError.self, from: body).error {
+        if let error = try? decoder.decode(APIError.self, from: body) {
             throw error
         }
     }

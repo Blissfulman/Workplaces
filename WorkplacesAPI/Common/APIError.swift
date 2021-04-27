@@ -8,50 +8,52 @@
 import Foundation
 
 /// Error from API.
-public struct APIError: Decodable, Error {
+public struct APIError: Decodable, Error, LocalizedError {
     
-    public struct Code: RawRepresentable, Decodable, Equatable {
-        
-        public var rawValue: String
-        
-        public init(rawValue: String) {
-            self.rawValue = rawValue
-        }
-        
-        public init(_ rawValue: String) {
-            self.rawValue = rawValue
-        }
+    public enum Code: String, Decodable {
+        case credentialsInvalid = "INVALID_CREDENTIALS"
+        case tokenInvalid = "INVALID_TOKEN"
+        case emailValidationError = "EMAIL_VALIDATION_ERROR"
+        case passwordValidationError = "PASSWORD_VALIDATION_ERROR"
+        case dublicateUserError = "DUPLICATE_USER_ERROR"
+        case serializationError = "SERIALIZATION_ERROR"
+        case fileNotFoundError = "FILE_NOT_FOUND_ERROR"
+        case tooBigFileError = "TOO_BIG_FILE_ERROR"
+        case badFileExtensionError = "BAD_FILE_EXTENSION_ERROR"
+        case genericError = "GENERIC_ERROR"
+        case unknownError = "UNKNOWN_ERROR"
     }
     
     /// Error code.
     public let code: Code
     
-    /// Error description.
-    public let description: String?
-    
     /// Error message.
     public let message: String?
     
-    public init(code: Code, description: String? = nil, message: String? = nil) {
-        self.code = code
-        self.description = description
-        self.message = message
+    public var errorDescription: String? {
+        switch code {
+        case .credentialsInvalid:
+            return "Email или пароль указаны неверно"
+        case .tokenInvalid:
+            return "Проблема с access или refresh токеном"
+        case .emailValidationError:
+            return "Email имеет недопустимый формат"
+        case .passwordValidationError:
+            return "Пароль имеет недопустимый формат"
+        case .dublicateUserError:
+            return "Юзер с указанным email уже зарегистрирован"
+        case .serializationError:
+            return "Входные данные не соответсвуют модели"
+        case .fileNotFoundError:
+            return "Запрошенное изображение не найдено"
+        case .tooBigFileError:
+            return "Загружаемое изображение больше 5Мб"
+        case .badFileExtensionError:
+            return "Изображение имеет недопустимый формат"
+        case .genericError:
+            return "Общая ошибка. \(message ?? "")"
+        case .unknownError:
+            return "Неизвестная ошибка. \(message ?? "")"
+        }
     }
-}
-
-// MARK: - General Error Code
-
-extension APIError.Code {
-    
-//    public static let tokenInvalid = APIError.Code("token_invalid")
-    
-    public static let credentialsInvalid = APIError.Code("INVALID_CREDENTIALS")
-    public static let tokenInvalid = APIError.Code("INVALID_TOKEN")
-    public static let emailValidationError = APIError.Code("EMAIL_VALIDATION_ERROR")
-    public static let passwordValidationError = APIError.Code("PASSWORD_VALIDATION_ERROR")
-    public static let dublicateUserError = APIError.Code("DUPLICATE_USER_ERROR")
-    public static let serializationError = APIError.Code("SERIALIZATION_ERROR")
-    public static let fileNotFoundError = APIError.Code("FILE_NOT_FOUND_ERROR")
-    public static let tooBigFileError = APIError.Code("TOO_BIG_FILE_ERROR")
-    public static let badFileExtensionError = APIError.Code("BAD_FILE_EXTENSION_ERROR")
 }

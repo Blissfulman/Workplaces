@@ -628,11 +628,11 @@
 		CE8F1BCE2634A9F300C0C52C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CE12A1F32635F91600EE6549 /* APIError.swift */,
-				CE12A1F22635F91600EE6549 /* Codable.swift */,
-				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
-				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
 				CE12A23C2637091C00EE6549 /* AuthRequestInterceptor.swift */,
+				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
+				CE12A1F32635F91600EE6549 /* APIError.swift */,
+				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
+				CE12A1F22635F91600EE6549 /* Codable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

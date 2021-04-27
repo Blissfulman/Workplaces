@@ -49,6 +49,7 @@ final class ServiceLayer {
     // MARK: - Private methods
     
     private func validateSession(responseError: Error?) {
+        print(responseError?.localizedDescription ?? "")
         if let error = responseError as? APIError, error.code == .tokenInvalid {
 //            authorizationService.signOut { _ in }
         }
