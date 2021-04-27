@@ -28,16 +28,16 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     // MARK: - Private properties
     
-    private let credentialData: CredentialData
+    private let userCredentials: UserCredentials
     private let authorizationService: AuthorizationService
     private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(credentialData: CredentialData,
+    init(userCredentials: UserCredentials,
          authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
-        self.credentialData = credentialData
+        self.userCredentials = userCredentials
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -67,16 +67,16 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     // MARK: - Actions
     
     @IBAction private func registerButtonTapped() {
-        guard let email = credentialData.email, !email.isEmpty,
-              let password = credentialData.password, !password.isEmpty else {
+        guard let email = userCredentials.email, !email.isEmpty,
+              let password = userCredentials.password, !password.isEmpty else {
             showAlert("Необходимо было ввести email и пароль")
             return
         }
         
-        let credentialData = CredentialData(email: email, password: password)
+        let userCredentials = UserCredentials(email: email, password: password)
         
         LoadingView.show()
-        let progress = authorizationService.registerUser(credentialData: credentialData) { [weak self] result in
+        let progress = authorizationService.registerUser(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {

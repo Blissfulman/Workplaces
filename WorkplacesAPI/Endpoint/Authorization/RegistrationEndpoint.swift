@@ -11,13 +11,13 @@ public struct RegistrationEndpoint: JsonEndpoint {
     
     public typealias Content = AuthorizationData
     
-    let credentialData: CredentialData
+    let userCredentials: UserCredentials
     
-    public init(credentialData: CredentialData) {
-        self.credentialData = credentialData
+    public init(userCredentials: UserCredentials) {
+        self.userCredentials = userCredentials
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "auth/registration")!, body: .json(try JSONEncoder.default.encode(credentialData)))
+        post(URL(string: "auth/registration")!, body: .json(try JSONEncoder.default.encode(userCredentials)))
     }
 }

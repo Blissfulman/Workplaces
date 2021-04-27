@@ -106,8 +106,8 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         
         let signUpFirstVC = SignUpFirstViewController()
         
-        signUpFirstVC.didTapNextButton = { [weak self] credentialData in
-            self?.showSignUpSecondScreen(credentialData: credentialData)
+        signUpFirstVC.didTapNextButton = { [weak self] userCredentials in
+            self?.showSignUpSecondScreen(userCredentials: userCredentials)
         }
         
         signUpFirstVC.didTapAlreadyRegisteredButton = { [weak self] in
@@ -117,8 +117,8 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         navigationController?.pushViewController(signUpFirstVC, animated: true)
     }
     
-    private func showSignUpSecondScreen(credentialData: CredentialData) {
-        let signUpSecondVC = SignUpSecondViewController(credentialData: credentialData)
+    private func showSignUpSecondScreen(userCredentials: UserCredentials) {
+        let signUpSecondVC = SignUpSecondViewController(userCredentials: userCredentials)
         
         signUpSecondVC.didTapRegisterButton = { [weak self] in
             self?.showSignInDoneScreen()

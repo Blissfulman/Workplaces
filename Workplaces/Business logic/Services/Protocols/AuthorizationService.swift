@@ -14,17 +14,20 @@ protocol AuthorizationService {
     
     /// Регистрация нового пользоваталя.
     /// - Parameters:
-    ///   - credentialData: Учётные данные для регистрации.
+    ///   - userCredentials: Учётные данные для регистрации.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func registerUser(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress
+    func registerUser(
+        userCredentials: UserCredentials,
+        completion: @escaping AuthorizationDataResultHandler
+    ) -> Progress
     
     /// Авторизация зарегистрированного пользователя.
     /// - Parameters:
-    ///   - credentialData: Учётные данные пользователя.
+    ///   - userCredentials: Учётные данные пользователя.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func signIn(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress
+    func signIn(userCredentials: UserCredentials, completion: @escaping AuthorizationDataResultHandler) -> Progress
     
     /// Авторизация с помощью аккаунта Google.
     func signInByGoogle()

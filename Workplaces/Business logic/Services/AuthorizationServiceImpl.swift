@@ -27,10 +27,10 @@ final class AuthorizationServiceImpl: AuthorizationService {
     // MARK: - Public methods
     
     func registerUser(
-        credentialData: CredentialData,
+        userCredentials: UserCredentials,
         completion: @escaping AuthorizationDataResultHandler
     ) -> Progress {
-        let endpoint = RegistrationEndpoint(credentialData: credentialData)
+        let endpoint = RegistrationEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
@@ -42,8 +42,8 @@ final class AuthorizationServiceImpl: AuthorizationService {
         }
     }
     
-    func signIn(credentialData: CredentialData, completion: @escaping AuthorizationDataResultHandler) -> Progress {
-        let endpoint = LoginEndpoint(credentialData: credentialData)
+    func signIn(userCredentials: UserCredentials, completion: @escaping AuthorizationDataResultHandler) -> Progress {
+        let endpoint = LoginEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint, completionHandler: completion)
     }
     
