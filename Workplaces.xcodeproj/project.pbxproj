@@ -80,7 +80,6 @@
 		CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */; };
 		CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */; };
 		CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */; };
-		CE8F1C1226354D6700C0C52C /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1126354D6700C0C52C /* SettingsStorage.swift */; };
 		CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */; };
 		CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1B263553FC00C0C52C /* Coordinator.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
@@ -217,7 +216,6 @@
 		CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServiceImpl.swift; sourceTree = "<group>"; };
 		CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImpl.swift; sourceTree = "<group>"; };
 		CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceImpl.swift; sourceTree = "<group>"; };
-		CE8F1C1126354D6700C0C52C /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		CE8F1C1B263553FC00C0C52C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 				CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */,
 				CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */,
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
-				CE8F1C1126354D6700C0C52C /* SettingsStorage.swift */,
 				CE12A262263733B200EE6549 /* AuthDataStorage.swift */,
 				CE8F1BDE2635173F00C0C52C /* Protocols */,
 			);
@@ -988,7 +985,6 @@
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
-				CE8F1C1226354D6700C0C52C /* SettingsStorage.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,

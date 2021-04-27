@@ -14,6 +14,7 @@ protocol AuthDataStorage {
     func saveAuthData(_ data: AuthorizationData)
     func getAccessToken() -> String
     func getRefreshToken() -> String
+    func deleteAuthData()
 }
 
 final class AuthDataStorageImpl: AuthDataStorage {
@@ -38,11 +39,17 @@ final class AuthDataStorageImpl: AuthDataStorage {
     func getRefreshToken() -> String {
         storage.get(forKey: refreshTokenKey)
     }
+    
+    func deleteAuthData() {
+        storage.remove(forKey: accessTokenKey)
+        storage.remove(forKey: refreshTokenKey)
+    }
 }
 
 protocol StringStorage: AnyObject {
     func save(_ value: String, forKey defaultName: String)
     func get(forKey defaultName: String) -> String
+    func remove(forKey defaultName: String)
 }
 
 extension UserDefaults: StringStorage {
@@ -53,5 +60,9 @@ extension UserDefaults: StringStorage {
 
     func get(forKey defaultName: String) -> String {
         (UserDefaults.standard.object(forKey: defaultName) as? String) ?? ""
+    }
+    
+    func remove(forKey defaultName: String) {
+        UserDefaults.standard.removeObject(forKey: defaultName)
     }
 }

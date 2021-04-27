@@ -26,14 +26,12 @@ final class ServiceLayer {
         )
     }()
     
-    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(
-        apiClient: apiClient, authDataStorage: authDataStorage, settingsStorage: settingsStorage
-    )
+    lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(apiClient: apiClient,
+                                                                                   authDataStorage: authDataStorage)
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
     lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
     
-    lazy var settingsStorage: SettingsStorage = SettingsStorageImpl(storage: UserDefaults.standard)
     lazy var authDataStorage: AuthDataStorage = AuthDataStorageImpl(storage: UserDefaults.standard)
     
     // MARK: - Private properties

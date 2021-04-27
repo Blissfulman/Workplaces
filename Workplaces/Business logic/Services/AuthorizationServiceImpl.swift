@@ -14,14 +14,12 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     private let apiClient: Client
     private let authDataStorage: AuthDataStorage
-    private let settingsStorage: SettingsStorage
     
     // MARK: - Initializers
     
-    init(apiClient: Client, authDataStorage: AuthDataStorage, settingsStorage: SettingsStorage) {
+    init(apiClient: Client, authDataStorage: AuthDataStorage) {
         self.apiClient = apiClient
         self.authDataStorage = authDataStorage
-        self.settingsStorage = settingsStorage
     }
     
     // MARK: - Public methods
@@ -69,7 +67,15 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     func signOut(completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LogoutEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { [weak self] result in
+            switch result {
+            case .success:
+                self?.authDataStorage.deleteAuthData()
+                completion(.success(()))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress {
