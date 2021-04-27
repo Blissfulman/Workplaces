@@ -7,7 +7,7 @@
 
 public struct RefreshToken: Codable {
     
-    public let value: String
+    let value: String
     
     enum CodingKeys: String, CodingKey {
         case value = "refresh_token"

@@ -41,7 +41,7 @@ public struct APIError: Decodable, Error, LocalizedError {
         case .passwordValidationError:
             return "Пароль имеет недопустимый формат"
         case .dublicateUserError:
-            return "Юзер с указанным email уже зарегистрирован"
+            return "Пользователь с указанным email уже зарегистрирован"
         case .serializationError:
             return "Входные данные не соответсвуют модели"
         case .fileNotFoundError:

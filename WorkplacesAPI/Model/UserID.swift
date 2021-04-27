@@ -7,7 +7,7 @@
 
 public struct UserID: Codable {
     
-    public let value: String
+    let value: User.ID
     
     enum CodingKeys: String, CodingKey {
         case value = "user_id"

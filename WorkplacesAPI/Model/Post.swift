@@ -5,8 +5,6 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-import Foundation
-
 public struct Post: Identifiable, Codable {
     
     public let id: String
@@ -25,5 +23,40 @@ public struct Post: Identifiable, Codable {
         case latitude = "lat"
         case author
         case likes
+    }
+    
+    /// Инициализатор для создания экземпляра `Post` для тестов.
+    private init(
+        id: String,
+        text: String?,
+        imageURL: URL?,
+        longitude: Double?,
+        latitude: Double?,
+        author: User,
+        likes: Int
+    ) {
+        self.id = id
+        self.text = text
+        self.imageURL = imageURL
+        self.longitude = longitude
+        self.latitude = latitude
+        self.author = author
+        self.likes = likes
+    }
+}
+
+public extension Post {
+    
+    /// Возвращает экземпляр `Post` для тестов.
+    static func testPost() -> Self {
+        Post(
+            id: "test",
+            text: "test",
+            imageURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            longitude: 0,
+            latitude: 0,
+            author: User.testUser(),
+            likes: 0
+        )
     }
 }

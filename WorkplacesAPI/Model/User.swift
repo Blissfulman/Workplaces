@@ -5,8 +5,6 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-import Foundation
-
 public struct User: Identifiable, Codable {
     
     public let id: String
@@ -23,5 +21,30 @@ public struct User: Identifiable, Codable {
         case nickname
         case avatarURL = "avatar_url"
         case birthday = "birth_day"
+    }
+    
+    /// Инициализатор для создания экземпляра `User` для тестов.
+    private init(id: String, firstName: String, lastName: String, nickname: String?, avatarURL: URL?, birthday: Date) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.nickname = nickname
+        self.avatarURL = avatarURL
+        self.birthday = birthday
+    }
+}
+
+public extension User {
+    
+    /// Возвращает экземпляр `User` для тестов.
+    static func testUser() -> Self {
+        User(
+            id: "test",
+            firstName: "test",
+            lastName: "test",
+            nickname: "test",
+            avatarURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            birthday: Date()
+        )
     }
 }

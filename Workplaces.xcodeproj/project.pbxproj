@@ -54,6 +54,22 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
+		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
+		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
+		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
+		CE1F490326388F6900FD117C /* MyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */; };
+		CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */; };
+		CE1F4909263895C800FD117C /* MyPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */; };
+		CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */; };
+		CE1F490D2638964500FD117C /* LikedPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */; };
+		CE1F49102638975500FD117C /* PublishPostEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490F2638975500FD117C /* PublishPostEndpointTests.swift */; };
+		CE1F4913263899ED00FD117C /* FeedPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F4912263899ED00FD117C /* FeedPostListEndpointTests.swift */; };
+		CE1F491526389A3E00FD117C /* LikePostEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491426389A3E00FD117C /* LikePostEndpointTests.swift */; };
+		CE1F491726389AD100FD117C /* UnlikePostEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491626389AD100FD117C /* UnlikePostEndpointTests.swift */; };
+		CE1F491A26389B4900FD117C /* RegistrationEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491926389B4900FD117C /* RegistrationEndpointTests.swift */; };
+		CE1F491C26389C6100FD117C /* LoginEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491B26389C6100FD117C /* LoginEndpointTests.swift */; };
+		CE1F491E26389CA400FD117C /* LogoutEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491D26389CA400FD117C /* LogoutEndpointTests.swift */; };
+		CE1F492026389CF800FD117C /* RefreshTokenEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378B262DEEB000A6DC20 /* SignUpFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE573789262DEEB000A6DC20 /* SignUpFirstViewController.xib */; };
@@ -68,7 +84,6 @@
 		CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B6026340EAB00C0C52C /* NibInitializable.swift */; };
 		CE8F1B6C263470ED00C0C52C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */; };
 		CE8F1BB52634A9BB00C0C52C /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; };
-		CE8F1BBC2634A9BB00C0C52C /* WorkplacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BBB2634A9BB00C0C52C /* WorkplacesAPITests.swift */; };
 		CE8F1BBE2634A9BB00C0C52C /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE8F1BC12634A9BB00C0C52C /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; };
 		CE8F1BC22634A9BB00C0C52C /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -186,6 +201,22 @@
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
+		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490F2638975500FD117C /* PublishPostEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F4912263899ED00FD117C /* FeedPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491426389A3E00FD117C /* LikePostEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePostEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491626389AD100FD117C /* UnlikePostEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlikePostEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491926389B4900FD117C /* RegistrationEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491B26389C6100FD117C /* LoginEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491D26389CA400FD117C /* LogoutEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpointTests.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +237,6 @@
 		CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		CE8F1BAF2634A9BB00C0C52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8F1BB42634A9BB00C0C52C /* WorkplacesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE8F1BBB2634A9BB00C0C52C /* WorkplacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesAPITests.swift; sourceTree = "<group>"; };
 		CE8F1BBD2634A9BB00C0C52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8F1BE22635194400C0C52C /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		CE8F1BE9263519BA00C0C52C /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
@@ -499,6 +529,68 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		CE1F48F526388CB900FD117C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F48FA26388D3200FD117C /* Asserts.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE1F48FC26388D5F00FD117C /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F491826389B2F00FD117C /* Authorization */,
+				CE1F4911263899E400FD117C /* Feed */,
+				CE1F490E2638974700FD117C /* NewPost */,
+				CE1F48FD26388DA000FD117C /* Profile */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		CE1F48FD26388DA000FD117C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */,
+				CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */,
+				CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */,
+				CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */,
+				CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */,
+				CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */,
+				CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE1F490E2638974700FD117C /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F490F2638975500FD117C /* PublishPostEndpointTests.swift */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		CE1F4911263899E400FD117C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F4912263899ED00FD117C /* FeedPostListEndpointTests.swift */,
+				CE1F491426389A3E00FD117C /* LikePostEndpointTests.swift */,
+				CE1F491626389AD100FD117C /* UnlikePostEndpointTests.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		CE1F491826389B2F00FD117C /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F491926389B4900FD117C /* RegistrationEndpointTests.swift */,
+				CE1F491B26389C6100FD117C /* LoginEndpointTests.swift */,
+				CE1F491D26389CA400FD117C /* LogoutEndpointTests.swift */,
+				CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 		CE573796262DF49A00A6DC20 /* SignUpSecond */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,7 +686,8 @@
 		CE8F1BBA2634A9BB00C0C52C /* WorkplacesAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				CE8F1BBB2634A9BB00C0C52C /* WorkplacesAPITests.swift */,
+				CE1F48F526388CB900FD117C /* Common */,
+				CE1F48FC26388D5F00FD117C /* Endpoint */,
 				CE8F1BBD2634A9BB00C0C52C /* Info.plist */,
 			);
 			path = WorkplacesAPITests;
@@ -1043,7 +1136,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8F1BBC2634A9BB00C0C52C /* WorkplacesAPITests.swift in Sources */,
+				CE1F491526389A3E00FD117C /* LikePostEndpointTests.swift in Sources */,
+				CE1F4913263899ED00FD117C /* FeedPostListEndpointTests.swift in Sources */,
+				CE1F491E26389CA400FD117C /* LogoutEndpointTests.swift in Sources */,
+				CE1F491726389AD100FD117C /* UnlikePostEndpointTests.swift in Sources */,
+				CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */,
+				CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */,
+				CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */,
+				CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */,
+				CE1F490326388F6900FD117C /* MyProfileEndpointTests.swift in Sources */,
+				CE1F491C26389C6100FD117C /* LoginEndpointTests.swift in Sources */,
+				CE1F491A26389B4900FD117C /* RegistrationEndpointTests.swift in Sources */,
+				CE1F4909263895C800FD117C /* MyPostListEndpointTests.swift in Sources */,
+				CE1F490D2638964500FD117C /* LikedPostListEndpointTests.swift in Sources */,
+				CE1F49102638975500FD117C /* PublishPostEndpointTests.swift in Sources */,
+				CE1F492026389CF800FD117C /* RefreshTokenEndpointTests.swift in Sources */,
+				CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

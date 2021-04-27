@@ -9,7 +9,7 @@ import Apexy
 
 public struct RemoveFriendEndpoint: EmptyEndpoint {
     
-    private let userID: String
+    private let userID: User.ID
     
     public init(userID: User.ID) {
         self.userID = userID
