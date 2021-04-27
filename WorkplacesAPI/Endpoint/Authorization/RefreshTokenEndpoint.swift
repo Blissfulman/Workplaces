@@ -11,13 +11,13 @@ public struct RefreshTokenEndpoint: JsonEndpoint {
     
     public typealias Content = AuthorizationData
     
-    let refreshToken: String
+    let refreshToken: RefreshToken
     
     public init(refreshToken: String) {
-        self.refreshToken = refreshToken
+        self.refreshToken = RefreshToken(value: refreshToken)
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "auth/registration")!, body: nil)// .json(try JSONEncoder.default.encode(credentialData)))
+        post(URL(string: "auth/refresh")!, body: .json(try JSONEncoder.default.encode(refreshToken)))
     }
 }

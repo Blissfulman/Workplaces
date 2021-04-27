@@ -9,15 +9,13 @@ import Apexy
 
 public struct AddFriendEndpoint: EmptyEndpoint {
         
-    private let userID: String
+    private let userID: UserID
     
     public init(userID: User.ID) {
-        self.userID = userID
+        self.userID = UserID(value: userID)
     }
     
     public func makeRequest() throws -> URLRequest {
-        let userData = try JSONEncoder.default.encode(userID)
-        let body = HTTPBody(data: userData, contentType: "multipart/form-data")
-        return post(URL(string: "me/friends")!, body: body)
+        post(URL(string: "me/friends")!, body: .json(try JSONEncoder.default.encode(userID)))
     }
 }

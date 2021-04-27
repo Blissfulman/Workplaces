@@ -20,7 +20,7 @@ final class ServiceLayer {
         AlamofireClient(
             requestInterceptor: AuthRequestInterceptor(baseURL: Constants.apiBaseURL, accessToken: accessToken),
             configuration: .ephemeral,
-            responseObserver: { [weak self] request, response, data, error in
+            responseObserver: { [weak self] _, _, _, error in
                 self?.validateSession(responseError: error)
             }
         )
