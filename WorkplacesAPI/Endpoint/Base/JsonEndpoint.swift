@@ -15,7 +15,7 @@ protocol JsonEndpoint: Endpoint, URLRequestBuildable where Content: Decodable {}
 extension JsonEndpoint {
 
     /// Request body encoder.
-    internal var encoder: JSONEncoder { return JSONEncoder.default }
+    internal var encoder: JSONEncoder { JSONEncoder.default }
 
     public func content(from response: URLResponse?, with body: Data) throws -> Content {
         try ResponseValidator.validate(response, with: body)

@@ -18,6 +18,6 @@ public struct PublishPostEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "me/posts")!, body: .form(try JSONEncoder.default.encode(post)))
+        post(URL(string: "me/posts")!, body: .form(try encoder.encode(post)))
     }
 }

@@ -16,6 +16,6 @@ public struct AddFriendEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "me/friends")!, body: .json(try JSONEncoder.default.encode(userID)))
+        post(URL(string: "me/friends")!, body: .json(try encoder.encode(userID)))
     }
 }

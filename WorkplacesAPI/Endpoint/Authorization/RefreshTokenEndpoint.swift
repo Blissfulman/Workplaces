@@ -18,6 +18,6 @@ public struct RefreshTokenEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "auth/refresh")!, body: .json(try JSONEncoder.default.encode(refreshToken)))
+        post(URL(string: "auth/refresh")!, body: .json(try encoder.encode(refreshToken)))
     }
 }

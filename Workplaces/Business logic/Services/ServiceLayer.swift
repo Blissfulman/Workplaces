@@ -36,7 +36,7 @@ final class ServiceLayer {
     
     // MARK: - Private properties
     
-    var accessToken: String {
+    private var accessToken: String {
         return authDataStorage.getAccessToken()
     }
     
@@ -47,6 +47,8 @@ final class ServiceLayer {
     // MARK: - Private methods
     
     private func validateSession(responseError: Error?) {
-        print(responseError?.localizedDescription ?? "No error")
+        if let error = responseError as? APIError, error.code == .tokenInvalid {
+//            authorizationService.signOut { _ in }
+        }
     }
 }

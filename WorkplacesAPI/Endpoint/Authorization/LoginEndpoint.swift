@@ -18,6 +18,6 @@ public struct LoginEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "auth/login")!, body: .json(try JSONEncoder.default.encode(userCredentials)))
+        post(URL(string: "auth/login")!, body: .json(try encoder.encode(userCredentials)))
     }
 }

@@ -7,6 +7,7 @@
 
 import Alamofire
 
+/// Implementation of Alamofire.RequestInterceptor.
 public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     
     // MARK: - Private properties
@@ -16,7 +17,7 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     
     // MARK: - Initializers
     
-    /// Создаёт экземпляр `AuthRequestInterceptor` с указанным базовым `URL` и токеном доступа.
+    /// Creates an `AuthRequestInterceptor` instance with specified base `URL` and access token.
     /// - Parameters:
     ///   - baseURL: Базовый `URL` для адаптора.
     ///   - accessToken: Токен доступа для адаптора.
