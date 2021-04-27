@@ -18,6 +18,6 @@ public struct UpdatingMyProfileEndpoint: JsonEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        patch(URL(string: "me")!, body: .json(try JSONEncoder.default.encode(user)))
+        patch(URL(string: "me")!, body: .form(try JSONEncoder.default.encode(user)))
     }
 }

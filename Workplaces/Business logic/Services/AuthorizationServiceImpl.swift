@@ -44,7 +44,15 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     func signIn(userCredentials: UserCredentials, completion: @escaping AuthorizationDataResultHandler) -> Progress {
         let endpoint = LoginEndpoint(userCredentials: userCredentials)
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { [weak self] result in
+            switch result {
+            case let .success(authorizationData):
+                self?.authDataStorage.saveAuthData(authorizationData)
+                completion(.success(authorizationData))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func signInByGoogle() {
@@ -66,6 +74,14 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress {
         let endpoint = RefreshTokenEndpoint(refreshToken: authDataStorage.getRefreshToken())
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { [weak self] result in
+            switch result {
+            case let .success(authorizationData):
+                self?.authDataStorage.saveAuthData(authorizationData)
+                completion(.success(authorizationData))
+            case let .failure(error):
+                completion(.failure(error))
+            }
+        }
     }
 }
