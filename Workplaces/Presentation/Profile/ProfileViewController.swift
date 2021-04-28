@@ -17,7 +17,7 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(profileService: ProfileService = ProfileServiceImpl(apiClient: ServiceLayer.shared.apiClient)) {
+    init(profileService: ProfileService = ServiceLayer.shared.profileService) {
         self.profileService = profileService
         super.init(nibName: nil, bundle: nil)
     }

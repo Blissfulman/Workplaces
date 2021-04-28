@@ -18,7 +18,7 @@ final class FeedViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        feedService: FeedService = FeedServiceImpl(apiClient: ServiceLayer.shared.apiClient),
+        feedService: FeedService = ServiceLayer.shared.feedService,
         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
         self.feedService = feedService

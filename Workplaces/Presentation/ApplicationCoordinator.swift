@@ -17,7 +17,7 @@ final class ApplicationCoordinator {
     
     // MARK: - Initializers
     
-    init(window: UIWindow?, authDataStorage: AuthDataStorage) {
+    init(window: UIWindow?, authDataStorage: AuthDataStorage = ServiceLayer.shared.authDataStorage) {
         self.window = window
         self.authDataStorage = authDataStorage
     }
@@ -25,7 +25,7 @@ final class ApplicationCoordinator {
     // MARK: - Public methods
     
     func start() {
-        if !authDataStorage.getAccessToken().isEmpty {
+        if authDataStorage.accessToken != nil {
             window?.rootViewController = TabBarController()
         } else {
             let navigationController = UINavigationController()

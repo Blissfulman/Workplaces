@@ -18,11 +18,8 @@ final class NewPostViewController: UIViewController {
     // MARK: - Initializers
     
     init(
-        newPostService: NewPostService = NewPostServiceImpl(apiClient: ServiceLayer.shared.apiClient),
-        authorizationService: AuthorizationService = AuthorizationServiceImpl(
-            apiClient: ServiceLayer.shared.apiClient,
-            authDataStorage: ServiceLayer.shared.authDataStorage
-        )
+        newPostService: NewPostService = ServiceLayer.shared.newPostService,
+        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
         self.newPostService = newPostService
         self.authorizationService = authorizationService

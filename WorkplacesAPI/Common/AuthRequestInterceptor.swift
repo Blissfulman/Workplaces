@@ -13,7 +13,7 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     // MARK: - Private properties
     
     private let baseURL: URL
-    private let accessToken: () -> String
+    private let accessToken: () -> String?
     
     // MARK: - Initializers
     
@@ -21,7 +21,7 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     /// - Parameters:
     ///   - baseURL: Base `URL` for adapter.
     ///   - accessToken: Access token for adapter.
-    public init(baseURL: URL, accessToken: @escaping () -> String) {
+    public init(baseURL: URL, accessToken: @escaping () -> String?) {
         self.baseURL = baseURL
         self.accessToken = accessToken
     }
@@ -40,7 +40,7 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        request.addValue("Bearer \(accessToken())", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken() ?? "")", forHTTPHeaderField: "Authorization")
         
         completion(.success(request))
     }

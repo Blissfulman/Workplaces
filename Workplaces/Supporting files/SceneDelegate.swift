@@ -19,10 +19,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        applicationCoordinator = ApplicationCoordinator(
-            window: window,
-            authDataStorage: ServiceLayer.shared.authDataStorage
-        )
+        applicationCoordinator = ApplicationCoordinator(window: window)
         applicationCoordinator.start()
         window?.makeKeyAndVisible()
     }

@@ -38,8 +38,8 @@ final class ServiceLayer {
     
     // MARK: - Private properties
     
-    private var accessToken: String {
-        authDataStorage.getAccessToken()
+    private var accessToken: String? {
+        authDataStorage.accessToken
     }
     
     // MARK: - Initializers
