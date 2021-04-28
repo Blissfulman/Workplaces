@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 // MARK: - Protocols
 
@@ -19,31 +20,37 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     var didTapRegisterButton: VoidBlock?
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
-    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var firstNameTextField: UITextField!
+    @IBOutlet private weak var secondNameTextField: UITextField!
     @IBOutlet private weak var bithdayTextField: UITextField!
-    @IBOutlet private weak var cityTextField: UITextField!
     
     // MARK: - Private properties
     
-    private let userFirstScreen: User
-    private let passwordFirstScreen: String?
-    private let authorizationService: AuthorizationServiceProtocol
+    private let userCredentials: UserCredentials
+    private let authorizationService: AuthorizationService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(user: User,
-         password: String?,
-         authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
-        self.userFirstScreen = user
-        self.passwordFirstScreen = password
+    init(
+        userCredentials: UserCredentials,
+        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
+    ) {
+        self.userCredentials = userCredentials
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Deinitializer
+    
+    deinit {
+        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -61,14 +68,16 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     // MARK: - Actions
     
     @IBAction private func registerButtonTapped() {
-        guard let email = userFirstScreen.email, !email.isEmpty,
-              let password = passwordFirstScreen, !password.isEmpty else {
+        guard let email = userCredentials.email, !email.isEmpty,
+              let password = userCredentials.password, !password.isEmpty else {
             showAlert("Необходимо было ввести email и пароль")
             return
         }
         
+        let userCredentials = UserCredentials(email: email, password: password)
+        
         LoadingView.show()
-        authorizationService.registerUser(withEmail: email, andPassword: password) { [weak self] result in
+        let progress = authorizationService.registerUser(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -78,6 +87,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
                 self?.showAlert(error)
             }
         }
+        progressList.append(progress)
     }
     
     // MARK: - Private methods

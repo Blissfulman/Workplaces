@@ -11,11 +11,17 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let authorizationService: AuthorizationServiceProtocol
+    private let feedService: FeedService
+    private let authorizationService: AuthorizationService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+    init(
+        feedService: FeedService = ServiceLayer.shared.feedService,
+        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
+    ) {
+        self.feedService = feedService
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,18 +30,57 @@ final class FeedViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Deinitializer
+    
+    deinit {
+        progressList.forEach { $0.cancel() }
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fetchPosts()
     }
     
     // MARK: - Actions
     
     @IBAction private func signOut() {
-        authorizationService.signOut { [weak self] error in
-            self?.showAlert(error)
+        let progress = authorizationService.signOut { [weak self] result in
+            switch result {
+            case .success:
+                guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+                    print("Window access error")
+                    return
+                }
+                sceneDelegate.applicationCoordinator.start()
+            case let .failure(error):
+                self?.showAlert(error)
+            }
+        }
+        progressList.append(progress)
+    }
+    
+    @IBAction private func testLikeAction() {
+        feedService.likePost(postID: "c73ad791-ffdf-4a81-903b-cef52b25f0f9") { result in
+            switch result {
+            case .success:
+                print("Liked!")
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction private func testUnlikeAction() {
+        feedService.unlikePost(postID: "c73ad791-ffdf-4a81-903b-cef52b25f0f9") { result in
+            switch result {
+            case .success:
+                print("Unliked!")
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -43,5 +88,17 @@ final class FeedViewController: UIViewController {
     
     private func setupUI() {
         navigationItem.title = "Популярное"
+    }
+    
+    private func fetchPosts() {
+        let progress = feedService.fetchFeedPosts { result in
+            switch result {
+            case let .success(feedPosts):
+                print(feedPosts)
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
     }
 }

@@ -11,7 +11,10 @@ import UIKit
 
 protocol LoginScreenCoordinable {
     var didTapEnterButton: VoidBlock? { get set }
-    var didTapRegistrationByEmail: VoidBlock? { get set }
+    var didTapEnterByGoogleButton: VoidBlock? { get set }
+    var didTapEnterByFacebookButton: VoidBlock? { get set }
+    var didTapEnterByVKButton: VoidBlock? { get set }
+    var didTapSignUpByEmail: VoidBlock? { get set }
 }
 
 final class LoginViewController: UIViewController, LoginScreenCoordinable {
@@ -19,7 +22,10 @@ final class LoginViewController: UIViewController, LoginScreenCoordinable {
     // MARK: - Public properties
     
     var didTapEnterButton: VoidBlock?
-    var didTapRegistrationByEmail: VoidBlock?
+    var didTapEnterByGoogleButton: VoidBlock?
+    var didTapEnterByFacebookButton: VoidBlock?
+    var didTapEnterByVKButton: VoidBlock?
+    var didTapSignUpByEmail: VoidBlock?
     
     // MARK: - UIViewController
     
@@ -39,8 +45,20 @@ final class LoginViewController: UIViewController, LoginScreenCoordinable {
         didTapEnterButton?()
     }
     
-    @IBAction private func registrationByEmailTapped() {
-        didTapRegistrationByEmail?()
+    @IBAction private func enterByGoogleTapped() {
+        didTapEnterByGoogleButton?()
+    }
+    
+    @IBAction private func enterByFacebookTapped() {
+        didTapEnterByFacebookButton?()
+    }
+    
+    @IBAction private func enterByVKTapped() {
+        didTapEnterByVKButton?()
+    }
+    
+    @IBAction private func signUpByEmailTapped() {
+        didTapSignUpByEmail?()
     }
     
     // MARK: - Private methods

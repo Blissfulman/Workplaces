@@ -17,9 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpSecondViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="bithdayTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
-                <outlet property="cityTextField" destination="iEh-H0-W4S" id="05z-xc-gAj"/>
-                <outlet property="nameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
+                <outlet property="bithdayTextField" destination="iEh-H0-W4S" id="05z-xc-gAj"/>
+                <outlet property="firstNameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
+                <outlet property="secondNameTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,7 +33,7 @@
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
                     <rect key="frame" x="32" y="156" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -57,7 +57,7 @@
                         <action selector="registerButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Город" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
                     <rect key="frame" x="32" y="222" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>

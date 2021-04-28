@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 // MARK: - Protocols
 
 protocol SignUpFirstScreenCoordinable {
-    var didTapNextButton: ((User, String?) -> Void)? { get set }
+    var didTapNextButton: ((UserCredentials) -> Void)? { get set }
     var didTapAlreadyRegisteredButton: VoidBlock? { get set }
 }
 
@@ -18,18 +19,14 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     
     // MARK: - Public properties
     
-    var didTapNextButton: ((User, String?) -> Void)?
+    var didTapNextButton: ((UserCredentials) -> Void)?
     var didTapAlreadyRegisteredButton: VoidBlock?
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
-    @IBOutlet private weak var loginTextField: UITextField!
+    @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    
-    // MARK: - Private properties
-    
-    private var user = User()
     
     // MARK: - UIViewController
     
@@ -46,9 +43,8 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     // MARK: - Actions
     
     @IBAction private func nextButtonTapped() {
-        user.login = loginTextField.text
-        user.email = emailTextField.text
-        didTapNextButton?(user, passwordTextField.text)
+        let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
+        didTapNextButton?(userCredentials)
     }
     
     @IBAction private func alreadyRegisteredButtonTapped() {

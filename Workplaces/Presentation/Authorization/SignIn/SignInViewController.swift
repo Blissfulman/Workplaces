@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 // MARK: - Protocols
 
@@ -16,7 +17,7 @@ protocol SignInScreenCoordinable {
 
 final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
-    // MARK: - IBOutlets
+    // MARK: - Outlets
     
     @IBOutlet private weak var emailOrLoginTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -29,11 +30,12 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Private properties
     
-    private let authorizationService: AuthorizationServiceProtocol
+    private let authorizationService: AuthorizationService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(authorizationService: AuthorizationServiceProtocol = ServiceLayer.shared.authorizationService) {
+    init(authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService) {
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,6 +48,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     deinit {
         removeKeyboardNotifications()
+        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -71,18 +74,20 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         guard let email = emailOrLoginTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else { return }
         
+        let userCredentials = UserCredentials(email: email, password: password)
+        
         LoadingView.show()
-        authorizationService.signIn(withEmail: email, andPassword: password) { [weak self] result in
+        let progress = authorizationService.signIn(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case .success:
-                print("Успешная авторизация!")
                 self?.didTapEnterButton?()
             case let .failure(error):
                 self?.showAlert(error)
             }
         }
+        progressList.append(progress)
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {

@@ -68,6 +68,9 @@
                                 <constraint firstAttribute="width" constant="109" id="tfn-hp-qYm"/>
                             </constraints>
                             <state key="normal" title="Button" image="google_button"/>
+                            <connections>
+                                <action selector="enterByGoogleTapped" destination="-1" eventType="touchUpInside" id="2Fe-Lq-Rge"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgE-yP-44B">
                             <rect key="frame" x="117" y="0.0" width="109" height="54"/>
@@ -76,6 +79,9 @@
                                 <constraint firstAttribute="height" constant="54" id="aj4-GC-bHr"/>
                             </constraints>
                             <state key="normal" title="Button" image="facebook_button"/>
+                            <connections>
+                                <action selector="enterByFacebookTapped" destination="-1" eventType="touchUpInside" id="PsK-e4-CkO"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-BI-qA0">
                             <rect key="frame" x="234" y="0.0" width="109" height="54"/>
@@ -84,6 +90,9 @@
                                 <constraint firstAttribute="height" constant="54" id="dyn-06-mKL"/>
                             </constraints>
                             <state key="normal" title="Button" image="vk_button"/>
+                            <connections>
+                                <action selector="enterByVKTapped" destination="-1" eventType="touchUpInside" id="gLa-B2-70K"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -94,7 +103,7 @@
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="registrationByEmailTapped" destination="-1" eventType="touchUpInside" id="Ded-uD-ZTg"/>
+                        <action selector="signUpByEmailTapped" destination="-1" eventType="touchUpInside" id="Ded-uD-ZTg"/>
                     </connections>
                 </button>
             </subviews>
@@ -119,10 +128,10 @@
         </view>
     </objects>
     <resources>
-        <image name="facebook_button" width="309" height="162"/>
-        <image name="google_button" width="309" height="162"/>
+        <image name="facebook_button" width="103" height="54"/>
+        <image name="google_button" width="103" height="54"/>
         <image name="login_screen" width="226" height="170"/>
-        <image name="vk_button" width="312" height="162"/>
+        <image name="vk_button" width="104" height="54"/>
         <namedColor name="middleGrey">
             <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
