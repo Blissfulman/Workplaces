@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 final class ProfileViewController: UIViewController {
     
     // MARK: - Private properties
     
     private let profileService: ProfileService
+    private var progressList = [Progress]()
     
     // MARK: - Initializers
     
@@ -22,6 +24,12 @@ final class ProfileViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Deinitializer
+    
+    deinit {
+        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -39,14 +47,43 @@ final class ProfileViewController: UIViewController {
     }
     
     private func fetchProfile() {
-        // Тест загрузки лайкнутых постов
-        profileService.fetchLikedPosts { result in
+        // Тест загрузки своего профиля
+        profileService.fetchMyProfile { result in
             switch result {
-            case let .success(likedPosts):
-                print(likedPosts)
+            case let .success(profile):
+                print("My Profile:", profile)
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
+        
+        // Тест загрузки лайкнутых постов
+        profileService.fetchLikedPosts { result in
+            switch result {
+            case let .success(likedPosts):
+                print("Liked Posts:", likedPosts)
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // Тест обновления своего профиля
+        let myProfile = User(
+            id: "12345",
+            firstName: "Name",
+            lastName: "Surname",
+            nickname: "Nick",
+            avatarURL: URL(string: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
+            birthday: Date()
+        )
+        let progress = profileService.updateMyProfile(user: myProfile) { [weak self] result in
+            switch result {
+            case let .success(profile):
+                print("Updated My Profile:", profile)
+            case let .failure(error):
+                self?.showAlert(error)
+            }
+        }
+        progressList.append(progress)
     }
 }
