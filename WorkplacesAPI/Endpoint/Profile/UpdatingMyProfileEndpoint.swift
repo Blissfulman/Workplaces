@@ -11,13 +11,13 @@ public struct UpdatingMyProfileEndpoint: JsonEndpoint {
     
     public typealias Content = User
     
-    private let user: User
+    private let uploadUser: UploadUser
     
     public init(user: User) {
-        self.user = user
+        self.uploadUser = UploadUser(user: user)
     }
     
     public func makeRequest() throws -> URLRequest {
-        patch(URL(string: "me")!, body: .form(try encoder.encode(user)))
+        patch(URL(string: "me")!, body: .multipart(try encoder.encode(uploadUser)))
     }
 }

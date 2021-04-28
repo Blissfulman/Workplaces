@@ -11,13 +11,13 @@ public struct PublishPostEndpoint: JsonEndpoint {
     
     public typealias Content = Post
     
-    let post: Post
+    private let uploadPost: UploadPost
     
     public init(post: Post) {
-        self.post = post
+        self.uploadPost = UploadPost(post: post)
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "me/posts")!, body: .form(try encoder.encode(post)))
+        post(URL(string: "me/posts")!, body: .multipart(try encoder.encode(uploadPost)))
     }
 }

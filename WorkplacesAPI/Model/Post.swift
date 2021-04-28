@@ -18,23 +18,14 @@ public struct Post: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case text
-        case imageURL = "image_url"
+        case imageURL = "imageUrl"
         case longitude = "lon"
         case latitude = "lat"
         case author
         case likes
     }
     
-    /// Инициализатор для создания экземпляра `Post` для тестов.
-    private init(
-        id: String,
-        text: String?,
-        imageURL: URL?,
-        longitude: Double?,
-        latitude: Double?,
-        author: User,
-        likes: Int
-    ) {
+    init(id: String, text: String?, imageURL: URL, longitude: Double?, latitude: Double?, author: User, likes: Int) {
         self.id = id
         self.text = text
         self.imageURL = imageURL
@@ -52,7 +43,7 @@ public extension Post {
         Post(
             id: "test",
             text: "test",
-            imageURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            imageURL: URL(string: "https://redmadrobot.com/")!,
             longitude: 0,
             latitude: 0,
             author: User.testUser(),

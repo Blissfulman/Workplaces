@@ -15,6 +15,7 @@ extension JSONEncoder {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone(identifier: "GMT")
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }()
 }
@@ -27,6 +28,7 @@ extension JSONDecoder {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone(identifier: "GMT")
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
 }

@@ -70,6 +70,9 @@
 		CE1F491C26389C6100FD117C /* LoginEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491B26389C6100FD117C /* LoginEndpointTests.swift */; };
 		CE1F491E26389CA400FD117C /* LogoutEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491D26389CA400FD117C /* LogoutEndpointTests.swift */; };
 		CE1F492026389CF800FD117C /* RefreshTokenEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */; };
+		CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F49212639374300FD117C /* HTTPBody+Extension.swift */; };
+		CE1F492426398E1A00FD117C /* UploadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F492326398E1A00FD117C /* UploadUser.swift */; };
+		CE1F49262639920E00FD117C /* UploadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F49252639920E00FD117C /* UploadPost.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378B262DEEB000A6DC20 /* SignUpFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE573789262DEEB000A6DC20 /* SignUpFirstViewController.xib */; };
@@ -217,6 +220,9 @@
 		CE1F491B26389C6100FD117C /* LoginEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F491D26389CA400FD117C /* LogoutEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F49212639374300FD117C /* HTTPBody+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPBody+Extension.swift"; sourceTree = "<group>"; };
+		CE1F492326398E1A00FD117C /* UploadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUser.swift; sourceTree = "<group>"; };
+		CE1F49252639920E00FD117C /* UploadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPost.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -702,6 +708,8 @@
 				CE12A25C26371E1F00EE6549 /* AuthorizationData.swift */,
 				CECED98E2637B89100619CF3 /* RefreshToken.swift */,
 				CECED9922637B9CA00619CF3 /* UserID.swift */,
+				CE1F492326398E1A00FD117C /* UploadUser.swift */,
+				CE1F49252639920E00FD117C /* UploadPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -726,6 +734,7 @@
 				CE12A1F32635F91600EE6549 /* APIError.swift */,
 				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
 				CE12A1F22635F91600EE6549 /* Codable.swift */,
+				CE1F49212639374300FD117C /* HTTPBody+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1102,11 +1111,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE12A1EF2635F8EE00EE6549 /* ResponseValidator.swift in Sources */,
+				CE1F49262639920E00FD117C /* UploadPost.swift in Sources */,
 				CE12A2532637159700EE6549 /* UserCredentials.swift in Sources */,
 				CE12A2012636773600EE6549 /* LikePostEndpoint.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
 				CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */,
+				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
 				CE12A2502637156000EE6549 /* RefreshTokenEndpoint.swift in Sources */,
 				CE12A1F52635F91600EE6549 /* Codable.swift in Sources */,
@@ -1115,6 +1126,7 @@
 				CE12A2232636AA9E00EE6549 /* FriendListEndpoint.swift in Sources */,
 				CE12A1F72635F91600EE6549 /* HTTPError.swift in Sources */,
 				CE12A24C2637154B00EE6549 /* LogoutEndpoint.swift in Sources */,
+				CE1F492426398E1A00FD117C /* UploadUser.swift in Sources */,
 				CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */,
 				CECED9932637B9CA00619CF3 /* UserID.swift in Sources */,
 				CE12A1FB2635F9C300EE6549 /* User.swift in Sources */,

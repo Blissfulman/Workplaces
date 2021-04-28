@@ -16,15 +16,14 @@ public struct User: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case firstName = "first_name"
-        case lastName = "last_name"
+        case firstName
+        case lastName
         case nickname
-        case avatarURL = "avatar_url"
-        case birthday = "birth_day"
+        case avatarURL = "avatarUrl"
+        case birthday = "birthDay"
     }
     
-    /// Инициализатор для создания экземпляра `User` для тестов.
-    private init(id: String, firstName: String, lastName: String, nickname: String?, avatarURL: URL?, birthday: Date) {
+    public init(id: String, firstName: String, lastName: String, nickname: String?, avatarURL: URL?, birthday: Date) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -43,7 +42,7 @@ public extension User {
             firstName: "test",
             lastName: "test",
             nickname: "test",
-            avatarURL: URL(string: "https://interns2021.redmadrobot.com/")!,
+            avatarURL: URL(string: "https://redmadrobot.com/")!,
             birthday: Date()
         )
     }
