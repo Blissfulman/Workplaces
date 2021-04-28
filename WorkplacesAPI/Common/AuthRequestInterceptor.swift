@@ -40,8 +40,9 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        request.addValue("Bearer \(accessToken() ?? "")", forHTTPHeaderField: "Authorization")
-        
+        if let accessToken = accessToken() {
+            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        }
         completion(.success(request))
     }
     

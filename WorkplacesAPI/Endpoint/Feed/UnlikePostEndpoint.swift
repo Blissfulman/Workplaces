@@ -16,6 +16,9 @@ public struct UnlikePostEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        delete(URL(string: "feed/\(postID)/like")!)
+        let url = URL(string: "feed")!
+            .appendingPathComponent(postID)
+            .appendingPathComponent("like")
+        return delete(url)
     }
 }

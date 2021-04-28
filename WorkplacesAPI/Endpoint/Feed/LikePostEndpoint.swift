@@ -16,6 +16,9 @@ public struct LikePostEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        post(URL(string: "feed/\(postID)/like")!, body: nil)
+        let url = URL(string: "feed")!
+            .appendingPathComponent(postID)
+            .appendingPathComponent("like")
+        return post(url, body: nil)
     }
 }

@@ -6,5 +6,10 @@
 //
 
 public struct UserID: Codable {
+    
     let value: User.ID
+    
+    enum CodingKeys: String, CodingKey {
+        case value = "user_id"
+    }
 }
