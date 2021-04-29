@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 28.04.2021.
 //
 
-public struct UploadPost: Codable {
+public struct UploadPost: Encodable {
     
     let text: String
     let imageFile: String
