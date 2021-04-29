@@ -9,20 +9,21 @@ import Foundation
 
 extension JSONEncoder {
     
-    internal static let `default`: JSONEncoder = {
+    static let `default`: JSONEncoder = {
         let encoder = JSONEncoder()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = TimeZone(identifier: "GMT")
         encoder.dateEncodingStrategy = .formatted(dateFormatter)
         encoder.keyEncodingStrategy = .convertToSnakeCase
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         return encoder
     }()
 }
 
 extension JSONDecoder {
     
-    internal static let `default`: JSONDecoder = {
+    static let `default`: JSONDecoder = {
         let decoder = JSONDecoder()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

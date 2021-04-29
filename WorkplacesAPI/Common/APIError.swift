@@ -5,9 +5,6 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-import Foundation
-
-/// Error from API.
 public struct APIError: Decodable, Error, LocalizedError {
     
     public enum Code: String, Decodable {
@@ -24,10 +21,7 @@ public struct APIError: Decodable, Error, LocalizedError {
         case unknownError = "UNKNOWN_ERROR"
     }
     
-    /// Error code.
     public let code: Code
-    
-    /// Error message.
     public let message: String?
     
     public var errorDescription: String? {

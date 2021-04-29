@@ -47,7 +47,7 @@ final class FeedViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signOut() {
-        let progress = authorizationService.signOut { [weak self] result in
+        let progress = authorizationService.signOut { result in
             switch result {
             case .success:
                 guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
@@ -55,8 +55,8 @@ final class FeedViewController: UIViewController {
                     return
                 }
                 sceneDelegate.applicationCoordinator.start()
-            case let .failure(error):
-                self?.showAlert(error)
+            case .failure:
+                break
             }
         }
         progressList.append(progress)

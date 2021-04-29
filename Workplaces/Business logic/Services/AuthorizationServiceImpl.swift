@@ -72,8 +72,8 @@ final class AuthorizationServiceImpl: AuthorizationService {
             case .success:
                 self?.authDataStorage.deleteAuthData()
                 completion(.success(()))
-            case let .failure(error):
-                completion(.failure(error))
+            case .failure:
+                break
             }
         }
     }

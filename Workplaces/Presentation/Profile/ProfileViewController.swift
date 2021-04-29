@@ -73,7 +73,7 @@ final class ProfileViewController: UIViewController {
             firstName: "Name",
             lastName: "Surname",
             nickname: "Nick",
-            avatarURL: URL(string: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"),
+            avatarURL: URL(string: "https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png"),
             birthday: Date()
         )
         let progress = profileService.updateMyProfile(user: myProfile) { [weak self] result in
