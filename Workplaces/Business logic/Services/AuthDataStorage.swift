@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-import WorkplacesAPI
+import Foundation
 
 // Временный файл с временным сервисом
 

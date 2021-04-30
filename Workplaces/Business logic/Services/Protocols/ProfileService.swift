@@ -5,12 +5,10 @@
 //  Created by Evgeny Novgorodov on 25.04.2021.
 //
 
-import WorkplacesAPI
+import Foundation
 
 protocol ProfileService {
     
-    typealias User = WorkplacesAPI.User
-    typealias Post = WorkplacesAPI.Post
     typealias UserResultHandler = ResultHandler<User>
     typealias UserListResultHandler = ResultHandler<[User]>
     typealias PostListResultHandler = ResultHandler<[Post]>

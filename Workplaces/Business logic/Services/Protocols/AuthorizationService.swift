@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import WorkplacesAPI
 
 protocol AuthorizationService {
     

@@ -5,11 +5,10 @@
 //  Created by Evgeny Novgorodov on 25.04.2021.
 //
 
-import WorkplacesAPI
+import Foundation
 
 protocol NewPostService {
     
-    typealias Post = WorkplacesAPI.Post
     typealias PostResultHandler = ResultHandler<Post>
     
     /// Публикация нового поста.

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WorkplacesAPI
 
 final class ProfileViewController: UIViewController {
     
