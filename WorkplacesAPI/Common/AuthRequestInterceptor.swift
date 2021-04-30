@@ -46,15 +46,6 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         completion(.success(request))
     }
     
-    public func retry(
-        _ request: Request,
-        for session: Session,
-        dueTo error: Error,
-        completion: @escaping (RetryResult) -> Void
-    ) {
-        completion(.doNotRetryWithError(error))
-    }
-    
     // MARK: - Private methods
     
     private func appendingBaseURL(to url: URL) -> URL {

@@ -99,6 +99,7 @@
 		CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */; };
 		CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */; };
 		CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1B263553FC00C0C52C /* Coordinator.swift */; };
+		CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972173263C7ED8006ACEB2 /* Error+Extension.swift */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -253,6 +254,7 @@
 		CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceImpl.swift; sourceTree = "<group>"; };
 		CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		CE8F1C1B263553FC00C0C52C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE972173263C7ED8006ACEB2 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,6 +470,7 @@
 				CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */,
 				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
+				CE972173263C7ED8006ACEB2 /* Error+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1098,6 +1101,7 @@
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
+				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
