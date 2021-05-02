@@ -107,7 +107,7 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
             switch result {
             case let .success(profile):
                 self?.profile = profile
-                self?.title = profile.firstName
+                self?.navigationItem.title = profile.nickname
             case let .failure(error):
                 print(error.localizedDescription)
             }

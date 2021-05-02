@@ -49,6 +49,13 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
         setupUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    // MARK: - Actions
+    
     @IBAction private func saveButtonTapped() {
         didTapSaveButton?(profile)
     }
@@ -59,6 +66,6 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
         nicknameTextField.text = profile.nickname
         firstNameTextField.text = profile.firstName
         lastNameTextField.text = profile.lastName
-        birthdayTextField.text = String(describing: profile.birthday) // TEMP
+        birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: profile.birthday)
     }
 }

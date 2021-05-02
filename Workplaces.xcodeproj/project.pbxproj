@@ -109,6 +109,7 @@
 		CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */; };
 		CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */; };
 		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
+		CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
@@ -274,6 +275,7 @@
 		CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +426,7 @@
 		CE13319B262C26000086433C /* Business logic */ = {
 			isa = PBXGroup;
 			children = (
+				CE972192263F3AA7006ACEB2 /* Extensions */,
 				CE13319E262C26340086433C /* Helpers */,
 				CE13319F262C263E0086433C /* Services */,
 			);
@@ -831,6 +834,14 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		CE972192263F3AA7006ACEB2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1167,7 @@
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
+				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
