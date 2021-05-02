@@ -12,17 +12,12 @@ final class FeedViewController: UIViewController {
     // MARK: - Private properties
     
     private let feedService: FeedService
-    private let authorizationService: AuthorizationService
     private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(
-        feedService: FeedService = ServiceLayer.shared.feedService,
-        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
-    ) {
+    init(feedService: FeedService = ServiceLayer.shared.feedService) {
         self.feedService = feedService
-        self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,22 +40,6 @@ final class FeedViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
-    @IBAction private func signOut() {
-        let progress = authorizationService.signOut { result in
-            switch result {
-            case .success:
-                guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-                    print("Window access error")
-                    return
-                }
-                sceneDelegate.applicationCoordinator.start()
-            case .failure:
-                break
-            }
-        }
-        progressList.append(progress)
-    }
     
     @IBAction private func testLikeAction() {
         feedService.likePost(postID: "c73ad791-ffdf-4a81-903b-cef52b25f0f9") { result in

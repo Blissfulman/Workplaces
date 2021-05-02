@@ -12,12 +12,17 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private properties
     
     private let profileService: ProfileService
+    private let authorizationService: AuthorizationService
     private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(profileService: ProfileService = ServiceLayer.shared.profileService) {
+    init(
+        profileService: ProfileService = ServiceLayer.shared.profileService,
+        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
+    ) {
         self.profileService = profileService
+        self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,10 +44,35 @@ final class ProfileViewController: UIViewController {
         fetchProfile()
     }
     
+    // MARK: - Actions
+    
+    @objc private func logOutBarButtonTapped() {
+        let progress = authorizationService.signOut { result in
+            switch result {
+            case .success:
+                guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+                    print("Window access error")
+                    return
+                }
+                sceneDelegate.applicationCoordinator.start()
+            case .failure:
+                break
+            }
+        }
+        progressList.append(progress)
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
         navigationItem.title = "Профиль"
+        
+        // Временная кнопка для завершения сессии
+        let logOutBarButtonItem = UIBarButtonItem(
+            title: "Log out", style: .plain, target: self, action: #selector(logOutBarButtonTapped)
+        )
+        logOutBarButtonItem.tintColor = Palette.orange
+        navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
     private func fetchProfile() {
