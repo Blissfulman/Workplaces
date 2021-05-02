@@ -22,7 +22,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     // MARK: - Outlets
     
     @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var secondNameTextField: UITextField!
+    @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var bithdayTextField: UITextField!
     
     // MARK: - Private properties
@@ -69,7 +69,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     @IBAction private func registerButtonTapped() {
         guard let email = userCredentials.email, !email.isEmpty,
               let password = userCredentials.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести email и пароль")
+            showAlert("Необходимо было ввести email и пароль") // TEMP
             return
         }
         

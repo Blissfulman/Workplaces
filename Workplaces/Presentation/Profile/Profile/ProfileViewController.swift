@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol ProfileScreenCoordinable {
-    var didTapEditProfileButton: VoidBlock? { get set }
+    var didTapEditProfileButton: ((User) -> Void)? { get set }
     var didTapLogOutButton: VoidBlock? { get set }
 }
 
@@ -18,13 +18,14 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapEditProfileButton: VoidBlock?
+    var didTapEditProfileButton: ((User) -> Void)?
     var didTapLogOutButton: VoidBlock?
     
     // MARK: - Private properties
     
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
+    private var profile: User?
     private var progressList = [Progress]()
     
     // MARK: - Initializers
@@ -71,7 +72,9 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     }
     
     @objc private func editProfileBarButtonTapped() {
-        didTapEditProfileButton?()
+        guard let profile = profile else { return }
+        
+        didTapEditProfileButton?(profile)
     }
     
     // MARK: - Private methods
@@ -96,16 +99,22 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     }
     
     private func fetchProfile() {
-        // Тест загрузки своего профиля
-        profileService.fetchMyProfile { result in
+        LoadingView.show()
+        
+        profileService.fetchMyProfile { [weak self] result in
+            LoadingView.hide()
+            
             switch result {
             case let .success(profile):
-                print("My Profile:", profile)
+                self?.profile = profile
+                self?.title = profile.firstName
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
-        
+    }
+    
+    private func testFetchLikes() {
         // Тест загрузки лайкнутых постов
         profileService.fetchLikedPosts { result in
             switch result {

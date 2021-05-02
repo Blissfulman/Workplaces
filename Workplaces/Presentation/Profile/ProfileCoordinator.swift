@@ -39,8 +39,8 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     private func showProfileScreen() {
         let profileVC = ProfileViewController()
         
-        profileVC.didTapEditProfileButton = { [weak self] in
-            self?.showEditProfileScreen()
+        profileVC.didTapEditProfileButton = { [weak self] profile in
+            self?.showEditProfileScreen(profile: profile)
         }
         
         profileVC.didTapLogOutButton = { [weak self] in
@@ -50,8 +50,13 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
         navigationController?.pushViewController(profileVC, animated: false)
     }
     
-    private func showEditProfileScreen() {
-        let editProfileVC = EditProfileViewController()
+    private func showEditProfileScreen(profile: User) {
+        let editProfileVC = EditProfileViewController(profile: profile)
+        
+        editProfileVC.didTapSaveButton = { profile in
+            print(profile) // TEMP
+        }
+        
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
 }
