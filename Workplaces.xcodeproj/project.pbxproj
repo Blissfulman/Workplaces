@@ -106,6 +106,9 @@
 		CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */; };
 		CE972186263EFCEE006ACEB2 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* FindFriendsViewController.swift */; };
 		CE972187263EFCEE006ACEB2 /* FindFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE972185263EFCEE006ACEB2 /* FindFriendsViewController.xib */; };
+		CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */; };
+		CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */; };
+		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
@@ -268,6 +271,9 @@
 		CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		CE972184263EFCEE006ACEB2 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
 		CE972185263EFCEE006ACEB2 /* FindFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindFriendsViewController.xib; sourceTree = "<group>"; };
+		CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -547,8 +553,9 @@
 		CE1331A9262C2D690086433C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
-				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
+				CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */,
+				CE97218A263F0BD6006ACEB2 /* Profile */,
+				CE97218B263F10FD006ACEB2 /* EditProfile */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -806,6 +813,24 @@
 			path = FindFriends;
 			sourceTree = "<group>";
 		};
+		CE97218A263F0BD6006ACEB2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
+				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE97218B263F10FD006ACEB2 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
+				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1006,6 +1031,7 @@
 				CE972187263EFCEE006ACEB2 /* FindFriendsViewController.xib in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
+				CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */,
 				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE573790262DEEC700A6DC20 /* SignUpSecondViewController.xib in Resources */,
@@ -1121,6 +1147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */,
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
@@ -1160,6 +1187,7 @@
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE97217F263EF847006ACEB2 /* TestError.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
+				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 				CE972186263EFCEE006ACEB2 /* FindFriendsViewController.swift in Sources */,

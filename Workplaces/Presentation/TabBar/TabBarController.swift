@@ -12,6 +12,7 @@ final class TabBarController: UITabBarController {
     // MARK: - Private properties
     
     private var feedCoordinator: FeedCoordinator?
+    private var profileCoordinator: ProfileCoordinator?
     
     // MARK: - UIViewController
     
@@ -28,17 +29,25 @@ final class TabBarController: UITabBarController {
         tabBar.tintColor = Palette.orange
         tabBar.unselectedItemTintColor = Palette.grey
         
-        let feedNavController = UINavigationController()
-        feedCoordinator = FeedCoordinatorImpl(navigationController: feedNavController, onFinish: {})
-        feedNavController.tabBarItem.image = Icons.feed
+        let feedNavigationController = UINavigationController()
+        feedCoordinator = FeedCoordinatorImpl(navigationController: feedNavigationController, onFinish: {})
+        feedNavigationController.tabBarItem.image = Icons.feed
         feedCoordinator?.start()
         
         let newPostVC = UINavigationController(rootViewController: NewPostViewController())
         newPostVC.tabBarItem.image = Icons.newPost
         
-        let profileVC = UINavigationController(rootViewController: ProfileViewController())
-        profileVC.tabBarItem.image = Icons.profile
+        let profileNavigationController = UINavigationController()
+        profileCoordinator = ProfileCoordinatorImpl(navigationController: profileNavigationController) {
+            guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+                print("Window access error")
+                return
+            }
+            sceneDelegate.applicationCoordinator.start()
+        }
+        profileNavigationController.tabBarItem.image = Icons.profile
+        profileCoordinator?.start()
         
-        viewControllers = [feedNavController, newPostVC, profileVC]
+        viewControllers = [feedNavigationController, newPostVC, profileNavigationController]
     }
 }

@@ -7,7 +7,19 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+// MARK: - Protocols
+
+protocol ProfileScreenCoordinable {
+    var didTapEditProfileButton: VoidBlock? { get set }
+    var didTapLogOutButton: VoidBlock? { get set }
+}
+
+final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
+    
+    // MARK: - Public properties
+    
+    var didTapEditProfileButton: VoidBlock?
+    var didTapLogOutButton: VoidBlock?
     
     // MARK: - Private properties
     
@@ -47,14 +59,10 @@ final class ProfileViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func logOutBarButtonTapped() {
-        let progress = authorizationService.signOut { result in
+        let progress = authorizationService.signOut { [weak self] result in
             switch result {
             case .success:
-                guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-                    print("Window access error")
-                    return
-                }
-                sceneDelegate.applicationCoordinator.start()
+                self?.didTapLogOutButton?()
             case .failure:
                 break
             }
@@ -62,10 +70,22 @@ final class ProfileViewController: UIViewController {
         progressList.append(progress)
     }
     
+    @objc private func editProfileBarButtonTapped() {
+        didTapEditProfileButton?()
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
         navigationItem.title = "Профиль"
+        navigationItem.backButtonTitle = ""
+        
+        // Временная кнопка для перехода к редактированию профиля
+        let editProfileBarButtonItem = UIBarButtonItem(
+            title: "Edit profile", style: .plain, target: self, action: #selector(editProfileBarButtonTapped)
+        )
+        editProfileBarButtonItem.tintColor = Palette.darkGrey
+        navigationItem.leftBarButtonItem = editProfileBarButtonItem
         
         // Временная кнопка для завершения сессии
         let logOutBarButtonItem = UIBarButtonItem(
