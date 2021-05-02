@@ -14,6 +14,7 @@ final class ZeroView: UIView, NibInitializable {
     public enum ViewType {
         case error
         case noData
+        case noFriends
     }
     
     // MARK: - Outlets
@@ -41,6 +42,11 @@ final class ZeroView: UIView, NibInitializable {
             titleLabel.text = "Пустота"
             subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
             button.setTitle("Создать пост", for: .normal)
+        case .noFriends:
+            imageView.image = Images.noDataScreen
+            titleLabel.text = "Пустота"
+            subtitleLabel.text = "Вам нужны друзья, чтобы лента стала живой"
+            button.setTitle("Найти друзей", for: .normal)
         }
         if let buttonAction = buttonAction {
             self.buttonAction = buttonAction

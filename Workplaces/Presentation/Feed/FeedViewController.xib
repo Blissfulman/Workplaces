@@ -18,34 +18,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ltG-Bx-0Mn">
-                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIQ-Tp-4R4">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                            <state key="normal" title="Тест лайк"/>
-                            <connections>
-                                <action selector="testLikeAction" destination="-1" eventType="touchUpInside" id="fUC-32-c2V"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yL-CQ-1v7">
-                            <rect key="frame" x="0.0" y="30" width="414" height="30"/>
-                            <state key="normal" title="Тест дизлайк"/>
-                            <connections>
-                                <action selector="testUnlikeAction" destination="-1" eventType="touchUpInside" id="WiL-Xw-x3n"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="ltG-Bx-0Mn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="69u-oy-KaD"/>
-                <constraint firstItem="ltG-Bx-0Mn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Q3l-3p-zZc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ltG-Bx-0Mn" secondAttribute="trailing" id="mF1-IH-ix7"/>
-            </constraints>
             <point key="canvasLocation" x="-212" y="65"/>
         </view>
     </objects>

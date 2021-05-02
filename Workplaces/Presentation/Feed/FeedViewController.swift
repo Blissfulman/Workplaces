@@ -41,26 +41,8 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction private func testLikeAction() {
-        feedService.likePost(postID: "c73ad791-ffdf-4a81-903b-cef52b25f0f9") { result in
-            switch result {
-            case .success:
-                print("Liked!")
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    @IBAction private func testUnlikeAction() {
-        feedService.unlikePost(postID: "c73ad791-ffdf-4a81-903b-cef52b25f0f9") { result in
-            switch result {
-            case .success:
-                print("Unliked!")
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+    private func findFriends() {
+        print("Find")
     }
     
     // MARK: - Private methods
@@ -70,10 +52,17 @@ final class FeedViewController: UIViewController {
     }
     
     private func fetchPosts() {
-        let progress = feedService.fetchFeedPosts { result in
+        LoadingView.show()
+        let progress = feedService.fetchFeedPosts { [weak self] result in
+            LoadingView.hide()
+            
             switch result {
             case let .success(feedPosts):
-                print(feedPosts)
+                if feedPosts.isEmpty {
+                    let zeroView = ZeroView.initializeFromNib()
+                    zeroView.configure(viewType: .noFriends, buttonAction: self?.findFriends)
+                    self?.view = zeroView
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
