@@ -30,6 +30,7 @@ final class ApplicationCoordinator {
         } else {
             let navigationController = UINavigationController()
             window?.rootViewController = navigationController
+            
             authorizationCoordinator = AuthorizationCoordinatorImpl(
                 navigationController: navigationController
             ) { [weak self] in

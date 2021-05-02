@@ -9,18 +9,29 @@ import UIKit
 
 final class TabBarController: UITabBarController {
     
+    // MARK: - Private properties
+    
+    private var feedCoordinator: FeedCoordinator?
+    
+    // MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabs()
     }
     
+    // MARK: - Private methods
+    
     private func configureTabs() {
+        tabBar.backgroundColor = Palette.white
         tabBar.barTintColor = Palette.white
         tabBar.tintColor = Palette.orange
         tabBar.unselectedItemTintColor = Palette.grey
         
-        let feedVC = UINavigationController(rootViewController: FeedViewController())
-        feedVC.tabBarItem.image = Icons.feed
+        let feedNavController = UINavigationController()
+        feedCoordinator = FeedCoordinatorImpl(navigationController: feedNavController, onFinish: {})
+        feedNavController.tabBarItem.image = Icons.feed
+        feedCoordinator?.start()
         
         let newPostVC = UINavigationController(rootViewController: NewPostViewController())
         newPostVC.tabBarItem.image = Icons.newPost
@@ -28,6 +39,6 @@ final class TabBarController: UITabBarController {
         let profileVC = UINavigationController(rootViewController: ProfileViewController())
         profileVC.tabBarItem.image = Icons.profile
         
-        viewControllers = [feedVC, newPostVC, profileVC]
+        viewControllers = [feedNavController, newPostVC, profileVC]
     }
 }

@@ -7,11 +7,22 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController {
+// MARK: - Protocols
+
+protocol FeedScreenCoordinable {
+    var didTapFindFriendButton: VoidBlock? { get set }
+}
+
+final class FeedViewController: UIViewController, FeedScreenCoordinable {
+    
+    // MARK: - Public properties
+    
+    var didTapFindFriendButton: VoidBlock?
     
     // MARK: - Private properties
     
     private let feedService: FeedService
+    private var posts = [Post]()
     private var progressList = [Progress]()
     
     // MARK: - Initializers
@@ -42,29 +53,41 @@ final class FeedViewController: UIViewController {
     // MARK: - Actions
     
     private func findFriends() {
-        print("Find")
+        didTapFindFriendButton?()
+    }
+    
+    private func errorZeroViewButtonAction() {
+        fetchPosts()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
         navigationItem.title = "Популярное"
+        navigationItem.backButtonTitle = ""
     }
     
     private func fetchPosts() {
         LoadingView.show()
         let progress = feedService.fetchFeedPosts { [weak self] result in
+            guard let self = self else { return }
             LoadingView.hide()
             
             switch result {
             case let .success(feedPosts):
                 if feedPosts.isEmpty {
                     let zeroView = ZeroView.initializeFromNib()
-                    zeroView.configure(viewType: .noFriends, buttonAction: self?.findFriends)
-                    self?.view = zeroView
+                    zeroView.configure(viewType: .noFriends, buttonAction: self.findFriends)
+                    self.view = zeroView
+                } else {
+                    self.posts = feedPosts
+                    self.view = UIView()
+                    self.view.backgroundColor = Palette.white
                 }
-            case let .failure(error):
-                print(error.localizedDescription)
+            case .failure:
+                let zeroView = ZeroView.initializeFromNib()
+                zeroView.configure(viewType: .error, buttonAction: self.errorZeroViewButtonAction)
+                self.view = zeroView
             }
         }
         progressList.append(progress)
