@@ -11,8 +11,9 @@ typealias VoidBlock = (() -> Void)
 typealias ResultHandler<T> = (Result<T, Error>) -> Void
 typealias VoidResultHandler = ResultHandler<Void>
 
-// Модели из WorkplacesAPI
+// Модели и классы из WorkplacesAPI
 typealias User = WorkplacesAPI.User
 typealias Post = WorkplacesAPI.Post
 typealias UserCredentials = WorkplacesAPI.UserCredentials
 typealias AuthorizationData = WorkplacesAPI.AuthorizationData
+typealias AuthDataStorage = WorkplacesAPI.AuthDataStorage

@@ -77,17 +77,4 @@ final class AuthorizationServiceImpl: AuthorizationService {
             }
         }
     }
-    
-    func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress {
-        let endpoint = RefreshTokenEndpoint(refreshToken: authDataStorage.refreshToken ?? "")
-        return apiClient.request(endpoint) { [weak self] result in
-            switch result {
-            case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
-                completion(.success(authorizationData))
-            case let .failure(error):
-                completion(.failure(error.unwrapAFError()))
-            }
-        }
-    }
 }

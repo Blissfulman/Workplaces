@@ -7,7 +7,7 @@
 
 public extension Error {
     
-    /// Метод нужен для того чтобы достать ошибку валидации из Alamofire.
+    /// Разворачивает ошибку валидации из Alamofire.
     func unwrapAFError() -> Error {
         guard let afError = asAFError else { return self }
         if case .responseValidationFailed(let reason) = afError,

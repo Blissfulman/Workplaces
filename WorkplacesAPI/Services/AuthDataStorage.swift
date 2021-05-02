@@ -7,24 +7,28 @@
 
 import Foundation
 
-// Временный файл с временным сервисом
+// Сервис временно основан на UserDefaults
 
-protocol AuthDataStorage {
+public protocol AuthDataStorage {
+    var isRefreshingToken: Bool { get }
     var accessToken: String? { get }
     var refreshToken: String? { get }
     func saveAuthData(_ data: AuthorizationData)
     func deleteAuthData()
+    func set(isRefreshingToken: Bool)
 }
 
-final class AuthDataStorageImpl: AuthDataStorage {
+public final class AuthDataStorageImpl: AuthDataStorage {
     
     // MARK: - Public properties
     
-    var accessToken: String? {
+    public var isRefreshingToken = false
+    
+    public var accessToken: String? {
         storage.get(forKey: accessTokenKey)
     }
     
-    var refreshToken: String? {
+    public var refreshToken: String? {
         storage.get(forKey: refreshTokenKey)
     }
     
@@ -36,26 +40,30 @@ final class AuthDataStorageImpl: AuthDataStorage {
     
     // MARK: - Initializers
     
-    init(storage: StringStorage) {
+    public init(storage: StringStorage) {
         self.storage = storage
     }
     
     // MARK: - Public methods
     
-    func saveAuthData(_ data: AuthorizationData) {
+    public func saveAuthData(_ data: AuthorizationData) {
         storage.save(data.accessToken, forKey: accessTokenKey)
         storage.save(data.refreshToken, forKey: refreshTokenKey)
     }
     
-    func deleteAuthData() {
+    public func deleteAuthData() {
         storage.remove(forKey: accessTokenKey)
         storage.remove(forKey: refreshTokenKey)
+    }
+    
+    public func set(isRefreshingToken: Bool) {
+        self.isRefreshingToken = isRefreshingToken
     }
 }
 
 // MARK: - StringStorage
 
-protocol StringStorage: AnyObject {
+public protocol StringStorage: AnyObject {
     func save(_ value: String, forKey defaultName: String)
     func get(forKey defaultName: String) -> String?
     func remove(forKey defaultName: String)
@@ -63,15 +71,15 @@ protocol StringStorage: AnyObject {
 
 extension UserDefaults: StringStorage {
     
-    func save(_ value: String, forKey defaultName: String) {
+    public func save(_ value: String, forKey defaultName: String) {
         UserDefaults.standard.set(value, forKey: defaultName)
     }
 
-    func get(forKey defaultName: String) -> String? {
+    public func get(forKey defaultName: String) -> String? {
         (UserDefaults.standard.object(forKey: defaultName) as? String)
     }
     
-    func remove(forKey defaultName: String) {
+    public func remove(forKey defaultName: String) {
         UserDefaults.standard.removeObject(forKey: defaultName)
     }
 }

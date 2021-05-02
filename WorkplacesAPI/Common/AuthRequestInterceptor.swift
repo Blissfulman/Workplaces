@@ -7,23 +7,32 @@
 
 import Alamofire
 
-/// Implementation of Alamofire.RequestInterceptor.
 public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
+    
+    typealias RetryCompletion = (RetryResult) -> Void
     
     // MARK: - Private properties
     
     private let baseURL: URL
-    private let accessToken: () -> String?
+    private let authDataStorage: AuthDataStorage
+    private let tokenRefreshService: () -> TokenRefreshService
+    private var retryCompletions = [RetryCompletion]()
     
     // MARK: - Initializers
     
-    /// Creates an `AuthRequestInterceptor` instance with specified base `URL` and access token.
+    /// Создаёт экземпляр `AuthRequestInterceptor` с указанным базовым `URL` и токеном доступа.
     /// - Parameters:
-    ///   - baseURL: Base `URL` for adapter.
-    ///   - accessToken: Access token for adapter.
-    public init(baseURL: URL, accessToken: @escaping () -> String?) {
+    ///   - baseURL: Базовый `URL` для адаптера.
+    ///   - authDataStorage: Хранилище авторизационных данных `AuthDataStorage`.
+    ///   - tokenRefreshService: Сервис обновления токена `TokenRefreshService`.
+    public init(
+        baseURL: URL,
+        authDataStorage: AuthDataStorage,
+        tokenRefreshService: @escaping () -> TokenRefreshService
+    ) {
         self.baseURL = baseURL
-        self.accessToken = accessToken
+        self.authDataStorage = authDataStorage
+        self.tokenRefreshService = tokenRefreshService
     }
     
     // MARK: - Alamofire.RequestInterceptor
@@ -40,15 +49,61 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        if let accessToken = accessToken() {
+        if let accessToken = authDataStorage.accessToken {
             request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         completion(.success(request))
+    }
+    
+    public func retry(
+        _ request: Request,
+        for session: Session,
+        dueTo error: Error,
+        completion: @escaping (RetryResult) -> Void
+    ) {
+        if let error = error.unwrapAFError() as? HTTPError, error.statusCode == 401 {
+            retryCompletions.append(completion)
+            tryToRefreshToken()
+        } else {
+            return completion(.doNotRetry)
+        }
     }
     
     // MARK: - Private methods
     
     private func appendingBaseURL(to url: URL) -> URL {
         URL(string: url.absoluteString, relativeTo: baseURL)!
+    }
+    
+    private func tryToRefreshToken() {
+        // !!! Нужно доработать потокобезопасность
+        if !authDataStorage.isRefreshingToken {
+            tokenRefreshService().refreshToken { [weak self] result in
+                switch result {
+                case .success:
+                    self?.retryCompletions.forEach {
+                        $0(.retry)
+                    }
+                case .failure:
+                    self?.retryCompletions.forEach {
+                        $0(.doNotRetry)
+                    }
+                }
+                self?.retryCompletions = []
+            }
+        }
+    }
+}
+
+fileprivate extension Error {
+    
+    /// Разворачивает ошибку валидации из Alamofire.
+    func unwrapAFError() -> Error {
+        guard let afError = asAFError else { return self }
+        if case .responseValidationFailed(let reason) = afError,
+           case .customValidationFailed(let underlyingError) = reason {
+            return underlyingError
+        }
+        return self
     }
 }
