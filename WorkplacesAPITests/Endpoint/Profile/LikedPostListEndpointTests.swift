@@ -42,7 +42,9 @@ final class LikedPostListEndpointTests: XCTestCase {
             """.data(using: .utf8)!
         
         let endpoint = LikedPostListEndpoint()
+        
         XCTAssertNotNil(try endpoint.content(from: nil, with: jsonData), "Error decoding")
+        
         let feedPost = try endpoint.content(from: nil, with: jsonData).first!
         
         XCTAssertEqual(feedPost.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")
