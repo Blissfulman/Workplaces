@@ -148,6 +148,8 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
         firstNameTextField.text = profile.firstName
         lastNameTextField.text = profile.lastName
         birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: profile.birthday)
+        
+        [nicknameTextField, firstNameTextField, lastNameTextField].forEach { $0?.setCustomClearButton() }
     }
     
     private func updateSaveButtonState() {

@@ -53,7 +53,6 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
-		CE1627852640006800468CDA /* WorkplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627842640006800468CDA /* WorkplacesTests.swift */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
@@ -226,7 +225,6 @@
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE1627842640006800468CDA /* WorkplacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesTests.swift; sourceTree = "<group>"; };
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
@@ -585,8 +583,8 @@
 		CE1627832640006800468CDA /* WorkplacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE16279526403EA200468CDA /* Business logic */,
 				CE16278C26400BBA00468CDA /* Presentation */,
-				CE1627842640006800468CDA /* WorkplacesTests.swift */,
 				CE1627862640006800468CDA /* Info.plist */,
 			);
 			path = WorkplacesTests;
@@ -613,6 +611,21 @@
 				CE16278F2640139E00468CDA /* UserTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE16279526403EA200468CDA /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
+				CE16279626403EA600468CDA /* Services */,
+			);
+			path = "Business logic";
+			sourceTree = "<group>";
+		};
+		CE16279626403EA600468CDA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CE1F48F526388CB900FD117C /* Common */ = {
@@ -1244,7 +1257,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1627852640006800468CDA /* WorkplacesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
