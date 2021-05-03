@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class RefreshTokenEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let refreshToken = "test"
         let endpoint = RefreshTokenEndpoint(refreshToken: refreshToken)

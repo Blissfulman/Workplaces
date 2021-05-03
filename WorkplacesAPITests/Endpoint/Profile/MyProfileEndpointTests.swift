@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class MyProfileEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let endpoint = MyProfileEndpoint()
         let urlRequest = try endpoint.makeRequest()

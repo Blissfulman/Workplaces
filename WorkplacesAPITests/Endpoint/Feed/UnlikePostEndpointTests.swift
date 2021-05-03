@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class UnlikePostEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let postID: Post.ID = "test"
         let endpoint = UnlikePostEndpoint(postID: postID)

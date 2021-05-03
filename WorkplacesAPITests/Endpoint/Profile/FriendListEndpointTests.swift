@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class FriendListEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let endpoint = FriendListEndpoint()
         let urlRequest = try endpoint.makeRequest()

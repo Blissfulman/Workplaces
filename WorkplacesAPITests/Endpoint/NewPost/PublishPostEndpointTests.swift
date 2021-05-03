@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class PublishPostEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let post = Post.testPost()
         let endpoint = PublishPostEndpoint(post: post)

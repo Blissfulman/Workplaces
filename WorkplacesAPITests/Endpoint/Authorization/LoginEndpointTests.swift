@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class LoginEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let userCredentials = UserCredentials(email: "email", password: "password")
         let endpoint = LoginEndpoint(userCredentials: userCredentials)
