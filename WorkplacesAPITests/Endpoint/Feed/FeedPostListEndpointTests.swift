@@ -45,15 +45,15 @@ final class FeedPostListEndpointTests: XCTestCase {
         
         XCTAssertNotNil(try endpoint.content(from: nil, with: jsonData), "Error decoding")
         
-        let feedPost = try endpoint.content(from: nil, with: jsonData).first!
+        let post = try endpoint.content(from: nil, with: jsonData).first!
         
-        XCTAssertEqual(feedPost.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")
-        XCTAssertEqual(feedPost.text, "Hello world!", "Error \"text\" decoding")
-        XCTAssertEqual(feedPost.imageURL, URL(string: "https://redmadrobot.com/"), "Error \"imageURL\" decoding")
-        XCTAssertEqual(feedPost.longitude, 5.324854, "Error \"longitude\" decoding")
-        XCTAssertEqual(feedPost.latitude, 60.39136, "Error \"latitude\" decoding")
-        XCTAssertNotNil(feedPost.author, "Error \"author\" decoding")
-        XCTAssertEqual(feedPost.likes, 321, "Error \"likes\" decoding")
-        XCTAssertEqual(feedPost.liked, true, "Error \"liked\" decoding")
+        XCTAssertEqual(post.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")
+        XCTAssertEqual(post.text, "Hello world!", "Error \"text\" decoding")
+        XCTAssertEqual(post.imageURL, URL(string: "https://redmadrobot.com/"), "Error \"imageURL\" decoding")
+        XCTAssertEqual(post.longitude, 5.324854, "Error \"longitude\" decoding")
+        XCTAssertEqual(post.latitude, 60.39136, "Error \"latitude\" decoding")
+        XCTAssertNotNil(post.author, "Error \"author\" decoding")
+        XCTAssertEqual(post.likes, 321, "Error \"likes\" decoding")
+        XCTAssertEqual(post.liked, true, "Error \"liked\" decoding")
     }
 }
