@@ -54,7 +54,18 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchProfile()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if profile == nil {
+            fetchProfile()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Actions
@@ -112,36 +123,5 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    private func testFetchLikes() {
-        // Тест загрузки лайкнутых постов
-        profileService.fetchLikedPosts { result in
-            switch result {
-            case let .success(likedPosts):
-                print("Liked Posts:", likedPosts)
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        // Тест обновления своего профиля
-        let myProfile = User(
-            id: "12345",
-            firstName: "Name",
-            lastName: "Surname",
-            nickname: "Nick",
-            avatarURL: URL(string: "https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png"),
-            birthday: Date()
-        )
-        let progress = profileService.updateMyProfile(user: myProfile) { [weak self] result in
-            switch result {
-            case let .success(profile):
-                print("Updated My Profile:", profile)
-            case let .failure(error):
-                self?.showAlert(error)
-            }
-        }
-        progressList.append(progress)
     }
 }

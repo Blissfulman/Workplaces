@@ -37,26 +37,38 @@
                             <rect key="frame" x="0.0" y="0.0" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="E2J-nK-kw3"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J90-uD-xdO">
                             <rect key="frame" x="0.0" y="66" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="5yG-XX-PUU"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Sz-uE-9ar">
                             <rect key="frame" x="0.0" y="132" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="GAh-xz-rec"/>
+                            </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yC5-VZ-Nif">
                             <rect key="frame" x="0.0" y="198" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="U1S-Rw-fmv"/>
+                            </connections>
                         </textField>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdy-Ef-yQW" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="726" width="382" height="56"/>
+                    <rect key="frame" x="16" y="762" width="382" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="5cc-VD-1vp"/>
@@ -75,7 +87,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hdy-Ef-yQW" secondAttribute="trailing" constant="16" id="3XM-fC-2H9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XmE-jY-QXB" secondAttribute="trailing" constant="56" id="C9Z-NM-E7i"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" constant="80" id="VIv-7G-jMG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" constant="44" id="VIv-7G-jMG"/>
                 <constraint firstItem="Hdy-Ef-yQW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="d4v-fG-Sfw"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="47" id="o3D-nl-gxo"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="wRF-oq-Wuk"/>

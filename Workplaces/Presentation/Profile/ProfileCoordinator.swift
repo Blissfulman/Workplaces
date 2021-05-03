@@ -53,8 +53,8 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     private func showEditProfileScreen(profile: User) {
         let editProfileVC = EditProfileViewController(profile: profile)
         
-        editProfileVC.didTapSaveButton = { profile in
-            print(profile) // TEMP
+        editProfileVC.didTapSaveButton = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
         }
         
         navigationController?.pushViewController(editProfileVC, animated: true)

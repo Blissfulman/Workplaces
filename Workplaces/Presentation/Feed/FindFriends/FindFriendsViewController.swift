@@ -24,6 +24,7 @@ final class FindFriendsViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
+        tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Поиск друзей"
     }
 }

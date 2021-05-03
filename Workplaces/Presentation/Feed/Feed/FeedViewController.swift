@@ -50,6 +50,11 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
         fetchPosts()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     // MARK: - Actions
     
     private func findFriends() {

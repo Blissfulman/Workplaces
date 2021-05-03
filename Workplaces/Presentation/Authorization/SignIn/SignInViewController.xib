@@ -39,7 +39,7 @@
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="790" width="382" height="56"/>
+                    <rect key="frame" x="16" y="762" width="382" height="56"/>
                     <color key="backgroundColor" name="lightGreyBlue"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="i4Q-ha-Yhw"/>
@@ -53,7 +53,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
-                    <rect key="frame" x="159" y="739" width="96" height="31"/>
+                    <rect key="frame" x="159" y="711" width="96" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Регистрация">
                         <color key="titleColor" name="orange"/>
@@ -74,7 +74,7 @@
                 <constraint firstItem="ACl-g1-wIO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="c4K-3g-Vhu"/>
                 <constraint firstItem="ACl-g1-wIO" firstAttribute="top" secondItem="rlT-M0-OZj" secondAttribute="bottom" constant="48" id="gUC-a1-Zde"/>
                 <constraint firstItem="WKZ-5L-VY9" firstAttribute="top" secondItem="I8i-dH-VUs" secondAttribute="bottom" constant="20" id="iKG-ap-S3p"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="16" id="m0G-Di-RD4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="44" id="m0G-Di-RD4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rlT-M0-OZj" secondAttribute="trailing" constant="32" id="mhI-q5-CcJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKZ-5L-VY9" secondAttribute="trailing" constant="16" id="zGO-Kp-17a"/>
             </constraints>
