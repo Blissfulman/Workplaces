@@ -53,6 +53,8 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
+		CE1627852640006800468CDA /* WorkplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627842640006800468CDA /* WorkplacesTests.swift */; };
+		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
@@ -131,6 +133,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE1627872640006800468CDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE7C4945262B58E4007FA94E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE7C494C262B58E4007FA94E;
+			remoteInfo = Workplaces;
+		};
 		CE8F1BB62634A9BB00C0C52C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE7C4945262B58E4007FA94E /* Project object */;
@@ -216,6 +225,10 @@
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1627842640006800468CDA /* WorkplacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesTests.swift; sourceTree = "<group>"; };
+		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
@@ -301,6 +314,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE16277F2640006800468CDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE7C494A262B58E4007FA94E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,7 +513,6 @@
 				CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */,
 				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
-				CE972173263C7ED8006ACEB2 /* Error+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +580,39 @@
 				CE97218B263F10FD006ACEB2 /* EditProfile */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE1627832640006800468CDA /* WorkplacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE16278C26400BBA00468CDA /* Presentation */,
+				CE1627842640006800468CDA /* WorkplacesTests.swift */,
+				CE1627862640006800468CDA /* Info.plist */,
+			);
+			path = WorkplacesTests;
+			sourceTree = "<group>";
+		};
+		CE16278C26400BBA00468CDA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CE16278D26400BEC00468CDA /* Profile */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CE16278D26400BEC00468CDA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE16278E2640136500468CDA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE16278F2640139E00468CDA /* UserTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CE1F48F526388CB900FD117C /* Common */ = {
@@ -649,6 +701,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7C494F262B58E4007FA94E /* Workplaces */,
+				CE1627832640006800468CDA /* WorkplacesTests */,
 				CE8F1BAD2634A9BB00C0C52C /* WorkplacesAPI */,
 				CE8F1BBA2634A9BB00C0C52C /* WorkplacesAPITests */,
 				CE7C494E262B58E4007FA94E /* Products */,
@@ -663,6 +716,7 @@
 				CE7C494D262B58E4007FA94E /* Workplaces.app */,
 				CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */,
 				CE8F1BB42634A9BB00C0C52C /* WorkplacesAPITests.xctest */,
+				CE1627822640006800468CDA /* WorkplacesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -723,6 +777,7 @@
 			children = (
 				CE1F48F526388CB900FD117C /* Common */,
 				CE1F48FC26388D5F00FD117C /* Endpoint */,
+				CE16278E2640136500468CDA /* Model */,
 				CE8F1BBD2634A9BB00C0C52C /* Info.plist */,
 			);
 			path = WorkplacesAPITests;
@@ -838,6 +893,7 @@
 			isa = PBXGroup;
 			children = (
 				CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */,
+				CE972173263C7ED8006ACEB2 /* Error+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -927,6 +983,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CE1627812640006800468CDA /* WorkplacesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE1627892640006800468CDA /* Build configuration list for PBXNativeTarget "WorkplacesTests" */;
+			buildPhases = (
+				CE16277E2640006800468CDA /* Sources */,
+				CE16277F2640006800468CDA /* Frameworks */,
+				CE1627802640006800468CDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE1627882640006800468CDA /* PBXTargetDependency */,
+			);
+			name = WorkplacesTests;
+			productName = WorkplacesTests;
+			productReference = CE1627822640006800468CDA /* WorkplacesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CE7C494C262B58E4007FA94E /* Workplaces */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE7C4961262B58E5007FA94E /* Build configuration list for PBXNativeTarget "Workplaces" */;
@@ -993,9 +1067,13 @@
 		CE7C4945262B58E4007FA94E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					CE1627812640006800468CDA = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = CE7C494C262B58E4007FA94E;
+					};
 					CE7C494C262B58E4007FA94E = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -1025,11 +1103,19 @@
 				CE7C494C262B58E4007FA94E /* Workplaces */,
 				CE8F1BAB2634A9BB00C0C52C /* WorkplacesAPI */,
 				CE8F1BB32634A9BB00C0C52C /* WorkplacesAPITests */,
+				CE1627812640006800468CDA /* WorkplacesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE1627802640006800468CDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE7C494B262B58E4007FA94E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1154,6 +1240,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE16277E2640006800468CDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1627852640006800468CDA /* WorkplacesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE7C4949262B58E4007FA94E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1258,6 +1352,7 @@
 				CE1F491726389AD100FD117C /* UnlikePostEndpointTests.swift in Sources */,
 				CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */,
 				CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */,
+				CE1627902640139E00468CDA /* UserTests.swift in Sources */,
 				CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */,
 				CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */,
 				CE1F490326388F6900FD117C /* MyProfileEndpointTests.swift in Sources */,
@@ -1274,6 +1369,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE1627882640006800468CDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE7C494C262B58E4007FA94E /* Workplaces */;
+			targetProxy = CE1627872640006800468CDA /* PBXContainerItemProxy */;
+		};
 		CE8F1BB72634A9BB00C0C52C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE8F1BAB2634A9BB00C0C52C /* WorkplacesAPI */;
@@ -1303,6 +1403,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE16278A2640006800468CDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4J6378W446;
+				INFOPLIST_FILE = WorkplacesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.WorkplacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workplaces.app/Workplaces";
+			};
+			name = Debug;
+		};
+		CE16278B2640006800468CDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4J6378W446;
+				INFOPLIST_FILE = WorkplacesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.WorkplacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workplaces.app/Workplaces";
+			};
+			name = Release;
+		};
 		CE7C495F262B58E5007FA94E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1565,6 +1707,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE1627892640006800468CDA /* Build configuration list for PBXNativeTarget "WorkplacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE16278A2640006800468CDA /* Debug */,
+				CE16278B2640006800468CDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE7C4948262B58E4007FA94E /* Build configuration list for PBXProject "Workplaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
