@@ -17,7 +17,7 @@ final class UserTests: XCTestCase {
                 "first_name": "Martin",
                 "last_name": "Fowler",
                 "nickname": "RefactorMan",
-                "avatar_url": "https://interns2021.redmadrobot.com/user-avatars/8e891162-8fcf-4e1e-a038-64f612c190f2-1617711863442-1914558387.jpg",
+                "avatar_url": "https://redmadrobot.com/",
                 "birth_day": "2021-12-21"
             }
             """.data(using: .utf8)!
