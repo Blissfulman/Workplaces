@@ -24,16 +24,6 @@ final class UserTests: XCTestCase {
         
         let user = try JSONDecoder.default.decode(User.self, from: jsonData)
         
-        XCTAssertEqual(user.birthday, makeDate(year: 2021, month: 12, day: 21))
-    }
-
-    private func makeDate(year: Int, month: Int, day: Int) -> Date {
-        DateComponents(
-            calendar: .current,
-            timeZone: TimeZone(secondsFromGMT: 0),
-            year: year,
-            month: month,
-            day: day
-        ).date!
+        XCTAssertEqual(user.birthday, Date.makeDate(year: 2021, month: 12, day: 21))
     }
 }
