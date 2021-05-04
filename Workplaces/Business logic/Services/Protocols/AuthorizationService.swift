@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import WorkplacesAPI
 
 protocol AuthorizationService {
     
@@ -42,9 +41,4 @@ protocol AuthorizationService {
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
     func signOut(completion: @escaping VoidResultHandler) -> Progress
-    
-    /// Обновление токена доступа.
-    /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
-    @discardableResult
-    func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress
 }

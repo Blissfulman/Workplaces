@@ -17,6 +17,6 @@ final class RefreshTokenEndpointTests: XCTestCase {
         
         assertPOST(urlRequest)
         assertURL(urlRequest, "auth/refresh")
-        assertJsonBody(urlRequest, ["refresh_token": refreshToken])
+        assertJsonBody(urlRequest, ["token": refreshToken])
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 28.04.2021.
 //
 
-public struct UploadUser: Codable {
+public struct UploadUser: Encodable {
     
     let firstName: String
     let lastName: String

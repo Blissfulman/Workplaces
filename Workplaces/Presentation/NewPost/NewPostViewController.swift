@@ -12,17 +12,12 @@ final class NewPostViewController: UIViewController {
     // MARK: - Private properties
     
     private let newPostService: NewPostService
-    private let authorizationService: AuthorizationService // Добавлен временно для тестирования
     private var progressList = [Progress]()
     
     // MARK: - Initializers
     
-    init(
-        newPostService: NewPostService = ServiceLayer.shared.newPostService,
-        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
-    ) {
+    init(newPostService: NewPostService = ServiceLayer.shared.newPostService) {
         self.newPostService = newPostService
-        self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,14 +41,6 @@ final class NewPostViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        // Test
-        authorizationService.refreshToken { [weak self] result in
-            switch result {
-            case .success:
-                print("Token refreshed successful")
-            case let .failure(error):
-                self?.showAlert(error)
-            }
-        }
+        
     }
 }

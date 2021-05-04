@@ -24,36 +24,50 @@ final class ProfileServiceImpl: ProfileService {
     
     func fetchMyProfile(completion: @escaping UserResultHandler) -> Progress {
         let endpoint = MyProfileEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func updateMyProfile(user: User, completion: @escaping UserResultHandler) -> Progress {
         let endpoint = UpdatingMyProfileEndpoint(user: user)
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func fetchMyPosts(completion: @escaping PostListResultHandler) -> Progress {
         let endpoint = MyPostListEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func fetchLikedPosts(completion: @escaping PostListResultHandler) -> Progress {
         let endpoint = LikedPostListEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func fetchFriendList(completion: @escaping UserListResultHandler) -> Progress {
         let endpoint = FriendListEndpoint()
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func addFriend(userID: User.ID, completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = AddFriendEndpoint(userID: userID)
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
     func removeFriend(userID: User.ID, completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = RemoveFriendEndpoint(userID: userID)
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
 }

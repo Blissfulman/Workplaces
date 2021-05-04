@@ -23,6 +23,7 @@ extension UIImageView {
                 DispatchQueue.main.async {
                     guard let data = data, let response = response else { return }
                     
+                    // !!! Проверить, что кэшируется по умолчанию
                     let cacheRepsonse = CachedURLResponse(response: response, data: data)
                     cache.storeCachedResponse(cacheRepsonse, for: request)
                     self?.image = UIImage(data: data)

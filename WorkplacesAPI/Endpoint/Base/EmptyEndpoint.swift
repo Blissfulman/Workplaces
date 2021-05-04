@@ -7,15 +7,15 @@
 
 import Apexy
 
-/// Empty Body Request Enpoint.
 protocol EmptyEndpoint: Endpoint, URLRequestBuildable where Content == Void {}
 
 extension EmptyEndpoint {
     
-    /// Request body encoder.
-    internal var encoder: JSONEncoder { JSONEncoder.default }
+    var encoder: JSONEncoder { JSONEncoder.default }
     
-    public func content(from response: URLResponse?, with body: Data) throws {
-        try ResponseValidator.validate(response, with: body)
+    public func validate(_ request: URLRequest?, response: HTTPURLResponse, data: Data?) throws {
+        try ResponseValidator.validate(response, with: data ?? Data())
     }
+    
+    public func content(from response: URLResponse?, with body: Data) throws {}
 }

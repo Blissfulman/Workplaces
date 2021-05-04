@@ -24,6 +24,8 @@ final class NewPostServiceImpl: NewPostService {
     
     func publishPost(post: Post, completion: @escaping PostResultHandler) -> Progress {
         let endpoint = PublishPostEndpoint(post: post)
-        return apiClient.request(endpoint, completionHandler: completion)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
 }
