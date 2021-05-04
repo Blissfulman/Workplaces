@@ -37,6 +37,9 @@
                     <rect key="frame" x="32" y="156" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="email"/>
+                    <connections>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="8cY-r0-49O"/>
+                    </connections>
                 </textField>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1GM-i3-iHm">
                     <rect key="frame" x="0.0" y="44" width="414" height="4"/>
@@ -64,7 +67,7 @@
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="nextButtonTapped" destination="-1" eventType="touchUpInside" id="OdG-O9-RfQ"/>
+                        <action selector="forwardButtonTapped" destination="-1" eventType="touchUpInside" id="Zw7-s4-s8u"/>
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">

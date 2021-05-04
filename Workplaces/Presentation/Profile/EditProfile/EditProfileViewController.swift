@@ -61,7 +61,7 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
             && profile.birthday == editedProfile.birthday
     }
     private var isEmptyAtLeastOneTextField: Bool {
-        // Поле birthday не должно получаться пустым, т.к. будет заполняться на основе DatePicker
+        // Поле birthday не проверяется, т.к. оно не должно получаться пустым (будет заполняться на основе DatePicker)
         editedProfile.nickname.isEmpty || editedProfile.firstName.isEmpty || editedProfile.lastName.isEmpty
     }
     
@@ -107,7 +107,7 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
         case lastNameTextField:
             editedProfile.lastName = sender.text ?? ""
         case birthdayTextField:
-            // Временно. Позже дата будет выпираться из DatePicker
+            // Временно. Позже дата будет выбираться в DatePicker
             editedProfile.birthday = DateFormatter.profileDateFormatter.date(from: sender.text ?? "") ?? Date()
         default:
             break
@@ -148,8 +148,6 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
         firstNameTextField.text = profile.firstName
         lastNameTextField.text = profile.lastName
         birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: profile.birthday)
-        
-        [nicknameTextField, firstNameTextField, lastNameTextField].forEach { $0?.setCustomClearButton() }
     }
     
     private func updateSaveButtonState() {

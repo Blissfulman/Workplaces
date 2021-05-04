@@ -40,7 +40,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
             return true
         }
     }
-    var isValidEnteredEmail: Bool {
+    private var isValidEnteredEmail: Bool {
         guard let email = emailTextField.text, email.count > 5 else { return false }
         return email.isValidEmail()
     }

@@ -69,7 +69,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     @IBAction private func registerButtonTapped() {
         guard let email = userCredentials.email, !email.isEmpty,
               let password = userCredentials.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести email и пароль") // TEMP
+            showAlert("Необходимо было ввести e-mail и пароль") // TEMP
             return
         }
         

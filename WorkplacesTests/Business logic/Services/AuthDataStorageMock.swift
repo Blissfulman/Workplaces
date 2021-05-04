@@ -13,8 +13,6 @@ final class AuthDataStorageMock: AuthDataStorage {
     
     // MARK: - Public properties
     
-    public var isRefreshingToken = false
-    
     public var accessToken: String? {
         storage.get(forKey: accessTokenKey)
     }
@@ -45,9 +43,5 @@ final class AuthDataStorageMock: AuthDataStorage {
     public func deleteAuthData() {
         storage.remove(forKey: accessTokenKey)
         storage.remove(forKey: refreshTokenKey)
-    }
-    
-    public func set(isRefreshingToken: Bool) {
-        self.isRefreshingToken = isRefreshingToken
     }
 }

@@ -27,6 +27,13 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     
+    // MARK: - Private properties
+    
+    private var isValidEnteredEmail: Bool {
+        guard let email = emailTextField.text, email.count > 5 else { return false }
+        return email.isValidEmail()
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -41,7 +48,14 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     
     // MARK: - Actions
     
-    @IBAction private func nextButtonTapped() {
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        if sender == emailTextField {
+            emailTextField.textColor = isValidEnteredEmail ? Palette.black : Palette.orange
+            // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+        }
+    }
+    
+    @IBAction private func forwardButtonTapped() {
         let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
         didTapNextButton?(userCredentials)
     }
