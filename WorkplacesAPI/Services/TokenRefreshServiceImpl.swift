@@ -23,9 +23,7 @@ public final class TokenRefreshServiceImpl: TokenRefreshService {
     
     // MARK: - Public methods
     
-    public func refreshToken(completion: @escaping AuthorizationDataResultHandler) -> Progress {
-        authDataStorage.set(isRefreshingToken: true)
-        
+    public func refreshToken(completion: @escaping ResultHandler<AuthorizationData>) -> Progress {
         let endpoint = RefreshTokenEndpoint(refreshToken: authDataStorage.refreshToken ?? "")
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
@@ -35,7 +33,6 @@ public final class TokenRefreshServiceImpl: TokenRefreshService {
             case let .failure(error):
                 completion(.failure(error))
             }
-            self?.authDataStorage.set(isRefreshingToken: false)
         }
     }
 }

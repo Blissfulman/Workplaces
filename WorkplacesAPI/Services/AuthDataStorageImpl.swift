@@ -9,20 +9,9 @@ import Foundation
 
 // Сервис временно основан на UserDefaults
 
-public protocol AuthDataStorage {
-    var isRefreshingToken: Bool { get }
-    var accessToken: String? { get }
-    var refreshToken: String? { get }
-    func saveAuthData(_ data: AuthorizationData)
-    func deleteAuthData()
-    func set(isRefreshingToken: Bool)
-}
-
 public final class AuthDataStorageImpl: AuthDataStorage {
     
     // MARK: - Public properties
-    
-    public var isRefreshingToken = false
     
     public var accessToken: String? {
         storage.get(forKey: accessTokenKey)
@@ -54,10 +43,6 @@ public final class AuthDataStorageImpl: AuthDataStorage {
     public func deleteAuthData() {
         storage.remove(forKey: accessTokenKey)
         storage.remove(forKey: refreshTokenKey)
-    }
-    
-    public func set(isRefreshingToken: Bool) {
-        self.isRefreshingToken = isRefreshingToken
     }
 }
 

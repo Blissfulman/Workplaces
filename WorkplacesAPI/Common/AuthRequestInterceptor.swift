@@ -17,6 +17,7 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     private let authDataStorage: AuthDataStorage
     private let tokenRefreshService: () -> TokenRefreshService
     private var retryCompletions = [RetryCompletion]()
+    private var isInProgressRefreshingToken = false
     
     // MARK: - Initializers
     
@@ -77,20 +78,23 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     
     private func tryToRefreshToken() {
         // !!! Нужно доработать потокобезопасность
-        if !authDataStorage.isRefreshingToken {
-            tokenRefreshService().refreshToken { [weak self] result in
-                switch result {
-                case .success:
-                    self?.retryCompletions.forEach {
-                        $0(.retry)
-                    }
-                case .failure:
-                    self?.retryCompletions.forEach {
-                        $0(.doNotRetry)
-                    }
+        guard !isInProgressRefreshingToken else { return }
+        
+        isInProgressRefreshingToken = true
+        tokenRefreshService().refreshToken { [weak self] result in
+            self?.isInProgressRefreshingToken = false
+            
+            switch result {
+            case .success:
+                self?.retryCompletions.forEach {
+                    $0(.retry)
                 }
-                self?.retryCompletions = []
+            case .failure:
+                self?.retryCompletions.forEach {
+                    $0(.doNotRetry)
+                }
             }
+            self?.retryCompletions = []
         }
     }
 }
