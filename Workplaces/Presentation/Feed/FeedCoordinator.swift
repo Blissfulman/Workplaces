@@ -47,7 +47,7 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     }
     
     private func showFindFriendsScreen() {
-        let findFriendsVC = FindFriendsViewController()
-        navigationController?.pushViewController(findFriendsVC, animated: true)
+        let searchFriendsVC = SearchFriendsViewController()
+        navigationController?.pushViewController(searchFriendsVC, animated: true)
     }
 }

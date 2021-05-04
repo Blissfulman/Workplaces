@@ -1,5 +1,5 @@
 //
-//  FindFriendsViewController.swift
+//  SearchFriendsViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 02.05.2021.
@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class FindFriendsViewController: UIViewController {
+final class SearchFriendsViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var searchTextField: UITextField!
     
     // MARK: - UIViewController
     
@@ -26,5 +30,7 @@ final class FindFriendsViewController: UIViewController {
     private func setupUI() {
         tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Поиск друзей"
+        
+        searchTextField.leftView = UIImageView(image: Icons.close)
     }
 }

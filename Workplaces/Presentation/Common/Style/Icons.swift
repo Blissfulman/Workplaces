@@ -18,6 +18,7 @@ enum Icons {
     static let close = #imageLiteral(resourceName: "24-close")
     static let crossSmall = #imageLiteral(resourceName: "24-cross_small")
     static let calendar = #imageLiteral(resourceName: "24-calendar")
+    static let search = #imageLiteral(resourceName: "24-search")
     
     static let feed = #imageLiteral(resourceName: "feed")
     static let newPost = #imageLiteral(resourceName: "new_post")

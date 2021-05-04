@@ -110,8 +110,8 @@
 		CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */; };
 		CE97217F263EF847006ACEB2 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217E263EF847006ACEB2 /* TestError.swift */; };
 		CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */; };
-		CE972186263EFCEE006ACEB2 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* FindFriendsViewController.swift */; };
-		CE972187263EFCEE006ACEB2 /* FindFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE972185263EFCEE006ACEB2 /* FindFriendsViewController.xib */; };
+		CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */; };
+		CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */; };
 		CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */; };
 		CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */; };
 		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
@@ -291,8 +291,8 @@
 		CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshService.swift; sourceTree = "<group>"; };
 		CE97217E263EF847006ACEB2 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
-		CE972184263EFCEE006ACEB2 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
-		CE972185263EFCEE006ACEB2 /* FindFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindFriendsViewController.xib; sourceTree = "<group>"; };
+		CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsViewController.xib; sourceTree = "<group>"; };
 		CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -900,8 +900,8 @@
 		CE972183263EFCB7006ACEB2 /* FindFriends */ = {
 			isa = PBXGroup;
 			children = (
-				CE972184263EFCEE006ACEB2 /* FindFriendsViewController.swift */,
-				CE972185263EFCEE006ACEB2 /* FindFriendsViewController.xib */,
+				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
+				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
 			);
 			path = FindFriends;
 			sourceTree = "<group>";
@@ -1162,7 +1162,7 @@
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
-				CE972187263EFCEE006ACEB2 /* FindFriendsViewController.xib in Resources */,
+				CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
 				CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */,
@@ -1336,7 +1336,7 @@
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
-				CE972186263EFCEE006ACEB2 /* FindFriendsViewController.swift in Sources */,
+				CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
