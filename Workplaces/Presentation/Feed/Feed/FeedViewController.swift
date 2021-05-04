@@ -22,7 +22,6 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
     // MARK: - Private properties
     
     private let feedService: FeedService
-    private var posts = [Post]()
     private var progressList = [Progress]()
     
     // MARK: - Initializers
@@ -75,26 +74,34 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
     private func fetchPosts() {
         LoadingView.show()
         let progress = feedService.fetchFeedPosts { [weak self] result in
-            guard let self = self else { return }
             LoadingView.hide()
+            guard let self = self else { return }
             
             switch result {
             case let .success(feedPosts):
-                if feedPosts.isEmpty {
-                    let zeroView = ZeroView.initializeFromNib()
-                    zeroView.configure(viewType: .noFriends, buttonAction: self.findFriends)
-                    self.view = zeroView
-                } else {
-                    self.posts = feedPosts
-                    self.view = UIView()
-                    self.view.backgroundColor = Palette.white
-                }
+                feedPosts.isEmpty
+                    ? self.showNoFriendsZeroView()
+                    : self.showPostListView(postList: feedPosts)
             case .failure:
-                let zeroView = ZeroView.initializeFromNib()
-                zeroView.configure(viewType: .error, buttonAction: self.errorZeroViewButtonAction)
-                self.view = zeroView
+                self.showErrorZeroView()
             }
         }
         progressList.append(progress)
+    }
+    
+    private func showNoFriendsZeroView() {
+        let zeroView = ZeroView.initializeFromNib()
+        zeroView.configure(viewType: .noFriends, buttonAction: self.findFriends)
+        view = zeroView
+    }
+    
+    private func showPostListView(postList: [Post]) {
+        // Реализовать отображение постов
+    }
+    
+    private func showErrorZeroView() {
+        let zeroView = ZeroView.initializeFromNib()
+        zeroView.configure(viewType: .error, buttonAction: self.errorZeroViewButtonAction)
+        view = zeroView
     }
 }

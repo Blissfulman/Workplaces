@@ -53,6 +53,9 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
+		CE1508502641A92000568006 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15084E2641A92000568006 /* PostListTableViewController.swift */; };
+		CE1508512641A92000568006 /* PostListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15084F2641A92000568006 /* PostListTableViewController.xib */; };
+		CE1508552641BAF100568006 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1508542641BAF100568006 /* ProfileView.xib */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
@@ -229,6 +232,9 @@
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		CE15084E2641A92000568006 /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
+		CE15084F2641A92000568006 /* PostListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListTableViewController.xib; sourceTree = "<group>"; };
+		CE1508542641BAF100568006 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -528,6 +534,7 @@
 		CE1331A3262C26D90086433C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE1508532641BA9A00568006 /* Profile */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
@@ -538,6 +545,7 @@
 		CE1331A4262C26E60086433C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE1508522641A92400568006 /* PostList */,
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 			);
 			path = ViewControllers;
@@ -586,6 +594,23 @@
 				CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */,
 				CE97218A263F0BD6006ACEB2 /* Profile */,
 				CE97218B263F10FD006ACEB2 /* EditProfile */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CE1508522641A92400568006 /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				CE15084E2641A92000568006 /* PostListTableViewController.swift */,
+				CE15084F2641A92000568006 /* PostListTableViewController.xib */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		CE1508532641BA9A00568006 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE1508542641BAF100568006 /* ProfileView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1160,6 +1185,7 @@
 				CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */,
 				CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
+				CE1508512641A92000568006 /* PostListTableViewController.xib in Resources */,
 				CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */,
@@ -1172,6 +1198,7 @@
 				CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
+				CE1508552641BAF100568006 /* ProfileView.xib in Resources */,
 				CEE7FBB2262D4F29001D5DAD /* LoginViewController.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
 				CE57378B262DEEB000A6DC20 /* SignUpFirstViewController.xib in Resources */,
@@ -1302,6 +1329,7 @@
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
+				CE1508502641A92000568006 /* PostListTableViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CE1627A026410BF500468CDA /* String+Extension.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
