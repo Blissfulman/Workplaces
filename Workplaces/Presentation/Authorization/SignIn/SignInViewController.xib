@@ -17,7 +17,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="emailOrLoginTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
+                <outlet property="emailTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
+                <outlet property="enterButton" destination="WKZ-5L-VY9" id="0EF-CN-rSv"/>
                 <outlet property="enterButtonBottomConstraint" destination="m0G-Di-RD4" id="7Nh-XC-Ze5"/>
                 <outlet property="passwordTextField" destination="ACl-g1-wIO" id="5fz-4u-IVr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,17 +29,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш e-mail или логин" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
                     <rect key="frame" x="32" y="90" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="K9c-mW-iqu"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
                     <rect key="frame" x="32" y="156" width="350" height="17"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="jFf-sr-azR"/>
+                    </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
                     <rect key="frame" x="16" y="762" width="382" height="56"/>
                     <color key="backgroundColor" name="lightGreyBlue"/>
                     <constraints>
@@ -53,9 +60,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
-                    <rect key="frame" x="159" y="711" width="96" height="31"/>
+                    <rect key="frame" x="118.5" y="711" width="177" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Регистрация">
+                    <state key="normal" title="Перейти к регистрации">
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>

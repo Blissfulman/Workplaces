@@ -18,8 +18,9 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var emailOrLoginTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var enterButton: UIButton!
     @IBOutlet private weak var enterButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Public properties
@@ -31,6 +32,18 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     private let authorizationService: AuthorizationService
     private var progressList = [Progress]()
+    private var isEmptyAtLeastOneTextField: Bool {
+        if let email = emailTextField.text, !email.isEmpty,
+           let password = passwordTextField.text, !password.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    var isValidEnteredEmail: Bool {
+        guard let email = emailTextField.text, email.count > 5 else { return false }
+        return email.isValidEmail()
+    }
     
     // MARK: - Initializers
     
@@ -65,13 +78,21 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Actions
     
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        if sender == emailTextField {
+            emailTextField.textColor = isValidEnteredEmail ? Palette.black : Palette.orange
+            // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+        }
+        updateEnterButtonState()
+    }
+    
     @IBAction private func registerButtonTapped() {
         didTapRegisterButton?()
     }
     
     @IBAction private func enterButtonTapped() {
-        guard let email = emailOrLoginTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else { return }
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
         
         let userCredentials = UserCredentials(email: email, password: password)
         
@@ -107,6 +128,10 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         title = "Вход по почте"
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func updateEnterButtonState() {
+        enterButton.isEnabled = !isEmptyAtLeastOneTextField && isValidEnteredEmail
     }
     
     private func registerForKeyboardNotifications() {

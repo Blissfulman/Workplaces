@@ -51,7 +51,7 @@
                         <constraint firstAttribute="height" constant="56" id="3pm-Jb-nkq"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Войти по почте или логину">
+                    <state key="normal" title="Войти по почте">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>

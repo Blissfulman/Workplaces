@@ -55,6 +55,10 @@
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
+		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
+		CE16279C2640793300468CDA /* ClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279B2640793300468CDA /* ClientStub.swift */; };
+		CE16279E26407A8200468CDA /* AuthDataStorageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageStub.swift */; };
+		CE1627A026410BF500468CDA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279F26410BF500468CDA /* String+Extension.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
@@ -229,6 +233,10 @@
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE16279726406B9D00468CDA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImplTests.swift; sourceTree = "<group>"; };
+		CE16279B2640793300468CDA /* ClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStub.swift; sourceTree = "<group>"; };
+		CE16279D26407A8200468CDA /* AuthDataStorageStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageStub.swift; sourceTree = "<group>"; };
+		CE16279F26410BF500468CDA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
@@ -626,6 +634,9 @@
 		CE16279626403EA600468CDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */,
+				CE16279B2640793300468CDA /* ClientStub.swift */,
+				CE16279D26407A8200468CDA /* AuthDataStorageStub.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -910,6 +921,7 @@
 			children = (
 				CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */,
 				CE972173263C7ED8006ACEB2 /* Error+Extension.swift */,
+				CE16279F26410BF500468CDA /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1088,6 +1100,7 @@
 				TargetAttributes = {
 					CE1627812640006800468CDA = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 						TestTargetID = CE7C494C262B58E4007FA94E;
 					};
 					CE7C494C262B58E4007FA94E = {
@@ -1260,6 +1273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */,
+				CE16279C2640793300468CDA /* ClientStub.swift in Sources */,
+				CE16279E26407A8200468CDA /* AuthDataStorageStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,6 +1295,7 @@
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
+				CE1627A026410BF500468CDA /* String+Extension.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
@@ -1423,6 +1440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				INFOPLIST_FILE = WorkplacesTests/Info.plist;
@@ -1434,6 +1452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.redmadrobot.WorkplacesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workplaces.app/Workplaces";
@@ -1444,6 +1463,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4J6378W446;
 				INFOPLIST_FILE = WorkplacesTests/Info.plist;
