@@ -21,11 +21,18 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     var didTapEditProfileButton: ((User) -> Void)?
     var didTapLogOutButton: VoidBlock?
     
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
     // MARK: - Private properties
     
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
     private var profile: User?
+    private var myPosts = [Post]()
+    private var likedPosts = [Post]()
+    private var friends = [User]()
     private var progressList = [Progress]()
     
     // MARK: - Initializers
@@ -93,7 +100,15 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     private func setupUI() {
         navigationItem.title = "Профиль"
         navigationItem.backButtonTitle = ""
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+        addBarButtonItems()
         
+        tableView.register(ProfileMeCell.nib(), forCellReuseIdentifier: ProfileMeCell.identifier)
+        tableView.register(ProfileSwitchCell.nib(), forCellReuseIdentifier: ProfileSwitchCell.identifier)
+        tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
+    }
+    
+    private func addBarButtonItems() {
         // Временная кнопка для перехода к редактированию профиля
         let editProfileBarButtonItem = UIBarButtonItem(
             title: "Edit profile", style: .plain, target: self, action: #selector(editProfileBarButtonTapped)
@@ -119,9 +134,48 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
             case let .success(profile):
                 self?.profile = profile
                 self?.navigationItem.title = profile.nickname
+                self?.tableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
             }
+        }
+    }
+}
+
+// MARK: - Table view data source
+
+extension ProfileViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProfileMeCell.identifier,
+                for: indexPath
+            ) as? ProfileMeCell else { return UITableViewCell() }
+            
+            cell.configure(user: profile ?? User.testUser())
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ProfileSwitchCell.identifier,
+                for: indexPath
+            ) as? ProfileSwitchCell else { return UITableViewCell() }
+            
+            cell.configure()
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: PostCell.identifier,
+                for: indexPath
+            ) as? PostCell else { return UITableViewCell() }
+            
+            cell.configure()
+            return cell
         }
     }
 }
