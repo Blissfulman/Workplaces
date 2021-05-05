@@ -20,7 +20,7 @@ final class ProfileSwitchCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.layer.cornerRadius = 20
+        backView.layer.cornerRadius = UIConstants.cellCornerRadius
     }
     
     // MARK: - Public methods

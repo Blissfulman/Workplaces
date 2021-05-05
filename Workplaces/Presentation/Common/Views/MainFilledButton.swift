@@ -17,7 +17,7 @@ final class MainFilledButton: UIButton {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        layer.cornerRadius = 14
+        layer.cornerRadius = UIConstants.buttonCornerRadius
         clipsToBounds = true
     }
 }

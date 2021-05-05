@@ -20,8 +20,8 @@ final class ProfileMeCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.layer.cornerRadius = 24
-        avatarImageView.layer.cornerRadius = 16
+        backView.layer.cornerRadius = UIConstants.cellCornerRadius
+        avatarImageView.layer.cornerRadius = UIConstants.avatarCornerRadius
     }
     
     // MARK: - Public methods
