@@ -8,15 +8,15 @@
 @testable import Workplaces
 import XCTest
 
-final class StringTests: XCTestCase {
+final class StringValidatorTests: XCTestCase {
 
     func testEmailValidationShouldBeSuccess() {
         let email = "test@test.ru"
-        XCTAssertTrue(email.isValidEmail())
+        XCTAssertTrue(StringValidator.isValidEmail(email))
     }
     
     func testEmptyEmailValidationShouldBeFail() {
         let email = ""
-        XCTAssertFalse(email.isValidEmail())
+        XCTAssertFalse(StringValidator.isValidEmail(email))
     }
 }

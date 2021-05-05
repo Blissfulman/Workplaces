@@ -65,11 +65,11 @@
 		CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088426429C6F00568006 /* SignInDoneViewController.xib */; };
 		CE15088726429F7700568006 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088926429F7700568006 /* SignInViewController.xib */; };
 		CE1508912642A24300568006 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE15088F2642A24300568006 /* Localizable.strings */; };
+		CE1508952642E1E100568006 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508942642E1E100568006 /* StringValidator.swift */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
 		CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */; };
-		CE1627A026410BF500468CDA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279F26410BF500468CDA /* String+Extension.swift */; };
 		CE1627A526412AE500468CDA /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* StringTests.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
@@ -254,13 +254,13 @@
 		CE15088A26429F8000568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignInViewController.xib; sourceTree = "<group>"; };
 		CE15088B26429F8A00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignInViewController.strings; sourceTree = "<group>"; };
 		CE1508902642A24300568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE1508942642E1E100568006 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
 		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE16279726406B9D00468CDA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImplTests.swift; sourceTree = "<group>"; };
 		CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageMock.swift; sourceTree = "<group>"; };
-		CE16279F26410BF500468CDA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CE1627A426412AE500468CDA /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
@@ -496,6 +496,7 @@
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE97217E263EF847006ACEB2 /* TestError.swift */,
+				CE1508942642E1E100568006 /* StringValidator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -992,7 +993,6 @@
 			children = (
 				CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */,
 				CE972173263C7ED8006ACEB2 /* Error+Extension.swift */,
-				CE16279F26410BF500468CDA /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1372,10 +1372,10 @@
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
+				CE1508952642E1E100568006 /* StringValidator.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CE15085826423E4400568006 /* ProfileMeCell.swift in Sources */,
-				CE1627A026410BF500468CDA /* String+Extension.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
