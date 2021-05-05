@@ -125,7 +125,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Вход по почте"
+        title = NSLocalizedString("Sign in with email", comment: "SignInViewControllerTitle")
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

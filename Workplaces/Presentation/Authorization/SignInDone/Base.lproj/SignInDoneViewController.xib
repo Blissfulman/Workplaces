@@ -26,20 +26,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_done_screen" translatesAutoresizingMaskIntoConstraints="NO" id="zYk-xb-DHJ">
-                    <rect key="frame" x="107" y="184.5" width="200" height="200"/>
+                    <rect key="frame" x="107" y="177" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="8Lf-8D-mbt"/>
                         <constraint firstAttribute="height" constant="200" id="ntg-hz-CTf"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-vW-29Z">
-                    <rect key="frame" x="70" y="384.5" width="274.5" height="42"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-vW-29Z">
+                    <rect key="frame" x="71" y="377" width="272.5" height="47"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Теперь ты можешь смотреть и делать публикации" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-t7-ezu">
-                    <rect key="frame" x="94.5" y="434.5" width="225" height="37.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can watch and add posts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-t7-ezu">
+                    <rect key="frame" x="94.5" y="432" width="225" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="PNr-m3-At7"/>
                     </constraints>
@@ -54,7 +54,7 @@
                         <constraint firstAttribute="height" constant="56" id="5Su-uK-tFx"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Перейти к ленте">
+                    <state key="normal" title="Go to the feed">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -70,7 +70,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lek-bd-a3x" secondAttribute="trailing" constant="16" id="6px-lu-H5f"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="top" secondItem="zYk-xb-DHJ" secondAttribute="bottom" id="FWF-3w-68W"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="NvH-PR-Ca9"/>
+                <constraint firstItem="PqM-vW-29Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OKe-vB-Kub"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="U3e-3s-cA0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PqM-vW-29Z" secondAttribute="trailing" constant="16" id="VzB-CY-aHy"/>
                 <constraint firstItem="lek-bd-a3x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WHk-XW-h5d"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="a95-nw-CPD"/>
                 <constraint firstItem="zYk-xb-DHJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qSF-FN-jul"/>

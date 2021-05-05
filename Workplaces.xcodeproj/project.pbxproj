@@ -62,6 +62,9 @@
 		CE1508652642597700568006 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1508632642597700568006 /* PostCell.xib */; };
 		CE15086D264274F800568006 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15086C264274F800568006 /* UIConstants.swift */; };
 		CE15086F26428C5700568006 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15087126428C5700568006 /* LoginViewController.xib */; };
+		CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088426429C6F00568006 /* SignInDoneViewController.xib */; };
+		CE15088726429F7700568006 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088926429F7700568006 /* SignInViewController.xib */; };
+		CE1508912642A24300568006 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE15088F2642A24300568006 /* Localizable.strings */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
@@ -136,9 +139,7 @@
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
 		CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */; };
-		CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
-		CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */; };
 		CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */; };
 		CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */; };
 		CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */; };
@@ -248,6 +249,11 @@
 		CE15087226428C8A00568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		CE15087326428CC900568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginViewController.strings; sourceTree = "<group>"; };
 		CE15087426428D2B00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE15088526429C7600568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignInDoneViewController.xib; sourceTree = "<group>"; };
+		CE15088626429C8D00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignInDoneViewController.strings; sourceTree = "<group>"; };
+		CE15088A26429F8000568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignInViewController.xib; sourceTree = "<group>"; };
+		CE15088B26429F8A00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignInViewController.strings; sourceTree = "<group>"; };
+		CE1508902642A24300568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -329,9 +335,7 @@
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
-		CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInDoneViewController.xib; sourceTree = "<group>"; };
 		CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilledButton.swift; sourceTree = "<group>"; };
 		CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -567,7 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */,
-				CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */,
+				CE15088926429F7700568006 /* SignInViewController.xib */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -786,6 +790,7 @@
 				CE7C4952262B58E4007FA94E /* SceneDelegate.swift */,
 				CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */,
 				CE7C495E262B58E5007FA94E /* Info.plist */,
+				CE15088F2642A24300568006 /* Localizable.strings */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -1046,7 +1051,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */,
-				CEE7FBC2262D805D001D5DAD /* SignInDoneViewController.xib */,
+				CE15088426429C6F00568006 /* SignInDoneViewController.xib */,
 			);
 			path = SignInDone;
 			sourceTree = "<group>";
@@ -1217,9 +1222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */,
-				CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */,
+				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
+				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
-				CEE7FBC4262D805D001D5DAD /* SignInDoneViewController.xib in Resources */,
+				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
@@ -1507,6 +1513,32 @@
 				CE15087326428CC900568006 /* ru */,
 			);
 			name = LoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE15088426429C6F00568006 /* SignInDoneViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE15088526429C7600568006 /* Base */,
+				CE15088626429C8D00568006 /* ru */,
+			);
+			name = SignInDoneViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE15088926429F7700568006 /* SignInViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE15088A26429F8000568006 /* Base */,
+				CE15088B26429F8A00568006 /* ru */,
+			);
+			name = SignInViewController.xib;
+			sourceTree = "<group>";
+		};
+		CE15088F2642A24300568006 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE1508902642A24300568006 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */ = {
