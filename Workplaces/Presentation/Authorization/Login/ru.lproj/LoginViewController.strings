@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0RR-BI-qA0"; */
+"0RR-BI-qA0.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Workplaces"; ObjectID = "Lw1-Mc-pjL"; */
+"Lw1-Mc-pjL.text" = "Workplaces";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ogg-TP-BrT"; */
+"Ogg-TP-BrT.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Sign up with email"; ObjectID = "RzR-0V-Ma0"; */
+"RzR-0V-Ma0.normalTitle" = "Регистрация по почте";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SgE-yP-44B"; */
+"SgE-yP-44B.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Find your place"; ObjectID = "XzP-Bt-1IQ"; */
+"XzP-Bt-1IQ.text" = "Найди своё место";
+
+/* Class = "UIButton"; normalTitle = "Sign in with email"; ObjectID = "uJF-fZ-8Sc"; */
+"uJF-fZ-8Sc.normalTitle" = "Войти по почте";

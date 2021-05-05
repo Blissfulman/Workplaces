@@ -37,7 +37,7 @@ final class AuthorizationServiceImplTests: XCTestCase {
         
         // Временно захардкодил авторизационные данные. Пытался реализовать stub клиента, не получилось
         let userCredentials = UserCredentials(email: "1@1.ru", password: "Qwerty12")
-        authorizationService?.signIn(userCredentials: userCredentials) { [weak self] _ in
+        authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
             XCTAssertNotNil(self?.authDataStorage?.accessToken)
             XCTAssertNotNil(self?.authDataStorage?.refreshToken)
             expectation.fulfill()

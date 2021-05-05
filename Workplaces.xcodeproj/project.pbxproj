@@ -61,6 +61,7 @@
 		CE1508642642597700568006 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508622642597700568006 /* PostCell.swift */; };
 		CE1508652642597700568006 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1508632642597700568006 /* PostCell.xib */; };
 		CE15086D264274F800568006 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15086C264274F800568006 /* UIConstants.swift */; };
+		CE15086F26428C5700568006 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15087126428C5700568006 /* LoginViewController.xib */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
@@ -134,7 +135,6 @@
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
-		CEE7FBB2262D4F29001D5DAD /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB0262D4F29001D5DAD /* LoginViewController.xib */; };
 		CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */; };
 		CEE7FBB8262D5E3D001D5DAD /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
@@ -245,6 +245,9 @@
 		CE1508622642597700568006 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CE1508632642597700568006 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		CE15086C264274F800568006 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		CE15087226428C8A00568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
+		CE15087326428CC900568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginViewController.strings; sourceTree = "<group>"; };
+		CE15087426428D2B00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = ru.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1627822640006800468CDA /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -325,7 +328,6 @@
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CEE7FBB0262D4F29001D5DAD /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CEE7FBB6262D5E3D001D5DAD /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
@@ -1035,7 +1037,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */,
-				CEE7FBB0262D4F29001D5DAD /* LoginViewController.xib */,
+				CE15087126428C5700568006 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1187,6 +1189,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CE7C4944262B58E4007FA94E;
 			productRefGroup = CE7C494E262B58E4007FA94E /* Products */;
@@ -1230,7 +1233,7 @@
 				CE15085D26423E8D00568006 /* ProfileSwitchCell.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
-				CEE7FBB2262D4F29001D5DAD /* LoginViewController.xib in Resources */,
+				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
 				CE15085926423E4400568006 /* ProfileMeCell.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
 				CE57378B262DEEB000A6DC20 /* SignUpFirstViewController.xib in Resources */,
@@ -1497,10 +1500,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CE15087126428C5700568006 /* LoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE15087226428C8A00568006 /* Base */,
+				CE15087326428CC900568006 /* ru */,
+			);
+			name = LoginViewController.xib;
+			sourceTree = "<group>";
+		};
 		CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE7C495C262B58E5007FA94E /* Base */,
+				CE15087426428D2B00568006 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1557,6 +1570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1618,6 +1632,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

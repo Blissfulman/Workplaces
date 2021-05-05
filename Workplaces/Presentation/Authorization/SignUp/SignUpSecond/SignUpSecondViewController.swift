@@ -76,7 +76,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
         let userCredentials = UserCredentials(email: email, password: password)
         
         LoadingView.show()
-        let progress = authorizationService.registerUser(userCredentials: userCredentials) { [weak self] result in
+        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {

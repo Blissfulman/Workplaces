@@ -10,22 +10,22 @@ import UIKit
 // MARK: - Protocols
 
 protocol LoginScreenCoordinable {
-    var didTapEnterButton: VoidBlock? { get set }
-    var didTapEnterByGoogleButton: VoidBlock? { get set }
-    var didTapEnterByFacebookButton: VoidBlock? { get set }
-    var didTapEnterByVKButton: VoidBlock? { get set }
-    var didTapSignUpByEmail: VoidBlock? { get set }
+    var didTapSignInWithEmailButton: VoidBlock? { get set }
+    var didTapSignInWithGoogleButton: VoidBlock? { get set }
+    var didTapSignInWithFacebookButton: VoidBlock? { get set }
+    var didTapSignInWithVKButton: VoidBlock? { get set }
+    var didTapSignUpWithEmail: VoidBlock? { get set }
 }
 
 final class LoginViewController: UIViewController, LoginScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapEnterButton: VoidBlock?
-    var didTapEnterByGoogleButton: VoidBlock?
-    var didTapEnterByFacebookButton: VoidBlock?
-    var didTapEnterByVKButton: VoidBlock?
-    var didTapSignUpByEmail: VoidBlock?
+    var didTapSignInWithEmailButton: VoidBlock?
+    var didTapSignInWithGoogleButton: VoidBlock?
+    var didTapSignInWithFacebookButton: VoidBlock?
+    var didTapSignInWithVKButton: VoidBlock?
+    var didTapSignUpWithEmail: VoidBlock?
     
     // MARK: - UIViewController
     
@@ -41,24 +41,24 @@ final class LoginViewController: UIViewController, LoginScreenCoordinable {
     
     // MARK: - Actions
     
-    @IBAction private func enterButtonTapped() {
-        didTapEnterButton?()
+    @IBAction private func signInWithEmailButtonTapped() {
+        didTapSignInWithEmailButton?()
     }
     
-    @IBAction private func enterByGoogleTapped() {
-        didTapEnterByGoogleButton?()
+    @IBAction private func enterWithGoogleTapped() {
+        didTapSignInWithGoogleButton?()
     }
     
-    @IBAction private func enterByFacebookTapped() {
-        didTapEnterByFacebookButton?()
+    @IBAction private func enterWithFacebookTapped() {
+        didTapSignInWithFacebookButton?()
     }
     
-    @IBAction private func enterByVKTapped() {
-        didTapEnterByVKButton?()
+    @IBAction private func enterWithVKTapped() {
+        didTapSignInWithVKButton?()
     }
     
-    @IBAction private func signUpByEmailTapped() {
-        didTapSignUpByEmail?()
+    @IBAction private func signUpWithEmailTapped() {
+        didTapSignUpWithEmail?()
     }
     
     // MARK: - Private methods

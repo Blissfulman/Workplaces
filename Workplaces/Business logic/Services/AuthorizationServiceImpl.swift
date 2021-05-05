@@ -24,7 +24,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     // MARK: - Public methods
     
-    func registerUser(
+    func signUpWithEmail(
         userCredentials: UserCredentials,
         completion: @escaping AuthorizationDataResultHandler
     ) -> Progress {
@@ -40,7 +40,10 @@ final class AuthorizationServiceImpl: AuthorizationService {
         }
     }
     
-    func signIn(userCredentials: UserCredentials, completion: @escaping AuthorizationDataResultHandler) -> Progress {
+    func signInWithEmail(
+        userCredentials: UserCredentials,
+        completion: @escaping AuthorizationDataResultHandler
+    ) -> Progress {
         let endpoint = LoginEndpoint(userCredentials: userCredentials)
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
@@ -53,15 +56,15 @@ final class AuthorizationServiceImpl: AuthorizationService {
         }
     }
     
-    func signInByGoogle() {
+    func signInWithGoogle() {
         
     }
     
-    func signInByFacebook() {
+    func signInWithFacebook() {
         
     }
     
-    func signInByVK() {
+    func signInWithVK() {
         
     }
     

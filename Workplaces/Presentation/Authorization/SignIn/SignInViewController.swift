@@ -97,7 +97,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         let userCredentials = UserCredentials(email: email, password: password)
         
         LoadingView.show()
-        let progress = authorizationService.signIn(userCredentials: userCredentials) { [weak self] result in
+        let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {

@@ -39,29 +39,17 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     private func showLoginScreen() {
         let loginVC = LoginViewController()
         
-        loginVC.didTapEnterButton = { [weak self] in
+        loginVC.didTapSignInWithEmailButton = { [weak self] in
             self?.showSignInScreen()
         }
         
-        loginVC.didTapEnterByGoogleButton = {
-            
-        }
+        loginVC.didTapSignInWithGoogleButton = {}
         
-        loginVC.didTapEnterByFacebookButton = { [weak self] in
-            // Test
-            let zeroScreen = ZeroViewController(viewType: .noData)
-            self?.navigationController?.pushViewController(zeroScreen, animated: true)
-        }
+        loginVC.didTapSignInWithFacebookButton = {}
         
-        loginVC.didTapEnterByVKButton = { [weak self] in
-            // Test
-            let zeroScreen = ZeroViewController(viewType: .error) {
-                print("Tap")
-            }
-            self?.navigationController?.pushViewController(zeroScreen, animated: true)
-        }
+        loginVC.didTapSignInWithVKButton = {}
         
-        loginVC.didTapSignUpByEmail = { [weak self] in
+        loginVC.didTapSignUpWithEmail = { [weak self] in
             self?.showSignUpFirstScreen()
         }
         
