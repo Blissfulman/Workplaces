@@ -546,8 +546,6 @@
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508612642596000568006 /* PostCell */,
-				CE1508532641BA9A00568006 /* ProfileMeCell */,
-				CE15085E26423E9700568006 /* ProfileSwitchCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -607,22 +605,22 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		CE1508532641BA9A00568006 /* ProfileMeCell */ = {
+		CE1508532641BA9A00568006 /* ProfileMe */ = {
 			isa = PBXGroup;
 			children = (
 				CE15085626423E4400568006 /* ProfileMeCell.swift */,
 				CE15085726423E4400568006 /* ProfileMeCell.xib */,
 			);
-			path = ProfileMeCell;
+			path = ProfileMe;
 			sourceTree = "<group>";
 		};
-		CE15085E26423E9700568006 /* ProfileSwitchCell */ = {
+		CE15085E26423E9700568006 /* ProfileSwitch */ = {
 			isa = PBXGroup;
 			children = (
 				CE15085A26423E8D00568006 /* ProfileSwitchCell.swift */,
 				CE15085B26423E8D00568006 /* ProfileSwitchCell.xib */,
 			);
-			path = ProfileSwitchCell;
+			path = ProfileSwitch;
 			sourceTree = "<group>";
 		};
 		CE1508612642596000568006 /* PostCell */ = {
@@ -632,6 +630,17 @@
 				CE1508632642597700568006 /* PostCell.xib */,
 			);
 			path = PostCell;
+			sourceTree = "<group>";
+		};
+		CE1508662642601200568006 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
+				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
+				CE1508532641BA9A00568006 /* ProfileMe */,
+				CE15085E26423E9700568006 /* ProfileSwitch */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CE1627832640006800468CDA /* WorkplacesTests */ = {
@@ -954,8 +963,7 @@
 		CE97218A263F0BD6006ACEB2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
-				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
+				CE1508662642601200568006 /* Cells */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

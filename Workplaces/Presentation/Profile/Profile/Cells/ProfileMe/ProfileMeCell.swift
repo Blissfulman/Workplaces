@@ -26,7 +26,7 @@ final class ProfileMeCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func configure(user: User) {
-        fullNameLabel.text = "\(user.firstName) \(user.lastName)"
+    func configure(user: User?) {
+        fullNameLabel.text = "\(user?.firstName ?? "") \(user?.lastName ?? "")"
     }
 }

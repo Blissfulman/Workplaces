@@ -91,7 +91,6 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     
     @objc private func editProfileBarButtonTapped() {
         guard let profile = profile else { return }
-        
         didTapEditProfileButton?(profile)
     }
     
@@ -100,7 +99,8 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     private func setupUI() {
         navigationItem.title = "Профиль"
         navigationItem.backButtonTitle = ""
-//        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.hidesBarsOnSwipe = true
+        
         addBarButtonItems()
         
         tableView.register(ProfileMeCell.nib(), forCellReuseIdentifier: ProfileMeCell.identifier)
@@ -133,7 +133,7 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
             switch result {
             case let .success(profile):
                 self?.profile = profile
-                self?.navigationItem.title = profile.nickname
+                self?.navigationItem.title = "@kshn13" // profile.nickname
                 self?.tableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
@@ -158,7 +158,7 @@ extension ProfileViewController: UITableViewDataSource {
                 for: indexPath
             ) as? ProfileMeCell else { return UITableViewCell() }
             
-            cell.configure(user: profile ?? User.testUser())
+            cell.configure(user: profile)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
