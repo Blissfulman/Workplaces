@@ -124,7 +124,7 @@ final class SignInViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = NSLocalizedString("Sign in with email", comment: "SignInViewControllerTitle")
+        title = "Sign in with email".localize(key: "SignInViewControllerTitle")
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

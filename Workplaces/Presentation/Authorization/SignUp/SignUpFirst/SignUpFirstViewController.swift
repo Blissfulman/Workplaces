@@ -66,7 +66,7 @@ final class SignUpFirstViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = NSLocalizedString("Sign up", comment: "SignUpFirstViewControllerTitle")
+        title = "Sign up".localize(key: "SignUpFirstViewControllerTitle")
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

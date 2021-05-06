@@ -92,7 +92,7 @@ final class SignUpSecondViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = NSLocalizedString("Sign up", comment: "SignUpSecondViewControllerTitle")
+        title = "Sign up".localize(key: "SignUpSecondViewControllerTitle")
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
