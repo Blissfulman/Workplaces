@@ -9,17 +9,16 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpFirstScreenCoordinable {
-    var didTapNextButton: ((UserCredentials) -> Void)? { get set }
-    var didTapAlreadyRegisteredButton: VoidBlock? { get set }
+protocol SignUpFirstScreenCoordinable: AnyObject {
+    func didTapForwardButton(userCredentials: UserCredentials)
+    func goToSignIn()
 }
 
-final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordinable {
+final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapNextButton: ((UserCredentials) -> Void)?
-    var didTapAlreadyRegisteredButton: VoidBlock?
+    weak var coordinator: SignUpFirstScreenCoordinable?
     
     // MARK: - Outlets
     
@@ -57,11 +56,11 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     
     @IBAction private func forwardButtonTapped() {
         let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
-        didTapNextButton?(userCredentials)
+        coordinator?.didTapForwardButton(userCredentials: userCredentials)
     }
     
-    @IBAction private func alreadyRegisteredButtonTapped() {
-        didTapAlreadyRegisteredButton?()
+    @IBAction private func alreadySignedUpButtonTapped() {
+        coordinator?.goToSignIn()
     }
     
     // MARK: - Private methods

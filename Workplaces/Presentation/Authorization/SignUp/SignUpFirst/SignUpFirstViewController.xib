@@ -29,12 +29,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-KK-U6J">
-                    <rect key="frame" x="32" y="90" width="350" height="18"/>
+                    <rect key="frame" x="32" y="90" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY">
-                    <rect key="frame" x="32" y="156" width="350" height="18"/>
+                    <rect key="frame" x="32" y="158" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="email"/>
                     <connections>
@@ -57,11 +57,11 @@
                         <color key="titleColor" name="middleGrey"/>
                     </state>
                     <connections>
-                        <action selector="alreadyRegisteredButtonTapped" destination="-1" eventType="touchUpInside" id="osC-TY-2I3"/>
+                        <action selector="alreadySignedUpButtonTapped" destination="-1" eventType="touchUpInside" id="osC-TY-2I3"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqh-yA-vbi">
-                    <rect key="frame" x="183.5" y="711" width="47" height="31"/>
+                    <rect key="frame" x="183.5" y="709" width="47" height="33"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Далее">
                         <color key="titleColor" name="orange"/>
@@ -71,7 +71,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
-                    <rect key="frame" x="32" y="222" width="350" height="17"/>
+                    <rect key="frame" x="32" y="226" width="350" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                 </textField>

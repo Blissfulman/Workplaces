@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
-                    <rect key="frame" x="32" y="90" width="350" height="20"/>
+                    <rect key="frame" x="32" y="90" width="350" height="19.5"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -38,7 +38,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
-                    <rect key="frame" x="32" y="158" width="350" height="19"/>
+                    <rect key="frame" x="32" y="157.5" width="350" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
@@ -56,7 +56,7 @@
                         <color key="titleColor" name="middleGrey"/>
                     </state>
                     <connections>
-                        <action selector="enterButtonTapped" destination="-1" eventType="touchUpInside" id="8RF-il-9Gn"/>
+                        <action selector="signInButtonTapped" destination="-1" eventType="touchUpInside" id="8RF-il-9Gn"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
@@ -66,7 +66,7 @@
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="registerButtonTapped" destination="-1" eventType="touchUpInside" id="fc8-Y7-v1Q"/>
+                        <action selector="signUpButtonTapped" destination="-1" eventType="touchUpInside" id="fc8-Y7-v1Q"/>
                     </connections>
                 </button>
             </subviews>

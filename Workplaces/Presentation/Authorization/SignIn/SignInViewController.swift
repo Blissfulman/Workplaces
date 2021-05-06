@@ -9,12 +9,12 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignInScreenCoordinable {
-    var didTapRegisterButton: VoidBlock? { get set }
-    var didTapEnterButton: VoidBlock? { get set }
+protocol SignInScreenCoordinable: AnyObject {
+    func goToSignUp()
+    func successfulSignIn()
 }
 
-final class SignInViewController: UIViewController, SignInScreenCoordinable {
+final class SignInViewController: UIViewController {
     
     // MARK: - Outlets
     
@@ -25,8 +25,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
     
     // MARK: - Public properties
     
-    var didTapRegisterButton: VoidBlock?
-    var didTapEnterButton: VoidBlock?
+    weak var coordinator: SignInScreenCoordinable?
     
     // MARK: - Private properties
     
@@ -86,11 +85,11 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
         updateEnterButtonState()
     }
     
-    @IBAction private func registerButtonTapped() {
-        didTapRegisterButton?()
+    @IBAction private func signUpButtonTapped() {
+        coordinator?.goToSignUp()
     }
     
-    @IBAction private func enterButtonTapped() {
+    @IBAction private func signInButtonTapped() {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
         
@@ -102,7 +101,7 @@ final class SignInViewController: UIViewController, SignInScreenCoordinable {
             
             switch result {
             case .success:
-                self?.didTapEnterButton?()
+                self?.coordinator?.successfulSignIn()
             case let .failure(error):
                 self?.showAlert(error)
             }

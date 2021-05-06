@@ -58,7 +58,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="toFeedButtonTapped" destination="-1" eventType="touchUpInside" id="S60-fW-dqL"/>
+                        <action selector="goToFeedButtonTapped" destination="-1" eventType="touchUpInside" id="S60-fW-dqL"/>
                     </connections>
                 </button>
             </subviews>

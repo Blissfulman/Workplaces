@@ -9,15 +9,15 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpSecondScreenCoordinable {
-    var didTapRegisterButton: VoidBlock? { get set }
+protocol SignUpSecondScreenCoordinable: AnyObject {
+    func successfulSignUp()
 }
 
-final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoordinable {
+final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapRegisterButton: VoidBlock?
+    weak var coordinator: SignUpSecondScreenCoordinable?
     
     // MARK: - Outlets
     
@@ -66,7 +66,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     // MARK: - Actions
     
-    @IBAction private func registerButtonTapped() {
+    @IBAction private func signUpButtonTapped() {
         guard let email = userCredentials.email, !email.isEmpty,
               let password = userCredentials.password, !password.isEmpty else {
             showAlert("Необходимо было ввести e-mail и пароль") // TEMP
@@ -81,7 +81,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
             
             switch result {
             case .success:
-                self?.didTapRegisterButton?()
+                self?.coordinator?.successfulSignUp()
             case let .failure(error):
                 self?.showAlert(error)
             }
