@@ -7,51 +7,55 @@
 
 import UIKit
 
-final class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController, Coordinator {
     
+    // MARK: - Public properties
+    
+    var onFinish: VoidBlock
+        
     // MARK: - Private properties
     
     private var feedCoordinator: FeedCoordinator?
     private var profileCoordinator: ProfileCoordinator?
     
     private var feedTab: UIViewController {
-        let feedNavigationController = UINavigationController()
-        
-        feedCoordinator = FeedCoordinatorImpl(navigationController: feedNavigationController, onFinish: {})
-        feedNavigationController.tabBarItem.image = Icons.feed
+        let navigationController = UINavigationController()
+        feedCoordinator = FeedCoordinatorImpl(navigationController: navigationController, onFinish: onFinish)
+        navigationController.tabBarItem.image = Icons.feed
         feedCoordinator?.start()
-        
-        return feedNavigationController
+        return navigationController
     }
     
     private var newPostTab: UIViewController {
-        let newPostVC = UINavigationController(rootViewController: NewPostViewController())
+        let newPostVC = NewPostViewController()
         newPostVC.tabBarItem.image = Icons.newPost
         return newPostVC
     }
     
     private var profileTab: UIViewController {
-        let profileNavigationController = UINavigationController()
-        
-        profileCoordinator = ProfileCoordinatorImpl(navigationController: profileNavigationController) {
-            guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
-                print("Window access error")
-                return
-            }
-            sceneDelegate.applicationCoordinator.start()
-        }
-        profileNavigationController.tabBarItem.image = Icons.profile
+        let navigationController = UINavigationController()
+        profileCoordinator = ProfileCoordinatorImpl(navigationController: navigationController, onFinish: onFinish)
+        navigationController.tabBarItem.image = Icons.profile
         profileCoordinator?.start()
-        
-        return profileNavigationController
+        return navigationController
     }
     
-    // MARK: - UIViewController
+    // MARK: - Initializers
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(onFinish: @escaping VoidBlock) {
+        self.onFinish = onFinish
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Public methods
+    
+    func start() {
+        viewControllers = [feedTab, newPostTab, profileTab]
         setupUI()
-        configureTabs()
     }
     
     // MARK: - Private methods
@@ -61,9 +65,5 @@ final class TabBarController: UITabBarController {
         tabBar.barTintColor = Palette.white
         tabBar.tintColor = Palette.orange
         tabBar.unselectedItemTintColor = Palette.grey
-    }
-    
-    private func configureTabs() {
-        viewControllers = [feedTab, newPostTab, profileTab]
     }
 }
