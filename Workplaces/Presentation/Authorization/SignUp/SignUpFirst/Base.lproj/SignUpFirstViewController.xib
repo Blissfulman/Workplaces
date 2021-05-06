@@ -28,12 +28,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Никнейм" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-KK-U6J">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-KK-U6J">
                     <rect key="frame" x="32" y="90" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY">
                     <rect key="frame" x="32" y="158" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -53,7 +53,7 @@
                         <constraint firstAttribute="height" constant="56" id="zf8-KT-mXA"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Уже зарегистрирован">
+                    <state key="normal" title="Already signed up">
                         <color key="titleColor" name="middleGrey"/>
                     </state>
                     <connections>
@@ -61,16 +61,16 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqh-yA-vbi">
-                    <rect key="frame" x="183.5" y="709" width="47" height="33"/>
+                    <rect key="frame" x="190" y="709" width="34" height="33"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Далее">
+                    <state key="normal" title="Next">
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="forwardButtonTapped" destination="-1" eventType="touchUpInside" id="Zw7-s4-s8u"/>
+                        <action selector="forwardNextTapped" destination="-1" eventType="touchUpInside" id="Zw7-s4-s8u"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
                     <rect key="frame" x="32" y="226" width="350" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>

@@ -117,7 +117,7 @@ extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
 
 extension AuthorizationCoordinatorImpl: SignUpFirstScreenDelegate {
     
-    func didTapForwardButton(userCredentials: UserCredentials) {
+    func didTapNextButton(userCredentials: UserCredentials) {
         showSignUpSecondScreen(userCredentials: userCredentials)
     }
     

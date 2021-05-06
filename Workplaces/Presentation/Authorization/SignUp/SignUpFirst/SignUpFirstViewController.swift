@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpFirstScreenDelegate: AnyObject {
-    func didTapForwardButton(userCredentials: UserCredentials)
+    func didTapNextButton(userCredentials: UserCredentials)
     func goToSignIn()
 }
 
@@ -54,9 +54,9 @@ final class SignUpFirstViewController: UIViewController {
         }
     }
     
-    @IBAction private func forwardButtonTapped() {
+    @IBAction private func forwardNextTapped() {
         let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
-        delegate?.didTapForwardButton(userCredentials: userCredentials)
+        delegate?.didTapNextButton(userCredentials: userCredentials)
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
@@ -66,7 +66,7 @@ final class SignUpFirstViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Регистрация"
+        title = NSLocalizedString("Sign up", comment: "SignUpFirstViewControllerTitle")
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
