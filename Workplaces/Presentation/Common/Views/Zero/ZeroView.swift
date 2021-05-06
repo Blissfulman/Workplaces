@@ -26,24 +26,17 @@ final class ZeroView: NibInitializableView {
     
     // MARK: - Private properties
     
-    private var viewType: ViewType?
     private var buttonAction: VoidBlock?
     
     // MARK: - Initializers
     
     convenience init(viewType: ViewType, buttonAction: VoidBlock? = nil) {
         self.init(frame: .zero)
-        self.viewType = viewType
-        self.buttonAction = buttonAction
-    }
-    
-    override func layoutSubviews() {
-        guard let viewType = viewType else { return }
         
         subviews.forEach {
-            if let zeroSubview = $0 as? ZeroView {
-                zeroSubview.buttonAction = buttonAction
-                zeroSubview.configure(viewType: viewType, buttonAction: buttonAction)
+            if let selfSubview = $0 as? Self {
+                selfSubview.buttonAction = buttonAction
+                selfSubview.configure(viewType: viewType, buttonAction: buttonAction)
             }
         }
     }
