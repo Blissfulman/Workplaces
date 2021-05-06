@@ -14,7 +14,14 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZeroView" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="Pvd-zZ-s2l" id="aMa-Ck-qbc"/>
+                <outlet property="imageView" destination="NcV-WM-y7C" id="Dvv-LF-cwh"/>
+                <outlet property="subtitleLabel" destination="Ts7-JG-9h6" id="g2v-tG-Mfk"/>
+                <outlet property="titleLabel" destination="f1L-Wh-RDj" id="YuQ-wh-1nM"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZeroView" customModule="Workplaces" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -46,7 +53,7 @@
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="buttonTapped" destination="iN0-l3-epB" eventType="touchUpInside" id="rQ3-3S-vgP"/>
+                        <action selector="buttonTapped" destination="-1" eventType="touchUpInside" id="2JS-zl-2lm"/>
                     </connections>
                 </button>
             </subviews>
@@ -63,12 +70,6 @@
                 <constraint firstItem="Ts7-JG-9h6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lCh-LZ-6Nh"/>
                 <constraint firstItem="Pvd-zZ-s2l" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rfk-Ge-NdL"/>
             </constraints>
-            <connections>
-                <outlet property="button" destination="Pvd-zZ-s2l" id="BHC-E3-riN"/>
-                <outlet property="imageView" destination="NcV-WM-y7C" id="zkI-IP-gRy"/>
-                <outlet property="subtitleLabel" destination="Ts7-JG-9h6" id="Aem-uu-s4r"/>
-                <outlet property="titleLabel" destination="f1L-Wh-RDj" id="YjL-Hs-WpT"/>
-            </connections>
             <point key="canvasLocation" x="35" y="69"/>
         </view>
     </objects>

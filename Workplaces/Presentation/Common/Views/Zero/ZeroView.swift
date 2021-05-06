@@ -32,13 +32,8 @@ final class ZeroView: NibInitializableView {
     
     convenience init(viewType: ViewType, buttonAction: VoidBlock? = nil) {
         self.init(frame: .zero)
-        
-        subviews.forEach {
-            if let selfSubview = $0 as? Self {
-                selfSubview.buttonAction = buttonAction
-                selfSubview.configure(viewType: viewType, buttonAction: buttonAction)
-            }
-        }
+        self.buttonAction = buttonAction
+        configure(viewType: viewType, buttonAction: buttonAction)
     }
     
     // MARK: - Actions

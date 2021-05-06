@@ -13,7 +13,7 @@ extension NibInitializable where Self: UIView {
     
     func initFromNib(nibName: String) {
         let nib = UINib(nibName: nibName, bundle: nil)
-        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self else {
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? Self else {
             fatalError("Failed to instantiate \(nibName)")
         }
         view.frame = bounds
