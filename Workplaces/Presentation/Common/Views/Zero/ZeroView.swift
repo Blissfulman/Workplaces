@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ZeroView: UIView, NibInitializable {
+final class ZeroView: NibInitializableView {
     
     // MARK: - Nested types
     
@@ -26,11 +26,37 @@ final class ZeroView: UIView, NibInitializable {
     
     // MARK: - Private properties
     
+    private var viewType: ViewType?
     private var buttonAction: VoidBlock?
     
-    // MARK: - Public methods
+    // MARK: - Initializers
     
-    func configure(viewType: ViewType, buttonAction: VoidBlock? = nil) {
+    convenience init(viewType: ViewType, buttonAction: VoidBlock? = nil) {
+        self.init(frame: .zero)
+        self.viewType = viewType
+        self.buttonAction = buttonAction
+    }
+    
+    override func layoutSubviews() {
+        guard let viewType = viewType else { return }
+        
+        subviews.forEach {
+            if let zeroSubview = $0 as? ZeroView {
+                zeroSubview.buttonAction = buttonAction
+                zeroSubview.configure(viewType: viewType, buttonAction: buttonAction)
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func buttonTapped() {
+        buttonAction?()
+    }
+    
+    // MARK: - Private methods
+    
+    private func configure(viewType: ViewType, buttonAction: VoidBlock? = nil) {
         switch viewType {
         case .error:
             imageView.image = Images.errorScreen
@@ -48,15 +74,8 @@ final class ZeroView: UIView, NibInitializable {
             subtitleLabel.text = "Вам нужны друзья, чтобы лента стала живой"
             button.setTitle("Найти друзей", for: .normal)
         }
-        if let buttonAction = buttonAction {
-            self.buttonAction = buttonAction
+        if buttonAction != nil {
             button.isHidden = false
         }
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction private func buttonTapped() {
-        buttonAction?()
     }
 }

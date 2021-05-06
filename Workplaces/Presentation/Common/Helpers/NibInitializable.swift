@@ -11,11 +11,13 @@ protocol NibInitializable {}
 
 extension NibInitializable where Self: UIView {
     
-    static func initializeFromNib() -> Self {
-        let nib = UINib(nibName: String(describing: Self.self), bundle: nil)
+    func initFromNib(nibName: String) {
+        let nib = UINib(nibName: nibName, bundle: nil)
         guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self else {
-            fatalError("Failed to instantiate \(String(describing: Self.self))")
+            fatalError("Failed to instantiate \(nibName)")
         }
-        return view
+        view.frame = bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(view)
     }
 }

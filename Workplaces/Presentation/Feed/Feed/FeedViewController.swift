@@ -90,9 +90,7 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
     }
     
     private func showNoFriendsZeroView() {
-        let zeroView = ZeroView.initializeFromNib()
-        zeroView.configure(viewType: .noFriends, buttonAction: self.findFriends)
-        view = zeroView
+        view = ZeroView(viewType: .noFriends, buttonAction: findFriends)
     }
     
     private func showPostListView(postList: [Post]) {
@@ -100,8 +98,6 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
     }
     
     private func showErrorZeroView() {
-        let zeroView = ZeroView.initializeFromNib()
-        zeroView.configure(viewType: .error, buttonAction: self.errorZeroViewButtonAction)
-        view = zeroView
+        view = ZeroView(viewType: .error, buttonAction: errorZeroViewButtonAction)
     }
 }
