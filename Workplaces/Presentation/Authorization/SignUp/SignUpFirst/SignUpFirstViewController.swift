@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpFirstScreenCoordinable: AnyObject {
+protocol SignUpFirstScreenDelegate: AnyObject {
     func didTapForwardButton(userCredentials: UserCredentials)
     func goToSignIn()
 }
@@ -18,7 +18,7 @@ final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var coordinator: SignUpFirstScreenCoordinable?
+    weak var delegate: SignUpFirstScreenDelegate?
     
     // MARK: - Outlets
     
@@ -56,11 +56,11 @@ final class SignUpFirstViewController: UIViewController {
     
     @IBAction private func forwardButtonTapped() {
         let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
-        coordinator?.didTapForwardButton(userCredentials: userCredentials)
+        delegate?.didTapForwardButton(userCredentials: userCredentials)
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
-        coordinator?.goToSignIn()
+        delegate?.goToSignIn()
     }
     
     // MARK: - Private methods

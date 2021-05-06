@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignInScreenCoordinable: AnyObject {
+protocol SignInScreenDelegate: AnyObject {
     func goToSignUp()
     func successfulSignIn()
 }
@@ -25,7 +25,7 @@ final class SignInViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var coordinator: SignInScreenCoordinable?
+    weak var delegate: SignInScreenDelegate?
     
     // MARK: - Private properties
     
@@ -86,7 +86,7 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
-        coordinator?.goToSignUp()
+        delegate?.goToSignUp()
     }
     
     @IBAction private func signInButtonTapped() {
@@ -101,7 +101,7 @@ final class SignInViewController: UIViewController {
             
             switch result {
             case .success:
-                self?.coordinator?.successfulSignIn()
+                self?.delegate?.successfulSignIn()
             case let .failure(error):
                 self?.showAlert(error)
             }

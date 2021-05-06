@@ -38,7 +38,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     
     private func showLoginScreen() {
         let loginVC = LoginViewController()
-        loginVC.coordinator = self
+        loginVC.delegate = self
         navigationController?.pushViewController(loginVC, animated: false)
     }
     
@@ -49,7 +49,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signInVC = SignInViewController()
-        signInVC.coordinator = self
+        signInVC.delegate = self
         navigationController?.pushViewController(signInVC, animated: true)
     }
     
@@ -60,19 +60,19 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signUpFirstVC = SignUpFirstViewController()
-        signUpFirstVC.coordinator = self
+        signUpFirstVC.delegate = self
         navigationController?.pushViewController(signUpFirstVC, animated: true)
     }
     
     private func showSignUpSecondScreen(userCredentials: UserCredentials) {
         let signUpSecondVC = SignUpSecondViewController(userCredentials: userCredentials)
-        signUpSecondVC.coordinator = self
+        signUpSecondVC.delegate = self
         navigationController?.pushViewController(signUpSecondVC, animated: true)
     }
     
     private func showSignInDoneScreen() {
         let signInDoneVC = SignInDoneViewController()
-        signInDoneVC.coordinator = self
+        signInDoneVC.delegate = self
         navigationController?.pushViewController(signInDoneVC, animated: true)
     }
     
@@ -81,9 +81,9 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
 }
 
-// MARK: - LoginScreenCoordinable
+// MARK: - LoginScreenDelegate
 
-extension AuthorizationCoordinatorImpl: LoginScreenCoordinable {
+extension AuthorizationCoordinatorImpl: LoginScreenDelegate {
     
     func didTapSignInWithEmailButton() {
         showSignInScreen()
@@ -100,9 +100,9 @@ extension AuthorizationCoordinatorImpl: LoginScreenCoordinable {
     }
 }
 
-// MARK: - SignInScreenCoordinable
+// MARK: - SignInScreenDelegate
 
-extension AuthorizationCoordinatorImpl: SignInScreenCoordinable {
+extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
     
     func goToSignUp() {
         showSignUpFirstScreen()
@@ -113,9 +113,9 @@ extension AuthorizationCoordinatorImpl: SignInScreenCoordinable {
     }
 }
 
-// MARK: - SignUpFirstScreenCoordinable
+// MARK: - SignUpFirstScreenDelegate
 
-extension AuthorizationCoordinatorImpl: SignUpFirstScreenCoordinable {
+extension AuthorizationCoordinatorImpl: SignUpFirstScreenDelegate {
     
     func didTapForwardButton(userCredentials: UserCredentials) {
         showSignUpSecondScreen(userCredentials: userCredentials)
@@ -126,18 +126,18 @@ extension AuthorizationCoordinatorImpl: SignUpFirstScreenCoordinable {
     }
 }
 
-// MARK: - SignUpSecondScreenCoordinable
+// MARK: - SignUpSecondScreenDelegate
 
-extension AuthorizationCoordinatorImpl: SignUpSecondScreenCoordinable {
+extension AuthorizationCoordinatorImpl: SignUpSecondScreenDelegate {
     
     func successfulSignUp() {
         showSignInDoneScreen()
     }
 }
 
-// MARK: - SignInDoneScreenCoordinable
+// MARK: - SignInDoneScreenDelegate
 
-extension AuthorizationCoordinatorImpl: SignInDoneScreenCoordinable {
+extension AuthorizationCoordinatorImpl: SignInDoneScreenDelegate {
     
     func goToFeed() {
         showTabBarController()

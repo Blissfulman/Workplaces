@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignInDoneScreenCoordinable: AnyObject {
+protocol SignInDoneScreenDelegate: AnyObject {
     func goToFeed()
 }
 
@@ -17,7 +17,7 @@ final class SignInDoneViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var coordinator: SignInDoneScreenCoordinable?
+    weak var delegate: SignInDoneScreenDelegate?
     
     // MARK: - UIViewController
     
@@ -29,7 +29,7 @@ final class SignInDoneViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func goToFeedButtonTapped() {
-        coordinator?.goToFeed()
+        delegate?.goToFeed()
     }
     
     // MARK: - Private methods

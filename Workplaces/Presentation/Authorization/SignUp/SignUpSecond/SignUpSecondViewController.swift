@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpSecondScreenCoordinable: AnyObject {
+protocol SignUpSecondScreenDelegate: AnyObject {
     func successfulSignUp()
 }
 
@@ -17,7 +17,7 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var coordinator: SignUpSecondScreenCoordinable?
+    weak var delegate: SignUpSecondScreenDelegate?
     
     // MARK: - Outlets
     
@@ -81,7 +81,7 @@ final class SignUpSecondViewController: UIViewController {
             
             switch result {
             case .success:
-                self?.coordinator?.successfulSignUp()
+                self?.delegate?.successfulSignUp()
             case let .failure(error):
                 self?.showAlert(error)
             }

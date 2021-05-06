@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol LoginScreenCoordinable: AnyObject {
+protocol LoginScreenDelegate: AnyObject {
     func didTapSignInWithEmailButton()
     func didTapSignInWithGoogleButton()
     func didTapSignInWithFacebookButton()
@@ -21,7 +21,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var coordinator: LoginScreenCoordinable?
+    weak var delegate: LoginScreenDelegate?
     
     // MARK: - UIViewController
     
@@ -38,23 +38,23 @@ final class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signInWithEmailButtonTapped() {
-        coordinator?.didTapSignInWithEmailButton()
+        delegate?.didTapSignInWithEmailButton()
     }
     
     @IBAction private func signInWithGoogleTapped() {
-        coordinator?.didTapSignInWithGoogleButton()
+        delegate?.didTapSignInWithGoogleButton()
     }
     
     @IBAction private func signInWithFacebookTapped() {
-        coordinator?.didTapSignInWithFacebookButton()
+        delegate?.didTapSignInWithFacebookButton()
     }
     
     @IBAction private func signInWithVKTapped() {
-        coordinator?.didTapSignInWithVKButton()
+        delegate?.didTapSignInWithVKButton()
     }
     
     @IBAction private func signUpWithEmailTapped() {
-        coordinator?.didTapSignUpWithEmail()
+        delegate?.didTapSignUpWithEmail()
     }
     
     // MARK: - Private methods
