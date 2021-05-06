@@ -38,16 +38,21 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     
     private func showFeedScreen() {
         let feedVC = FeedViewController()
-        
-        feedVC.didTapFindFriendButton = { [weak self] in
-            self?.showFindFriendsScreen()
-        }
-        
+        feedVC.delegate = self
         navigationController?.pushViewController(feedVC, animated: false)
     }
     
     private func showFindFriendsScreen() {
         let searchFriendsVC = SearchFriendsViewController()
         navigationController?.pushViewController(searchFriendsVC, animated: true)
+    }
+}
+
+// MARK: - FeedScreenDelegate
+
+extension FeedCoordinatorImpl: FeedScreenDelegate {
+    
+    func goToFindFriends() {
+        showFindFriendsScreen()
     }
 }

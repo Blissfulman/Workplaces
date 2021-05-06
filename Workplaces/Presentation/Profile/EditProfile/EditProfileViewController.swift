@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol EditProfileScreenCoordinable {
-    var didTapSaveButton: VoidBlock? { get set }
+protocol EditProfileScreenDelegate: AnyObject {
+    func profileDidSave()
 }
 
-final class EditProfileViewController: UIViewController, EditProfileScreenCoordinable {
+final class EditProfileViewController: UIViewController {
     
     // MARK: - Nested types
     
@@ -33,7 +33,7 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
     
     // MARK: - Public properties
     
-    var didTapSaveButton: VoidBlock?
+    weak var delegate: EditProfileScreenDelegate?
     
     // MARK: - Outlets
     
@@ -131,8 +131,8 @@ final class EditProfileViewController: UIViewController, EditProfileScreenCoordi
             
             switch result {
             case let .success(profile):
-                print("Updated My Profile:", profile)
-                self?.didTapSaveButton?()
+                print("Updated my profile:", profile) // TEMP
+                self?.delegate?.profileDidSave()
             case let .failure(error):
                 self?.showAlert(error)
             }

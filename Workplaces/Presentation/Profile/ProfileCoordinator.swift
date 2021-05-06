@@ -38,25 +38,36 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     private func showProfileScreen() {
         let profileVC = ProfileViewController()
-        
-        profileVC.didTapEditProfileButton = { [weak self] profile in
-            self?.showEditProfileScreen(profile: profile)
-        }
-        
-        profileVC.didTapLogOutButton = { [weak self] in
-            self?.onFinish()
-        }
-        
+        profileVC.delegate = self
         navigationController?.pushViewController(profileVC, animated: false)
     }
     
     private func showEditProfileScreen(profile: User) {
         let editProfileVC = EditProfileViewController(profile: profile)
-        
-        editProfileVC.didTapSaveButton = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
-        }
-        
+        editProfileVC.delegate = self
         navigationController?.pushViewController(editProfileVC, animated: true)
     }
+}
+
+// MARK: - ProfileScreenDelegate
+
+extension ProfileCoordinatorImpl: ProfileScreenDelegate {
+    
+    func goToEditProfile(profile: User) {
+        showEditProfileScreen(profile: profile)
+    }
+    
+    func signOut() {
+        onFinish()
+    }
+}
+
+// MARK: - EditProfileScreenDelegate
+
+extension ProfileCoordinatorImpl: EditProfileScreenDelegate {
+    
+    func profileDidSave() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

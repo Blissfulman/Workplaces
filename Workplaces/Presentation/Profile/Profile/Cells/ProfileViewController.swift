@@ -9,17 +9,16 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ProfileScreenCoordinable {
-    var didTapEditProfileButton: ((User) -> Void)? { get set }
-    var didTapLogOutButton: VoidBlock? { get set }
+protocol ProfileScreenDelegate: AnyObject {
+    func goToEditProfile(profile: User)
+    func signOut()
 }
 
-final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
+final class ProfileViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapEditProfileButton: ((User) -> Void)?
-    var didTapLogOutButton: VoidBlock?
+    weak var delegate: ProfileScreenDelegate?
     
     // MARK: - Outlets
     
@@ -81,7 +80,7 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
         let progress = authorizationService.signOut { [weak self] result in
             switch result {
             case .success:
-                self?.didTapLogOutButton?()
+                self?.delegate?.signOut()
             case .failure:
                 break
             }
@@ -91,7 +90,7 @@ final class ProfileViewController: UIViewController, ProfileScreenCoordinable {
     
     @objc private func editProfileBarButtonTapped() {
         guard let profile = profile else { return }
-        didTapEditProfileButton?(profile)
+        delegate?.goToEditProfile(profile: profile)
     }
     
     // MARK: - Private methods

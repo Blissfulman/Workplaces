@@ -9,15 +9,15 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol FeedScreenCoordinable {
-    var didTapFindFriendButton: VoidBlock? { get set }
+protocol FeedScreenDelegate: AnyObject {
+    func goToFindFriends()
 }
 
-final class FeedViewController: UIViewController, FeedScreenCoordinable {
+final class FeedViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapFindFriendButton: VoidBlock?
+    weak var delegate: FeedScreenDelegate?
     
     // MARK: - Private properties
     
@@ -57,7 +57,7 @@ final class FeedViewController: UIViewController, FeedScreenCoordinable {
     // MARK: - Actions
     
     private func findFriends() {
-        didTapFindFriendButton?()
+        delegate?.goToFindFriends()
     }
     
     private func errorZeroViewButtonAction() {
