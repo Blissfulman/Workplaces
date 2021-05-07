@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum GlobalFlags {
+    static var isTesting: Bool {
+        UserDefaults.standard.bool(forKey: "isTesting")
+    }
+}
+
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -17,6 +23,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
+        guard !GlobalFlags.isTesting else { return }
+        
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
         applicationCoordinator = ApplicationCoordinator(window: window)
