@@ -96,6 +96,7 @@
 		CE1F492426398E1A00FD117C /* UploadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F492326398E1A00FD117C /* UploadUser.swift */; };
 		CE1F49262639920E00FD117C /* UploadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F49252639920E00FD117C /* UploadPost.swift */; };
 		CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091526456B7A0010CF6C /* ClientMock.swift */; };
+		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
@@ -294,6 +295,7 @@
 		CE1F492326398E1A00FD117C /* UploadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUser.swift; sourceTree = "<group>"; };
 		CE1F49252639920E00FD117C /* UploadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPost.swift; sourceTree = "<group>"; };
 		CE29091526456B7A0010CF6C /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
+		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 		CE16279626403EA600468CDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */,
 				CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */,
 			);
 			path = Services;
@@ -1404,6 +1407,7 @@
 				CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */,
 				CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */,
 				CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */,
+				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
 				CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
