@@ -30,7 +30,7 @@ final class SignUpFirstViewController: UIViewController {
     
     private var isValidEnteredEmail: Bool {
         guard let email = emailTextField.text, email.count > 5 else { return false }
-        return StringValidator.isValidEmail(email)
+        return EmailValidator.isValid(email)
     }
     
     // MARK: - UIViewController
