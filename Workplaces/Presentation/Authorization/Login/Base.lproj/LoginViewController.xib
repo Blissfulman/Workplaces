@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,8 +38,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Найди своё место" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-Bt-1IQ">
-                    <rect key="frame" x="139" y="438.5" width="136.5" height="19"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-Bt-1IQ">
+                    <rect key="frame" x="152" y="438.5" width="110.5" height="19"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <color key="textColor" name="middleGrey"/>
                     <nil key="highlightedColor"/>
@@ -51,59 +51,51 @@
                         <constraint firstAttribute="height" constant="56" id="3pm-Jb-nkq"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Войти по почте или логину">
+                    <state key="normal" title="Sign in with email">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="enterButtonTapped" destination="-1" eventType="touchUpInside" id="tRx-BG-R5z"/>
+                        <action selector="signInWithEmailButtonTapped" destination="-1" eventType="touchUpInside" id="tRx-BG-R5z"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3my-r6-Dg9">
-                    <rect key="frame" x="35.5" y="609.5" width="343" height="54"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3my-r6-Dg9">
+                    <rect key="frame" x="44.5" y="609.5" width="325" height="54"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-TP-BrT">
-                            <rect key="frame" x="0.0" y="0.0" width="109" height="54"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="54" id="cV4-ca-Jfe"/>
-                                <constraint firstAttribute="width" constant="109" id="tfn-hp-qYm"/>
-                            </constraints>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-TP-BrT">
+                            <rect key="frame" x="0.0" y="0.0" width="103" height="54"/>
                             <state key="normal" title="Button" image="google_button"/>
                             <connections>
-                                <action selector="enterByGoogleTapped" destination="-1" eventType="touchUpInside" id="2Fe-Lq-Rge"/>
+                                <action selector="signInWithGoogleTapped" destination="-1" eventType="touchUpInside" id="r5R-iZ-BMI"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgE-yP-44B">
-                            <rect key="frame" x="117" y="0.0" width="109" height="54"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="109" id="3Fm-wI-kEt"/>
-                                <constraint firstAttribute="height" constant="54" id="aj4-GC-bHr"/>
-                            </constraints>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgE-yP-44B">
+                            <rect key="frame" x="111" y="0.0" width="103" height="54"/>
                             <state key="normal" title="Button" image="facebook_button"/>
                             <connections>
-                                <action selector="enterByFacebookTapped" destination="-1" eventType="touchUpInside" id="PsK-e4-CkO"/>
+                                <action selector="signInWithFacebookTapped" destination="-1" eventType="touchUpInside" id="LXk-E6-o2g"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-BI-qA0">
-                            <rect key="frame" x="234" y="0.0" width="109" height="54"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="109" id="DcZ-e5-lgX"/>
-                                <constraint firstAttribute="height" constant="54" id="dyn-06-mKL"/>
-                            </constraints>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-BI-qA0">
+                            <rect key="frame" x="222" y="0.0" width="103" height="54"/>
                             <state key="normal" title="Button" image="vk_button"/>
                             <connections>
-                                <action selector="enterByVKTapped" destination="-1" eventType="touchUpInside" id="gLa-B2-70K"/>
+                                <action selector="signInWithVKTapped" destination="-1" eventType="touchUpInside" id="HUx-SE-3Ff"/>
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="bdH-TQ-du5"/>
+                        <constraint firstAttribute="width" constant="325" id="f2A-qf-aea"/>
+                    </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0">
-                    <rect key="frame" x="124.5" y="688.5" width="165" height="31"/>
+                    <rect key="frame" x="141" y="688.5" width="132" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Регистрация по почте">
+                    <state key="normal" title="Sign up with email">
                         <color key="titleColor" name="orange"/>
                     </state>
                     <connections>
-                        <action selector="signUpByEmailTapped" destination="-1" eventType="touchUpInside" id="Ded-uD-ZTg"/>
+                        <action selector="signUpWithEmailTapped" destination="-1" eventType="touchUpInside" id="Glx-Ey-5w2"/>
                     </connections>
                 </button>
             </subviews>

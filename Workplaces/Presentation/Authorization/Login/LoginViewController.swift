@@ -9,23 +9,19 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol LoginScreenCoordinable {
-    var didTapEnterButton: VoidBlock? { get set }
-    var didTapEnterByGoogleButton: VoidBlock? { get set }
-    var didTapEnterByFacebookButton: VoidBlock? { get set }
-    var didTapEnterByVKButton: VoidBlock? { get set }
-    var didTapSignUpByEmail: VoidBlock? { get set }
+protocol LoginScreenDelegate: AnyObject {
+    func didTapSignInWithEmailButton()
+    func didTapSignInWithGoogleButton()
+    func didTapSignInWithFacebookButton()
+    func didTapSignInWithVKButton()
+    func didTapSignUpWithEmail()
 }
 
-final class LoginViewController: UIViewController, LoginScreenCoordinable {
+final class LoginViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapEnterButton: VoidBlock?
-    var didTapEnterByGoogleButton: VoidBlock?
-    var didTapEnterByFacebookButton: VoidBlock?
-    var didTapEnterByVKButton: VoidBlock?
-    var didTapSignUpByEmail: VoidBlock?
+    weak var delegate: LoginScreenDelegate?
     
     // MARK: - UIViewController
     
@@ -41,24 +37,24 @@ final class LoginViewController: UIViewController, LoginScreenCoordinable {
     
     // MARK: - Actions
     
-    @IBAction private func enterButtonTapped() {
-        didTapEnterButton?()
+    @IBAction private func signInWithEmailButtonTapped() {
+        delegate?.didTapSignInWithEmailButton()
     }
     
-    @IBAction private func enterByGoogleTapped() {
-        didTapEnterByGoogleButton?()
+    @IBAction private func signInWithGoogleTapped() {
+        delegate?.didTapSignInWithGoogleButton()
     }
     
-    @IBAction private func enterByFacebookTapped() {
-        didTapEnterByFacebookButton?()
+    @IBAction private func signInWithFacebookTapped() {
+        delegate?.didTapSignInWithFacebookButton()
     }
     
-    @IBAction private func enterByVKTapped() {
-        didTapEnterByVKButton?()
+    @IBAction private func signInWithVKTapped() {
+        delegate?.didTapSignInWithVKButton()
     }
     
-    @IBAction private func signUpByEmailTapped() {
-        didTapSignUpByEmail?()
+    @IBAction private func signUpWithEmailTapped() {
+        delegate?.didTapSignUpWithEmail()
     }
     
     // MARK: - Private methods

@@ -8,14 +8,15 @@
 public struct Post: Identifiable, Codable {
     
     public let id: String
-    let text: String?
-    let imageURL: URL?
-    let longitude: Double?
-    let latitude: Double?
-    let author: User
-    let likes: Int
+    public let text: String?
+    public let imageURL: URL?
+    public let longitude: Double?
+    public let latitude: Double?
+    public let author: User
+    public let likes: Int
+    public let liked: Bool
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case text
         case imageURL = "imageUrl"
@@ -23,9 +24,19 @@ public struct Post: Identifiable, Codable {
         case latitude = "lat"
         case author
         case likes
+        case liked
     }
     
-    init(id: String, text: String?, imageURL: URL, longitude: Double?, latitude: Double?, author: User, likes: Int) {
+    init(
+        id: String,
+        text: String?,
+        imageURL: URL,
+        longitude: Double?,
+        latitude: Double?,
+        author: User,
+        likes: Int,
+        liked: Bool
+    ) {
         self.id = id
         self.text = text
         self.imageURL = imageURL
@@ -33,6 +44,7 @@ public struct Post: Identifiable, Codable {
         self.latitude = latitude
         self.author = author
         self.likes = likes
+        self.liked = liked
     }
 }
 
@@ -47,7 +59,8 @@ public extension Post {
             longitude: 0,
             latitude: 0,
             author: User.testUser(),
-            likes: 0
+            likes: 0,
+            liked: true
         )
     }
 }

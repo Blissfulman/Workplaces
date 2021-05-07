@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class RemoveFriendEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let userID: User.ID = "test"
         let endpoint = RemoveFriendEndpoint(userID: userID)

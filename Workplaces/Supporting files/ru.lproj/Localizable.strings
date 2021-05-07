@@ -1,0 +1,16 @@
+/*
+ Localizable.strings
+  Workplaces
+
+  Created by Evgeny Novgorodov on 05.05.2021.
+  
+*/
+
+/* SignInViewControllerTitle */
+"Sign in with email" = "Вход по почте";
+
+/* SignUpFirstViewControllerTitle */
+"Sign up" = "Регистрация";
+
+/* SignUpSecondViewControllerTitle */
+"Sign up" = "Регистрация";

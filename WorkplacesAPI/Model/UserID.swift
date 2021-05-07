@@ -9,7 +9,7 @@ public struct UserID: Encodable {
     
     let value: User.ID
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case value = "user_id"
     }
 }

@@ -26,16 +26,20 @@ final class ApplicationCoordinator {
     
     func start() {
         if authDataStorage.accessToken != nil {
-            window?.rootViewController = TabBarController()
+            let tabBarController = TabBarController { [weak self] in
+                self?.start()
+            }
+            tabBarController.start()
+            window?.rootViewController = tabBarController
         } else {
             let navigationController = UINavigationController()
-            window?.rootViewController = navigationController
             authorizationCoordinator = AuthorizationCoordinatorImpl(
                 navigationController: navigationController
             ) { [weak self] in
-                self?.window?.rootViewController = TabBarController()
+                self?.start()
             }
             authorizationCoordinator?.start()
+            window?.rootViewController = navigationController
         }
     }
 }

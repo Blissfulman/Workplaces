@@ -9,23 +9,29 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpFirstScreenCoordinable {
-    var didTapNextButton: ((UserCredentials) -> Void)? { get set }
-    var didTapAlreadyRegisteredButton: VoidBlock? { get set }
+protocol SignUpFirstScreenDelegate: AnyObject {
+    func didTapNextButton(userCredentials: UserCredentials)
+    func goToSignIn()
 }
 
-final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordinable {
+final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapNextButton: ((UserCredentials) -> Void)?
-    var didTapAlreadyRegisteredButton: VoidBlock?
+    weak var delegate: SignUpFirstScreenDelegate?
     
     // MARK: - Outlets
     
     @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    
+    // MARK: - Private properties
+    
+    private var isValidEnteredEmail: Bool {
+        guard let email = emailTextField.text, email.count > 5 else { return false }
+        return StringValidator.isValidEmail(email)
+    }
     
     // MARK: - UIViewController
     
@@ -41,19 +47,26 @@ final class SignUpFirstViewController: UIViewController, SignUpFirstScreenCoordi
     
     // MARK: - Actions
     
-    @IBAction private func nextButtonTapped() {
-        let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
-        didTapNextButton?(userCredentials)
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        if sender == emailTextField {
+            emailTextField.textColor = isValidEnteredEmail ? Palette.black : Palette.orange
+            // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+        }
     }
     
-    @IBAction private func alreadyRegisteredButtonTapped() {
-        didTapAlreadyRegisteredButton?()
+    @IBAction private func forwardNextTapped() {
+        let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
+        delegate?.didTapNextButton(userCredentials: userCredentials)
+    }
+    
+    @IBAction private func alreadySignedUpButtonTapped() {
+        delegate?.goToSignIn()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Регистрация"
+        title = "Sign up".localize(key: "SignUpFirstViewControllerTitle")
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

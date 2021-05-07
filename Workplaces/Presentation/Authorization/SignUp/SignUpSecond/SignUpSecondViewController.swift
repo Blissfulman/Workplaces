@@ -9,20 +9,20 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpSecondScreenCoordinable {
-    var didTapRegisterButton: VoidBlock? { get set }
+protocol SignUpSecondScreenDelegate: AnyObject {
+    func successfulSignUp()
 }
 
-final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoordinable {
+final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapRegisterButton: VoidBlock?
+    weak var delegate: SignUpSecondScreenDelegate?
     
     // MARK: - Outlets
     
     @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var secondNameTextField: UITextField!
+    @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var bithdayTextField: UITextField!
     
     // MARK: - Private properties
@@ -66,22 +66,22 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     
     // MARK: - Actions
     
-    @IBAction private func registerButtonTapped() {
+    @IBAction private func signUpButtonTapped() {
         guard let email = userCredentials.email, !email.isEmpty,
               let password = userCredentials.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести email и пароль")
+            showAlert("Необходимо было ввести e-mail и пароль") // TEMP
             return
         }
         
         let userCredentials = UserCredentials(email: email, password: password)
         
         LoadingView.show()
-        let progress = authorizationService.registerUser(userCredentials: userCredentials) { [weak self] result in
+        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case .success:
-                self?.didTapRegisterButton?()
+                self?.delegate?.successfulSignUp()
             case let .failure(error):
                 self?.showAlert(error)
             }
@@ -92,7 +92,7 @@ final class SignUpSecondViewController: UIViewController, SignUpSecondScreenCoor
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Регистрация"
+        title = "Sign up".localize(key: "SignUpSecondViewControllerTitle")
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

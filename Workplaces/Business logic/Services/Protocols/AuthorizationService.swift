@@ -16,7 +16,7 @@ protocol AuthorizationService {
     ///   - userCredentials: Учётные данные для регистрации.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func registerUser(
+    func signUpWithEmail(
         userCredentials: UserCredentials,
         completion: @escaping AuthorizationDataResultHandler
     ) -> Progress
@@ -26,16 +26,19 @@ protocol AuthorizationService {
     ///   - userCredentials: Учётные данные пользователя.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func signIn(userCredentials: UserCredentials, completion: @escaping AuthorizationDataResultHandler) -> Progress
+    func signInWithEmail(
+        userCredentials: UserCredentials,
+        completion: @escaping AuthorizationDataResultHandler
+    ) -> Progress
     
     /// Авторизация с помощью аккаунта Google.
-    func signInByGoogle()
+    func signInWithGoogle()
     
     /// Авторизация с помощью аккаунта Facebook.
-    func signInByFacebook()
+    func signInWithFacebook()
     
     /// Авторизация с помощью аккаунта VK.
-    func signInByVK()
+    func signInWithVK()
     
     /// Завершение сессии пользователя.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,13 +32,13 @@
                         <constraint firstAttribute="height" constant="200" id="ntg-hz-CTf"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-vW-29Z">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-vW-29Z">
                     <rect key="frame" x="70" y="384.5" width="274.5" height="42"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Теперь ты можешь смотреть и делать публикации" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-t7-ezu">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can watch and add posts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-t7-ezu">
                     <rect key="frame" x="94.5" y="434.5" width="225" height="37.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="PNr-m3-At7"/>
@@ -48,17 +48,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lek-bd-a3x" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="726" width="382" height="56"/>
+                    <rect key="frame" x="16" y="762" width="382" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="5Su-uK-tFx"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Перейти к ленте">
+                    <state key="normal" title="Go to the feed">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="toFeedButtonTapped" destination="-1" eventType="touchUpInside" id="S60-fW-dqL"/>
+                        <action selector="goToFeedButtonTapped" destination="-1" eventType="touchUpInside" id="S60-fW-dqL"/>
                     </connections>
                 </button>
             </subviews>
@@ -66,11 +66,13 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="top" secondItem="PqM-vW-29Z" secondAttribute="bottom" constant="8" id="2EK-II-DOa"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lek-bd-a3x" secondAttribute="bottom" constant="80" id="4em-H3-Xz5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lek-bd-a3x" secondAttribute="bottom" constant="44" id="4em-H3-Xz5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lek-bd-a3x" secondAttribute="trailing" constant="16" id="6px-lu-H5f"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="top" secondItem="zYk-xb-DHJ" secondAttribute="bottom" id="FWF-3w-68W"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="NvH-PR-Ca9"/>
+                <constraint firstItem="PqM-vW-29Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OKe-vB-Kub"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="U3e-3s-cA0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PqM-vW-29Z" secondAttribute="trailing" constant="16" id="VzB-CY-aHy"/>
                 <constraint firstItem="lek-bd-a3x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WHk-XW-h5d"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="a95-nw-CPD"/>
                 <constraint firstItem="zYk-xb-DHJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qSF-FN-jul"/>

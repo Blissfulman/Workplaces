@@ -1,0 +1,12 @@
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ACl-g1-wIO"; */
+"ACl-g1-wIO.placeholder" = "Пароль";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "I8i-dH-VUs"; */
+"I8i-dH-VUs.normalTitle" = "Перейти к регистрации";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "rlT-M0-OZj"; */
+"rlT-M0-OZj.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "WKZ-5L-VY9"; */
+"WKZ-5L-VY9.normalTitle" = "Войти";
+

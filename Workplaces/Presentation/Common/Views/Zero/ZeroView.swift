@@ -7,13 +7,14 @@
 
 import UIKit
 
-final class ZeroView: UIView, NibInitializable {
+final class ZeroView: NibInitializableView {
     
     // MARK: - Nested types
     
     public enum ViewType {
         case error
         case noData
+        case noFriends
     }
     
     // MARK: - Outlets
@@ -27,9 +28,23 @@ final class ZeroView: UIView, NibInitializable {
     
     private var buttonAction: VoidBlock?
     
-    // MARK: - Public methods
+    // MARK: - Initializers
     
-    func configure(viewType: ViewType, buttonAction: VoidBlock? = nil) {
+    convenience init(viewType: ViewType, buttonAction: VoidBlock? = nil) {
+        self.init(frame: .zero)
+        self.buttonAction = buttonAction
+        configure(viewType: viewType, buttonAction: buttonAction)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func buttonTapped() {
+        buttonAction?()
+    }
+    
+    // MARK: - Private methods
+    
+    private func configure(viewType: ViewType, buttonAction: VoidBlock? = nil) {
         switch viewType {
         case .error:
             imageView.image = Images.errorScreen
@@ -41,16 +56,14 @@ final class ZeroView: UIView, NibInitializable {
             titleLabel.text = "Пустота"
             subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
             button.setTitle("Создать пост", for: .normal)
+        case .noFriends:
+            imageView.image = Images.noDataScreen
+            titleLabel.text = "Пустота"
+            subtitleLabel.text = "Вам нужны друзья, чтобы лента стала живой"
+            button.setTitle("Найти друзей", for: .normal)
         }
-        if let buttonAction = buttonAction {
-            self.buttonAction = buttonAction
+        if buttonAction != nil {
             button.isHidden = false
         }
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction private func buttonTapped() {
-        buttonAction?()
     }
 }

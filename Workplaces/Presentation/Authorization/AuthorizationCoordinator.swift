@@ -38,33 +38,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     
     private func showLoginScreen() {
         let loginVC = LoginViewController()
-        
-        loginVC.didTapEnterButton = { [weak self] in
-            self?.showSignInScreen()
-        }
-        
-        loginVC.didTapEnterByGoogleButton = {
-            
-        }
-        
-        loginVC.didTapEnterByFacebookButton = { [weak self] in
-            // Test
-            let zeroScreen = ZeroViewController(viewType: .noData)
-            self?.navigationController?.pushViewController(zeroScreen, animated: true)
-        }
-        
-        loginVC.didTapEnterByVKButton = { [weak self] in
-            // Test
-            let zeroScreen = ZeroViewController(viewType: .error) {
-                print("Tap")
-            }
-            self?.navigationController?.pushViewController(zeroScreen, animated: true)
-        }
-        
-        loginVC.didTapSignUpByEmail = { [weak self] in
-            self?.showSignUpFirstScreen()
-        }
-        
+        loginVC.delegate = self
         navigationController?.pushViewController(loginVC, animated: false)
     }
     
@@ -75,26 +49,8 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signInVC = SignInViewController()
-        
-        signInVC.didTapEnterButton = { [weak self] in
-            self?.showSignInDoneScreen()
-        }
-        
-        signInVC.didTapRegisterButton = { [weak self] in
-            self?.showSignUpFirstScreen()
-        }
-        
+        signInVC.delegate = self
         navigationController?.pushViewController(signInVC, animated: true)
-    }
-    
-    private func showSignInDoneScreen() {
-        let signInDoneVC = SignInDoneViewController()
-        
-        signInDoneVC.didTapToFeedButton = { [weak self] in
-            self?.showTabBarController()
-        }
-        
-        navigationController?.pushViewController(signInDoneVC, animated: true)
     }
     
     private func showSignUpFirstScreen() {
@@ -104,29 +60,86 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signUpFirstVC = SignUpFirstViewController()
-        
-        signUpFirstVC.didTapNextButton = { [weak self] userCredentials in
-            self?.showSignUpSecondScreen(userCredentials: userCredentials)
-        }
-        
-        signUpFirstVC.didTapAlreadyRegisteredButton = { [weak self] in
-            self?.showSignInScreen()
-        }
-        
+        signUpFirstVC.delegate = self
         navigationController?.pushViewController(signUpFirstVC, animated: true)
     }
     
     private func showSignUpSecondScreen(userCredentials: UserCredentials) {
         let signUpSecondVC = SignUpSecondViewController(userCredentials: userCredentials)
-        
-        signUpSecondVC.didTapRegisterButton = { [weak self] in
-            self?.showSignInDoneScreen()
-        }
-        
+        signUpSecondVC.delegate = self
         navigationController?.pushViewController(signUpSecondVC, animated: true)
+    }
+    
+    private func showSignInDoneScreen() {
+        let signInDoneVC = SignInDoneViewController()
+        signInDoneVC.delegate = self
+        navigationController?.pushViewController(signInDoneVC, animated: true)
     }
     
     private func showTabBarController() {
         onFinish()
+    }
+}
+
+// MARK: - LoginScreenDelegate
+
+extension AuthorizationCoordinatorImpl: LoginScreenDelegate {
+    
+    func didTapSignInWithEmailButton() {
+        showSignInScreen()
+    }
+    
+    func didTapSignInWithGoogleButton() {}
+    
+    func didTapSignInWithFacebookButton() {}
+    
+    func didTapSignInWithVKButton() {}
+    
+    func didTapSignUpWithEmail() {
+        showSignUpFirstScreen()
+    }
+}
+
+// MARK: - SignInScreenDelegate
+
+extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
+    
+    func goToSignUp() {
+        showSignUpFirstScreen()
+    }
+    
+    func successfulSignIn() {
+        showSignInDoneScreen()
+    }
+}
+
+// MARK: - SignUpFirstScreenDelegate
+
+extension AuthorizationCoordinatorImpl: SignUpFirstScreenDelegate {
+    
+    func didTapNextButton(userCredentials: UserCredentials) {
+        showSignUpSecondScreen(userCredentials: userCredentials)
+    }
+    
+    func goToSignIn() {
+        showSignInScreen()
+    }
+}
+
+// MARK: - SignUpSecondScreenDelegate
+
+extension AuthorizationCoordinatorImpl: SignUpSecondScreenDelegate {
+    
+    func successfulSignUp() {
+        showSignInDoneScreen()
+    }
+}
+
+// MARK: - SignInDoneScreenDelegate
+
+extension AuthorizationCoordinatorImpl: SignInDoneScreenDelegate {
+    
+    func goToFeed() {
+        showTabBarController()
     }
 }

@@ -9,15 +9,15 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignInDoneScreenCoordinable {
-    var didTapToFeedButton: VoidBlock? { get set }
+protocol SignInDoneScreenDelegate: AnyObject {
+    func goToFeed()
 }
 
-final class SignInDoneViewController: UIViewController, SignInDoneScreenCoordinable {
+final class SignInDoneViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var didTapToFeedButton: VoidBlock?
+    weak var delegate: SignInDoneScreenDelegate?
     
     // MARK: - UIViewController
     
@@ -28,8 +28,8 @@ final class SignInDoneViewController: UIViewController, SignInDoneScreenCoordina
     
     // MARK: - Actions
     
-    @IBAction private func toFeedButtonTapped() {
-        didTapToFeedButton?()
+    @IBAction private func goToFeedButtonTapped() {
+        delegate?.goToFeed()
     }
     
     // MARK: - Private methods

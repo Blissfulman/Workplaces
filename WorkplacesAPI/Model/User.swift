@@ -8,13 +8,13 @@
 public struct User: Identifiable, Codable {
     
     public let id: String
-    let firstName: String
-    let lastName: String
-    let nickname: String?
-    let avatarURL: URL?
-    let birthday: Date
+    public let firstName: String
+    public let lastName: String
+    public let nickname: String?
+    public let avatarURL: URL?
+    public let birthday: Date
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case firstName
         case lastName

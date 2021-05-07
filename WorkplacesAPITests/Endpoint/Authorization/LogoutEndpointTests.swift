@@ -9,7 +9,7 @@ import WorkplacesAPI
 import XCTest
 
 final class LogoutEndpointTests: XCTestCase {
-
+    
     func testMakeRequest() throws {
         let endpoint = LogoutEndpoint()
         let urlRequest = try endpoint.makeRequest()
