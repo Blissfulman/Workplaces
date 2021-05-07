@@ -12,7 +12,7 @@ public struct UploadPost: Encodable {
     let longitude: Double
     let latitude: Double
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case text
         case imageFile
         case longitude = "lon"

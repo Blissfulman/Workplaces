@@ -9,7 +9,7 @@ public struct RefreshToken: Encodable {
     
     let value: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case value = "token"
     }
 }

@@ -16,7 +16,7 @@ public struct Post: Identifiable, Codable {
     public let likes: Int
     public let liked: Bool
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case text
         case imageURL = "imageUrl"

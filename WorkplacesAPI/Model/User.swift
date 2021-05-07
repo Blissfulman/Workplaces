@@ -14,7 +14,7 @@ public struct User: Identifiable, Codable {
     public let avatarURL: URL?
     public let birthday: Date
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id
         case firstName
         case lastName

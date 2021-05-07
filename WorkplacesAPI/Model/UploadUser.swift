@@ -13,7 +13,7 @@ public struct UploadUser: Encodable {
     let avatarFile: String
     let birthday: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case firstName
         case lastName
         case nickname
