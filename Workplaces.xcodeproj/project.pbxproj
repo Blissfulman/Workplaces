@@ -138,6 +138,7 @@
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
 		CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */; };
 		CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */; };
+		CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -344,6 +345,7 @@
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceLikePostTests.swift; sourceTree = "<group>"; };
 		CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceUnlikePostTests.swift; sourceTree = "<group>"; };
+		CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServicePublishPostTests.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 			children = (
 				CE29091C26465A200010CF6C /* Authorization */,
 				CE29091D26465AB60010CF6C /* Feed */,
+				CEA46B4626466042007C2DCE /* NewPost */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1037,6 +1040,14 @@
 				CE1508A226446F3100568006 /* String+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEA46B4626466042007C2DCE /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */,
+			);
+			path = NewPost;
 			sourceTree = "<group>";
 		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
@@ -1436,6 +1447,7 @@
 				CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */,
 				CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */,
 				CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */,
+				CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */,
 				CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */,
 				CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */,
 				CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */,

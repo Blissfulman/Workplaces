@@ -32,18 +32,3 @@ public struct User: Identifiable, Codable {
         self.birthday = birthday
     }
 }
-
-public extension User {
-    
-    /// Возвращает экземпляр `User` для тестов.
-    static func testUser() -> Self {
-        User(
-            id: "test",
-            firstName: "test",
-            lastName: "test",
-            nickname: "test",
-            avatarURL: URL(string: "https://redmadrobot.com/")!,
-            birthday: Date()
-        )
-    }
-}

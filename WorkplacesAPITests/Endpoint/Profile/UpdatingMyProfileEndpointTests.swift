@@ -10,7 +10,14 @@ import XCTest
 
 final class UpdatingMyProfileEndpointTests: XCTestCase {
     
-    let user = User.testUser()
+    let user = User(
+        id: "test",
+        firstName: "test",
+        lastName: "test",
+        nickname: "test",
+        avatarURL: URL(string: "https://redmadrobot.com/")!,
+        birthday: Date()
+    )
     
     func testMakeRequest() throws {
         let endpoint = UpdatingMyProfileEndpoint(user: user)
