@@ -98,6 +98,7 @@
 		CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091526456B7A0010CF6C /* ClientMock.swift */; };
 		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
+		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
@@ -135,6 +136,8 @@
 		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
 		CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
+		CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */; };
+		CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -298,6 +301,7 @@
 		CE29091526456B7A0010CF6C /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
 		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
+		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceLikePostTests.swift; sourceTree = "<group>"; };
+		CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceUnlikePostTests.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -703,9 +709,8 @@
 		CE16279626403EA600468CDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */,
-				CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */,
-				CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */,
+				CE29091C26465A200010CF6C /* Authorization */,
+				CE29091D26465AB60010CF6C /* Feed */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -788,6 +793,26 @@
 				CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CE29091C26465A200010CF6C /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */,
+				CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */,
+				CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CE29091D26465AB60010CF6C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */,
+				CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */,
+				CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		CE573796262DF49A00A6DC20 /* SignUpSecond */ = {
@@ -1408,8 +1433,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */,
+				CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */,
 				CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */,
 				CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */,
+				CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */,
+				CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */,
 				CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */,
 				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
 				CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */,
