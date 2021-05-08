@@ -38,7 +38,7 @@ protocol ProfileService {
     /// Получение списка друзей.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func fetchFriendList(completion: @escaping UserListResultHandler) -> Progress
+    func fetchFriends(completion: @escaping UserListResultHandler) -> Progress
     
     /// Добавление пользователя в список друзей.
     /// - Parameters:

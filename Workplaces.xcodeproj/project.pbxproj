@@ -37,7 +37,7 @@
 		CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */; };
 		CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */; };
 		CE12A21B2636A94900EE6549 /* MyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */; };
-		CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */; };
+		CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */; };
 		CE12A2232636AA9E00EE6549 /* FriendListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */; };
 		CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */; };
 		CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */; };
@@ -80,7 +80,7 @@
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
 		CE1F490326388F6900FD117C /* MyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */; };
-		CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */; };
+		CE1F490526388FDB00FD117C /* UpdateMyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */; };
 		CE1F4909263895C800FD117C /* MyPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */; };
 		CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */; };
 		CE1F490D2638964500FD117C /* LikedPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */; };
@@ -139,6 +139,13 @@
 		CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */; };
 		CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */; };
 		CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */; };
+		CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */; };
+		CEA46B5026466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */; };
+		CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */; };
+		CEA46B5426466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */; };
+		CEA46B5626466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */; };
+		CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */; };
+		CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -233,7 +240,7 @@
 		CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpoint.swift; sourceTree = "<group>"; };
-		CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpoint.swift; sourceTree = "<group>"; };
+		CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyProfileEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpoint.swift; sourceTree = "<group>"; };
@@ -284,7 +291,7 @@
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpointTests.swift; sourceTree = "<group>"; };
-		CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyProfileEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpointTests.swift; sourceTree = "<group>"; };
@@ -346,6 +353,13 @@
 		CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceLikePostTests.swift; sourceTree = "<group>"; };
 		CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceUnlikePostTests.swift; sourceTree = "<group>"; };
 		CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServicePublishPostTests.swift; sourceTree = "<group>"; };
+		CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchMyProfileTests.swift; sourceTree = "<group>"; };
+		CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceUpdateMyProfileTests.swift; sourceTree = "<group>"; };
+		CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchMyPostsTests.swift; sourceTree = "<group>"; };
+		CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchLikedPostsTests.swift; sourceTree = "<group>"; };
+		CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchFriendsTests.swift; sourceTree = "<group>"; };
+		CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceAddFriendTests.swift; sourceTree = "<group>"; };
+		CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceRemoveFriendTests.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -714,6 +728,7 @@
 				CE29091C26465A200010CF6C /* Authorization */,
 				CE29091D26465AB60010CF6C /* Feed */,
 				CEA46B4626466042007C2DCE /* NewPost */,
+				CEA46B4C2646692C007C2DCE /* Profile */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -750,7 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */,
-				CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */,
+				CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */,
 				CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */,
 				CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */,
 				CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */,
@@ -906,8 +921,8 @@
 		CE8F1BAD2634A9BB00C0C52C /* WorkplacesAPI */ = {
 			isa = PBXGroup;
 			children = (
-				CE972175263D4BEB006ACEB2 /* Services */,
 				CE8F1BCE2634A9F300C0C52C /* Common */,
+				CE972175263D4BEB006ACEB2 /* Services */,
 				CE8F1BCD2634A9EB00C0C52C /* Endpoint */,
 				CE8F1BCC2634A9DB00C0C52C /* Model */,
 				CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */,
@@ -1050,11 +1065,25 @@
 			path = NewPost;
 			sourceTree = "<group>";
 		};
+		CEA46B4C2646692C007C2DCE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */,
+				CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */,
+				CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */,
+				CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */,
+				CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */,
+				CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */,
+				CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */,
-				CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */,
+				CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */,
 				CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */,
 				CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */,
 				CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */,
@@ -1444,15 +1473,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */,
+				CEA46B5626466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift in Sources */,
 				CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */,
 				CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */,
 				CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */,
 				CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */,
 				CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */,
+				CEA46B5026466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift in Sources */,
 				CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */,
+				CEA46B5426466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift in Sources */,
 				CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */,
 				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
+				CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */,
+				CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */,
 				CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */,
+				CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */,
+				CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,7 +1563,7 @@
 				CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
-				CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */,
+				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
 				CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */,
@@ -1567,7 +1603,7 @@
 				CE1F491E26389CA400FD117C /* LogoutEndpointTests.swift in Sources */,
 				CE1F491726389AD100FD117C /* UnlikePostEndpointTests.swift in Sources */,
 				CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */,
-				CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */,
+				CE1F490526388FDB00FD117C /* UpdateMyProfileEndpointTests.swift in Sources */,
 				CE1627902640139E00468CDA /* UserTests.swift in Sources */,
 				CE16279826406B9D00468CDA /* Date.swift in Sources */,
 				CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */,

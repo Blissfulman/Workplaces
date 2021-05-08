@@ -30,7 +30,7 @@ final class ProfileServiceImpl: ProfileService {
     }
     
     func updateMyProfile(user: User, completion: @escaping UserResultHandler) -> Progress {
-        let endpoint = UpdatingMyProfileEndpoint(user: user)
+        let endpoint = UpdateMyProfileEndpoint(user: user)
         return apiClient.request(endpoint) { result in
             completion(result.mapError { $0.unwrapAFError() })
         }
@@ -50,7 +50,7 @@ final class ProfileServiceImpl: ProfileService {
         }
     }
     
-    func fetchFriendList(completion: @escaping UserListResultHandler) -> Progress {
+    func fetchFriends(completion: @escaping UserListResultHandler) -> Progress {
         let endpoint = FriendListEndpoint()
         return apiClient.request(endpoint) { result in
             completion(result.mapError { $0.unwrapAFError() })

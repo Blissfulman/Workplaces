@@ -1,5 +1,5 @@
 //
-//  UpdatingMyProfileEndpoint.swift
+//  UpdateMyProfileEndpoint.swift
 //  WorkplacesAPI
 //
 //  Created by Evgeny Novgorodov on 26.04.2021.
@@ -7,7 +7,7 @@
 
 import Apexy
 
-public struct UpdatingMyProfileEndpoint: JsonEndpoint {
+public struct UpdateMyProfileEndpoint: JsonEndpoint {
     
     public typealias Content = User
     
