@@ -39,7 +39,7 @@ final class MyPostListEndpointTests: XCTestCase {
                     "liked": true
                 }
             ]
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = MyPostListEndpoint()
         

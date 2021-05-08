@@ -40,7 +40,7 @@ final class PublishPostEndpointTests: XCTestCase {
                 "likes": 321,
                 "liked": true
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = PublishPostEndpoint(post: post)
         let post = try endpoint.content(from: nil, with: jsonData)

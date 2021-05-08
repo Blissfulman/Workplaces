@@ -20,7 +20,7 @@ final class UserTests: XCTestCase {
                 "avatar_url": "https://redmadrobot.com/",
                 "birth_day": "2021-12-21"
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let user = try JSONDecoder.default.decode(User.self, from: jsonData)
         

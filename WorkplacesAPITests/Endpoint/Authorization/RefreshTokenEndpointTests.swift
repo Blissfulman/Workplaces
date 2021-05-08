@@ -26,7 +26,7 @@ final class RefreshTokenEndpointTests: XCTestCase {
                 "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM",
                 "refresh_token": "8feed535-5ca5-464e-862d-0de124800aa3"
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = RefreshTokenEndpoint(refreshToken: "test")
         

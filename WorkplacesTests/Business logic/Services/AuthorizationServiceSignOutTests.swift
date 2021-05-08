@@ -14,6 +14,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     private let client = ClientMock<LogoutEndpoint>()
     private var authorizationService: AuthorizationService?
     private var authDataStorage = AuthDataStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
+    private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
     
     override func setUp() {
         super.setUp()
@@ -38,7 +39,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
     
     func testSignUpFailure() {
-        let expectedError = APIError(code: .passwordValidationError, message: "")
+        let expectedError = APIError(code: .genericError, message: "")
         client.result = .failure(expectedError)
         
         authorizationService?.signOut { result in
@@ -49,6 +50,27 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
                 boolResult = true
             }
             XCTAssertTrue(boolResult)
+        }
+    }
+    
+    func testTokenShouldBeRemovedWhenSignOutSuccessful() {
+        authDataStorage.saveAuthData(authorizationData)
+        client.result = .success(())
+        
+        authorizationService?.signOut { [weak self] _ in
+            XCTAssertNil(self?.authDataStorage.accessToken)
+            XCTAssertNil(self?.authDataStorage.refreshToken)
+        }
+    }
+    
+    func testTokenShouldNotBeRemovedWhenSignOutFailed() {
+        authDataStorage.saveAuthData(authorizationData)
+        let error = APIError(code: .genericError, message: "")
+        client.result = .failure(error)
+                
+        authorizationService?.signOut { [weak self] _ in
+            XCTAssertNotNil(self?.authDataStorage.accessToken)
+            XCTAssertNotNil(self?.authDataStorage.refreshToken)
         }
     }
 }

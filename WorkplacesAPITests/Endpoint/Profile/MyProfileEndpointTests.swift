@@ -28,7 +28,7 @@ final class MyProfileEndpointTests: XCTestCase {
                 "avatar_url": "https://redmadrobot.com/",
                 "birth_day": "2021-12-21"
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = MyProfileEndpoint()
         let user = try endpoint.content(from: nil, with: jsonData)
