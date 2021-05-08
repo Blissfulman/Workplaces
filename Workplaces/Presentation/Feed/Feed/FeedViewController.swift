@@ -15,6 +15,14 @@ protocol FeedScreenDelegate: AnyObject {
 
 final class FeedViewController: UIViewController {
     
+    // MARK: - Nested types
+    
+    private enum State {
+        case data(posts: [Post])
+        case noFriends
+        case error
+    }
+    
     // MARK: - Public properties
     
     weak var delegate: FeedScreenDelegate?
@@ -23,6 +31,33 @@ final class FeedViewController: UIViewController {
     
     private let feedService: FeedService
     private var progressList = [Progress]()
+    
+    private let postListVC = PostListViewController(posts: [])
+    private lazy var noFriendsZeroVC: ZeroViewController = {
+        let buttonAction: VoidBlock = { [weak self] in
+            self?.delegate?.goToFindFriends()
+        }
+        return ZeroViewController(viewType: .noFriends, buttonAction: buttonAction)
+    }()
+    private lazy var errorZeroVC: ZeroViewController = {
+        let buttonAction: VoidBlock = { [weak self] in
+            self?.fetchPosts()
+        }
+        return ZeroViewController(viewType: .error, buttonAction: buttonAction)
+    }()
+    
+    private var state: State = .data(posts: []) {
+        willSet {
+            switch newValue {
+            case let .data(posts):
+                showPostListView(postList: posts)
+            case .noFriends:
+                showNoFriendsZeroView()
+            case .error:
+                showErrorZeroView()
+            }
+        }
+    }
     
     // MARK: - Initializers
     
@@ -46,22 +81,18 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchPosts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
-    }
-    
-    // MARK: - Actions
-    
-    private func findFriends() {
-        delegate?.goToFindFriends()
-    }
-    
-    private func errorZeroViewButtonAction() {
         fetchPosts()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        postListVC.view.frame = view.bounds
+        noFriendsZeroVC.view.frame = view.bounds
+        errorZeroVC.view.frame = view.bounds
     }
     
     // MARK: - Private methods
@@ -78,26 +109,33 @@ final class FeedViewController: UIViewController {
             guard let self = self else { return }
             
             switch result {
-            case let .success(feedPosts):
-                feedPosts.isEmpty
-                    ? self.showNoFriendsZeroView()
-                    : self.showPostListView(postList: feedPosts)
+            case let .success(posts):
+                self.state = Bool.random() // posts.isEmpty
+                    ? .noFriends
+                    : .data(posts: posts)
             case .failure:
-                self.showErrorZeroView()
+                self.state = .error
             }
         }
         progressList.append(progress)
     }
     
     private func showNoFriendsZeroView() {
-        view = ZeroView(viewType: .noFriends, buttonAction: findFriends)
+        remove(postListVC)
+        remove(errorZeroVC)
+        add(noFriendsZeroVC)
     }
     
     private func showPostListView(postList: [Post]) {
-        // Реализовать отображение постов
+        postListVC.reloadData(posts: postList)
+        remove(noFriendsZeroVC)
+        remove(errorZeroVC)
+        add(postListVC)
     }
     
     private func showErrorZeroView() {
-        view = ZeroView(viewType: .error, buttonAction: errorZeroViewButtonAction)
+        remove(postListVC)
+        remove(noFriendsZeroVC)
+        add(errorZeroVC)
     }
 }

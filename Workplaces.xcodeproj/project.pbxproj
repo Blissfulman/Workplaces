@@ -146,6 +146,8 @@
 		CEA46B5626466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */; };
 		CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */; };
 		CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */; };
+		CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5B2646C193007C2DCE /* PostListViewController.swift */; };
+		CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B5C2646C193007C2DCE /* PostListViewController.xib */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -360,6 +362,8 @@
 		CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchFriendsTests.swift; sourceTree = "<group>"; };
 		CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceAddFriendTests.swift; sourceTree = "<group>"; };
 		CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceRemoveFriendTests.swift; sourceTree = "<group>"; };
+		CEA46B5B2646C193007C2DCE /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		CEA46B5C2646C193007C2DCE /* PostListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListViewController.xib; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
+				CEA46B5F2646C19B007C2DCE /* PostList */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1079,6 +1084,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		CEA46B5F2646C19B007C2DCE /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B5B2646C193007C2DCE /* PostListViewController.swift */,
+				CEA46B5C2646C193007C2DCE /* PostListViewController.xib */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,6 +1325,7 @@
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
+				CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */,
 				CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
@@ -1512,6 +1527,7 @@
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
+				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
 				CE15085826423E4400568006 /* ProfileMeCell.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
