@@ -6,11 +6,5 @@
   
 */
 
-/* SignInViewControllerTitle */
 "Sign in with email" = "Вход по почте";
-
-/* SignUpFirstViewControllerTitle */
-"Sign up" = "Регистрация";
-
-/* SignUpSecondViewControllerTitle */
 "Sign up" = "Регистрация";
