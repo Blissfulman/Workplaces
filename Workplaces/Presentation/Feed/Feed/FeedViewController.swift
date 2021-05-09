@@ -32,18 +32,26 @@ final class FeedViewController: UIViewController {
     private let feedService: FeedService
     private var progressList = [Progress]()
     
-    private let postListVC = PostListViewController(posts: [])
+    private lazy var postListVC: PostListViewController = {
+        let postListVC = PostListViewController(posts: [])
+        postListVC.view.frame = view.bounds
+        return postListVC
+    }()
     private lazy var noFriendsZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToFindFriends()
         }
-        return ZeroViewController(viewType: .noFriends, buttonAction: buttonAction)
+        let zeroVC = ZeroViewController(viewType: .noFriends, buttonAction: buttonAction)
+        zeroVC.view.frame = view.bounds
+        return zeroVC
     }()
     private lazy var errorZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.fetchPosts()
         }
-        return ZeroViewController(viewType: .error, buttonAction: buttonAction)
+        let zeroVC = ZeroViewController(viewType: .error, buttonAction: buttonAction)
+        zeroVC.view.frame = view.bounds
+        return zeroVC
     }()
     
     private var state: State = .data(posts: []) {
@@ -89,12 +97,6 @@ final class FeedViewController: UIViewController {
         fetchPosts()
     }
     
-    override func viewWillLayoutSubviews() {
-        postListVC.view.frame = view.bounds
-        noFriendsZeroVC.view.frame = view.bounds
-        errorZeroVC.view.frame = view.bounds
-    }
-    
     // MARK: - Private methods
     
     private func setupUI() {
@@ -127,7 +129,7 @@ final class FeedViewController: UIViewController {
     }
     
     private func showPostListView(postList: [Post]) {
-        postListVC.reloadData(posts: postList)
+        postListVC.updateData(posts: postList)
         remove(noFriendsZeroVC)
         remove(errorZeroVC)
         add(postListVC)

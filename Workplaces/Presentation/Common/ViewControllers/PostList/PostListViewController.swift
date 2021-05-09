@@ -37,9 +37,13 @@ final class PostListViewController: UIViewController {
     
     // MARK: - Public methods
     
-    func reloadData(posts: [Post]) {
-        self.posts = posts
-        tableView.reloadData()
+    /// Обновление постов в таблице, если переданные данные отличаются от уже имеющихся.
+    /// - Parameter posts: Список постов для обновления.
+    func updateData(posts: [Post]) {
+        if self.posts != posts {
+            self.posts = posts
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Private methods
