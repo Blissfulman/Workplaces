@@ -33,7 +33,7 @@ final class FeedViewController: UIViewController {
     private var progressList = [Progress]()
     
     private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(posts: [])
+        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
         postListVC.view.frame = view.bounds
         return postListVC
     }()
@@ -140,4 +140,27 @@ final class FeedViewController: UIViewController {
         remove(noFriendsZeroVC)
         add(errorZeroVC)
     }
+}
+
+// MARK: - Table view data source
+
+extension FeedViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: PostCell.identifier,
+            for: indexPath
+        ) as? PostCell else { return UITableViewCell() }
+        
+        cell.configure()
+        return cell
+    }
+}
+
+extension FeedViewController: UITableViewDelegate {
+    
 }

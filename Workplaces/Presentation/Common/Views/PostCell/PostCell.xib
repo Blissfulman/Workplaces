@@ -28,7 +28,7 @@
                         <rect key="frame" x="16" y="1" width="418" height="468"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soprano, we like to keep it on a high note. It's levels to it, you and I know" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr5-LA-KSc">
-                                <rect key="frame" x="16" y="16" width="386" height="98"/>
+                                <rect key="frame" x="16" y="16" width="386" height="109.5"/>
                                 <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,6 +54,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backView" destination="OjL-8P-b5R" id="j3C-SU-2UK"/>
+                <outlet property="descriptionLabel" destination="Pr5-LA-KSc" id="R0y-bQ-aHH"/>
             </connections>
             <point key="canvasLocation" x="-52.173913043478265" y="221.65178571428569"/>
         </tableViewCell>

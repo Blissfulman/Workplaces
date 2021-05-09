@@ -11,16 +11,20 @@ final class PostListViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Private properties
     
     private var posts: [Post]
+    private weak var tableViewDataSource: UITableViewDataSource?
+    private weak var tableViewDelegate: UITableViewDelegate?
     
     // MARK: - Initializers
     
-    init(posts: [Post]) {
+    init(posts: [Post], dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
         self.posts = posts
+        self.tableViewDataSource = dataSource
+        self.tableViewDelegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,6 +37,8 @@ final class PostListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDelegate
     }
     
     // MARK: - Public methods
@@ -50,24 +56,5 @@ final class PostListViewController: UIViewController {
     
     private func setupUI() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
-    }
-}
-
-// MARK: - Table view data source
-
-extension PostListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PostCell.identifier,
-            for: indexPath
-        ) as? PostCell else { return UITableViewCell() }
-        
-        cell.configure()
-        return cell
     }
 }

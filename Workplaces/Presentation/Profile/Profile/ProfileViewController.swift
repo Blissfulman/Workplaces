@@ -22,17 +22,24 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var topView: UIView!
     
     // MARK: - Private properties
     
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
     private var profile: User?
-    private var myPosts = [Post]()
-    private var likedPosts = [Post]()
-    private var friends = [User]()
+    private var topViewY: CGFloat?
+//    private var myPosts = [Post]()
+//    private var likedPosts = [Post]()
+//    private var friends = [User]()
     private var progressList = [Progress]()
+    
+    private lazy var postListVC: PostListViewController = {
+        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
+        postListVC.view.frame = view.bounds
+        return postListVC
+    }()
     
     // MARK: - Initializers
     
@@ -72,6 +79,8 @@ final class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        // Свойство должно быть высчитано один раз при первом появлении вью на экране
+        topViewY = topViewY ?? topView.frame.origin.y
     }
     
     // MARK: - Actions
@@ -98,13 +107,14 @@ final class ProfileViewController: UIViewController {
     private func setupUI() {
         navigationItem.title = "Профиль"
         navigationItem.backButtonTitle = ""
-        navigationController?.hidesBarsOnSwipe = true
+//        navigationController?.hidesBarsOnSwipe = true
         
         addBarButtonItems()
         
-        tableView.register(ProfileMeCell.nib(), forCellReuseIdentifier: ProfileMeCell.identifier)
-        tableView.register(ProfileSwitchCell.nib(), forCellReuseIdentifier: ProfileSwitchCell.identifier)
-        tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
+        add(postListVC)
+        postListVC.tableView?.contentInset.top = topView.frame.height
+        
+        addProfileMeView()
     }
     
     private func addBarButtonItems() {
@@ -123,6 +133,19 @@ final class ProfileViewController: UIViewController {
         navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
+    private func addProfileMeView() {
+        view.bringSubviewToFront(topView)
+        
+        let editProfileButtonAction = { [weak self] in
+            guard let profile = self?.profile else { return }
+            self?.delegate?.goToEditProfile(profile: profile)
+        }
+        let profileMeView = ProfileMeView(editProfileButtonAction: editProfileButtonAction)
+        profileMeView.frame = topView.bounds
+        profileMeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        topView.addSubview(profileMeView)
+    }
+    
     private func fetchProfile() {
         LoadingView.show()
         
@@ -133,7 +156,6 @@ final class ProfileViewController: UIViewController {
             case let .success(profile):
                 self?.profile = profile
                 self?.navigationItem.title = "@kshn13" // profile.nickname
-                self?.tableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -150,31 +172,20 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ProfileMeCell.identifier,
-                for: indexPath
-            ) as? ProfileMeCell else { return UITableViewCell() }
-            
-            cell.configure(user: profile)
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ProfileSwitchCell.identifier,
-                for: indexPath
-            ) as? ProfileSwitchCell else { return UITableViewCell() }
-            
-            cell.configure()
-            return cell
-        default:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: PostCell.identifier,
-                for: indexPath
-            ) as? PostCell else { return UITableViewCell() }
-            
-            cell.configure()
-            return cell
-        }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: PostCell.identifier,
+            for: indexPath
+        ) as? PostCell else { return UITableViewCell() }
+        
+        cell.configure()
+        return cell
+    }
+}
+
+extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let topViewY = (topViewY ?? 0) - topView.frame.height - (postListVC.tableView?.contentOffset.y ?? 0)
+        topView.frame.origin.y = topViewY
     }
 }
