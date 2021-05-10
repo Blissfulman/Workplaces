@@ -30,9 +30,6 @@ final class ProfileViewController: UIViewController {
     private let authorizationService: AuthorizationService
     private var profile: User?
     private var topViewY: CGFloat?
-//    private var myPosts = [Post]()
-//    private var likedPosts = [Post]()
-//    private var friends = [User]()
     private var progressList = [Progress]()
     
     private lazy var postListVC: PostListViewController = {
@@ -97,11 +94,6 @@ final class ProfileViewController: UIViewController {
         progressList.append(progress)
     }
     
-    @objc private func editProfileBarButtonTapped() {
-        guard let profile = profile else { return }
-        delegate?.goToEditProfile(profile: profile)
-    }
-    
     // MARK: - Private methods
     
     private func setupUI() {
@@ -109,22 +101,15 @@ final class ProfileViewController: UIViewController {
         navigationItem.backButtonTitle = ""
 //        navigationController?.hidesBarsOnSwipe = true
         
-        addBarButtonItems()
+        addLogOutButton()
         
         add(postListVC)
-        postListVC.tableView?.contentInset.top = topView.frame.height
+        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
         
         addProfileMeView()
     }
     
-    private func addBarButtonItems() {
-        // Временная кнопка для перехода к редактированию профиля
-        let editProfileBarButtonItem = UIBarButtonItem(
-            title: "Edit profile", style: .plain, target: self, action: #selector(editProfileBarButtonTapped)
-        )
-        editProfileBarButtonItem.tintColor = Palette.darkGrey
-        navigationItem.leftBarButtonItem = editProfileBarButtonItem
-        
+    private func addLogOutButton() {
         // Временная кнопка для завершения сессии
         let logOutBarButtonItem = UIBarButtonItem(
             title: "Log out", style: .plain, target: self, action: #selector(logOutBarButtonTapped)
@@ -185,7 +170,7 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let topViewY = (topViewY ?? 0) - topView.frame.height - (postListVC.tableView?.contentOffset.y ?? 0)
+        let topViewY = (topViewY ?? 0) - topView.frame.height - postListVC.contentOffset.y
         topView.frame.origin.y = topViewY
     }
 }

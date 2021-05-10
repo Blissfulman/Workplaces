@@ -9,9 +9,16 @@ import UIKit
 
 final class PostListViewController: UIViewController {
     
+    // MARK: - Public properties
+    
+    /// Значение параметра `contentOffset` таблицы.
+    var contentOffset: CGPoint {
+        tableView.contentOffset
+    }
+    
     // MARK: - Outlets
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Private properties
     
@@ -50,6 +57,12 @@ final class PostListViewController: UIViewController {
             self.posts = posts
             tableView.reloadData()
         }
+    }
+    
+    /// Установка параметра `contentInset` для таблицы.
+    /// - Parameter contentInset: Значение `contentInset`.
+    func setContentInset(contentInset: UIEdgeInsets) {
+        tableView.contentInset = contentInset
     }
     
     // MARK: - Private methods
