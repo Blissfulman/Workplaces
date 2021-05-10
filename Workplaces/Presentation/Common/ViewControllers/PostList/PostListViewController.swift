@@ -65,6 +65,12 @@ final class PostListViewController: UIViewController {
         tableView.contentInset = contentInset
     }
     
+    /// Установка смещения контента от верхнего края для таблицы.
+    /// - Parameter topOffset: Значение смещения.
+    func setTopOffset(offset: CGFloat) {
+        tableView.contentOffset.y = offset
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {

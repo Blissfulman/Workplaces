@@ -16,6 +16,14 @@ protocol ProfileScreenDelegate: AnyObject {
 
 final class ProfileViewController: UIViewController {
     
+    // MARK: - Nested types
+    
+    enum State {
+        case posts
+        case likes
+        case friends
+    }
+    
     // MARK: - Public properties
     
     weak var delegate: ProfileScreenDelegate?
@@ -35,14 +43,40 @@ final class ProfileViewController: UIViewController {
         }
     }
     private var topViewY: CGFloat?
+    private var topViewOffset: CGFloat = 0
     private var progressList = [Progress]()
     
-    private lazy var profileMeView = ProfileMeView(delegate: self)
+    private lazy var profileMeView: ProfileMeView = {
+        let profileMeView = ProfileMeView(delegate: self)
+        profileMeView.frame = topView.bounds
+        profileMeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        topView.addSubview(profileMeView)
+        return profileMeView
+    }()
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
         postListVC.view.frame = view.bounds
         return postListVC
     }()
+    private lazy var likeListVC: PostListViewController = {
+        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
+        postListVC.view.frame = view.bounds
+        return postListVC
+    }()
+    
+    private var state: State = .posts {
+        didSet {
+            switch state {
+            case .posts:
+                showPostListView()
+            case .likes:
+                showLikeListView()
+            case .friends:
+                showFriendListView()
+            }
+            bringProfileMeViewToFront()
+        }
+    }
     
     // MARK: - Initializers
     
@@ -82,6 +116,7 @@ final class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        bringProfileMeViewToFront()
         // Свойство должно быть высчитано один раз при первом появлении вью на экране
         topViewY = topViewY ?? topView.frame.origin.y
     }
@@ -109,9 +144,11 @@ final class ProfileViewController: UIViewController {
         
         addLogOutButton()
         
+        add(likeListVC)
+        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+        
         add(postListVC)
         postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
-        addProfileMeView()
     }
     
     private func addLogOutButton() {
@@ -123,11 +160,8 @@ final class ProfileViewController: UIViewController {
         navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
-    private func addProfileMeView() {
+    private func bringProfileMeViewToFront() {
         view.bringSubviewToFront(topView)
-        profileMeView.frame = topView.bounds
-        profileMeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        topView.addSubview(profileMeView)
     }
     
     private func configureProfileMeView() {
@@ -152,6 +186,31 @@ final class ProfileViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func showPostListView() {
+        // Нужно доработать правильную позицию topView при переключении
+        postListVC.setTopOffset(offset: topViewOffset - topView.frame.height)
+        remove(likeListVC)
+        add(postListVC)
+    }
+    
+    private func showLikeListView() {
+        // Нужно доработать правильную позицию topView при переключении
+        likeListVC.setTopOffset(offset: topViewOffset - topView.frame.height)
+        remove(postListVC)
+        add(likeListVC)
+    }
+    
+    private func showFriendListView() {
+        // Нужно доработать правильную позицию topView при переключении
+        remove(postListVC)
+        remove(likeListVC)
+        
+    }
+    
+    private func updateTopViewPosition() {
+        topView.frame.origin.y = (topViewY ?? 0) - topViewOffset
     }
 }
 
@@ -179,8 +238,15 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let topViewY = (topViewY ?? 0) - topView.frame.height - postListVC.contentOffset.y
-        topView.frame.origin.y = topViewY
+        switch state {
+        case .posts:
+            topViewOffset = topView.frame.height + postListVC.contentOffset.y
+        case .likes:
+            topViewOffset = topView.frame.height + likeListVC.contentOffset.y
+        case .friends:
+            break
+        }
+        updateTopViewPosition()
     }
 }
 
@@ -189,6 +255,13 @@ extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
 extension ProfileViewController: ProfileMeViewDelegate {
     
     func segmentedControlValueChanged(to segmentedControlState: ProfileMeView.SegmentedControlState) {
-        print(segmentedControlState)
+        switch segmentedControlState {
+        case .posts:
+            state = .posts
+        case .likes:
+            state = .likes
+        case .friends:
+            state = .friends
+        }
     }
 }
