@@ -28,10 +28,16 @@ final class ProfileViewController: UIViewController {
     
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
-    private var profile: User?
+    private var profile: User? {
+        didSet {
+            navigationItem.title = "@kshn13" // profile.nickname
+            configureProfileMeView()
+        }
+    }
     private var topViewY: CGFloat?
     private var progressList = [Progress]()
     
+    private let profileMeView = ProfileMeView()
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
         postListVC.view.frame = view.bounds
@@ -97,7 +103,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.title = "Профиль"
+        navigationItem.title = "Profile".localized()
         navigationItem.backButtonTitle = ""
 //        navigationController?.hidesBarsOnSwipe = true
         
@@ -105,7 +111,6 @@ final class ProfileViewController: UIViewController {
         
         add(postListVC)
         postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
-        
         addProfileMeView()
     }
     
@@ -120,15 +125,18 @@ final class ProfileViewController: UIViewController {
     
     private func addProfileMeView() {
         view.bringSubviewToFront(topView)
-        
-        let editProfileButtonAction = { [weak self] in
-            guard let profile = self?.profile else { return }
-            self?.delegate?.goToEditProfile(profile: profile)
-        }
-        let profileMeView = ProfileMeView(editProfileButtonAction: editProfileButtonAction)
         profileMeView.frame = topView.bounds
         profileMeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         topView.addSubview(profileMeView)
+    }
+    
+    private func configureProfileMeView() {
+        guard let profile = profile else { return }
+        
+        let editProfileButtonAction: VoidBlock = { [weak self] in
+            self?.delegate?.goToEditProfile(profile: profile)
+        }
+        profileMeView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
     }
     
     private func fetchProfile() {
@@ -140,7 +148,6 @@ final class ProfileViewController: UIViewController {
             switch result {
             case let .success(profile):
                 self?.profile = profile
-                self?.navigationItem.title = "@kshn13" // profile.nickname
             case let .failure(error):
                 print(error.localizedDescription)
             }

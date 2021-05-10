@@ -54,10 +54,6 @@
 		CE1331B3262C431D0086433C /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B2262C431D0086433C /* Palette.swift */; };
 		CE1331B6262C45C80086433C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1331B5262C45C80086433C /* Icons.xcassets */; };
 		CE1331B9262C4B340086433C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1331B8262C4B340086433C /* Icons.swift */; };
-		CE15085826423E4400568006 /* ProfileMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15085626423E4400568006 /* ProfileMeCell.swift */; };
-		CE15085926423E4400568006 /* ProfileMeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15085726423E4400568006 /* ProfileMeCell.xib */; };
-		CE15085C26423E8D00568006 /* ProfileSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15085A26423E8D00568006 /* ProfileSwitchCell.swift */; };
-		CE15085D26423E8D00568006 /* ProfileSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15085B26423E8D00568006 /* ProfileSwitchCell.xib */; };
 		CE150860264241A000568006 /* NibTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE15085F264241A000568006 /* NibTableViewCell.swift */; };
 		CE1508642642597700568006 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508622642597700568006 /* PostCell.swift */; };
 		CE1508652642597700568006 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1508632642597700568006 /* PostCell.xib */; };
@@ -262,10 +258,6 @@
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		CE1331B8262C4B340086433C /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		CE15085626423E4400568006 /* ProfileMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMeCell.swift; sourceTree = "<group>"; };
-		CE15085726423E4400568006 /* ProfileMeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMeCell.xib; sourceTree = "<group>"; };
-		CE15085A26423E8D00568006 /* ProfileSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSwitchCell.swift; sourceTree = "<group>"; };
-		CE15085B26423E8D00568006 /* ProfileSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSwitchCell.xib; sourceTree = "<group>"; };
 		CE15085F264241A000568006 /* NibTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibTableViewCell.swift; sourceTree = "<group>"; };
 		CE1508622642597700568006 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CE1508632642597700568006 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
@@ -669,24 +661,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		CE1508532641BA9A00568006 /* ProfileMe */ = {
-			isa = PBXGroup;
-			children = (
-				CE15085626423E4400568006 /* ProfileMeCell.swift */,
-				CE15085726423E4400568006 /* ProfileMeCell.xib */,
-			);
-			path = ProfileMe;
-			sourceTree = "<group>";
-		};
-		CE15085E26423E9700568006 /* ProfileSwitch */ = {
-			isa = PBXGroup;
-			children = (
-				CE15085A26423E8D00568006 /* ProfileSwitchCell.swift */,
-				CE15085B26423E8D00568006 /* ProfileSwitchCell.xib */,
-			);
-			path = ProfileSwitch;
-			sourceTree = "<group>";
-		};
 		CE1508612642596000568006 /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,8 +675,6 @@
 			children = (
 				CEA46B642647C323007C2DCE /* ProfileMeView.swift */,
 				CEA46B662647C334007C2DCE /* ProfileMeView.xib */,
-				CE1508532641BA9A00568006 /* ProfileMe */,
-				CE15085E26423E9700568006 /* ProfileSwitch */,
 			);
 			path = Children;
 			sourceTree = "<group>";
@@ -1345,11 +1317,9 @@
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
 				CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */,
-				CE15085D26423E8D00568006 /* ProfileSwitchCell.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
-				CE15085926423E4400568006 /* ProfileMeCell.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
 				CE15089826443E7900568006 /* SignUpFirstViewController.xib in Resources */,
 			);
@@ -1524,7 +1494,6 @@
 				CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */,
 				CE150860264241A000568006 /* NibTableViewCell.swift in Sources */,
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
-				CE15085C26423E8D00568006 /* ProfileSwitchCell.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
@@ -1538,7 +1507,6 @@
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
-				CE15085826423E4400568006 /* ProfileMeCell.swift in Sources */,
 				CEA46B652647C323007C2DCE /* ProfileMeView.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,

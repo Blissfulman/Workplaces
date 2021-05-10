@@ -22,23 +22,22 @@ final class ProfileMeView: NibInitializableView {
     
     private var editProfileButtonAction: VoidBlock?
     
-    // MARK: - Initializers
-    
-    init(editProfileButtonAction: @escaping VoidBlock) {
-        self.editProfileButtonAction = editProfileButtonAction
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     // MARK: - UIView
     
     override func didAddSubview(_ subview: UIView) {
         topBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
         bottomBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
         avatarImageView?.layer.cornerRadius = UIConstants.avatarCornerRadius
+    }
+    
+    // MARK: - Public methods
+    
+    func configure(profile: User, editProfileButtonAction: @escaping VoidBlock) {
+        self.editProfileButtonAction = editProfileButtonAction
+        if let avatarURL = profile.avatarURL {
+            avatarImageView.fetchImage(byURL: avatarURL)
+        }
+        fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
     }
     
     // MARK: - Actions
