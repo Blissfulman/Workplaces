@@ -16,7 +16,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileMeView" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="ageLabel" destination="OOd-Cd-qEQ" id="jJZ-Ri-6hE"/>
+                <outlet property="avatarImageView" destination="Pd8-z6-7Cj" id="EwB-Fx-qXS"/>
                 <outlet property="bottomBackView" destination="WnZ-cP-tg7" id="AWq-lu-uRc"/>
+                <outlet property="fullNameLabel" destination="Vde-Wt-rvN" id="yqj-t4-lwF"/>
+                <outlet property="segmentedControl" destination="NFn-VC-SxX" id="LRy-kG-VJx"/>
                 <outlet property="topBackView" destination="p7T-im-aEA" id="p7M-1V-uLz"/>
             </connections>
         </placeholder>
@@ -76,37 +80,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnZ-cP-tg7">
                     <rect key="frame" x="16" y="805" width="382" height="56"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jGh-DC-bz9">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Посты" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Em-gA-hIl">
-                                    <rect key="frame" x="0.0" y="17.5" width="127.5" height="21"/>
-                                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лайки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBj-ag-pki">
-                                    <rect key="frame" x="127.5" y="17.5" width="127" height="21"/>
-                                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Друзья" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2o-5I-fBj">
-                                    <rect key="frame" x="254.5" y="17.5" width="127.5" height="21"/>
-                                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NFn-VC-SxX" customClass="ProfileSegmentedControl" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="O9o-5A-gBW"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Posts"/>
+                                <segment title="Likes"/>
+                                <segment title="Friends"/>
+                            </segments>
+                        </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="jGh-DC-bz9" firstAttribute="leading" secondItem="WnZ-cP-tg7" secondAttribute="leading" id="R5s-js-uzK"/>
+                        <constraint firstItem="NFn-VC-SxX" firstAttribute="centerY" secondItem="WnZ-cP-tg7" secondAttribute="centerY" id="F2V-Y8-F4w"/>
                         <constraint firstAttribute="height" constant="56" id="WAv-gt-HiK"/>
-                        <constraint firstAttribute="trailing" secondItem="jGh-DC-bz9" secondAttribute="trailing" id="Ycl-0O-qka"/>
-                        <constraint firstAttribute="bottom" secondItem="jGh-DC-bz9" secondAttribute="bottom" id="l1u-Rb-7n5"/>
-                        <constraint firstItem="jGh-DC-bz9" firstAttribute="top" secondItem="WnZ-cP-tg7" secondAttribute="top" id="wA1-uY-acy"/>
+                        <constraint firstItem="NFn-VC-SxX" firstAttribute="leading" secondItem="WnZ-cP-tg7" secondAttribute="leading" id="fqq-if-CuQ"/>
+                        <constraint firstAttribute="trailing" secondItem="NFn-VC-SxX" secondAttribute="trailing" id="kMH-Ag-Xaq"/>
                     </constraints>
                 </view>
             </subviews>

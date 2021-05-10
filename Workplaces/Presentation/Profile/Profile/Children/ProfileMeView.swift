@@ -13,6 +13,10 @@ final class ProfileMeView: NibInitializableView {
     
     @IBOutlet private weak var topBackView: UIView!
     @IBOutlet private weak var bottomBackView: UIView!
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var fullNameLabel: UILabel!
+    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Private properties
     
@@ -34,6 +38,7 @@ final class ProfileMeView: NibInitializableView {
     override func didAddSubview(_ subview: UIView) {
         topBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
         bottomBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
+        avatarImageView?.layer.cornerRadius = UIConstants.avatarCornerRadius
     }
     
     // MARK: - Actions
