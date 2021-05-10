@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-public struct User: Identifiable, Codable {
+public struct User: Identifiable, Codable, Comparable {
     
     public let id: String
     public let firstName: String
@@ -30,5 +30,15 @@ public struct User: Identifiable, Codable {
         self.nickname = nickname
         self.avatarURL = avatarURL
         self.birthday = birthday
+    }
+    
+    // MARK: - Comparable
+    
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        lhs.id < rhs.id
+    }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
     }
 }

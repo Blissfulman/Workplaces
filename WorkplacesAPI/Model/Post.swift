@@ -49,11 +49,11 @@ public struct Post: Identifiable, Codable, Comparable {
     
     // MARK: - Comparable
     
-    public static func < (lhs: Post, rhs: Post) -> Bool {
+    public static func < (lhs: Self, rhs: Self) -> Bool {
         lhs.id < rhs.id
     }
     
-    public static func == (lhs: Post, rhs: Post) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }
 }

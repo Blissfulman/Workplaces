@@ -147,6 +147,10 @@
 		CEA46B652647C323007C2DCE /* ProfileMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B642647C323007C2DCE /* ProfileMeView.swift */; };
 		CEA46B672647C334007C2DCE /* ProfileMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B662647C334007C2DCE /* ProfileMeView.xib */; };
 		CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */; };
+		CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6F26495BE0007C2DCE /* FriendCell.swift */; };
+		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
+		CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7426495E47007C2DCE /* FriendListViewController.swift */; };
+		CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7526495E47007C2DCE /* FriendListViewController.xib */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -362,6 +366,10 @@
 		CEA46B642647C323007C2DCE /* ProfileMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMeView.swift; sourceTree = "<group>"; };
 		CEA46B662647C334007C2DCE /* ProfileMeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMeView.xib; sourceTree = "<group>"; };
 		CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegmentedControl.swift; sourceTree = "<group>"; };
+		CEA46B6F26495BE0007C2DCE /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		CEA46B7426495E47007C2DCE /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		CEA46B7526495E47007C2DCE /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -601,6 +609,7 @@
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508612642596000568006 /* PostCell */,
+				CEA46B6E26495BA3007C2DCE /* FriendCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -610,6 +619,7 @@
 			children = (
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 				CEA46B5F2646C19B007C2DCE /* PostList */,
+				CEA46B7326495E23007C2DCE /* FriendList */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -670,13 +680,13 @@
 			path = PostCell;
 			sourceTree = "<group>";
 		};
-		CE1508662642601200568006 /* Children */ = {
+		CE1508662642601200568006 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				CEA46B642647C323007C2DCE /* ProfileMeView.swift */,
 				CEA46B662647C334007C2DCE /* ProfileMeView.xib */,
 			);
-			path = Children;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		CE1627832640006800468CDA /* WorkplacesTests */ = {
@@ -1019,7 +1029,7 @@
 			children = (
 				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
 				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
-				CE1508662642601200568006 /* Children */,
+				CE1508662642601200568006 /* Subviews */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1072,6 +1082,24 @@
 				CEA46B5C2646C193007C2DCE /* PostListViewController.xib */,
 			);
 			path = PostList;
+			sourceTree = "<group>";
+		};
+		CEA46B6E26495BA3007C2DCE /* FriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B6F26495BE0007C2DCE /* FriendCell.swift */,
+				CEA46B7026495BE0007C2DCE /* FriendCell.xib */,
+			);
+			path = FriendCell;
+			sourceTree = "<group>";
+		};
+		CEA46B7326495E23007C2DCE /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B7426495E47007C2DCE /* FriendListViewController.swift */,
+				CEA46B7526495E47007C2DCE /* FriendListViewController.xib */,
+			);
+			path = FriendList;
 			sourceTree = "<group>";
 		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
@@ -1308,9 +1336,11 @@
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */,
+				CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */,
 				CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */,
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
+				CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */,
 				CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */,
 				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
 				CE1508652642597700568006 /* PostCell.xib in Resources */,
@@ -1495,6 +1525,7 @@
 				CE150860264241A000568006 /* NibTableViewCell.swift in Sources */,
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
+				CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */,
 				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
@@ -1535,6 +1566,7 @@
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
+				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
 				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,

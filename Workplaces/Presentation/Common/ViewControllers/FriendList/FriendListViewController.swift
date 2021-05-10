@@ -1,13 +1,13 @@
 //
-//  PostListViewController.swift
+//  FriendListViewController.swift
 //  Workplaces
 //
-//  Created by Evgeny Novgorodov on 08.05.2021.
+//  Created by Evgeny Novgorodov on 10.05.2021.
 //
 
 import UIKit
 
-final class PostListViewController: UIViewController {
+final class FriendListViewController: UIViewController {
     
     // MARK: - Public properties
     
@@ -22,14 +22,14 @@ final class PostListViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var posts: [Post]
+    private var friends: [User]
     private weak var tableViewDataSource: UITableViewDataSource?
     private weak var tableViewDelegate: UITableViewDelegate?
     
     // MARK: - Initializers
     
-    init(posts: [Post], dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
-        self.posts = posts
+    init(friends: [User], dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
+        self.friends = friends
         self.tableViewDataSource = dataSource
         self.tableViewDelegate = delegate
         super.init(nibName: nil, bundle: nil)
@@ -45,17 +45,17 @@ final class PostListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         // Нужно создать объект для dataSource
-        tableView.dataSource = tableViewDataSource
+//        tableView.dataSource = tableViewDataSource
         tableView.delegate = tableViewDelegate
     }
     
     // MARK: - Public methods
     
-    /// Обновление постов в таблице, если переданные данные отличаются от уже имеющихся.
-    /// - Parameter posts: Список постов для обновления.
-    func updateData(posts: [Post]) {
-        if self.posts != posts {
-            self.posts = posts
+    /// Обновление друзей в таблице, если переданные данные отличаются от уже имеющихся.
+    /// - Parameter friends: Список друзей для обновления.
+    func updateData(friends: [User]) {
+        if self.friends != friends {
+            self.friends = friends
             tableView.reloadData()
         }
     }
@@ -75,6 +75,25 @@ final class PostListViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
+        tableView.register(FriendCell.nib(), forCellReuseIdentifier: FriendCell.identifier)
+    }
+}
+
+// MARK: - Table view data source
+
+extension FriendListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FriendCell.identifier,
+            for: indexPath
+        ) as? FriendCell else { return UITableViewCell() }
+        
+        cell.configure()
+        return cell
     }
 }

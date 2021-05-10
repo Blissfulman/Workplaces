@@ -63,6 +63,11 @@ final class ProfileViewController: UIViewController {
         postListVC.view.frame = view.bounds
         return postListVC
     }()
+    private lazy var friendListVC: FriendListViewController = {
+        let postListVC = FriendListViewController(friends: [], dataSource: self, delegate: self)
+        postListVC.view.frame = view.bounds
+        return postListVC
+    }()
     
     private var state: State = .posts {
         didSet {
@@ -144,6 +149,11 @@ final class ProfileViewController: UIViewController {
         
         addLogOutButton()
         
+        add(friendListVC)
+        friendListVC.setContentInset(
+            contentInset: UIEdgeInsets(top: topView.frame.height + 9, left: 0, bottom: 0, right: 0)
+        )
+        
         add(likeListVC)
         likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
         
@@ -192,6 +202,7 @@ final class ProfileViewController: UIViewController {
         // Нужно доработать правильную позицию topView при переключении
         postListVC.setTopOffset(offset: topViewOffset - topView.frame.height)
         remove(likeListVC)
+        remove(friendListVC)
         add(postListVC)
     }
     
@@ -199,6 +210,7 @@ final class ProfileViewController: UIViewController {
         // Нужно доработать правильную позицию topView при переключении
         likeListVC.setTopOffset(offset: topViewOffset - topView.frame.height)
         remove(postListVC)
+        remove(friendListVC)
         add(likeListVC)
     }
     
@@ -206,7 +218,7 @@ final class ProfileViewController: UIViewController {
         // Нужно доработать правильную позицию topView при переключении
         remove(postListVC)
         remove(likeListVC)
-        
+        add(friendListVC)
     }
     
     private func updateTopViewPosition() {
@@ -244,7 +256,7 @@ extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
         case .likes:
             topViewOffset = topView.frame.height + likeListVC.contentOffset.y
         case .friends:
-            break
+            topViewOffset = 9 + topView.frame.height + friendListVC.contentOffset.y
         }
         updateTopViewPosition()
     }
