@@ -20,7 +20,6 @@
                 <outlet property="avatarImageView" destination="Pd8-z6-7Cj" id="EwB-Fx-qXS"/>
                 <outlet property="bottomBackView" destination="WnZ-cP-tg7" id="AWq-lu-uRc"/>
                 <outlet property="fullNameLabel" destination="Vde-Wt-rvN" id="yqj-t4-lwF"/>
-                <outlet property="segmentedControl" destination="NFn-VC-SxX" id="LRy-kG-VJx"/>
                 <outlet property="topBackView" destination="p7T-im-aEA" id="p7M-1V-uLz"/>
             </connections>
         </placeholder>
@@ -90,6 +89,9 @@
                                 <segment title="Likes"/>
                                 <segment title="Friends"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="-1" eventType="valueChanged" id="hKP-O3-jGF"/>
+                            </connections>
                         </segmentedControl>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

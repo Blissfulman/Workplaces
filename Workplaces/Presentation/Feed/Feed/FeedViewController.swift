@@ -161,6 +161,8 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Table view delegate
+
 extension FeedViewController: UITableViewDelegate {
     
 }

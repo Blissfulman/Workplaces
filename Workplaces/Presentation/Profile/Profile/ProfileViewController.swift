@@ -37,7 +37,7 @@ final class ProfileViewController: UIViewController {
     private var topViewY: CGFloat?
     private var progressList = [Progress]()
     
-    private let profileMeView = ProfileMeView()
+    private lazy var profileMeView = ProfileMeView(delegate: self)
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
         postListVC.view.frame = view.bounds
@@ -174,10 +174,21 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Table view delegate
+
 extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let topViewY = (topViewY ?? 0) - topView.frame.height - postListVC.contentOffset.y
         topView.frame.origin.y = topViewY
+    }
+}
+
+// MARK: - ProfileMeViewDelegate
+
+extension ProfileViewController: ProfileMeViewDelegate {
+    
+    func segmentedControlValueChanged(to segmentedControlState: ProfileMeView.SegmentedControlState) {
+        print(segmentedControlState)
     }
 }
