@@ -11,6 +11,9 @@ import UIKit
 
 protocol ProfileScreenDelegate: AnyObject {
     func goToEditProfile(profile: User)
+    func goToNewPost()
+    func goToFeed()
+    func goToSearchFriends()
     func signOut()
 }
 
@@ -238,11 +241,20 @@ final class ProfileViewController: UIViewController {
         
         switch state {
         case .posts:
-            zeroSubview = ZeroView(viewType: .profileNoPosts, buttonAction: { print("1") })
+            let buttonAction: VoidBlock = { [weak self] in
+                self?.delegate?.goToNewPost()
+            }
+            zeroSubview = ZeroView(viewType: .profileNoPosts, buttonAction: buttonAction)
         case .likes:
-            zeroSubview = ZeroView(viewType: .profileNoLikes, buttonAction: { print("2") })
+            let buttonAction: VoidBlock = { [weak self] in
+                self?.delegate?.goToFeed()
+            }
+            zeroSubview = ZeroView(viewType: .profileNoLikes, buttonAction: buttonAction)
         case .friends:
-            zeroSubview = ZeroView(viewType: .profileNoFriends, buttonAction: { print("3") })
+            let buttonAction: VoidBlock = { [weak self] in
+                self?.delegate?.goToSearchFriends()
+            }
+            zeroSubview = ZeroView(viewType: .profileNoFriends, buttonAction: buttonAction)
         }
         
         if let zeroSubview = zeroSubview {

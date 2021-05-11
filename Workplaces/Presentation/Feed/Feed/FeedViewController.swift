@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol FeedScreenDelegate: AnyObject {
-    func goToFindFriends()
+    func goToSearchFriends()
 }
 
 final class FeedViewController: UIViewController {
@@ -41,7 +41,7 @@ final class FeedViewController: UIViewController {
     }()
     private lazy var noFriendsZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
-            self?.delegate?.goToFindFriends()
+            self?.delegate?.goToSearchFriends()
         }
         let zeroVC = ZeroViewController(viewType: .feedNoFriends, buttonAction: buttonAction)
         zeroVC.view.frame = view.bounds
@@ -59,9 +59,8 @@ final class FeedViewController: UIViewController {
     private var state: State = .data(posts: []) {
         willSet {
             switch newValue {
-            case let .data(posts):
-//                showPostListView(postList: posts)
-                showPostListView(postList: Post.getMockPosts())
+            case .data:
+                showPostListView(postList: Post.getMockPosts()) // TEMP
             case .noFriends:
                 showNoFriendsZeroView()
             case .error:

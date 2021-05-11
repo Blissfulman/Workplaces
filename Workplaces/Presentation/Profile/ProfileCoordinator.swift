@@ -11,11 +11,18 @@ import UIKit
 
 protocol ProfileCoordinator: Coordinator {}
 
+protocol ProfileCoordinatorDelegate: AnyObject {
+    func goToFeed()
+    func goToNewPost()
+    func goToSearchFriends()
+}
+
 final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Public properties
     
     var onFinish: VoidBlock
+    weak var delegate: ProfileCoordinatorDelegate?
     
     // MARK: - Private properties
     
@@ -23,9 +30,14 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController, onFinish: @escaping VoidBlock) {
+    init(
+        navigationController: UINavigationController,
+        onFinish: @escaping VoidBlock,
+        delegate: ProfileCoordinatorDelegate
+    ) {
         self.navigationController = navigationController
         self.onFinish = onFinish
+        self.delegate = delegate
     }
     
     // MARK: - Public methods
@@ -55,6 +67,18 @@ extension ProfileCoordinatorImpl: ProfileScreenDelegate {
     
     func goToEditProfile(profile: User) {
         showEditProfileScreen(profile: profile)
+    }
+    
+    func goToNewPost() {
+        delegate?.goToNewPost()
+    }
+    
+    func goToFeed() {
+        delegate?.goToFeed()
+    }
+    
+    func goToSearchFriends() {
+        delegate?.goToSearchFriends()
     }
     
     func signOut() {

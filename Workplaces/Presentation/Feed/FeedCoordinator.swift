@@ -9,7 +9,9 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol FeedCoordinator: Coordinator {}
+protocol FeedCoordinator: Coordinator {
+    func showSearchFriendsScreen()
+}
 
 final class FeedCoordinatorImpl: FeedCoordinator {
     
@@ -34,6 +36,11 @@ final class FeedCoordinatorImpl: FeedCoordinator {
         showFeedScreen()
     }
     
+    func showSearchFriendsScreen() {
+        let searchFriendsVC = SearchFriendsViewController()
+        navigationController?.pushViewController(searchFriendsVC, animated: true)
+    }
+    
     // MARK: - Private methods
     
     private func showFeedScreen() {
@@ -41,18 +48,13 @@ final class FeedCoordinatorImpl: FeedCoordinator {
         feedVC.delegate = self
         navigationController?.pushViewController(feedVC, animated: false)
     }
-    
-    private func showFindFriendsScreen() {
-        let searchFriendsVC = SearchFriendsViewController()
-        navigationController?.pushViewController(searchFriendsVC, animated: true)
-    }
 }
 
 // MARK: - FeedScreenDelegate
 
 extension FeedCoordinatorImpl: FeedScreenDelegate {
     
-    func goToFindFriends() {
-        showFindFriendsScreen()
+    func goToSearchFriends() {
+        showSearchFriendsScreen()
     }
 }

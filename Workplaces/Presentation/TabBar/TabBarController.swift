@@ -34,7 +34,11 @@ final class TabBarController: UITabBarController, Coordinator {
     
     private var profileTab: UIViewController {
         let navigationController = UINavigationController()
-        profileCoordinator = ProfileCoordinatorImpl(navigationController: navigationController, onFinish: onFinish)
+        profileCoordinator = ProfileCoordinatorImpl(
+            navigationController: navigationController,
+            onFinish: onFinish,
+            delegate: self
+        )
         navigationController.tabBarItem.image = Icons.profile
         profileCoordinator?.start()
         return navigationController
@@ -65,5 +69,24 @@ final class TabBarController: UITabBarController, Coordinator {
         tabBar.barTintColor = Palette.white
         tabBar.tintColor = Palette.orange
         tabBar.unselectedItemTintColor = Palette.grey
+    }
+}
+
+// MARK: - ProfileCoordinatorDelegate
+
+extension TabBarController: ProfileCoordinatorDelegate {
+    
+    func goToFeed() {
+        selectedIndex = 0
+    }
+    
+    func goToNewPost() {
+        selectedIndex = 1
+    }
+    
+    func goToSearchFriends() {
+        selectedIndex = 0
+        // Так вообще можно?
+        feedCoordinator?.showSearchFriendsScreen()
     }
 }
