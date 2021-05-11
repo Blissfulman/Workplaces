@@ -154,6 +154,7 @@
 		CEA46B792649C504007C2DCE /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B782649C504007C2DCE /* TableViewDataSource.swift */; };
 		CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
+		CEB074F7264B114D0060E818 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F6264B114D0060E818 /* CellConfigurable.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
@@ -376,6 +377,7 @@
 		CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMockObjects.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB074F6264B114D0060E818 /* CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -914,6 +916,7 @@
 				CE1508962643D54800568006 /* NibInitializableView.swift */,
 				CE15085F264241A000568006 /* NibTableViewCell.swift */,
 				CEA46B782649C504007C2DCE /* TableViewDataSource.swift */,
+				CEB074F6264B114D0060E818 /* CellConfigurable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1541,6 +1544,7 @@
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
+				CEB074F7264B114D0060E818 /* CellConfigurable.swift in Sources */,
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,

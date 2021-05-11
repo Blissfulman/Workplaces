@@ -34,10 +34,3 @@ final class PostCell: UITableViewCell, CellConfigurable {
         descriptionLabel.text = object.text
     }
 }
-
-protocol CellConfigurable: UITableViewCell {
-    
-    associatedtype Object: Any
-    
-    func configure(object: Object)
-}
