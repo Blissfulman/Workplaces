@@ -53,12 +53,12 @@ final class ProfileViewController: UIViewController {
     private let friendListSeparator: CGFloat = 9
     private var progressList = [Progress]()
     
-    private lazy var profileMeView: ProfileMeView = {
-        let profileMeView = ProfileMeView(delegate: self)
-        profileMeView.frame = topView.bounds
-        profileMeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        topView.addSubview(profileMeView)
-        return profileMeView
+    private lazy var profileTopView: ProfileTopView = {
+        let profileTopView = ProfileTopView(delegate: self)
+        profileTopView.frame = topView.bounds
+        profileTopView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        topView.addSubview(profileTopView)
+        return profileTopView
     }()
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
@@ -198,7 +198,7 @@ final class ProfileViewController: UIViewController {
         let editProfileButtonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToEditProfile(profile: profile)
         }
-        profileMeView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
+        profileTopView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
     }
     
     private func showPostListView() {
@@ -233,7 +233,7 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileMeViewDelegate {
     
-    func segmentedControlValueChanged(to segmentedControlState: ProfileMeView.SegmentedControlState) {
+    func segmentedControlValueChanged(to segmentedControlState: ProfileTopView.SegmentedControlState) {
         switch segmentedControlState {
         case .posts:
             state = .posts

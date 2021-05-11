@@ -10,6 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol TableViewDataSourceDelegate: AnyObject {
+    /// Оповещение делегата о необходимости перезагрузки данных.
     func needReloadData()
 }
 

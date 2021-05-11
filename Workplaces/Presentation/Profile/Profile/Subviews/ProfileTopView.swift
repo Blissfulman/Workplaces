@@ -1,5 +1,5 @@
 //
-//  ProfileMeView.swift
+//  ProfileTopView.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 09.05.2021.
@@ -10,10 +10,10 @@ import UIKit
 // MARK: - Protocols
 
 protocol ProfileMeViewDelegate: AnyObject {
-    func segmentedControlValueChanged(to segmentedControlState: ProfileMeView.SegmentedControlState)
+    func segmentedControlValueChanged(to segmentedControlState: ProfileTopView.SegmentedControlState)
 }
 
-final class ProfileMeView: NibInitializableView {
+final class ProfileTopView: NibInitializableView {
     
     // MARK: - Nested types
     

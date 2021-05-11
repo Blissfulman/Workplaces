@@ -144,8 +144,8 @@
 		CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */; };
 		CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5B2646C193007C2DCE /* PostListViewController.swift */; };
 		CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B5C2646C193007C2DCE /* PostListViewController.xib */; };
-		CEA46B652647C323007C2DCE /* ProfileMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B642647C323007C2DCE /* ProfileMeView.swift */; };
-		CEA46B672647C334007C2DCE /* ProfileMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B662647C334007C2DCE /* ProfileMeView.xib */; };
+		CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B642647C323007C2DCE /* ProfileTopView.swift */; };
+		CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B662647C334007C2DCE /* ProfileTopView.xib */; };
 		CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */; };
 		CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6F26495BE0007C2DCE /* FriendCell.swift */; };
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
@@ -365,8 +365,8 @@
 		CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceRemoveFriendTests.swift; sourceTree = "<group>"; };
 		CEA46B5B2646C193007C2DCE /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		CEA46B5C2646C193007C2DCE /* PostListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListViewController.xib; sourceTree = "<group>"; };
-		CEA46B642647C323007C2DCE /* ProfileMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMeView.swift; sourceTree = "<group>"; };
-		CEA46B662647C334007C2DCE /* ProfileMeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMeView.xib; sourceTree = "<group>"; };
+		CEA46B642647C323007C2DCE /* ProfileTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopView.swift; sourceTree = "<group>"; };
+		CEA46B662647C334007C2DCE /* ProfileTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTopView.xib; sourceTree = "<group>"; };
 		CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegmentedControl.swift; sourceTree = "<group>"; };
 		CEA46B6F26495BE0007C2DCE /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -688,8 +688,8 @@
 		CE1508662642601200568006 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				CEA46B642647C323007C2DCE /* ProfileMeView.swift */,
-				CEA46B662647C334007C2DCE /* ProfileMeView.xib */,
+				CEA46B642647C323007C2DCE /* ProfileTopView.swift */,
+				CEA46B662647C334007C2DCE /* ProfileTopView.xib */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1334,7 +1334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA46B672647C334007C2DCE /* ProfileMeView.xib in Resources */,
+				CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */,
 				CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
@@ -1545,7 +1545,7 @@
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
-				CEA46B652647C323007C2DCE /* ProfileMeView.swift in Sources */,
+				CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */,
 				CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */,
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
