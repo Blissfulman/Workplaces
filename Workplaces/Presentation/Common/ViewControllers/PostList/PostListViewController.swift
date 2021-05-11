@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol PostListViewControllerDelegate: AnyObject {
+    /// Сообщает делегату, когда пользователь прокручивает контент таблицы.
+    /// - Parameter scrollView: Объект, в котором произошла прокрутка.
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+}
+
 final class PostListViewController: UIViewController {
     
     // MARK: - Public properties
@@ -22,16 +30,14 @@ final class PostListViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var posts: [Post]
-    private weak var tableViewDataSource: UITableViewDataSource?
-    private weak var tableViewDelegate: UITableViewDelegate?
+    private var tableViewDataSource: UITableViewDataSource
+    private weak var delegate: PostListViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(posts: [Post], dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
-        self.posts = posts
+    init(dataSource: UITableViewDataSource, delegate: PostListViewControllerDelegate) {
         self.tableViewDataSource = dataSource
-        self.tableViewDelegate = delegate
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,21 +50,10 @@ final class PostListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // Нужно создать объект для dataSource
         tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
     }
     
     // MARK: - Public methods
-    
-    /// Обновление постов в таблице, если переданные данные отличаются от уже имеющихся.
-    /// - Parameter posts: Список постов для обновления.
-    func updateData(posts: [Post]) {
-        if self.posts != posts {
-            self.posts = posts
-            tableView.reloadData()
-        }
-    }
     
     /// Установка параметра `contentInset` для таблицы.
     /// - Parameter contentInset: Значение `contentInset`.
@@ -76,5 +71,23 @@ final class PostListViewController: UIViewController {
     
     private func setupUI() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
+    }
+}
+
+// MARK: - Table view delegate
+
+extension PostListViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.scrollViewDidScroll(scrollView)
+    }
+}
+
+// MARK: - TableViewDataSourceDelegate
+
+extension PostListViewController: TableViewDataSourceDelegate {
+    
+    func needReloadData() {
+        tableView.reloadData()
     }
 }

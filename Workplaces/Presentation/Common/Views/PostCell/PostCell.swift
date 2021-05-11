@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class PostCell: UITableViewCell {
+final class PostCell: UITableViewCell, CellConfigurable {
+    
+    typealias Object = Post
     
     // MARK: - Outlets
     
@@ -23,12 +25,19 @@ final class PostCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        descriptionLabel.text = nil
+        descriptionLabel.text = nil
     }
     
     // MARK: - Public methods
     
-    func configure() {
-        
+    func configure(object: Object) {
+        descriptionLabel.text = object.text
     }
+}
+
+protocol CellConfigurable: UITableViewCell {
+    
+    associatedtype Object: Any
+    
+    func configure(object: Object)
 }

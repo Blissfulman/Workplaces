@@ -31,6 +31,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var topView: UIView!
+    @IBOutlet private weak var zeroView: UIView!
     
     // MARK: - Private properties
     
@@ -38,12 +39,18 @@ final class ProfileViewController: UIViewController {
     private let authorizationService: AuthorizationService
     private var profile: User? {
         didSet {
-            navigationItem.title = "@kshn13" // profile.nickname
+            navigationItem.title = profile?.nickname
             configureProfileMeView()
         }
     }
+    private let postListDataSource = TableViewDataSource<Post, PostCell>()
+    private let likeListDataSource = TableViewDataSource<Post, PostCell>()
+    private let friendListDataSource = TableViewDataSource<User, FriendCell>()
+    
     private var topViewY: CGFloat?
     private var topViewOffset: CGFloat = 0
+    /// Толщина разделителя между верхним вью и списком друзей.
+    private let friendListSeparator: CGFloat = 9
     private var progressList = [Progress]()
     
     private lazy var profileMeView: ProfileMeView = {
@@ -54,19 +61,27 @@ final class ProfileViewController: UIViewController {
         return profileMeView
     }()
     private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
+        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
+        postListDataSource.delegate = postListVC
         postListVC.view.frame = view.bounds
         return postListVC
     }()
     private lazy var likeListVC: PostListViewController = {
-        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
+        let likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
+        likeListDataSource.delegate = likeListVC
+        likeListVC.view.frame = view.bounds
+        return likeListVC
     }()
     private lazy var friendListVC: FriendListViewController = {
-        let postListVC = FriendListViewController(friends: [], dataSource: self, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
+        let friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
+        friendListDataSource.delegate = friendListVC
+        friendListVC.view.frame = view.bounds
+        return friendListVC
+    }()
+    private lazy var errorVC: ZeroViewController = {
+        let zeroVC = ZeroViewController(viewType: .noData, buttonAction: {})
+        zeroVC.view.frame = view.bounds
+        return zeroVC
     }()
     
     private var state: State = .posts {
@@ -116,6 +131,9 @@ final class ProfileViewController: UIViewController {
         if profile == nil {
             fetchProfile()
         }
+        fetchMyPosts()
+        fetchLikedPosts()
+        fetchFriends()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -151,7 +169,7 @@ final class ProfileViewController: UIViewController {
         
         add(friendListVC)
         friendListVC.setContentInset(
-            contentInset: UIEdgeInsets(top: topView.frame.height + 9, left: 0, bottom: 0, right: 0)
+            contentInset: UIEdgeInsets(top: topView.frame.height + friendListSeparator, left: 0, bottom: 0, right: 0)
         )
         
         add(likeListVC)
@@ -183,21 +201,6 @@ final class ProfileViewController: UIViewController {
         profileMeView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
     }
     
-    private func fetchProfile() {
-        LoadingView.show()
-        
-        profileService.fetchMyProfile { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case let .success(profile):
-                self?.profile = profile
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
     private func showPostListView() {
         // Нужно доработать правильную позицию topView при переключении
         postListVC.setTopOffset(offset: topViewOffset - topView.frame.height)
@@ -226,42 +229,6 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-// MARK: - Table view data source
-
-extension ProfileViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PostCell.identifier,
-            for: indexPath
-        ) as? PostCell else { return UITableViewCell() }
-        
-        cell.configure()
-        return cell
-    }
-}
-
-// MARK: - Table view delegate
-
-extension ProfileViewController: UITableViewDelegate, UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        switch state {
-        case .posts:
-            topViewOffset = topView.frame.height + postListVC.contentOffset.y
-        case .likes:
-            topViewOffset = topView.frame.height + likeListVC.contentOffset.y
-        case .friends:
-            topViewOffset = 9 + topView.frame.height + friendListVC.contentOffset.y
-        }
-        updateTopViewPosition()
-    }
-}
-
 // MARK: - ProfileMeViewDelegate
 
 extension ProfileViewController: ProfileMeViewDelegate {
@@ -274,6 +241,90 @@ extension ProfileViewController: ProfileMeViewDelegate {
             state = .likes
         case .friends:
             state = .friends
+        }
+    }
+}
+
+// MARK: - PostListViewControllerDelegate, FriendListViewControllerDelegate
+
+extension ProfileViewController: PostListViewControllerDelegate, FriendListViewControllerDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        switch state {
+        case .posts:
+            topViewOffset = topView.frame.height + postListVC.contentOffset.y
+        case .likes:
+            topViewOffset = topView.frame.height + likeListVC.contentOffset.y
+        case .friends:
+            topViewOffset = friendListSeparator + topView.frame.height + friendListVC.contentOffset.y
+        }
+        updateTopViewPosition()
+    }
+}
+
+// MARK: - Data fetching methods
+
+extension ProfileViewController {
+    
+    private func fetchProfile() {
+        LoadingView.show()
+        
+        profileService.fetchMyProfile { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(profile):
+//                self?.profile = profile
+                self?.profile = User.getMockUsers().first!
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchMyPosts() {
+        LoadingView.show()
+
+        profileService.fetchMyPosts { [weak self] result in
+            LoadingView.hide()
+            switch result {
+            case let .success(myPosts):
+//                self?.postListDataSource.updateData(objects: myPosts)
+                self?.postListDataSource.updateData(objects: Post.getMockPosts())
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchLikedPosts() {
+        LoadingView.show()
+
+        profileService.fetchLikedPosts { [weak self] result in
+            LoadingView.hide()
+            switch result {
+            case let .success(likedPosts):
+//                self?.likeListDataSource.updateData(objects: likedPosts)
+                self?.likeListDataSource.updateData(objects: Post.getMockPosts())
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchFriends() {
+        LoadingView.show()
+
+        profileService.fetchFriends { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(friends):
+//                self?.friendListDataSource.updateData(objects: friends)
+                self?.friendListDataSource.updateData(objects: User.getMockUsers())
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

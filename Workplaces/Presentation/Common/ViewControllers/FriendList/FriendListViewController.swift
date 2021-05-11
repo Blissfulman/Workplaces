@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol FriendListViewControllerDelegate: AnyObject {
+    /// Сообщает делегату, когда пользователь прокручивает контент таблицы.
+    /// - Parameter scrollView: Объект, в котором произошла прокрутка.
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+}
+
 final class FriendListViewController: UIViewController {
     
     // MARK: - Public properties
@@ -22,16 +30,14 @@ final class FriendListViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var friends: [User]
-    private weak var tableViewDataSource: UITableViewDataSource?
-    private weak var tableViewDelegate: UITableViewDelegate?
+    private var tableViewDataSource: UITableViewDataSource?
+    private weak var delegate: FriendListViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(friends: [User], dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
-        self.friends = friends
+    init(dataSource: UITableViewDataSource, delegate: FriendListViewControllerDelegate) {
         self.tableViewDataSource = dataSource
-        self.tableViewDelegate = delegate
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,21 +50,10 @@ final class FriendListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        // Нужно создать объект для dataSource
-//        tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
+        tableView.dataSource = tableViewDataSource
     }
     
     // MARK: - Public methods
-    
-    /// Обновление друзей в таблице, если переданные данные отличаются от уже имеющихся.
-    /// - Parameter friends: Список друзей для обновления.
-    func updateData(friends: [User]) {
-        if self.friends != friends {
-            self.friends = friends
-            tableView.reloadData()
-        }
-    }
     
     /// Установка параметра `contentInset` для таблицы.
     /// - Parameter contentInset: Значение `contentInset`.
@@ -79,21 +74,20 @@ final class FriendListViewController: UIViewController {
     }
 }
 
-// MARK: - Table view data source
+// MARK: - Table view delegate
 
-extension FriendListViewController: UITableViewDataSource {
+extension FriendListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.scrollViewDidScroll(scrollView)
     }
+}
+
+// MARK: - TableViewDataSourceDelegate
+
+extension FriendListViewController: TableViewDataSourceDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FriendCell.identifier,
-            for: indexPath
-        ) as? FriendCell else { return UITableViewCell() }
-        
-        cell.configure()
-        return cell
+    func needReloadData() {
+        tableView.reloadData()
     }
 }

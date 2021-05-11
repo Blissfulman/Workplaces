@@ -80,7 +80,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImageView" destination="XUK-5p-IEg" id="cG5-dM-nKa"/>
                 <outlet property="backView" destination="cCZ-p8-Ov5" id="ULS-QQ-oNM"/>
+                <outlet property="fullNameLabel" destination="YSz-zN-fNy" id="Imb-MC-EAD"/>
+                <outlet property="nicknameLabel" destination="qN8-Lk-1u1" id="7IC-Xi-VwD"/>
             </connections>
             <point key="canvasLocation" x="106.5217391304348" y="101.78571428571428"/>
         </tableViewCell>

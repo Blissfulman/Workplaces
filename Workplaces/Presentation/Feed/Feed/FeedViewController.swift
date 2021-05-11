@@ -30,10 +30,12 @@ final class FeedViewController: UIViewController {
     // MARK: - Private properties
     
     private let feedService: FeedService
+    private let postListDataSource = TableViewDataSource<Post, PostCell>()
     private var progressList = [Progress]()
     
     private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(posts: [], dataSource: self, delegate: self)
+        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
+        postListDataSource.delegate = postListVC
         postListVC.view.frame = view.bounds
         return postListVC
     }()
@@ -58,7 +60,8 @@ final class FeedViewController: UIViewController {
         willSet {
             switch newValue {
             case let .data(posts):
-                showPostListView(postList: posts)
+//                showPostListView(postList: posts)
+                showPostListView(postList: Post.getMockPosts())
             case .noFriends:
                 showNoFriendsZeroView()
             case .error:
@@ -129,7 +132,7 @@ final class FeedViewController: UIViewController {
     }
     
     private func showPostListView(postList: [Post]) {
-        postListVC.updateData(posts: postList)
+        postListDataSource.updateData(objects: postList)
         remove(noFriendsZeroVC)
         remove(errorZeroVC)
         add(postListVC)
@@ -141,28 +144,9 @@ final class FeedViewController: UIViewController {
         add(errorZeroVC)
     }
 }
+// MARK: - PostListViewControllerDelegate
 
-// MARK: - Table view data source
-
-extension FeedViewController: UITableViewDataSource {
+extension FeedViewController: PostListViewControllerDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: PostCell.identifier,
-            for: indexPath
-        ) as? PostCell else { return UITableViewCell() }
-        
-        cell.configure()
-        return cell
-    }
-}
-
-// MARK: - Table view delegate
-
-extension FeedViewController: UITableViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {}
 }

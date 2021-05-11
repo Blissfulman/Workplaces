@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="topView" destination="7NE-ok-tUX" id="Pmn-s8-vDS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zeroView" destination="2Wx-h6-OX5" id="SwI-IO-M8U"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,12 +27,20 @@
                         <constraint firstAttribute="height" constant="159" id="mhT-Rn-wrT"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Wx-h6-OX5">
+                    <rect key="frame" x="0.0" y="203" width="414" height="659"/>
+                    <color key="backgroundColor" name="lightGrey"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="lightGrey"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7NE-ok-tUX" secondAttribute="trailing" id="23D-5c-RJF"/>
+                <constraint firstItem="2Wx-h6-OX5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Fqk-es-xYG"/>
                 <constraint firstItem="7NE-ok-tUX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HSQ-9v-7f5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Wx-h6-OX5" secondAttribute="trailing" id="Ne1-aq-ON3"/>
+                <constraint firstItem="2Wx-h6-OX5" firstAttribute="top" secondItem="7NE-ok-tUX" secondAttribute="bottom" id="jTe-DW-3vO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2Wx-h6-OX5" secondAttribute="bottom" id="tvS-Hc-JFq"/>
                 <constraint firstItem="7NE-ok-tUX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zQy-YK-n7g"/>
             </constraints>
             <point key="canvasLocation" x="128.98550724637681" y="93.75"/>

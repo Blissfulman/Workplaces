@@ -151,6 +151,8 @@
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
 		CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7426495E47007C2DCE /* FriendListViewController.swift */; };
 		CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7526495E47007C2DCE /* FriendListViewController.xib */; };
+		CEA46B792649C504007C2DCE /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B782649C504007C2DCE /* TableViewDataSource.swift */; };
+		CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -370,6 +372,8 @@
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		CEA46B7426495E47007C2DCE /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		CEA46B7526495E47007C2DCE /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
+		CEA46B782649C504007C2DCE /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMockObjects.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -549,6 +553,7 @@
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE97217E263EF847006ACEB2 /* TestError.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
+				CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				CE8F1B6026340EAB00C0C52C /* NibInitializable.swift */,
 				CE1508962643D54800568006 /* NibInitializableView.swift */,
 				CE15085F264241A000568006 /* NibTableViewCell.swift */,
+				CEA46B782649C504007C2DCE /* TableViewDataSource.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1531,6 +1537,7 @@
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
+				CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
@@ -1557,6 +1564,7 @@
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
+				CEA46B792649C504007C2DCE /* TableViewDataSource.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
 				CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */,
