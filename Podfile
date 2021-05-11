@@ -2,17 +2,16 @@
 platform :ios, '13.0'
 
 target 'Workplaces' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   pod 'Apexy'
 
-end
+  target 'WorkplacesTests' do
+    inherit! :search_paths
+    pod 'Apexy'
+  end
 
-target 'WorkplacesAPI' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  pod 'Apexy'
-
+  target 'WorkplacesAPI' do
+    inherit! :search_paths
+    pod 'Apexy'
+  end
 end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0604A44F35FEF294BCADFDCE /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */; };
 		3199FF836ED17EA279DDB128 /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBD78BC1D1E9FA6DD36932DE /* Pods_Workplaces.framework */; };
+		7260D18593D79AD60A7D9F0B /* Pods_WorkplacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC78DAF634729397C4198D1 /* Pods_WorkplacesTests.framework */; };
 		C68C97F900542DB4CC350EA8 /* Pods_WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */; };
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
@@ -36,7 +37,7 @@
 		CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */; };
 		CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */; };
 		CE12A21B2636A94900EE6549 /* MyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */; };
-		CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */; };
+		CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */; };
 		CE12A2232636AA9E00EE6549 /* FriendListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */; };
 		CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */; };
 		CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */; };
@@ -65,21 +66,21 @@
 		CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088426429C6F00568006 /* SignInDoneViewController.xib */; };
 		CE15088726429F7700568006 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15088926429F7700568006 /* SignInViewController.xib */; };
 		CE1508912642A24300568006 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE15088F2642A24300568006 /* Localizable.strings */; };
-		CE1508952642E1E100568006 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508942642E1E100568006 /* StringValidator.swift */; };
+		CE1508952642E1E100568006 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508942642E1E100568006 /* EmailValidator.swift */; };
 		CE1508972643D54800568006 /* NibInitializableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508962643D54800568006 /* NibInitializableView.swift */; };
 		CE15089826443E7900568006 /* SignUpFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15089A26443E7900568006 /* SignUpFirstViewController.xib */; };
 		CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE15089F264467F200568006 /* SignUpSecondViewController.xib */; };
 		CE1508A326446F3100568006 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1508A226446F3100568006 /* String+Extension.swift */; };
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
-		CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */; };
+		CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */; };
 		CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */; };
-		CE1627A526412AE500468CDA /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* StringTests.swift */; };
+		CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* EmailValidatorTests.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
 		CE1F490326388F6900FD117C /* MyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */; };
-		CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */; };
+		CE1F490526388FDB00FD117C /* UpdateMyProfileEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */; };
 		CE1F4909263895C800FD117C /* MyPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */; };
 		CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */; };
 		CE1F490D2638964500FD117C /* LikedPostListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */; };
@@ -94,6 +95,10 @@
 		CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F49212639374300FD117C /* HTTPBody+Extension.swift */; };
 		CE1F492426398E1A00FD117C /* UploadUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F492326398E1A00FD117C /* UploadUser.swift */; };
 		CE1F49262639920E00FD117C /* UploadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F49252639920E00FD117C /* UploadPost.swift */; };
+		CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091526456B7A0010CF6C /* ClientMock.swift */; };
+		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
+		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
+		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
@@ -131,6 +136,16 @@
 		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
 		CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
+		CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */; };
+		CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */; };
+		CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */; };
+		CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */; };
+		CEA46B5026466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */; };
+		CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */; };
+		CEA46B5426466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */; };
+		CEA46B5626466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */; };
+		CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */; };
+		CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
@@ -193,7 +208,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14AEEEBB2C7F010275C83B06 /* Pods-WorkplacesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesTests.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests.release.xcconfig"; sourceTree = "<group>"; };
 		29292A45FC12071B9651C796 /* Pods-WorkplacesAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPI.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPI/Pods-WorkplacesAPI.release.xcconfig"; sourceTree = "<group>"; };
+		51C0EF8954F5FC278D6A5B9E /* Pods-WorkplacesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F4E10B01EB4746745599989 /* Pods-WorkplacesAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPI.debug.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPI/Pods-WorkplacesAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		BBA601C45707BE1116334C8C /* Pods-Workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.release.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.release.xcconfig"; sourceTree = "<group>"; };
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
@@ -223,7 +240,7 @@
 		CE12A21026368B8300EE6549 /* PublishPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpoint.swift; sourceTree = "<group>"; };
-		CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpoint.swift; sourceTree = "<group>"; };
+		CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyProfileEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpoint.swift; sourceTree = "<group>"; };
@@ -256,7 +273,7 @@
 		CE15088A26429F8000568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignInViewController.xib; sourceTree = "<group>"; };
 		CE15088B26429F8A00568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignInViewController.strings; sourceTree = "<group>"; };
 		CE1508902642A24300568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CE1508942642E1E100568006 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
+		CE1508942642E1E100568006 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		CE1508962643D54800568006 /* NibInitializableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInitializableView.swift; sourceTree = "<group>"; };
 		CE15089B26443E9000568006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignUpFirstViewController.xib; sourceTree = "<group>"; };
 		CE15089C26443E9800568006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignUpFirstViewController.strings; sourceTree = "<group>"; };
@@ -267,14 +284,14 @@
 		CE1627862640006800468CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE16279726406B9D00468CDA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImplTests.swift; sourceTree = "<group>"; };
+		CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignInTests.swift; sourceTree = "<group>"; };
 		CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageMock.swift; sourceTree = "<group>"; };
-		CE1627A426412AE500468CDA /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		CE1627A426412AE500468CDA /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEndpointTests.swift; sourceTree = "<group>"; };
-		CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingMyProfileEndpointTests.swift; sourceTree = "<group>"; };
+		CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMyProfileEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostListEndpointTests.swift; sourceTree = "<group>"; };
@@ -289,6 +306,10 @@
 		CE1F49212639374300FD117C /* HTTPBody+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPBody+Extension.swift"; sourceTree = "<group>"; };
 		CE1F492326398E1A00FD117C /* UploadUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUser.swift; sourceTree = "<group>"; };
 		CE1F49252639920E00FD117C /* UploadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPost.swift; sourceTree = "<group>"; };
+		CE29091526456B7A0010CF6C /* ClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMock.swift; sourceTree = "<group>"; };
+		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
+		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
+		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +350,16 @@
 		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceLikePostTests.swift; sourceTree = "<group>"; };
+		CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceUnlikePostTests.swift; sourceTree = "<group>"; };
+		CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServicePublishPostTests.swift; sourceTree = "<group>"; };
+		CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchMyProfileTests.swift; sourceTree = "<group>"; };
+		CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceUpdateMyProfileTests.swift; sourceTree = "<group>"; };
+		CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchMyPostsTests.swift; sourceTree = "<group>"; };
+		CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchLikedPostsTests.swift; sourceTree = "<group>"; };
+		CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceFetchFriendsTests.swift; sourceTree = "<group>"; };
+		CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceAddFriendTests.swift; sourceTree = "<group>"; };
+		CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceRemoveFriendTests.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
@@ -346,6 +377,7 @@
 		CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		D1F47BB9A4BCDCBF72F25400 /* Pods-Workplaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.debug.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.debug.xcconfig"; sourceTree = "<group>"; };
+		EBC78DAF634729397C4198D1 /* Pods_WorkplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD78BC1D1E9FA6DD36932DE /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -354,6 +386,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7260D18593D79AD60A7D9F0B /* Pods_WorkplacesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +426,7 @@
 				CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */,
 				FBD78BC1D1E9FA6DD36932DE /* Pods_Workplaces.framework */,
 				CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */,
+				EBC78DAF634729397C4198D1 /* Pods_WorkplacesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -404,6 +438,8 @@
 				BBA601C45707BE1116334C8C /* Pods-Workplaces.release.xcconfig */,
 				5F4E10B01EB4746745599989 /* Pods-WorkplacesAPI.debug.xcconfig */,
 				29292A45FC12071B9651C796 /* Pods-WorkplacesAPI.release.xcconfig */,
+				51C0EF8954F5FC278D6A5B9E /* Pods-WorkplacesTests.debug.xcconfig */,
+				14AEEEBB2C7F010275C83B06 /* Pods-WorkplacesTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -502,7 +538,7 @@
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE97217E263EF847006ACEB2 /* TestError.swift */,
-				CE1508942642E1E100568006 /* StringValidator.swift */,
+				CE1508942642E1E100568006 /* EmailValidator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -662,26 +698,11 @@
 		CE1627832640006800468CDA /* WorkplacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE29091726458D9F0010CF6C /* Common */,
 				CE16279526403EA200468CDA /* Business logic */,
-				CE16278C26400BBA00468CDA /* Presentation */,
 				CE1627862640006800468CDA /* Info.plist */,
 			);
 			path = WorkplacesTests;
-			sourceTree = "<group>";
-		};
-		CE16278C26400BBA00468CDA /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				CE16278D26400BEC00468CDA /* Profile */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		CE16278D26400BEC00468CDA /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		CE16278E2640136500468CDA /* Model */ = {
@@ -695,7 +716,7 @@
 		CE16279526403EA200468CDA /* Business logic */ = {
 			isa = PBXGroup;
 			children = (
-				CE1627A326412AC300468CDA /* Extensions */,
+				CE1627A326412AC300468CDA /* Helpers */,
 				CE16279626403EA600468CDA /* Services */,
 			);
 			path = "Business logic";
@@ -704,18 +725,20 @@
 		CE16279626403EA600468CDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE1627992640792200468CDA /* AuthorizationServiceImplTests.swift */,
-				CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */,
+				CE29091C26465A200010CF6C /* Authorization */,
+				CE29091D26465AB60010CF6C /* Feed */,
+				CEA46B4626466042007C2DCE /* NewPost */,
+				CEA46B4C2646692C007C2DCE /* Profile */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		CE1627A326412AC300468CDA /* Extensions */ = {
+		CE1627A326412AC300468CDA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CE1627A426412AE500468CDA /* StringTests.swift */,
+				CE1627A426412AE500468CDA /* EmailValidatorTests.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CE1F48F526388CB900FD117C /* Common */ = {
@@ -742,7 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1F490226388F6900FD117C /* MyProfileEndpointTests.swift */,
-				CE1F490426388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift */,
+				CE1F490426388FDB00FD117C /* UpdateMyProfileEndpointTests.swift */,
 				CE1F4908263895C800FD117C /* MyPostListEndpointTests.swift */,
 				CE1F490C2638964500FD117C /* LikedPostListEndpointTests.swift */,
 				CE1F490A2638963000FD117C /* FriendListEndpointTests.swift */,
@@ -779,6 +802,35 @@
 				CE1F491F26389CF800FD117C /* RefreshTokenEndpointTests.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CE29091726458D9F0010CF6C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE29091526456B7A0010CF6C /* ClientMock.swift */,
+				CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE29091C26465A200010CF6C /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */,
+				CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */,
+				CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		CE29091D26465AB60010CF6C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */,
+				CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */,
+				CEA46B4426465F62007C2DCE /* FeedServiceUnlikePostTests.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		CE573796262DF49A00A6DC20 /* SignUpSecond */ = {
@@ -869,8 +921,8 @@
 		CE8F1BAD2634A9BB00C0C52C /* WorkplacesAPI */ = {
 			isa = PBXGroup;
 			children = (
-				CE972175263D4BEB006ACEB2 /* Services */,
 				CE8F1BCE2634A9F300C0C52C /* Common */,
+				CE972175263D4BEB006ACEB2 /* Services */,
 				CE8F1BCD2634A9EB00C0C52C /* Endpoint */,
 				CE8F1BCC2634A9DB00C0C52C /* Model */,
 				CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */,
@@ -1005,11 +1057,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CEA46B4626466042007C2DCE /* NewPost */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B4726466089007C2DCE /* NewPostServicePublishPostTests.swift */,
+			);
+			path = NewPost;
+			sourceTree = "<group>";
+		};
+		CEA46B4C2646692C007C2DCE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CEA46B4D26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift */,
+				CEA46B4F26466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift */,
+				CEA46B5126466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift */,
+				CEA46B5326466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift */,
+				CEA46B5526466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift */,
+				CEA46B5726466E45007C2DCE /* ProfileServiceAddFriendTests.swift */,
+				CEA46B5926466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		CEAF176D2635EA6700DE0311 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				CE12A21A2636A94900EE6549 /* MyProfileEndpoint.swift */,
-				CE12A21E2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift */,
+				CE12A21E2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift */,
 				CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */,
 				CE12A2162636A8B100EE6549 /* LikedPostListEndpoint.swift */,
 				CE12A2222636AA9E00EE6549 /* FriendListEndpoint.swift */,
@@ -1094,9 +1168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE1627892640006800468CDA /* Build configuration list for PBXNativeTarget "WorkplacesTests" */;
 			buildPhases = (
+				F236EEA6AA5267554921EBB8 /* [CP] Check Pods Manifest.lock */,
 				CE16277E2640006800468CDA /* Sources */,
 				CE16277F2640006800468CDA /* Frameworks */,
 				CE1627802640006800468CDA /* Resources */,
+				0B1635CC2373B458B3C6DB22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1288,6 +1364,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workplaces/Pods-Workplaces-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		0B1635CC2373B458B3C6DB22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C902F86B5D47B51C464766A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1350,6 +1443,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F236EEA6AA5267554921EBB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorkplacesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1357,9 +1472,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE16279A2640792200468CDA /* AuthorizationServiceImplTests.swift in Sources */,
-				CE1627A526412AE500468CDA /* StringTests.swift in Sources */,
+				CE29091626456B7A0010CF6C /* ClientMock.swift in Sources */,
+				CEA46B5626466DAD007C2DCE /* ProfileServiceFetchFriendsTests.swift in Sources */,
+				CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */,
+				CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */,
+				CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */,
+				CEA46B4826466089007C2DCE /* NewPostServicePublishPostTests.swift in Sources */,
+				CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */,
+				CEA46B5026466B0E007C2DCE /* ProfileServiceUpdateMyProfileTests.swift in Sources */,
+				CEA46B4526465F62007C2DCE /* FeedServiceUnlikePostTests.swift in Sources */,
+				CEA46B5426466D58007C2DCE /* ProfileServiceFetchLikedPostsTests.swift in Sources */,
+				CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */,
+				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
+				CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */,
+				CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */,
 				CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */,
+				CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */,
+				CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,7 +1509,7 @@
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
-				CE1508952642E1E100568006 /* StringValidator.swift in Sources */,
+				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
 				CE15085826423E4400568006 /* ProfileMeCell.swift in Sources */,
@@ -1434,7 +1563,7 @@
 				CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
-				CE12A21F2636A9C600EE6549 /* UpdatingMyProfileEndpoint.swift in Sources */,
+				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
 				CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */,
@@ -1474,7 +1603,7 @@
 				CE1F491E26389CA400FD117C /* LogoutEndpointTests.swift in Sources */,
 				CE1F491726389AD100FD117C /* UnlikePostEndpointTests.swift in Sources */,
 				CE1F490B2638963000FD117C /* FriendListEndpointTests.swift in Sources */,
-				CE1F490526388FDB00FD117C /* UpdatingMyProfileEndpointTests.swift in Sources */,
+				CE1F490526388FDB00FD117C /* UpdateMyProfileEndpointTests.swift in Sources */,
 				CE1627902640139E00468CDA /* UserTests.swift in Sources */,
 				CE16279826406B9D00468CDA /* Date.swift in Sources */,
 				CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */,
@@ -1583,6 +1712,7 @@
 /* Begin XCBuildConfiguration section */
 		CE16278A2640006800468CDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51C0EF8954F5FC278D6A5B9E /* Pods-WorkplacesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1606,6 +1736,7 @@
 		};
 		CE16278B2640006800468CDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14AEEEBB2C7F010275C83B06 /* Pods-WorkplacesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

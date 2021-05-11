@@ -30,7 +30,7 @@ final class FriendListEndpointTests: XCTestCase {
                     "birth_day": "2021-12-21"
                 }
             ]
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = FriendListEndpoint()
         

@@ -10,7 +10,24 @@ import XCTest
 
 final class PublishPostEndpointTests: XCTestCase {
     
-    let post = Post.testPost()
+    let author = User(
+        id: "test",
+        firstName: "test",
+        lastName: "test",
+        nickname: "test",
+        avatarURL: URL(string: "https://redmadrobot.com/")!,
+        birthday: Date()
+    )
+    lazy var post = Post(
+        id: "test",
+        text: "test",
+        imageURL: URL(string: "https://redmadrobot.com/")!,
+        longitude: 0,
+        latitude: 0,
+        author: author,
+        likes: 0,
+        liked: true
+    )
     
     func testMakeRequest() throws {
         let endpoint = PublishPostEndpoint(post: post)
@@ -40,7 +57,7 @@ final class PublishPostEndpointTests: XCTestCase {
                 "likes": 321,
                 "liked": true
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
         let endpoint = PublishPostEndpoint(post: post)
         let post = try endpoint.content(from: nil, with: jsonData)

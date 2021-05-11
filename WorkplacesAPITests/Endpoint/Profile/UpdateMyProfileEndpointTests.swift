@@ -1,5 +1,5 @@
 //
-//  UpdatingMyProfileEndpointTests.swift
+//  UpdateMyProfileEndpointTests.swift
 //  WorkplacesAPITests
 //
 //  Created by Evgeny Novgorodov on 27.04.2021.
@@ -8,12 +8,19 @@
 import WorkplacesAPI
 import XCTest
 
-final class UpdatingMyProfileEndpointTests: XCTestCase {
+final class UpdateMyProfileEndpointTests: XCTestCase {
     
-    let user = User.testUser()
+    let user = User(
+        id: "test",
+        firstName: "test",
+        lastName: "test",
+        nickname: "test",
+        avatarURL: URL(string: "https://redmadrobot.com/")!,
+        birthday: Date()
+    )
     
     func testMakeRequest() throws {
-        let endpoint = UpdatingMyProfileEndpoint(user: user)
+        let endpoint = UpdateMyProfileEndpoint(user: user)
         let urlRequest = try endpoint.makeRequest()
         
         assertPATCH(urlRequest)
@@ -31,9 +38,9 @@ final class UpdatingMyProfileEndpointTests: XCTestCase {
                 "avatar_url": "https://redmadrobot.com/",
                 "birth_day": "2021-12-21"
             }
-            """.data(using: .utf8)!
+        """.data(using: .utf8)!
         
-        let endpoint = UpdatingMyProfileEndpoint(user: user)
+        let endpoint = UpdateMyProfileEndpoint(user: user)
         let user = try endpoint.content(from: nil, with: jsonData)
         
         XCTAssertEqual(user.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")

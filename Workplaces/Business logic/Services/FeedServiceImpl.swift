@@ -25,10 +25,7 @@ final class FeedServiceImpl: FeedService {
     func fetchFeedPosts(completion: @escaping PostListResultHandler) -> Progress {
         let endpoint = FeedPostListEndpoint()
         return apiClient.request(endpoint) { result in
-            // Временно, для теста зеро скрина на экране с лентой
-            Bool.random()
-                ? completion(result.mapError { $0.unwrapAFError() })
-                : completion(.failure(TestError.error))
+            completion(result.mapError { $0.unwrapAFError() })
         }
     }
     

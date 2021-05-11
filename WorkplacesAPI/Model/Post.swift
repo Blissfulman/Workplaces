@@ -27,7 +27,7 @@ public struct Post: Identifiable, Codable {
         case liked
     }
     
-    init(
+    public init(
         id: String,
         text: String?,
         imageURL: URL,
@@ -45,22 +45,5 @@ public struct Post: Identifiable, Codable {
         self.author = author
         self.likes = likes
         self.liked = liked
-    }
-}
-
-public extension Post {
-    
-    /// Возвращает экземпляр `Post` для тестов.
-    static func testPost() -> Self {
-        Post(
-            id: "test",
-            text: "test",
-            imageURL: URL(string: "https://redmadrobot.com/")!,
-            longitude: 0,
-            latitude: 0,
-            author: User.testUser(),
-            likes: 0,
-            liked: true
-        )
     }
 }

@@ -41,7 +41,7 @@ final class SignInViewController: UIViewController {
     }
     private var isValidEnteredEmail: Bool {
         guard let email = emailTextField.text, email.count > 5 else { return false }
-        return StringValidator.isValidEmail(email)
+        return EmailValidator.isValid(email)
     }
     
     // MARK: - Initializers
@@ -124,7 +124,7 @@ final class SignInViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Sign in with email".localize(key: "SignInViewControllerTitle")
+        title = "Sign in with email".localized()
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

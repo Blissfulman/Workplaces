@@ -50,4 +50,9 @@ public struct APIError: Decodable, Error, LocalizedError {
             return "Неизвестная ошибка. \(message ?? "")"
         }
     }
+    
+    public init(code: Code, message: String) {
+        self.code = code
+        self.message = message
+    }
 }
