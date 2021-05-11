@@ -86,15 +86,7 @@ final class ProfileViewController: UIViewController {
     
     private var state: State = .posts {
         didSet {
-            switch state {
-            case .posts:
-                showPostList()
-            case .likes:
-                showLikeList()
-            case .friends:
-                showFriendList()
-            }
-            bringProfileTopViewToFront()
+            updateScreen()
         }
     }
     
@@ -139,7 +131,6 @@ final class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        bringProfileTopViewToFront()
         // Свойство должно быть высчитано один раз при первом появлении вью на экране
         topViewInitialY = topViewInitialY ?? topView.frame.origin.y
     }
@@ -163,20 +154,9 @@ final class ProfileViewController: UIViewController {
     private func setupUI() {
         navigationItem.title = "Profile".localized()
         navigationItem.backButtonTitle = ""
-//        navigationController?.hidesBarsOnSwipe = true
-        
-        addLogOutButton()
-        
-        add(friendListVC)
-        friendListVC.setContentInset(
-            contentInset: UIEdgeInsets(top: topView.frame.height + friendListSeparator, left: 0, bottom: 0, right: 0)
-        )
-        
-        add(likeListVC)
-        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
-        
-        add(postListVC)
-        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+        addLogOutButton() // TEMP
+        addChildViewControllers()
+        bringProfileTopViewToFront()
     }
     
     private func addLogOutButton() {
@@ -186,6 +166,29 @@ final class ProfileViewController: UIViewController {
         )
         logOutBarButtonItem.tintColor = Palette.orange
         navigationItem.rightBarButtonItem = logOutBarButtonItem
+    }
+    
+    private func addChildViewControllers() {
+        add(friendListVC)
+        friendListVC.setContentInset(
+            contentInset: UIEdgeInsets(top: topView.frame.height + friendListSeparator, left: 0, bottom: 0, right: 0)
+        )
+        add(likeListVC)
+        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+        add(postListVC)
+        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+    }
+    
+    private func updateScreen() {
+        switch state {
+        case .posts:
+            showPostList()
+        case .likes:
+            showLikeList()
+        case .friends:
+            showFriendList()
+        }
+        bringProfileTopViewToFront()
     }
     
     private func bringProfileTopViewToFront() {
@@ -205,7 +208,7 @@ final class ProfileViewController: UIViewController {
         if postListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении
+            // Нужно доработать правильную позицию topView при переключении state
             postListVC.setTopOffset(offset: topViewOffsetY - topView.frame.height)
             remove(likeListVC)
             remove(friendListVC)
@@ -217,7 +220,7 @@ final class ProfileViewController: UIViewController {
         if likeListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении
+            // Нужно доработать правильную позицию topView при переключении state
             likeListVC.setTopOffset(offset: topViewOffsetY - topView.frame.height)
             remove(postListVC)
             remove(friendListVC)
@@ -229,7 +232,7 @@ final class ProfileViewController: UIViewController {
         if friendListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении
+            // Нужно доработать правильную позицию topView при переключении state
             remove(postListVC)
             remove(likeListVC)
             add(friendListVC)
@@ -316,7 +319,7 @@ extension ProfileViewController {
             
             switch result {
             case let .success(profile):
-                self?.profile = User.getMockUsers().first! // profile
+                self?.profile = profile
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -331,6 +334,9 @@ extension ProfileViewController {
             switch result {
             case let .success(myPosts):
                 self?.postListDataSource.updateData(objects: Bool.random() ? myPosts : Post.getMockPosts())
+                if self?.state == .posts {
+                    self?.updateScreen()
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -345,6 +351,9 @@ extension ProfileViewController {
             switch result {
             case let .success(likedPosts):
                 self?.likeListDataSource.updateData(objects: Bool.random() ? likedPosts : Post.getMockPosts())
+                if self?.state == .likes {
+                    self?.updateScreen()
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -360,6 +369,9 @@ extension ProfileViewController {
             switch result {
             case let .success(friends):
                 self?.friendListDataSource.updateData(objects: Bool.random() ? friends : User.getMockUsers())
+                if self?.state == .friends {
+                    self?.updateScreen()
+                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
