@@ -43,7 +43,7 @@ final class FeedViewController: UIViewController {
         let buttonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToFindFriends()
         }
-        let zeroVC = ZeroViewController(viewType: .noFriends, buttonAction: buttonAction)
+        let zeroVC = ZeroViewController(viewType: .feedNoFriends, buttonAction: buttonAction)
         zeroVC.view.frame = view.bounds
         return zeroVC
     }()

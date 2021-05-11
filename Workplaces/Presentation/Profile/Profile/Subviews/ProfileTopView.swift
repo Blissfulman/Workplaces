@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ProfileMeViewDelegate: AnyObject {
+protocol ProfileTopViewDelegate: AnyObject {
     func segmentedControlValueChanged(to segmentedControlState: ProfileTopView.SegmentedControlState)
 }
 
@@ -39,7 +39,7 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Public properties
     
-    weak var delegate: ProfileMeViewDelegate?
+    weak var delegate: ProfileTopViewDelegate?
     
     // MARK: - Outlets
     
@@ -55,7 +55,7 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Initializers
     
-    init(delegate: ProfileMeViewDelegate) {
+    init(delegate: ProfileTopViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
     }

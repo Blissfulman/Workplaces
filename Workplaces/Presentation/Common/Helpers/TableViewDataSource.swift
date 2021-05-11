@@ -19,6 +19,9 @@ where Cell.Object == Object {
     
     // MARK: - Public properties
     
+    var isEmptyData: Bool {
+        objects.isEmpty
+    }
     weak var delegate: TableViewDataSourceDelegate?
     
     // MARK: - Private properties

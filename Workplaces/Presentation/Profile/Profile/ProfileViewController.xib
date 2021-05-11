@@ -28,7 +28,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Wx-h6-OX5">
-                    <rect key="frame" x="0.0" y="203" width="414" height="659"/>
+                    <rect key="frame" x="0.0" y="203" width="414" height="693"/>
                     <color key="backgroundColor" name="lightGrey"/>
                 </view>
             </subviews>
@@ -40,7 +40,7 @@
                 <constraint firstItem="7NE-ok-tUX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HSQ-9v-7f5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Wx-h6-OX5" secondAttribute="trailing" id="Ne1-aq-ON3"/>
                 <constraint firstItem="2Wx-h6-OX5" firstAttribute="top" secondItem="7NE-ok-tUX" secondAttribute="bottom" id="jTe-DW-3vO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2Wx-h6-OX5" secondAttribute="bottom" id="tvS-Hc-JFq"/>
+                <constraint firstAttribute="bottom" secondItem="2Wx-h6-OX5" secondAttribute="bottom" id="tvS-Hc-JFq"/>
                 <constraint firstItem="7NE-ok-tUX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zQy-YK-n7g"/>
             </constraints>
             <point key="canvasLocation" x="128.98550724637681" y="93.75"/>
