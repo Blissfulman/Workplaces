@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol ProfileTopViewDelegate: AnyObject {
-    func segmentedControlValueChanged(to segmentedControlState: ProfileTopView.SegmentedControlState)
+    func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState)
 }
 
 final class ProfileTopView: NibInitializableView {
@@ -89,6 +89,6 @@ final class ProfileTopView: NibInitializableView {
     }
     
     @IBAction private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        delegate?.segmentedControlValueChanged(to: SegmentedControlState.getStateByIndex(sender.selectedSegmentIndex))
+        delegate?.viewStateNeedChange(to: SegmentedControlState.getStateByIndex(sender.selectedSegmentIndex))
     }
 }

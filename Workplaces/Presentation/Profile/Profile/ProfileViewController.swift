@@ -40,22 +40,16 @@ final class ProfileViewController: UIViewController {
     
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
-    private var profile: User? {
-        didSet {
-            navigationItem.title = profile?.nickname
-            configureProfileTopView()
-        }
-    }
+    private var profile: User?
     private let postListDataSource = TableViewDataSource<Post, PostCell>()
     private let likeListDataSource = TableViewDataSource<Post, PostCell>()
     private let friendListDataSource = TableViewDataSource<User, FriendCell>()
     
     /// Изначальное положение topView по вертикали.
     private var topViewInitialY: CGFloat?
-    /// Текущее смещение topView по вертикали.
-    private var topViewOffsetY: CGFloat = 0
     /// Толщина разделителя между верхним вью и списком друзей.
     private let friendListSeparator: CGFloat = 9
+    private var topViewHeight: CGFloat { topView.frame.height }
     private var progressList = [Progress]()
     
     private lazy var profileTopView: ProfileTopView = {
@@ -171,12 +165,12 @@ final class ProfileViewController: UIViewController {
     private func addChildViewControllers() {
         add(friendListVC)
         friendListVC.setContentInset(
-            contentInset: UIEdgeInsets(top: topView.frame.height + friendListSeparator, left: 0, bottom: 0, right: 0)
+            contentInset: UIEdgeInsets(top: topViewHeight + friendListSeparator, left: 0, bottom: 0, right: 0)
         )
         add(likeListVC)
-        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
         add(postListVC)
-        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topView.frame.height, left: 0, bottom: 0, right: 0))
+        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
     }
     
     private func updateScreen() {
@@ -206,32 +200,32 @@ final class ProfileViewController: UIViewController {
     
     private func showPostList() {
         if postListDataSource.isEmptyData {
-            showZeroView(state: state)
+            showZeroView()
         } else {
-            postListVC.setTopOffset(offset: -topView.frame.height)
+            postListVC.setTopOffset(offset: -topViewHeight)
             add(postListVC)
         }
     }
     
     private func showLikeList() {
         if likeListDataSource.isEmptyData {
-            showZeroView(state: state)
+            showZeroView()
         } else {
-            likeListVC.setTopOffset(offset: -topView.frame.height)
+            likeListVC.setTopOffset(offset: -topViewHeight)
             add(likeListVC)
         }
     }
     
     private func showFriendList() {
         if friendListDataSource.isEmptyData {
-            showZeroView(state: state)
+            showZeroView()
         } else {
-            friendListVC.setTopOffset(offset: -topView.frame.height)
+            friendListVC.setTopOffset(offset: -topViewHeight - friendListSeparator)
             add(friendListVC)
         }
     }
     
-    private func showZeroView(state: State) {
+    private func showZeroView() {
         var zeroSubview: ZeroView?
         
         switch state {
@@ -260,18 +254,14 @@ final class ProfileViewController: UIViewController {
             view.bringSubviewToFront(zeroView)
         }
     }
-    
-    private func updateTopViewPosition() {
-        topView.frame.origin.y = (topViewInitialY ?? 0) - topViewOffsetY
-    }
 }
 
 // MARK: - ProfileTopViewDelegate
 
 extension ProfileViewController: ProfileTopViewDelegate {
     
-    func segmentedControlValueChanged(to segmentedControlState: ProfileTopView.SegmentedControlState) {
-        switch segmentedControlState {
+    func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
+        switch newState {
         case .posts:
             state = .posts
         case .likes:
@@ -287,15 +277,16 @@ extension ProfileViewController: ProfileTopViewDelegate {
 extension ProfileViewController: PostListViewControllerDelegate, FriendListViewControllerDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var topViewOffsetY: CGFloat = 0
         switch state {
         case .posts:
-            topViewOffsetY = topView.frame.height + postListVC.contentOffset.y
+            topViewOffsetY = topViewHeight + postListVC.contentOffset.y
         case .likes:
-            topViewOffsetY = topView.frame.height + likeListVC.contentOffset.y
+            topViewOffsetY = topViewHeight + likeListVC.contentOffset.y
         case .friends:
-            topViewOffsetY = friendListSeparator + topView.frame.height + friendListVC.contentOffset.y
+            topViewOffsetY = friendListSeparator + topViewHeight + friendListVC.contentOffset.y
         }
-        updateTopViewPosition()
+        topView.frame.origin.y = (topViewInitialY ?? 0) - topViewOffsetY
     }
 }
 
@@ -312,6 +303,8 @@ extension ProfileViewController {
             switch result {
             case let .success(profile):
                 self?.profile = profile
+                self?.navigationItem.title = profile.nickname
+                self?.configureProfileTopView()
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -323,6 +316,7 @@ extension ProfileViewController {
 
         profileService.fetchMyPosts { [weak self] result in
             LoadingView.hide()
+            
             switch result {
             case let .success(myPosts):
                 self?.postListDataSource.updateData(objects: Bool.random() ? myPosts : Post.getMockPosts())
@@ -340,6 +334,7 @@ extension ProfileViewController {
 
         profileService.fetchLikedPosts { [weak self] result in
             LoadingView.hide()
+            
             switch result {
             case let .success(likedPosts):
                 self?.likeListDataSource.updateData(objects: Bool.random() ? likedPosts : Post.getMockPosts())
