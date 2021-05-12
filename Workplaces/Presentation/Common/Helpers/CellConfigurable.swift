@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// Обязывает подписанный класс реализовывать метод конфигурации ячейки `configure(object: Object)`, где `Object` - ассоциированный тип содержимого ячейки.
+/// Обязывает подписанный класс реализовывать метод конфигурации ячейки `configure(object: Object)`, где `Object` - ассоциированный тип передаваемого в ячейку объекта.
 protocol CellConfigurable: UITableViewCell {
     
     associatedtype Object: Any

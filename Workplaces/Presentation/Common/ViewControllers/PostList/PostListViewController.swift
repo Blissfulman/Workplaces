@@ -15,11 +15,10 @@ protocol PostListViewControllerDelegate: AnyObject {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
 }
 
-final class PostListViewController: UIViewController {
+final class PostListViewController: UIViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     
-    /// Значение параметра `contentOffset` таблицы.
     var contentOffset: CGPoint {
         tableView.contentOffset
     }
@@ -55,14 +54,10 @@ final class PostListViewController: UIViewController {
     
     // MARK: - Public methods
     
-    /// Установка параметра `contentInset` для таблицы.
-    /// - Parameter contentInset: Значение `contentInset`.
     func setContentInset(contentInset: UIEdgeInsets) {
         tableView.contentInset = contentInset
     }
     
-    /// Установка смещения контента от верхнего края для таблицы.
-    /// - Parameter topOffset: Значение смещения.
     func setTopOffset(offset: CGFloat) {
         tableView.contentOffset.y = offset
     }

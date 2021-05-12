@@ -15,11 +15,10 @@ protocol FriendListViewControllerDelegate: AnyObject {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
 }
 
-final class FriendListViewController: UIViewController {
+final class FriendListViewController: UIViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     
-    /// Значение параметра `contentOffset` таблицы.
     var contentOffset: CGPoint {
         tableView.contentOffset
     }
@@ -55,14 +54,10 @@ final class FriendListViewController: UIViewController {
     
     // MARK: - Public methods
     
-    /// Установка параметра `contentInset` для таблицы.
-    /// - Parameter contentInset: Значение `contentInset`.
     func setContentInset(contentInset: UIEdgeInsets) {
         tableView.contentInset = contentInset
     }
     
-    /// Установка смещения контента от верхнего края для таблицы.
-    /// - Parameter topOffset: Значение смещения.
     func setTopOffset(offset: CGFloat) {
         tableView.contentOffset.y = offset
     }
