@@ -125,21 +125,15 @@ final class FeedViewController: UIViewController {
     }
     
     private func showNoFriendsZeroView() {
-        remove(postListVC)
-        remove(errorZeroVC)
         add(noFriendsZeroVC)
     }
     
     private func showPostListView(postList: [Post]) {
         postListDataSource.updateData(objects: postList)
-        remove(noFriendsZeroVC)
-        remove(errorZeroVC)
         add(postListVC)
     }
     
     private func showErrorZeroView() {
-        remove(postListVC)
-        remove(noFriendsZeroVC)
         add(errorZeroVC)
     }
 }

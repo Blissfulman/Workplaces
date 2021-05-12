@@ -208,10 +208,7 @@ final class ProfileViewController: UIViewController {
         if postListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении state
-            postListVC.setTopOffset(offset: topViewOffsetY - topView.frame.height)
-            remove(likeListVC)
-            remove(friendListVC)
+            postListVC.setTopOffset(offset: -topView.frame.height)
             add(postListVC)
         }
     }
@@ -220,10 +217,7 @@ final class ProfileViewController: UIViewController {
         if likeListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении state
-            likeListVC.setTopOffset(offset: topViewOffsetY - topView.frame.height)
-            remove(postListVC)
-            remove(friendListVC)
+            likeListVC.setTopOffset(offset: -topView.frame.height)
             add(likeListVC)
         }
     }
@@ -232,9 +226,7 @@ final class ProfileViewController: UIViewController {
         if friendListDataSource.isEmptyData {
             showZeroView(state: state)
         } else {
-            // Нужно доработать правильную позицию topView при переключении state
-            remove(postListVC)
-            remove(likeListVC)
+            friendListVC.setTopOffset(offset: -topView.frame.height)
             add(friendListVC)
         }
     }
