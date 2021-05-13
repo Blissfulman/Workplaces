@@ -62,6 +62,11 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
         tableView.contentOffset.y = offset
     }
     
+    /// Обновление данных таблицы.
+    func updateData() {
+        tableView.reloadData()
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
@@ -75,14 +80,5 @@ extension PostListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll(scrollView)
-    }
-}
-
-// MARK: - TableViewDataSourceDelegate
-
-extension PostListViewController: TableViewDataSourceDelegate {
-    
-    func needReloadData() {
-        tableView.reloadData()
     }
 }

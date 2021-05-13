@@ -30,12 +30,11 @@ final class FeedViewController: UIViewController {
     // MARK: - Private properties
     
     private let feedService: FeedService
-    private let postListDataSource = TableViewDataSource<Post, PostCell>()
     private var progressList = [Progress]()
     
+    private lazy var postListDataSource = FeedPostsDataSource(delegate: self)
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListDataSource.delegate = postListVC
         postListVC.view.frame = view.bounds
         return postListVC
     }()
@@ -129,7 +128,7 @@ final class FeedViewController: UIViewController {
     }
     
     private func showPostListView(postList: [Post]) {
-        postListDataSource.updateData(objects: postList)
+        postListDataSource.updateData(posts: postList)
         add(postListVC)
     }
     
@@ -143,4 +142,11 @@ final class FeedViewController: UIViewController {
 extension FeedViewController: PostListViewControllerDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {}
+}
+
+extension FeedViewController: FeedPostsDataSourceDelegate {
+    
+    func needUpdatePostList() {
+        postListVC.updateData()
+    }
 }

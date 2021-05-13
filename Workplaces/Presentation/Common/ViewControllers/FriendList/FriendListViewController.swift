@@ -62,10 +62,16 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
         tableView.contentOffset.y = offset
     }
     
+    /// Обновление данных таблицы.
+    func updateData() {
+        tableView.reloadData()
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
         tableView.register(FriendCell.nib(), forCellReuseIdentifier: FriendCell.identifier)
+        tableView.register(FriendListLastCell.nib(), forCellReuseIdentifier: FriendListLastCell.identifier)
     }
 }
 
@@ -75,14 +81,5 @@ extension FriendListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll(scrollView)
-    }
-}
-
-// MARK: - TableViewDataSourceDelegate
-
-extension FriendListViewController: TableViewDataSourceDelegate {
-    
-    func needReloadData() {
-        tableView.reloadData()
     }
 }

@@ -7,14 +7,22 @@
 
 import UIKit
 
-final class PostCell: UITableViewCell, CellConfigurable {
+// MARK: - Protocols
+
+protocol PostCellDelegate: AnyObject {
     
-    typealias Object = Post
+}
+
+final class PostCell: UITableViewCell {
     
     // MARK: - Outlets
     
     @IBOutlet private weak var backView: UIView!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    // MARK: - Private properties
+    
+    weak var delegate: PostCellDelegate?
     
     // MARK: - UITableViewCell
     
@@ -30,7 +38,8 @@ final class PostCell: UITableViewCell, CellConfigurable {
     
     // MARK: - Public methods
     
-    func configure(object: Object) {
-        descriptionLabel.text = object.text
+    func configure(post: Post, delegate: PostCellDelegate) {
+        descriptionLabel.text = post.text
+        self.delegate = delegate
     }
 }

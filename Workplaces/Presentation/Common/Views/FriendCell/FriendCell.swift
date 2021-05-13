@@ -7,9 +7,13 @@
 
 import UIKit
 
-final class FriendCell: UITableViewCell, CellConfigurable {
+// MARK: - Protocols
+
+protocol FriendCellDelegate: AnyObject {
     
-    typealias Object = User
+}
+
+final class FriendCell: UITableViewCell {
     
     // MARK: - Outlets
     
@@ -17,6 +21,10 @@ final class FriendCell: UITableViewCell, CellConfigurable {
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var fullNameLabel: UILabel!
     @IBOutlet private weak var nicknameLabel: UILabel!
+    
+    // MARK: - Private properties
+    
+    weak var delegate: FriendCellDelegate?
     
     // MARK: - UITableViewCell
     
@@ -35,11 +43,12 @@ final class FriendCell: UITableViewCell, CellConfigurable {
     
     // MARK: - Public methods
     
-    func configure(object: Object) {
-        if let avatarURL = object.avatarURL {
+    func configure(user: User, delegate: FriendCellDelegate) {
+        if let avatarURL = user.avatarURL {
             avatarImageView.fetchImage(byURL: avatarURL)
         }
-        fullNameLabel.text = "\(object.firstName) \(object.lastName)"
-        nicknameLabel.text = object.nickname
+        fullNameLabel.text = "\(user.firstName) \(user.lastName)"
+        nicknameLabel.text = user.nickname
+        self.delegate = delegate
     }
 }

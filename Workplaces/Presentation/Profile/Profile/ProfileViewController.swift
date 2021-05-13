@@ -41,9 +41,9 @@ final class ProfileViewController: UIViewController {
     private let profileService: ProfileService
     private let authorizationService: AuthorizationService
     private var profile: User?
-    private let postListDataSource = TableViewDataSource<Post, PostCell>()
-    private let likeListDataSource = TableViewDataSource<Post, PostCell>()
-    private let friendListDataSource = TableViewDataSource<User, FriendCell>()
+    private lazy var postListDataSource = ProfilePostsDataSource(delegate: self)
+    private lazy var likeListDataSource = ProfileLikesDataSource(delegate: self)
+    private lazy var friendListDataSource = ProfileFriendsDataSource(delegate: self)
     
     /// Изначальное положение topView по вертикали.
     private var topViewInitialY: CGFloat?
@@ -61,19 +61,16 @@ final class ProfileViewController: UIViewController {
     }()
     private lazy var postListVC: PostListViewController = {
         let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListDataSource.delegate = postListVC
         postListVC.view.frame = view.bounds
         return postListVC
     }()
     private lazy var likeListVC: PostListViewController = {
         let likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
-        likeListDataSource.delegate = likeListVC
         likeListVC.view.frame = view.bounds
         return likeListVC
     }()
     private lazy var friendListVC: FriendListViewController = {
         let friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
-        friendListDataSource.delegate = friendListVC
         friendListVC.view.frame = view.bounds
         return friendListVC
     }()
@@ -255,6 +252,82 @@ final class ProfileViewController: UIViewController {
     }
 }
 
+// MARK: - Data fetching methods
+
+extension ProfileViewController {
+    
+    private func fetchProfile() {
+        LoadingView.show()
+        
+        profileService.fetchMyProfile { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(profile):
+                self?.profile = profile
+                self?.navigationItem.title = profile.nickname
+                self?.configureProfileTopView()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchMyPosts() {
+        LoadingView.show()
+
+        profileService.fetchMyPosts { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(myPosts):
+                self?.postListDataSource.updateData(posts: Bool.random() ? myPosts : Post.getMockPosts())
+                if self?.state == .posts {
+                    self?.updateScreen()
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchLikedPosts() {
+        LoadingView.show()
+
+        profileService.fetchLikedPosts { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(likedPosts):
+                self?.likeListDataSource.updateData(posts: Bool.random() ? likedPosts : Post.getMockPosts())
+                if self?.state == .likes {
+                    self?.updateScreen()
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func fetchFriends() {
+        LoadingView.show()
+
+        profileService.fetchFriends { [weak self] result in
+            LoadingView.hide()
+            
+            switch result {
+            case let .success(friends):
+                self?.friendListDataSource.updateData(friends: Bool.random() ? friends : User.getMockUsers())
+                if self?.state == .friends {
+                    self?.updateScreen()
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
 // MARK: - ProfileTopViewDelegate
 
 extension ProfileViewController: ProfileTopViewDelegate {
@@ -289,78 +362,33 @@ extension ProfileViewController: PostListViewControllerDelegate, FriendListViewC
     }
 }
 
-// MARK: - Data fetching methods
+// MARK: - ProfilePostsDataSourceDelegate
 
-extension ProfileViewController {
+extension ProfileViewController: ProfilePostsDataSourceDelegate {
     
-    private func fetchProfile() {
-        LoadingView.show()
-        
-        profileService.fetchMyProfile { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case let .success(profile):
-                self?.profile = profile
-                self?.navigationItem.title = profile.nickname
-                self?.configureProfileTopView()
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+    func needUpdatePostList() {
+        postListVC.updateData()
+    }
+}
+
+// MARK: - ProfileLikesDataSourceDelegate
+
+extension ProfileViewController: ProfileLikesDataSourceDelegate {
+    
+    func needUpdateLikeList() {
+        likeListVC.updateData()
+    }
+}
+
+// MARK: - ProfileFriendsDataSourceDelegate
+
+extension ProfileViewController: ProfileFriendsDataSourceDelegate {
+    
+    func needUpdateFriendList() {
+        friendListVC.updateData()
     }
     
-    private func fetchMyPosts() {
-        LoadingView.show()
-
-        profileService.fetchMyPosts { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case let .success(myPosts):
-                self?.postListDataSource.updateData(objects: Bool.random() ? myPosts : Post.getMockPosts())
-                if self?.state == .posts {
-                    self?.updateScreen()
-                }
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    private func fetchLikedPosts() {
-        LoadingView.show()
-
-        profileService.fetchLikedPosts { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case let .success(likedPosts):
-                self?.likeListDataSource.updateData(objects: Bool.random() ? likedPosts : Post.getMockPosts())
-                if self?.state == .likes {
-                    self?.updateScreen()
-                }
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    private func fetchFriends() {
-        LoadingView.show()
-
-        profileService.fetchFriends { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case let .success(friends):
-                self?.friendListDataSource.updateData(objects: Bool.random() ? friends : User.getMockUsers())
-                if self?.state == .friends {
-                    self?.updateScreen()
-                }
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+    func didTapFindMoreFriendsButton() {
+        delegate?.goToSearchFriends()
     }
 }
