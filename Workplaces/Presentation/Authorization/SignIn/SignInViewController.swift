@@ -40,8 +40,7 @@ final class SignInViewController: UIViewController {
         }
     }
     private var isValidEnteredEmail: Bool {
-        guard let email = emailTextField.text, email.count > 5 else { return false }
-        return EmailValidator.isValid(email)
+        EmailValidator.isValid(emailTextField.text)
     }
     
     // MARK: - Initializers
