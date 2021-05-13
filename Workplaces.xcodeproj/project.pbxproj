@@ -155,6 +155,8 @@
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB074F7264B114D0060E818 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F6264B114D0060E818 /* CellConfigurable.swift */; };
 		CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */; };
+		CEB074FB264D30B70060E818 /* SignUpContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerController.swift */; };
+		CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FD264D46FF0060E818 /* SignUpModel.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
@@ -378,6 +380,8 @@
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB074F6264B114D0060E818 /* CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
 		CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOffsetConfigurable.swift; sourceTree = "<group>"; };
+		CEB074FA264D30B70060E818 /* SignUpContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerController.swift; sourceTree = "<group>"; };
+		CEB074FD264D46FF0060E818 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -893,6 +897,8 @@
 		CE8954722631385E0082D200 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				CEB074FA264D30B70060E818 /* SignUpContainerController.swift */,
+				CEB074FC264D46DF0060E818 /* Model */,
 				CE1331A6262C2D370086433C /* SignUpFirst */,
 				CE573796262DF49A00A6DC20 /* SignUpSecond */,
 			);
@@ -1141,6 +1147,14 @@
 				CE12A2042636774100EE6549 /* UnlikePostEndpoint.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		CEB074FC264D46DF0060E818 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEB074FD264D46FF0060E818 /* SignUpModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CEE7FBA0262D4417001D5DAD /* Fonts */ = {
@@ -1535,12 +1549,14 @@
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */,
+				CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */,
 				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
 				CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */,
+				CEB074FB264D30B70060E818 /* SignUpContainerController.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,

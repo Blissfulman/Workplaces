@@ -9,15 +9,15 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpSecondScreenDelegate: AnyObject {
-    func successfulSignUp()
+protocol SignUpSecondViewControllerDelegate: AnyObject {
+    func didTapSignUpButton()
 }
 
 final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: SignUpSecondScreenDelegate?
+    weak var delegate: SignUpSecondViewControllerDelegate?
     
     // MARK: - Outlets
     
@@ -27,29 +27,18 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let userCredentials: UserCredentials
-    private let authorizationService: AuthorizationService
-    private var progressList = [Progress]()
+    private let signUpModel: SignUpModel
     
     // MARK: - Initializers
     
-    init(
-        userCredentials: UserCredentials,
-        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
-    ) {
-        self.userCredentials = userCredentials
-        self.authorizationService = authorizationService
+    init(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        self.signUpModel = signUpModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Deinitializer
-    
-    deinit {
-        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -67,26 +56,11 @@ final class SignUpSecondViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signUpButtonTapped() {
-        guard let email = userCredentials.email, !email.isEmpty,
-              let password = userCredentials.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести e-mail и пароль") // TEMP
-            return
-        }
-        
-        let userCredentials = UserCredentials(email: email, password: password)
-        
-        LoadingView.show()
-        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case .success:
-                self?.delegate?.successfulSignUp()
-            case let .failure(error):
-                self?.showAlert(error)
-            }
-        }
-        progressList.append(progress)
+        signUpModel.firstName = firstNameTextField.text
+        signUpModel.lastName = lastNameTextField.text
+        // !!! Добавить реализацию с датой
+        signUpModel.birthday = Date()
+        delegate?.didTapSignUpButton()
     }
     
     // MARK: - Private methods

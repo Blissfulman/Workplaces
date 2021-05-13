@@ -9,16 +9,16 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpFirstScreenDelegate: AnyObject {
-    func didTapNextButton(userCredentials: UserCredentials)
-    func goToSignIn()
+protocol SignUpFirstViewControllerDelegate: AnyObject {
+    func didTapNextButton()
+    func didTapSignInButton()
 }
 
 final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: SignUpFirstScreenDelegate?
+    weak var delegate: SignUpFirstViewControllerDelegate?
     
     // MARK: - Outlets
     
@@ -28,16 +28,27 @@ final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Private properties
     
+    private let signUpModel: SignUpModel
+    
+    // MARK: - Initializers
+    
+    init(signUpModel: SignUpModel, delegate: SignUpFirstViewControllerDelegate) {
+        self.signUpModel = signUpModel
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private properties
+    
     private var isValidEnteredEmail: Bool {
         EmailValidator.isValid(emailTextField.text)
     }
     
     // MARK: - UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -54,19 +65,13 @@ final class SignUpFirstViewController: UIViewController {
     }
     
     @IBAction private func forwardNextTapped() {
-        let userCredentials = UserCredentials(email: emailTextField.text, password: passwordTextField.text)
-        delegate?.didTapNextButton(userCredentials: userCredentials)
+        signUpModel.nickname = nicknameTextField.text
+        signUpModel.email = emailTextField.text
+        signUpModel.password = passwordTextField.text
+        delegate?.didTapNextButton()
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
-        delegate?.goToSignIn()
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupUI() {
-        title = "Sign up".localized()
-        navigationItem.backButtonTitle = ""
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        delegate?.didTapSignInButton()
     }
 }
