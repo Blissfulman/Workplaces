@@ -16,16 +16,16 @@ protocol SignInScreenDelegate: AnyObject {
 
 final class SignInViewController: UIViewController {
     
+    // MARK: - Public properties
+    
+    weak var delegate: SignInScreenDelegate?
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var enterButton: UIButton!
     @IBOutlet private weak var enterButtonBottomConstraint: NSLayoutConstraint!
-    
-    // MARK: - Public properties
-    
-    weak var delegate: SignInScreenDelegate?
     
     // MARK: - Private properties
     

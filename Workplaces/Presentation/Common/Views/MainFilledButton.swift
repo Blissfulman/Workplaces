@@ -9,6 +9,8 @@ import UIKit
 
 final class MainFilledButton: UIButton {
     
+    // MARK: - UIView
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         backgroundColor = isEnabled ? Palette.orange : Palette.lightGreyBlue

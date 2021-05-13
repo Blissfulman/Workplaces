@@ -146,7 +146,6 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.title = "Profile".localized()
         navigationItem.backButtonTitle = ""
         addLogOutButton() // TEMP
         addChildViewControllers()
@@ -220,7 +219,7 @@ final class ProfileViewController: UIViewController {
         if friendListDataSource.isEmptyData {
             showZeroView()
         } else {
-            friendListVC.setTopOffset(offset: -topViewHeight - friendListSeparator)
+            friendListVC.setTopOffset(offset: -(topViewHeight + friendListSeparator))
             add(friendListVC)
         }
     }

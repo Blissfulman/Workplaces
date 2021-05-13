@@ -9,7 +9,11 @@ import UIKit
 
 final class LoadingView {
     
+    // MARK: - Static properties
+    
     static var activityIndicator = UIActivityIndicatorView(frame: UIScreen.main.bounds)
+    
+    // MARK: - Static methods
     
     static func show() {
         DispatchQueue.main.async {

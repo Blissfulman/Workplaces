@@ -15,8 +15,12 @@ enum GlobalFlags {
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
+    // MARK: - Public properties
+    
     var window: UIWindow?
     var applicationCoordinator: ApplicationCoordinator!
+    
+    // MARK: - UIWindowSceneDelegate
     
     func scene(
         _ scene: UIScene,

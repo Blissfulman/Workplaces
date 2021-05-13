@@ -137,6 +137,7 @@ final class FeedViewController: UIViewController {
         add(errorZeroVC)
     }
 }
+
 // MARK: - PostListViewControllerDelegate
 
 extension FeedViewController: PostListViewControllerDelegate {

@@ -123,7 +123,6 @@
 		CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* AuthDataStorageImpl.swift */; };
 		CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */; };
-		CE97217F263EF847006ACEB2 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217E263EF847006ACEB2 /* TestError.swift */; };
 		CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */; };
 		CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */; };
 		CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */; };
@@ -346,7 +345,6 @@
 		CE972173263C7ED8006ACEB2 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshServiceImpl.swift; sourceTree = "<group>"; };
 		CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshService.swift; sourceTree = "<group>"; };
-		CE97217E263EF847006ACEB2 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsViewController.xib; sourceTree = "<group>"; };
@@ -555,7 +553,6 @@
 			children = (
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
-				CE97217E263EF847006ACEB2 /* TestError.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
 				CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */,
 			);
@@ -1587,7 +1584,6 @@
 				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
-				CE97217F263EF847006ACEB2 /* TestError.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,

@@ -93,5 +93,4 @@ extension ProfileCoordinatorImpl: EditProfileScreenDelegate {
     func profileDidSave() {
         navigationController?.popViewController(animated: true)
     }
-    
 }

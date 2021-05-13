@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileSegmentedControl: UISegmentedControl {
     
+    // MARK: - UIView
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setTitleTextAttributes([.foregroundColor: Palette.middleGrey, .font: Fonts.bodyLarge], for: .normal)
