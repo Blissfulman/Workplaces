@@ -117,7 +117,7 @@
 		CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */; };
 		CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */; };
 		CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */; };
-		CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */; };
+		CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C172635537400C0C52C /* RootCoordinator.swift */; };
 		CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1B263553FC00C0C52C /* Coordinator.swift */; };
 		CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972173263C7ED8006ACEB2 /* Error+Extension.swift */; };
 		CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
@@ -346,7 +346,7 @@
 		CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostServiceImpl.swift; sourceTree = "<group>"; };
 		CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceImpl.swift; sourceTree = "<group>"; };
 		CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceImpl.swift; sourceTree = "<group>"; };
-		CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		CE8F1C172635537400C0C52C /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		CE8F1C1B263553FC00C0C52C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CE972173263C7ED8006ACEB2 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshServiceImpl.swift; sourceTree = "<group>"; };
@@ -512,7 +512,7 @@
 		CE133197262C25900086433C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				CE8F1C172635537400C0C52C /* ApplicationCoordinator.swift */,
+				CE8F1C172635537400C0C52C /* RootCoordinator.swift */,
 				CEE7FBD0262DC0D5001D5DAD /* Authorization */,
 				CE09D765262E8BD9009A96B3 /* TabBar */,
 				CE1331A7262C2D430086433C /* Feed */,
@@ -1585,7 +1585,7 @@
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */,
-				CE8F1C182635537400C0C52C /* ApplicationCoordinator.swift in Sources */,
+				CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
 				CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */,
 				CEB0750B264DAA300060E818 /* ProfileFriendsDataSource.swift in Sources */,

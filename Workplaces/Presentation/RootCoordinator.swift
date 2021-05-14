@@ -1,5 +1,5 @@
 //
-//  ApplicationCoordinator.swift
+//  RootCoordinator.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 25.04.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ApplicationCoordinator {
+final class RootCoordinator {
     
     // MARK: - Private properties
     
