@@ -15,7 +15,7 @@
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
-		CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarController.swift */; };
+		CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */; };
 		CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */; };
 		CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */; };
 		CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */; };
@@ -231,7 +231,7 @@
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
-		CE09D766262E8C10009A96B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatingController.swift; sourceTree = "<group>"; };
 		CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContainerViewController.swift; sourceTree = "<group>"; };
 		CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedContainerViewController.xib; sourceTree = "<group>"; };
 		CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 		CE09D765262E8BD9009A96B3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D766262E8C10009A96B3 /* TabBarController.swift */,
+				CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -1601,7 +1601,7 @@
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
 				CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */,
 				CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */,
-				CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */,
+				CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */,
 				CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */,
 				CE12A25926371C1A00EE6549 /* Constants.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,

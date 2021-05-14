@@ -26,11 +26,11 @@ final class RootCoordinator {
     
     func start() {
         if authDataStorage.accessToken != nil {
-            let tabBarController = TabBarController { [weak self] in
+            let tabBarCoordinatingController = TabBarCoordinatingController { [weak self] in
                 self?.start()
             }
-            tabBarController.start()
-            window?.rootViewController = tabBarController
+            tabBarCoordinatingController.start()
+            window?.rootViewController = tabBarCoordinatingController
         } else {
             let navigationController = UINavigationController()
             authorizationCoordinator = AuthorizationCoordinatorImpl(

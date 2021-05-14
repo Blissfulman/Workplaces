@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  TabBarCoordinatingController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 20.04.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TabBarController: UITabBarController, Coordinator {
+final class TabBarCoordinatingController: UITabBarController, Coordinator {
     
     // MARK: - Public properties
     
@@ -74,7 +74,7 @@ final class TabBarController: UITabBarController, Coordinator {
 
 // MARK: - ProfileCoordinatorDelegate
 
-extension TabBarController: ProfileCoordinatorDelegate {
+extension TabBarCoordinatingController: ProfileCoordinatorDelegate {
     
     func goToFeed() {
         selectedIndex = 0
