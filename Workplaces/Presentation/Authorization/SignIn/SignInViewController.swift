@@ -9,16 +9,16 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignInScreenDelegate: AnyObject {
-    func goToSignUp()
-    func successfulSignIn()
+protocol SignInViewControllerDelegate: AnyObject {
+    func didTapSignUpButton()
+    func didTapSignInButton()
 }
 
 final class SignInViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: SignInScreenDelegate?
+    weak var delegate: SignInViewControllerDelegate?
     
     // MARK: - Outlets
     
@@ -29,24 +29,13 @@ final class SignInViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let authorizationService: AuthorizationService
-    private var progressList = [Progress]()
-    private var isEmptyAtLeastOneTextField: Bool {
-        if let email = emailTextField.text, !email.isEmpty,
-           let password = passwordTextField.text, !password.isEmpty {
-            return false
-        } else {
-            return true
-        }
-    }
-    private var isValidEnteredEmail: Bool {
-        EmailValidator.isValid(emailTextField.text)
-    }
+    private let signInModel: SignInModel
     
     // MARK: - Initializers
     
-    init(authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService) {
-        self.authorizationService = authorizationService
+    init(signInModel: SignInModel, delegate: SignInViewControllerDelegate) {
+        self.signInModel = signInModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -58,14 +47,12 @@ final class SignInViewController: UIViewController {
     
     deinit {
         removeKeyboardNotifications()
-        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         registerForKeyboardNotifications()
     }
     
@@ -78,34 +65,20 @@ final class SignInViewController: UIViewController {
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
         if sender == emailTextField {
-            emailTextField.textColor = isValidEnteredEmail ? Palette.black : Palette.orange
-            // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+            signInModel.email = emailTextField.text
+            updateEmailTextFieldState()
+        } else {
+            signInModel.password = passwordTextField.text
         }
         updateEnterButtonState()
     }
     
     @IBAction private func signUpButtonTapped() {
-        delegate?.goToSignUp()
+        delegate?.didTapSignUpButton()
     }
     
     @IBAction private func signInButtonTapped() {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else { return }
-        
-        let userCredentials = UserCredentials(email: email, password: password)
-        
-        LoadingView.show()
-        let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case .success:
-                self?.delegate?.successfulSignIn()
-            case let .failure(error):
-                self?.showAlert(error)
-            }
-        }
-        progressList.append(progress)
+        delegate?.didTapSignInButton()
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -122,14 +95,15 @@ final class SignInViewController: UIViewController {
     
     // MARK: - Private methods
     
-    private func setupUI() {
-        title = "Sign in with email".localized()
-        navigationItem.backButtonTitle = ""
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    private func updateEnterButtonState() {
+        enterButton.isEnabled = signInModel.isPossibleToSignIn
     }
     
-    private func updateEnterButtonState() {
-        enterButton.isEnabled = !isEmptyAtLeastOneTextField && isValidEnteredEmail
+    // MARK: - Private methods
+    
+    private func updateEmailTextFieldState() {
+        emailTextField.textColor = signInModel.isValidEmail ? Palette.black : Palette.orange
+        // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
     }
     
     private func registerForKeyboardNotifications() {

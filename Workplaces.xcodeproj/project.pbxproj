@@ -164,6 +164,8 @@
 		CEB0750E264E7D690060E818 /* EditProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */; };
 		CEB07511264E82940060E818 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07510264E82940060E818 /* EditProfileModel.swift */; };
 		CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */; };
+		CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */; };
+		CEB07519264EE7130060E818 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07518264EE7130060E818 /* SignInModel.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
@@ -396,6 +398,8 @@
 		CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileContainerViewController.swift; sourceTree = "<group>"; };
 		CEB07510264E82940060E818 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsContainerViewController.swift; sourceTree = "<group>"; };
+		CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInContainerViewController.swift; sourceTree = "<group>"; };
+		CEB07518264EE7130060E818 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -651,8 +655,10 @@
 		CE1331A5262C27070086433C /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */,
 				CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */,
 				CE15088926429F7700568006 /* SignInViewController.xib */,
+				CEB07517264EE6FB0060E818 /* Model */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1068,8 +1074,9 @@
 			isa = PBXGroup;
 			children = (
 				CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */,
+				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
+				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
 				CEB0750F264E81CB0060E818 /* Model */,
-				CEB07512264EC4160060E818 /* EditProfile */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -1193,13 +1200,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CEB07512264EC4160060E818 /* EditProfile */ = {
+		CEB07517264EE6FB0060E818 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
-				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
+				CEB07518264EE7130060E818 /* SignInModel.swift */,
 			);
-			path = EditProfile;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CEE7FBA0262D4417001D5DAD /* Fonts */ = {
@@ -1634,11 +1640,13 @@
 				CE12A25926371C1A00EE6549 /* Constants.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
+				CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
 				CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */,
 				CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */,
 				CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */,
 				CE1508972643D54800568006 /* NibInitializableView.swift in Sources */,
+				CEB07519264EE7130060E818 /* SignInModel.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
 				CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,

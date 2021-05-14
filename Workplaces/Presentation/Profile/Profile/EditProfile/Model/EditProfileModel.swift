@@ -40,7 +40,7 @@ final class EditProfileModel {
         )
     }
     var isPossibleToSaveProfile: Bool {
-        !hasNotBeenEditedProfile && !isEmptyAtLeastOneTextField
+        !hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty
     }
     
     // MARK: - Private properties
@@ -51,7 +51,7 @@ final class EditProfileModel {
             && profile.lastName == editedProfile.lastName
             && profile.birthday == editedProfile.birthday
     }
-    private var isEmptyAtLeastOneTextField: Bool {
+    private var isEmptyAtLeastOneProperty: Bool {
         // Поле birthday не проверяется, т.к. оно не должно получаться пустым (будет заполняться на основе DatePicker)
         editedProfile.nickname.isEmpty || editedProfile.firstName.isEmpty || editedProfile.lastName.isEmpty
     }

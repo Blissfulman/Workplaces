@@ -48,9 +48,8 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
             return
         }
         
-        let signInVC = SignInViewController()
-        signInVC.delegate = self
-        navigationController?.pushViewController(signInVC, animated: true)
+        let signInContainerVC = SignInContainerViewController(delegate: self)
+        navigationController?.pushViewController(signInContainerVC, animated: true)
     }
     
     private func showSignUpContainerController() {
@@ -98,9 +97,9 @@ extension AuthorizationCoordinatorImpl: LoginScreenDelegate {
     }
 }
 
-// MARK: - SignInScreenDelegate
+// MARK: - SignInContainerViewControllerDelegate
 
-extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
+extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
     
     func goToSignUp() {
         showSignUpContainerController()

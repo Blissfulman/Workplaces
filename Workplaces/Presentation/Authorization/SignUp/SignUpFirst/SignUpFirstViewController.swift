@@ -42,12 +42,6 @@ final class SignUpFirstViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Private properties
-    
-    private var isValidEnteredEmail: Bool {
-        EmailValidator.isValid(emailTextField.text)
-    }
-    
     // MARK: - UIViewController
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,9 +52,16 @@ final class SignUpFirstViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
-        if sender == emailTextField {
-            emailTextField.textColor = isValidEnteredEmail ? Palette.black : Palette.orange
-            // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+        switch sender {
+        case nicknameTextField:
+            signUpModel.nickname = nicknameTextField.text
+        case emailTextField:
+            signUpModel.email = emailTextField.text
+            updateEmailTextFieldState()
+        case passwordTextField:
+            signUpModel.password = passwordTextField.text
+        default:
+            break
         }
     }
     
@@ -73,5 +74,12 @@ final class SignUpFirstViewController: UIViewController {
     
     @IBAction private func alreadySignedUpButtonTapped() {
         delegate?.didTapSignInButton()
+    }
+    
+    // MARK: - Private methods
+    
+    private func updateEmailTextFieldState() {
+        emailTextField.textColor = signUpModel.isValidEmail ? Palette.black : Palette.orange
+        // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
     }
 }
