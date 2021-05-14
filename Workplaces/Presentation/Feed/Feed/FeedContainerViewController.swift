@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  FeedContainerViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 20.04.2021.
@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol FeedScreenDelegate: AnyObject {
+protocol FeedContainerViewControllerDelegate: AnyObject {
     func goToSearchFriends()
 }
 
-final class FeedViewController: UIViewController {
+final class FeedContainerViewController: UIViewController {
     
     // MARK: - Nested types
     
@@ -25,7 +25,7 @@ final class FeedViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: FeedScreenDelegate?
+    weak var delegate: FeedContainerViewControllerDelegate?
     
     // MARK: - Private properties
     
@@ -139,12 +139,14 @@ final class FeedViewController: UIViewController {
 
 // MARK: - PostListViewControllerDelegate
 
-extension FeedViewController: PostListViewControllerDelegate {
+extension FeedContainerViewController: PostListViewControllerDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {}
 }
 
-extension FeedViewController: FeedPostsDataSourceDelegate {
+// MARK: - FeedPostsDataSourceDelegate
+
+extension FeedContainerViewController: FeedPostsDataSourceDelegate {
     
     func needUpdatePostList() {
         postListVC.updateData()

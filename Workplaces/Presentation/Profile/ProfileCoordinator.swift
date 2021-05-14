@@ -49,9 +49,9 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     // MARK: - Private methods
     
     private func showProfileScreen() {
-        let profileVC = ProfileViewController()
-        profileVC.delegate = self
-        navigationController?.pushViewController(profileVC, animated: false)
+        let profileContainerVC = ProfileContainerViewController()
+        profileContainerVC.delegate = self
+        navigationController?.pushViewController(profileContainerVC, animated: false)
     }
     
     private func showEditProfileScreen(profile: User) {
@@ -61,9 +61,9 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     }
 }
 
-// MARK: - ProfileScreenDelegate
+// MARK: - ProfileContainerViewControllerDelegate
 
-extension ProfileCoordinatorImpl: ProfileScreenDelegate {
+extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     
     func goToEditProfile(profile: User) {
         showEditProfileScreen(profile: profile)

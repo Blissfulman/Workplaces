@@ -1,5 +1,5 @@
 //
-//  SignUpContainerController.swift
+//  SignUpContainerViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 13.05.2021.
@@ -9,17 +9,17 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpContainerControllerDelegate: AnyObject {
+protocol SignUpContainerViewControllerDelegate: AnyObject {
     func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func goToSignIn()
     func successfulSignUp()
 }
 
-final class SignUpContainerController: UIViewController {
+final class SignUpContainerViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: SignUpContainerControllerDelegate?
+    weak var delegate: SignUpContainerViewControllerDelegate?
     
     // MARK: - Private properties
     
@@ -36,7 +36,7 @@ final class SignUpContainerController: UIViewController {
     
     init(
         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService,
-        delegate: SignUpContainerControllerDelegate
+        delegate: SignUpContainerViewControllerDelegate
     ) {
         self.authorizationService = authorizationService
         self.delegate = delegate
@@ -72,7 +72,7 @@ final class SignUpContainerController: UIViewController {
 
 // MARK: - SignUpFirstViewControllerDelegate
 
-extension SignUpContainerController: SignUpFirstViewControllerDelegate {
+extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
     
     func didTapNextButton() {
         delegate?.goToSignUpSecondScreen(signUpModel: signUpModel, delegate: self)
@@ -85,7 +85,7 @@ extension SignUpContainerController: SignUpFirstViewControllerDelegate {
 
 // MARK: - SignUpSecondViewControllerDelegate
 
-extension SignUpContainerController: SignUpSecondViewControllerDelegate {
+extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
     
     func didTapSignUpButton() {
         guard let email = signUpModel.email, !email.isEmpty,

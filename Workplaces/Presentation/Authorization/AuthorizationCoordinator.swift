@@ -54,13 +54,13 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
     
     private func showSignUpContainerController() {
-        guard navigationController?.viewControllers.first(where: { $0 is SignUpContainerController }) == nil else {
+        guard navigationController?.viewControllers.first(where: { $0 is SignUpContainerViewController }) == nil else {
             navigationController?.popViewController(animated: true)
             return
         }
         
-        let signUpContainerController = SignUpContainerController(delegate: self)
-        navigationController?.pushViewController(signUpContainerController, animated: true)
+        let signUpContainerVC = SignUpContainerViewController(delegate: self)
+        navigationController?.pushViewController(signUpContainerVC, animated: true)
     }
     
     private func showSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
@@ -111,9 +111,9 @@ extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
     }
 }
 
-// MARK: - SignUpContainerControllerDelegate
+// MARK: - SignUpContainerViewControllerDelegate
 
-extension AuthorizationCoordinatorImpl: SignUpContainerControllerDelegate {
+extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
     
     func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
         showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)

@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileContainerViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 20.04.2021.
@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ProfileScreenDelegate: AnyObject {
+protocol ProfileContainerViewControllerDelegate: AnyObject {
     func goToEditProfile(profile: User)
     func goToNewPost()
     func goToFeed()
@@ -17,7 +17,7 @@ protocol ProfileScreenDelegate: AnyObject {
     func signOut()
 }
 
-final class ProfileViewController: UIViewController {
+final class ProfileContainerViewController: UIViewController {
     
     // MARK: - Nested types
     
@@ -29,7 +29,7 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: ProfileScreenDelegate?
+    weak var delegate: ProfileContainerViewControllerDelegate?
     
     // MARK: - Outlets
     
@@ -254,7 +254,7 @@ final class ProfileViewController: UIViewController {
 
 // MARK: - Data fetching methods
 
-extension ProfileViewController {
+extension ProfileContainerViewController {
     
     private func fetchProfile() {
         LoadingView.show()
@@ -330,7 +330,7 @@ extension ProfileViewController {
 
 // MARK: - ProfileTopViewDelegate
 
-extension ProfileViewController: ProfileTopViewDelegate {
+extension ProfileContainerViewController: ProfileTopViewDelegate {
     
     func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
         switch newState {
@@ -346,7 +346,7 @@ extension ProfileViewController: ProfileTopViewDelegate {
 
 // MARK: - PostListViewControllerDelegate, FriendListViewControllerDelegate
 
-extension ProfileViewController: PostListViewControllerDelegate, FriendListViewControllerDelegate {
+extension ProfileContainerViewController: PostListViewControllerDelegate, FriendListViewControllerDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var topViewOffsetY: CGFloat = 0
@@ -364,7 +364,7 @@ extension ProfileViewController: PostListViewControllerDelegate, FriendListViewC
 
 // MARK: - ProfilePostsDataSourceDelegate
 
-extension ProfileViewController: ProfilePostsDataSourceDelegate {
+extension ProfileContainerViewController: ProfilePostsDataSourceDelegate {
     
     func needUpdatePostList() {
         postListVC.updateData()
@@ -373,7 +373,7 @@ extension ProfileViewController: ProfilePostsDataSourceDelegate {
 
 // MARK: - ProfileLikesDataSourceDelegate
 
-extension ProfileViewController: ProfileLikesDataSourceDelegate {
+extension ProfileContainerViewController: ProfileLikesDataSourceDelegate {
     
     func needUpdateLikeList() {
         likeListVC.updateData()
@@ -382,7 +382,7 @@ extension ProfileViewController: ProfileLikesDataSourceDelegate {
 
 // MARK: - ProfileFriendsDataSourceDelegate
 
-extension ProfileViewController: ProfileFriendsDataSourceDelegate {
+extension ProfileContainerViewController: ProfileFriendsDataSourceDelegate {
     
     func needUpdateFriendList() {
         friendListVC.updateData()

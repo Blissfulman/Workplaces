@@ -16,12 +16,12 @@
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarController.swift */; };
-		CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */; };
-		CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */; };
+		CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */; };
+		CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */; };
 		CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */; };
 		CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */; };
-		CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */; };
-		CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */; };
+		CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileContainerViewController.swift */; };
+		CE09D778262E8E1C009A96B3 /* ProfileContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D776262E8E1C009A96B3 /* ProfileContainerViewController.xib */; };
 		CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D77F262EBA13009A96B3 /* Typealiases.swift */; };
 		CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D782262EC90D009A96B3 /* LoadingView.swift */; };
 		CE12A1DA2635F6C300EE6549 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1D92635F6C300EE6549 /* Post.swift */; };
@@ -150,10 +150,10 @@
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
 		CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7426495E47007C2DCE /* FriendListViewController.swift */; };
 		CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7526495E47007C2DCE /* FriendListViewController.xib */; };
-		CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */; };
+		CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* MockModels.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */; };
-		CEB074FB264D30B70060E818 /* SignUpContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerController.swift */; };
+		CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */; };
 		CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FD264D46FF0060E818 /* SignUpModel.swift */; };
 		CEB07502264D6A770060E818 /* FriendListLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07500264D6A770060E818 /* FriendListLastCell.swift */; };
 		CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB07501264D6A770060E818 /* FriendListLastCell.xib */; };
@@ -232,12 +232,12 @@
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContainerViewController.swift; sourceTree = "<group>"; };
+		CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedContainerViewController.xib; sourceTree = "<group>"; };
 		CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
-		CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		CE09D775262E8E1C009A96B3 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
+		CE09D776262E8E1C009A96B3 /* ProfileContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileContainerViewController.xib; sourceTree = "<group>"; };
 		CE09D77C262EB502009A96B3 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		CE09D77F262EBA13009A96B3 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		CE09D782262EC90D009A96B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -378,11 +378,11 @@
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		CEA46B7426495E47007C2DCE /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		CEA46B7526495E47007C2DCE /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
-		CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMockObjects.swift; sourceTree = "<group>"; };
+		CEA46B7A264A846B007C2DCE /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOffsetConfigurable.swift; sourceTree = "<group>"; };
-		CEB074FA264D30B70060E818 /* SignUpContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerController.swift; sourceTree = "<group>"; };
+		CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerViewController.swift; sourceTree = "<group>"; };
 		CEB074FD264D46FF0060E818 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		CEB07500264D6A770060E818 /* FriendListLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListLastCell.swift; sourceTree = "<group>"; };
 		CEB07501264D6A770060E818 /* FriendListLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListLastCell.xib; sourceTree = "<group>"; };
@@ -566,7 +566,7 @@
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
-				CEA46B7A264A846B007C2DCE /* ModelMockObjects.swift */,
+				CEA46B7A264A846B007C2DCE /* MockModels.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -905,7 +905,7 @@
 		CE8954722631385E0082D200 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				CEB074FA264D30B70060E818 /* SignUpContainerController.swift */,
+				CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */,
 				CEB074FC264D46DF0060E818 /* Model */,
 				CE1331A6262C2D370086433C /* SignUpFirst */,
 				CE573796262DF49A00A6DC20 /* SignUpSecond */,
@@ -1030,8 +1030,8 @@
 		CE972182263EFCA8006ACEB2 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D76B262E8DF8009A96B3 /* FeedViewController.swift */,
-				CE09D76C262E8DF8009A96B3 /* FeedViewController.xib */,
+				CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */,
+				CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */,
 				CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */,
 			);
 			path = Feed;
@@ -1049,8 +1049,8 @@
 		CE97218A263F0BD6006ACEB2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				CE09D775262E8E1C009A96B3 /* ProfileViewController.swift */,
-				CE09D776262E8E1C009A96B3 /* ProfileViewController.xib */,
+				CE09D775262E8E1C009A96B3 /* ProfileContainerViewController.swift */,
+				CE09D776262E8E1C009A96B3 /* ProfileContainerViewController.xib */,
 				CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */,
 				CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */,
 				CEB0750A264DAA300060E818 /* ProfileFriendsDataSource.swift */,
@@ -1372,7 +1372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */,
-				CE09D778262E8E1C009A96B3 /* ProfileViewController.xib in Resources */,
+				CE09D778262E8E1C009A96B3 /* ProfileContainerViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */,
@@ -1390,7 +1390,7 @@
 				CE1508652642597700568006 /* PostCell.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
-				CE09D76E262E8DF8009A96B3 /* FeedViewController.xib in Resources */,
+				CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
@@ -1571,15 +1571,15 @@
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */,
 				CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */,
-				CE09D76D262E8DF8009A96B3 /* FeedViewController.swift in Sources */,
+				CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
-				CEA46B7B264A846B007C2DCE /* ModelMockObjects.swift in Sources */,
+				CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */,
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,
-				CEB074FB264D30B70060E818 /* SignUpContainerController.swift in Sources */,
-				CE09D777262E8E1C009A96B3 /* ProfileViewController.swift in Sources */,
+				CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */,
+				CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,

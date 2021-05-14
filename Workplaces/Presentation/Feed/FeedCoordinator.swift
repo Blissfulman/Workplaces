@@ -44,15 +44,15 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     // MARK: - Private methods
     
     private func showFeedScreen() {
-        let feedVC = FeedViewController()
-        feedVC.delegate = self
-        navigationController?.pushViewController(feedVC, animated: false)
+        let feedContainerVC = FeedContainerViewController()
+        feedContainerVC.delegate = self
+        navigationController?.pushViewController(feedContainerVC, animated: false)
     }
 }
 
-// MARK: - FeedScreenDelegate
+// MARK: - FeedContainerViewControllerDelegate
 
-extension FeedCoordinatorImpl: FeedScreenDelegate {
+extension FeedCoordinatorImpl: FeedContainerViewControllerDelegate {
     
     func goToSearchFriends() {
         showSearchFriendsScreen()
