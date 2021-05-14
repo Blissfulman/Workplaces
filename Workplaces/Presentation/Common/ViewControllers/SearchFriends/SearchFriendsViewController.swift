@@ -28,9 +28,6 @@ final class SearchFriendsViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        tabBarController?.tabBar.isHidden = true
-        navigationItem.title = "Поиск друзей"
-        
         searchTextField.leftView = UIImageView(image: Icons.close)
     }
 }

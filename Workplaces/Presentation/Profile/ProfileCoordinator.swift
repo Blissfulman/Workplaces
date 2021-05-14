@@ -60,8 +60,8 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     }
     
     private func showSearchFriendsScreen() {
-        let searchFriendsVC = SearchFriendsViewController()
-        navigationController?.pushViewController(searchFriendsVC, animated: true)
+        let searchFriendsContainerVC = SearchFriendsContainerViewController()
+        navigationController?.pushViewController(searchFriendsContainerVC, animated: true)
     }
 }
 

@@ -163,6 +163,7 @@
 		CEB0750B264DAA300060E818 /* ProfileFriendsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0750A264DAA300060E818 /* ProfileFriendsDataSource.swift */; };
 		CEB0750E264E7D690060E818 /* EditProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */; };
 		CEB07511264E82940060E818 /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07510264E82940060E818 /* EditProfileModel.swift */; };
+		CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
@@ -394,6 +395,7 @@
 		CEB0750A264DAA300060E818 /* ProfileFriendsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsDataSource.swift; sourceTree = "<group>"; };
 		CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileContainerViewController.swift; sourceTree = "<group>"; };
 		CEB07510264E82940060E818 /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsContainerViewController.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -1042,6 +1044,7 @@
 		CE972183263EFCB7006ACEB2 /* SearchFriends */ = {
 			isa = PBXGroup;
 			children = (
+				CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */,
 				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
 				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
 			);
@@ -1603,6 +1606,7 @@
 				CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */,
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,
 				CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */,
+				CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
