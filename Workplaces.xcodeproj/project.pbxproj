@@ -631,8 +631,6 @@
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508662642601200568006 /* ProfileTopView */,
-				CE1508612642596000568006 /* PostCell */,
-				CEA46B6E26495BA3007C2DCE /* FriendCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -670,7 +668,6 @@
 			children = (
 				CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */,
 				CE972182263EFCA8006ACEB2 /* Feed */,
-				CE972183263EFCB7006ACEB2 /* FindFriends */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1037,6 +1034,7 @@
 				CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */,
 				CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */,
 				CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */,
+				CE972183263EFCB7006ACEB2 /* FindFriends */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1058,7 +1056,6 @@
 				CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */,
 				CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */,
 				CEB0750A264DAA300060E818 /* ProfileFriendsDataSource.swift */,
-				CEB0750F264E81CB0060E818 /* Model */,
 				CE97218B263F10FD006ACEB2 /* EditProfile */,
 			);
 			path = Profile;
@@ -1068,8 +1065,8 @@
 			isa = PBXGroup;
 			children = (
 				CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */,
-				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
-				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
+				CEB0750F264E81CB0060E818 /* Model */,
+				CEB07512264EC4160060E818 /* EditProfile */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -1111,6 +1108,7 @@
 			children = (
 				CEA46B5B2646C193007C2DCE /* PostListViewController.swift */,
 				CEA46B5C2646C193007C2DCE /* PostListViewController.xib */,
+				CE1508612642596000568006 /* PostCell */,
 			);
 			path = PostList;
 			sourceTree = "<group>";
@@ -1129,6 +1127,7 @@
 			children = (
 				CEA46B7426495E47007C2DCE /* FriendListViewController.swift */,
 				CEA46B7526495E47007C2DCE /* FriendListViewController.xib */,
+				CEA46B6E26495BA3007C2DCE /* FriendCell */,
 				CEB074FF264D69E20060E818 /* FriendListLastCell */,
 			);
 			path = FriendList;
@@ -1189,6 +1188,15 @@
 				CEB07510264E82940060E818 /* EditProfileModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEB07512264EC4160060E818 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
+				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		CEE7FBA0262D4417001D5DAD /* Fonts */ = {
