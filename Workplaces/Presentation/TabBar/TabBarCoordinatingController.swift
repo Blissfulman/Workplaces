@@ -83,10 +83,4 @@ extension TabBarCoordinatingController: ProfileCoordinatorDelegate {
     func goToNewPost() {
         selectedIndex = 1
     }
-    
-    func goToSearchFriends() {
-        selectedIndex = 0
-        // Так вообще можно?
-        feedCoordinator?.showSearchFriendsScreen()
-    }
 }

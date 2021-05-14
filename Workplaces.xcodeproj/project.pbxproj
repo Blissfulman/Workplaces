@@ -641,6 +641,7 @@
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 				CEA46B5F2646C19B007C2DCE /* PostList */,
 				CEA46B7326495E23007C2DCE /* FriendList */,
+				CE972183263EFCB7006ACEB2 /* SearchFriends */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1034,18 +1035,17 @@
 				CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */,
 				CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */,
 				CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */,
-				CE972183263EFCB7006ACEB2 /* FindFriends */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		CE972183263EFCB7006ACEB2 /* FindFriends */ = {
+		CE972183263EFCB7006ACEB2 /* SearchFriends */ = {
 			isa = PBXGroup;
 			children = (
 				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
 				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
 			);
-			path = FindFriends;
+			path = SearchFriends;
 			sourceTree = "<group>";
 		};
 		CE97218A263F0BD6006ACEB2 /* Profile */ = {

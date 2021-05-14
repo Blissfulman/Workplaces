@@ -9,9 +9,7 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol FeedCoordinator: Coordinator {
-    func showSearchFriendsScreen()
-}
+protocol FeedCoordinator: Coordinator {}
 
 final class FeedCoordinatorImpl: FeedCoordinator {
     
@@ -36,7 +34,7 @@ final class FeedCoordinatorImpl: FeedCoordinator {
         showFeedScreen()
     }
     
-    func showSearchFriendsScreen() {
+    private func showSearchFriendsScreen() {
         let searchFriendsVC = SearchFriendsViewController()
         navigationController?.pushViewController(searchFriendsVC, animated: true)
     }

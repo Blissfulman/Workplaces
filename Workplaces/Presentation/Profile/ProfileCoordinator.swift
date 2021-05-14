@@ -14,7 +14,6 @@ protocol ProfileCoordinator: Coordinator {}
 protocol ProfileCoordinatorDelegate: AnyObject {
     func goToFeed()
     func goToNewPost()
-    func goToSearchFriends()
 }
 
 final class ProfileCoordinatorImpl: ProfileCoordinator {
@@ -59,6 +58,11 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
         editProfileContainerVC.delegate = self
         navigationController?.pushViewController(editProfileContainerVC, animated: true)
     }
+    
+    private func showSearchFriendsScreen() {
+        let searchFriendsVC = SearchFriendsViewController()
+        navigationController?.pushViewController(searchFriendsVC, animated: true)
+    }
 }
 
 // MARK: - ProfileContainerViewControllerDelegate
@@ -78,7 +82,7 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     }
     
     func goToSearchFriends() {
-        delegate?.goToSearchFriends()
+        showSearchFriendsScreen()
     }
     
     func signOut() {

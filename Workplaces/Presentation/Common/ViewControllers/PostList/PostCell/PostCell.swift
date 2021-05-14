@@ -22,7 +22,7 @@ final class PostCell: UITableViewCell {
     
     // MARK: - Private properties
     
-    weak var delegate: PostCellDelegate?
+    private weak var delegate: PostCellDelegate?
     
     // MARK: - UITableViewCell
     
