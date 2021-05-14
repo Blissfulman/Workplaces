@@ -111,9 +111,7 @@ final class ProfileContainerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if profile == nil {
-            fetchProfile()
-        }
+        fetchProfile()
         fetchMyPosts()
         fetchLikedPosts()
         fetchFriends()

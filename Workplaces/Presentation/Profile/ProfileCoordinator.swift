@@ -55,9 +55,9 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     }
     
     private func showEditProfileScreen(profile: User) {
-        let editProfileVC = EditProfileViewController(profile: profile)
-        editProfileVC.delegate = self
-        navigationController?.pushViewController(editProfileVC, animated: true)
+        let editProfileContainerVC = EditProfileContainerViewController(profile: profile)
+        editProfileContainerVC.delegate = self
+        navigationController?.pushViewController(editProfileContainerVC, animated: true)
     }
 }
 
@@ -86,9 +86,9 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     }
 }
 
-// MARK: - EditProfileScreenDelegate
+// MARK: - EditProfileContainerViewControllerDelegate
 
-extension ProfileCoordinatorImpl: EditProfileScreenDelegate {
+extension ProfileCoordinatorImpl: EditProfileContainerViewControllerDelegate {
     
     func profileDidSave() {
         navigationController?.popViewController(animated: true)
