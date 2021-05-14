@@ -23,7 +23,7 @@ final class SignUpSecondViewController: UIViewController {
     
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var bithdayTextField: UITextField!
+    @IBOutlet private weak var birthdayTextField: UITextField!
     
     // MARK: - Private properties
     
@@ -55,11 +55,21 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        switch sender {
+        case firstNameTextField:
+            signUpModel.firstName = sender.text
+        case lastNameTextField:
+            signUpModel.lastName = sender.text
+        case birthdayTextField:
+            // Временно. Позже дата будет выбираться в DatePicker
+            signUpModel.birthday = DateFormatter.profileDateFormatter.date(from: sender.text ?? "") ?? Date()
+        default:
+            break
+        }
+    }
+    
     @IBAction private func signUpButtonTapped() {
-        signUpModel.firstName = firstNameTextField.text
-        signUpModel.lastName = lastNameTextField.text
-        // !!! Добавить реализацию с датой
-        signUpModel.birthday = Date()
         delegate?.didTapSignUpButton()
     }
     
@@ -68,5 +78,10 @@ final class SignUpSecondViewController: UIViewController {
     private func setupUI() {
         title = "Sign up".localized()
         navigationController?.setNavigationBarHidden(false, animated: true)
+        firstNameTextField.text = signUpModel.firstName
+        lastNameTextField.text = signUpModel.lastName
+        if let birthday = signUpModel.birthday {
+            birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
+        }
     }
 }
