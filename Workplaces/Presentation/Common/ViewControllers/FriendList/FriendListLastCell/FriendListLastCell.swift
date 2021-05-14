@@ -23,13 +23,6 @@ final class FriendListLastCell: UITableViewCell {
     
     private weak var delegate: FriendListLastCellDelegate?
     
-    // MARK: - UITableViewCell
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupGestureRecognizer()
-    }
-    
     // MARK: - Public methods
     
     func configure(delegate: FriendListLastCellDelegate) {
@@ -38,17 +31,7 @@ final class FriendListLastCell: UITableViewCell {
     
     // MARK: - Actions
     
-    @objc private func findMoreFriendsButtonTapped() {
+    @IBAction private func action() {
         delegate?.didTapFindMoreFriendsButton()
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupGestureRecognizer() {
-        let findMoreFriendsButtonGR = UITapGestureRecognizer(
-            target: self,
-            action: #selector(findMoreFriendsButtonTapped)
-        )
-        findMoreFriendsButton.addGestureRecognizer(findMoreFriendsButtonGR)
     }
 }

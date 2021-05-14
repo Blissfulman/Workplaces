@@ -324,6 +324,17 @@ extension ProfileContainerViewController {
             }
         }
     }
+    
+    private func deleteFriend(withID userID: User.ID) {
+        profileService.removeFriend(userID: userID) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchFriends()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - ProfileTopViewDelegate
@@ -388,5 +399,9 @@ extension ProfileContainerViewController: ProfileFriendsDataSourceDelegate {
     
     func didTapFindMoreFriendsButton() {
         delegate?.goToSearchFriends()
+    }
+    
+    func didTapDeleteFriend(withID userID: User.ID) {
+        deleteFriend(withID: userID)
     }
 }

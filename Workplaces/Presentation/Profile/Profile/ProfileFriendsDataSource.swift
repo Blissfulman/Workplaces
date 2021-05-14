@@ -14,6 +14,9 @@ protocol ProfileFriendsDataSourceDelegate: AnyObject {
     func needUpdateFriendList()
     /// Нажата кнопка поиска друзей внизу таблицы друзей.
     func didTapFindMoreFriendsButton()
+    /// Нажата кнопка удаления друга из списка в таблице друзей.
+    /// - Parameter userID: ID удаляемого пользователя.
+    func didTapDeleteFriend(withID userID: User.ID)
 }
 
 final class ProfileFriendsDataSource: NSObject, UITableViewDataSource {
@@ -75,6 +78,9 @@ final class ProfileFriendsDataSource: NSObject, UITableViewDataSource {
 
 extension ProfileFriendsDataSource: FriendCellDelegate {
     
+    func didTapDeleteFriend(withID userID: User.ID) {
+        delegate?.didTapDeleteFriend(withID: userID)
+    }
 }
 
 // MARK: - FriendListLastCellDelegate
