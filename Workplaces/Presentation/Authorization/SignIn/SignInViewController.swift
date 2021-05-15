@@ -78,6 +78,11 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signInButtonTapped() {
+        guard signInModel.isValidEmail else {
+            emailTextField.shakeAnimation()
+            return
+        }
+        
         enterButton.scaleAnimation {
             self.delegate?.didTapSignInButton()
         }

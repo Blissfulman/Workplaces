@@ -37,4 +37,14 @@ extension UIView {
             }
         }
     }
+    
+    /// Анимация горизонтальной тряски.
+    func shakeAnimation() {
+        let shakeAnimation = CAKeyframeAnimation(keyPath: "position.x")
+        shakeAnimation.values = [0, 10, -10, 10, -5, 5, -5, 0]
+        shakeAnimation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.8, 1]
+        shakeAnimation.duration = 0.4
+        shakeAnimation.isAdditive = true
+        layer.add(shakeAnimation, forKey: "shake")
+    }
 }

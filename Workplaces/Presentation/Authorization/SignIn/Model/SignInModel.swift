@@ -16,7 +16,7 @@ final class SignInModel {
         EmailValidator.isValid(email)
     }
     var isPossibleToSignIn: Bool {
-        !isEmptyAtLeastOneProperty && isValidEmail
+        !isEmptyAtLeastOneProperty
     }
     var userCredentials: UserCredentials {
         UserCredentials(email: email, password: password)
