@@ -78,7 +78,7 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signInButtonTapped() {
-        enterButton.tapAnimation {
+        enterButton.scaleAnimation {
             self.delegate?.didTapSignInButton()
         }
     }

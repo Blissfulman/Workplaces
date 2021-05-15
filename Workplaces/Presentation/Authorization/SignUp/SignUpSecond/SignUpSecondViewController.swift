@@ -79,7 +79,7 @@ final class SignUpSecondViewController: UIViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
-        signUpButton.tapAnimation {
+        signUpButton.scaleAnimation {
             self.delegate?.didTapSignUpButton()
         }
     }

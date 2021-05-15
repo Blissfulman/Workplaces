@@ -31,8 +31,8 @@ final class FriendCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.layer.cornerRadius = UIConstants.cellCornerRadius
-        avatarImageView.layer.cornerRadius = UIConstants.avatarCornerRadius
+        backView.setCornerRadius(UIConstants.cellCornerRadius)
+        avatarImageView.setCornerRadius(UIConstants.avatarCornerRadius)
     }
     
     override func prepareForReuse() {

@@ -625,8 +625,8 @@
 			children = (
 				CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */,
 				CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */,
-				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
 				CEB0751A265034720060E818 /* UIView+Extension.swift */,
+				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;

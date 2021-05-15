@@ -67,9 +67,9 @@ final class ProfileTopView: NibInitializableView {
     // MARK: - UIView
     
     override func didAddSubview(_ subview: UIView) {
-        topBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
-        bottomBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
-        avatarImageView?.layer.cornerRadius = UIConstants.avatarCornerRadius
+        topBackView?.setCornerRadius(UIConstants.cellCornerRadius)
+        bottomBackView?.setCornerRadius(UIConstants.cellCornerRadius)
+        avatarImageView?.setCornerRadius(UIConstants.avatarCornerRadius)
     }
     
     // MARK: - Public methods

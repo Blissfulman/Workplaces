@@ -9,7 +9,20 @@ import UIKit
 
 extension UIView {
     
-    func tapAnimation(
+    /// Устанавливает переданный радиус скругления углов.
+    /// - Parameter value: Значение радиуса.
+    func setCornerRadius(_ value: CGFloat) {
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = value
+    }
+    
+    /// Анимация масштабирования.
+    /// - Parameters:
+    ///   - duration: Длительность анимации (по умолчанию равна `0.15`).
+    ///   - delay: Задержка перед началом анимации (по умолчанию равна `0`).
+    ///   - scale: Коэффициент масштабирования (по умолчанию равен `0.98`).
+    ///   - completion: Обработчик, выполняемый после завершения анимации.
+    func scaleAnimation(
         duration: TimeInterval = 0.15,
         delay: TimeInterval = 0,
         scale: CGFloat = 0.98,
