@@ -19,6 +19,10 @@ final class SignInDoneViewController: UIViewController {
     
     weak var delegate: SignInDoneScreenDelegate?
     
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var imageView: UIImageView!
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -36,5 +40,9 @@ final class SignInDoneViewController: UIViewController {
     
     private func setupUI() {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut, .autoreverse, .repeat]) {
+            self.imageView.frame.origin.y -= 10
+        }
     }
 }
