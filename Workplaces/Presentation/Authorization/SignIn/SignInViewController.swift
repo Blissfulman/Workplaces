@@ -78,7 +78,9 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signInButtonTapped() {
-        delegate?.didTapSignInButton()
+        enterButton.tapAnimation {
+            self.delegate?.didTapSignInButton()
+        }
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {

@@ -20,6 +20,7 @@
                 <outlet property="birthdayTextField" destination="iEh-H0-W4S" id="05z-xc-gAj"/>
                 <outlet property="firstNameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
                 <outlet property="lastNameTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
+                <outlet property="signUpButton" destination="S8u-nc-WXc" id="NRo-xb-idJ"/>
                 <outlet property="signUpButtonBottomConstraint" destination="4Ow-FS-dvX" id="Aw6-MQ-dPd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

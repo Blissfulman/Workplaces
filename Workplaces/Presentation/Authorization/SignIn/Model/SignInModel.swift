@@ -18,10 +18,8 @@ final class SignInModel {
     var isPossibleToSignIn: Bool {
         !isEmptyAtLeastOneProperty && isValidEmail
     }
-    var userCredentials: UserCredentials? {
-        guard let email = email,
-              let password = password else { return nil }
-        return UserCredentials(email: email, password: password)
+    var userCredentials: UserCredentials {
+        UserCredentials(email: email, password: password)
     }
     
     // MARK: - Private properties

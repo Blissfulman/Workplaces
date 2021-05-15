@@ -75,13 +75,11 @@ extension SignInContainerViewController: SignInViewControllerDelegate {
     }
     
     func didTapSignInButton() {
-        guard let userCredentials = signInModel.userCredentials else {
-            assertionFailure("Error receiving user сredentials data from model")
-            return
-        }
         LoadingView.show()
         
-        let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
+        let progress = authorizationService.signInWithEmail(
+            userCredentials: signInModel.userCredentials
+        ) { [weak self] result in
             LoadingView.hide()
             
             switch result {

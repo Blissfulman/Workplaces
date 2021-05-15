@@ -24,6 +24,7 @@ final class SignUpSecondViewController: UIViewController {
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var birthdayTextField: UITextField!
+    @IBOutlet private weak var signUpButton: MainFilledButton!
     @IBOutlet private weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
@@ -78,7 +79,9 @@ final class SignUpSecondViewController: UIViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
-        delegate?.didTapSignUpButton()
+        signUpButton.tapAnimation {
+            self.delegate?.didTapSignUpButton()
+        }
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
