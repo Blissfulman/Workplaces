@@ -84,13 +84,19 @@ final class SignInViewController: UIViewController {
     @objc private func keyboardWillShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = value.cgRectValue
-        // Временно захардкожено, не уделял пока этому время
-        enterButtonBottomConstraint.constant = 16 + keyboardFrame.height
+        let keyboardHeight = value.cgRectValue.height
+        
+        UIView.animate(withDuration: 0.5) {
+            self.enterButtonBottomConstraint.constant = keyboardHeight + 16
+            self.view.layoutIfNeeded()
+        }
     }
     
     @objc private func keyboardWillHide() {
-        enterButtonBottomConstraint.constant = 16
+        UIView.animate(withDuration: 0.5) {
+            self.enterButtonBottomConstraint.constant = 44
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Private methods

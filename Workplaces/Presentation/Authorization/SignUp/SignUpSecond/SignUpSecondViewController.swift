@@ -24,6 +24,7 @@ final class SignUpSecondViewController: UIViewController {
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var birthdayTextField: UITextField!
+    @IBOutlet private weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -41,11 +42,18 @@ final class SignUpSecondViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Deinitializer
+    
+    deinit {
+        removeKeyboardNotifications()
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        registerForKeyboardNotifications()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,6 +81,24 @@ final class SignUpSecondViewController: UIViewController {
         delegate?.didTapSignUpButton()
     }
     
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = value.cgRectValue.height
+        
+        UIView.animate(withDuration: 0.5) {
+            self.signUpButtonBottomConstraint.constant = keyboardHeight + 16
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func keyboardWillHide() {
+        UIView.animate(withDuration: 0.5) {
+            self.signUpButtonBottomConstraint.constant = 44
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
@@ -83,5 +109,19 @@ final class SignUpSecondViewController: UIViewController {
         if let birthday = signUpModel.birthday {
             birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
         }
+    }
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil
+        )
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

@@ -25,6 +25,7 @@ final class SignUpFirstViewController: UIViewController {
     @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var alreadySignedUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -42,7 +43,18 @@ final class SignUpFirstViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Deinitializer
+    
+    deinit {
+        removeKeyboardNotifications()
+    }
+    
     // MARK: - UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerForKeyboardNotifications()
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -76,10 +88,42 @@ final class SignUpFirstViewController: UIViewController {
         delegate?.didTapSignInButton()
     }
     
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = value.cgRectValue.height
+        
+        UIView.animate(withDuration: 0.5) {
+            self.alreadySignedUpButtonBottomConstraint.constant = keyboardHeight + 16
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func keyboardWillHide() {
+        UIView.animate(withDuration: 0.5) {
+            self.alreadySignedUpButtonBottomConstraint.constant = 44
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     // MARK: - Private methods
     
     private func updateEmailTextFieldState() {
         emailTextField.textColor = signUpModel.isValidEmail ? Palette.black : Palette.orange
         // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+    }
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil
+        )
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

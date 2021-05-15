@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpFirstViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="alreadySignedUpButtonBottomConstraint" destination="SvG-Hm-Non" id="Cgj-Fe-VXF"/>
                 <outlet property="emailTextField" destination="519-bb-dBY" id="Soe-4F-gBz"/>
                 <outlet property="nicknameTextField" destination="VvL-KK-U6J" id="he6-QH-pLm"/>
                 <outlet property="passwordTextField" destination="XeX-76-wGV" id="w2A-EK-Fqt"/>
@@ -29,12 +30,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-KK-U6J">
-                    <rect key="frame" x="32" y="90" width="350" height="20"/>
+                    <rect key="frame" x="32" y="90" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY">
-                    <rect key="frame" x="32" y="158" width="350" height="20"/>
+                    <rect key="frame" x="32" y="156" width="350" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" textContentType="email"/>
                     <connections>
@@ -61,7 +62,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqh-yA-vbi">
-                    <rect key="frame" x="190" y="709" width="34" height="33"/>
+                    <rect key="frame" x="190" y="711" width="34" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Next">
                         <color key="titleColor" name="orange"/>
@@ -71,7 +72,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
-                    <rect key="frame" x="32" y="226" width="350" height="19"/>
+                    <rect key="frame" x="32" y="222" width="350" height="17"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                 </textField>
