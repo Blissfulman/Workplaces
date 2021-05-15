@@ -69,6 +69,7 @@ final class SignInViewController: UIViewController {
             updateEmailTextFieldState()
         } else {
             signInModel.password = passwordTextField.text
+            updatePasswordTextFieldState()
         }
         updateEnterButtonState()
     }
@@ -78,8 +79,13 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signInButtonTapped() {
-        guard signInModel.isValidEmail else {
-            emailTextField.shakeAnimation()
+        guard signInModel.isValidEmail && signInModel.isValidPassword else {
+            if !signInModel.isValidEmail {
+                emailTextField.shakeAnimation()
+            }
+            if !signInModel.isValidPassword {
+                passwordTextField.shakeAnimation()
+            }
             return
         }
         
@@ -116,6 +122,11 @@ final class SignInViewController: UIViewController {
     
     private func updateEmailTextFieldState() {
         emailTextField.textColor = signInModel.isValidEmail ? Palette.black : Palette.orange
+        // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+    }
+    
+    private func updatePasswordTextFieldState() {
+        passwordTextField.textColor = signInModel.isValidPassword ? Palette.black : Palette.orange
         // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
     }
     

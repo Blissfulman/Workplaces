@@ -167,6 +167,7 @@
 		CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */; };
 		CEB07519264EE7130060E818 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07518264EE7130060E818 /* SignInModel.swift */; };
 		CEB0751B265034720060E818 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751A265034720060E818 /* UIView+Extension.swift */; };
+		CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751C265050110060E818 /* PasswordValidator.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
@@ -402,6 +403,7 @@
 		CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInContainerViewController.swift; sourceTree = "<group>"; };
 		CEB07518264EE7130060E818 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		CEB0751A265034720060E818 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CEB0751C265050110060E818 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
+				CEB0751C265050110060E818 /* PasswordValidator.swift */,
 				CEA46B7A264A846B007C2DCE /* MockModels.swift */,
 			);
 			path = Helpers;
@@ -1611,6 +1614,7 @@
 				CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
+				CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
 				CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */,
