@@ -94,14 +94,15 @@ final class SignUpFirstViewController: UIViewController {
         let keyboardHeight = value.cgRectValue.height
         
         UIView.animate(withDuration: 0.5) {
-            self.alreadySignedUpButtonBottomConstraint.constant = keyboardHeight + 16
+            self.alreadySignedUpButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func keyboardWillHide() {
         UIView.animate(withDuration: 0.5) {
-            self.alreadySignedUpButtonBottomConstraint.constant = 44
+            self.alreadySignedUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }
     }

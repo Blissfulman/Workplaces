@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -19,18 +19,18 @@
             <connections>
                 <outlet property="emailTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
                 <outlet property="enterButton" destination="WKZ-5L-VY9" id="0EF-CN-rSv"/>
-                <outlet property="enterButtonBottomConstraint" destination="m0G-Di-RD4" id="7Nh-XC-Ze5"/>
+                <outlet property="enterButtonBottomConstraint" destination="Zs9-U8-tgE" id="5Dc-Hb-oOs"/>
                 <outlet property="passwordTextField" destination="ACl-g1-wIO" id="5fz-4u-IVr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
-                    <rect key="frame" x="32" y="90" width="350" height="18"/>
+                    <rect key="frame" x="32" y="90" width="326" height="18"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -38,7 +38,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
-                    <rect key="frame" x="32" y="156" width="350" height="17"/>
+                    <rect key="frame" x="32" y="156" width="326" height="17"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
@@ -46,7 +46,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="762" width="382" height="56"/>
+                    <rect key="frame" x="16" y="710" width="358" height="56"/>
                     <color key="backgroundColor" name="lightGreyBlue"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="i4Q-ha-Yhw"/>
@@ -60,7 +60,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
-                    <rect key="frame" x="179.5" y="711" width="55" height="31"/>
+                    <rect key="frame" x="167.66666666666666" y="659" width="55" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Sign up">
                         <color key="titleColor" name="orange"/>
@@ -78,10 +78,10 @@
                 <constraint firstItem="WKZ-5L-VY9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EQO-vW-b7o"/>
                 <constraint firstItem="rlT-M0-OZj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="QYU-nP-rQh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACl-g1-wIO" secondAttribute="trailing" constant="32" id="YVx-34-DEN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="44" id="Zs9-U8-tgE"/>
                 <constraint firstItem="ACl-g1-wIO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="c4K-3g-Vhu"/>
                 <constraint firstItem="ACl-g1-wIO" firstAttribute="top" secondItem="rlT-M0-OZj" secondAttribute="bottom" constant="48" id="gUC-a1-Zde"/>
                 <constraint firstItem="WKZ-5L-VY9" firstAttribute="top" secondItem="I8i-dH-VUs" secondAttribute="bottom" constant="20" id="iKG-ap-S3p"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="44" id="m0G-Di-RD4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rlT-M0-OZj" secondAttribute="trailing" constant="32" id="mhI-q5-CcJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKZ-5L-VY9" secondAttribute="trailing" constant="16" id="zGO-Kp-17a"/>
             </constraints>

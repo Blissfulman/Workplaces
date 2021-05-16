@@ -100,14 +100,15 @@ final class SignInViewController: UIViewController {
         let keyboardHeight = value.cgRectValue.height
         
         UIView.animate(withDuration: 0.5) {
-            self.enterButtonBottomConstraint.constant = keyboardHeight + 16
+            self.enterButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func keyboardWillHide() {
         UIView.animate(withDuration: 0.5) {
-            self.enterButtonBottomConstraint.constant = 44
+            self.enterButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }
     }
