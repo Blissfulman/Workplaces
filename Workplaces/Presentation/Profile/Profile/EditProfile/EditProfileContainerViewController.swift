@@ -74,8 +74,7 @@ extension EditProfileContainerViewController: EditProfileViewControllerDelegate 
             LoadingView.hide()
             
             switch result {
-            case let .success(profile):
-                print("Updated my profile:", profile) // TEMP
+            case .success:
                 self?.delegate?.profileDidSave()
             case let .failure(error):
                 self?.showAlert(error)

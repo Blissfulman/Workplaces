@@ -19,6 +19,8 @@ final class PostCell: UITableViewCell {
     
     @IBOutlet private weak var backView: UIView!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var postImageView: UIImageView!
     
     // MARK: - Private properties
     
@@ -29,6 +31,7 @@ final class PostCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backView.setCornerRadius(UIConstants.cellCornerRadius)
+        postImageView.setCornerRadius(UIConstants.postImageCornerRadius)
     }
     
     override func prepareForReuse() {
