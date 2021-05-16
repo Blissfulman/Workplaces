@@ -99,6 +99,8 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     }
 }
 
+// MARK: - Extensions
+
 fileprivate extension Error {
     
     /// Разворачивает ошибку валидации из Alamofire.

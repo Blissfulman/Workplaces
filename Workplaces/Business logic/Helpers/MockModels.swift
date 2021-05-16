@@ -12,9 +12,9 @@ extension User {
     static func getMockUsers() -> [Self] {
         let user = User(
             id: "8feed535-5ca5-464e-862d-0de124800aa3",
-            firstName: "Michael",
-            lastName: "Smith",
-            nickname: "@tigerman",
+            firstName: "Nick",
+            lastName: "Andersen",
+            nickname: "tiger",
             avatarURL: URL(string: "https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png")!,
             birthday: Date()
         )
@@ -27,9 +27,9 @@ extension Post {
     static func getMockPosts() -> [Self] {
         let author = User(
             id: "8feed535-5ca5-464e-862d-0de124800aa3",
-            firstName: "Michael",
-            lastName: "Smith",
-            nickname: "@tigerman",
+            firstName: "Nick",
+            lastName: "Andersen",
+            nickname: "tiger",
             avatarURL: URL(string: "https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png")!,
             birthday: Date()
         )

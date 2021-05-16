@@ -76,10 +76,16 @@ final class ProfileTopView: NibInitializableView {
     
     func configure(profile: User, editProfileButtonAction: @escaping VoidBlock) {
         self.editProfileButtonAction = editProfileButtonAction
-        if let avatarURL = profile.avatarURL {
-            avatarImageView.fetchImage(byURL: avatarURL)
+        
+        if let avatarURL = profile.avatarURL,
+           let data = try? Data(contentsOf: avatarURL),
+           let imageData = Data(base64Encoded: data) {
+            self.avatarImageView.image = UIImage(data: imageData)
         }
         fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
+        if let age = profile.birthday.getAgFromBirthday() {
+            ageLabel.text = "\(age) years"
+        }
     }
     
     // MARK: - Actions
@@ -90,5 +96,12 @@ final class ProfileTopView: NibInitializableView {
     
     @IBAction private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         delegate?.viewStateNeedChange(to: SegmentedControlState.getStateByIndex(sender.selectedSegmentIndex))
+    }
+}
+
+fileprivate extension Date {
+    
+    func getAgFromBirthday() -> Int? {
+        Calendar.current.dateComponents([.year], from: self, to: Date()).year
     }
 }
