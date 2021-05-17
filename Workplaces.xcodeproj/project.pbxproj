@@ -98,6 +98,8 @@
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
+		CE5E71A826528A350028990A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A726528A350028990A /* SearchService.swift */; };
+		CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A926528B650028990A /* SearchServiceImpl.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -332,6 +334,8 @@
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
+		CE5E71A726528A350028990A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		CE5E71A926528B650028990A /* SearchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceImpl.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 				CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */,
 				CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */,
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
+				CE5E71A926528B650028990A /* SearchServiceImpl.swift */,
 				CE8F1BDE2635173F00C0C52C /* Protocols */,
 			);
 			path = Services;
@@ -1023,6 +1028,7 @@
 				CE8F1BE9263519BA00C0C52C /* FeedService.swift */,
 				CE8F1BF926352E1E00C0C52C /* NewPostService.swift */,
 				CE8F1BF1263528BD00C0C52C /* ProfileService.swift */,
+				CE5E71A726528A350028990A /* SearchService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1660,6 +1666,7 @@
 				CE1508972643D54800568006 /* NibInitializableView.swift in Sources */,
 				CEB07519264EE7130060E818 /* SignInModel.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
+				CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */,
 				CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
@@ -1667,6 +1674,7 @@
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
+				CE5E71A826528A350028990A /* SearchService.swift in Sources */,
 				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,

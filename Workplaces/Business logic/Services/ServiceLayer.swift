@@ -40,6 +40,7 @@ final class ServiceLayer {
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
     lazy var profileService: ProfileService = ProfileServiceImpl(apiClient: apiClient)
+    lazy var searchService: SearchService = SearchServiceImpl(apiClient: apiClient)
     lazy var tokenRefreshService: TokenRefreshService = TokenRefreshServiceImpl(
         apiClient: apiClient,
         authDataStorage: authDataStorage
