@@ -109,15 +109,14 @@ final class FeedContainerViewController: UIViewController {
         LoadingView.show()
         let progress = feedService.fetchFeedPosts { [weak self] result in
             LoadingView.hide()
-            guard let self = self else { return }
             
             switch result {
             case let .success(posts):
-                self.state = Bool.random() // posts.isEmpty
+                self?.state = Bool.random() // posts.isEmpty
                     ? .noFriends
                     : .data(posts: posts)
             case .failure:
-                self.state = .error
+                self?.state = .error
             }
         }
         progressList.append(progress)
@@ -150,5 +149,31 @@ extension FeedContainerViewController: FeedPostsDataSourceDelegate {
     
     func needUpdatePostList() {
         postListVC.updateData()
+    }
+    
+    func didTapLikeButton(withPost post: Post) {
+        if post.liked {
+            let progress = feedService.unlikePost(postID: post.id) { [weak self] result in
+                switch result {
+                case .success():
+                    print("Unliked!")
+                    self?.fetchPosts()
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            progressList.append(progress)
+        } else {
+            let progress = feedService.likePost(postID: post.id) { [weak self] result in
+                switch result {
+                case .success():
+                    print("Liked!")
+                    self?.fetchPosts()
+                case let .failure(error):
+                    print(error.localizedDescription)
+                }
+            }
+            progressList.append(progress)
+        }
     }
 }

@@ -12,6 +12,9 @@ import UIKit
 protocol FeedPostsDataSourceDelegate: AnyObject {
     /// Оповещение делегата о необходимости обновления данных.
     func needUpdatePostList()
+    /// Оповещение делегата о том, что пользователь произвёл тап по кнопке лайка.
+    /// - Parameter withPost: Пост, в котором произошёл тап.
+    func didTapLikeButton(withPost post: Post)
 }
 
 final class FeedPostsDataSource: NSObject, UITableViewDataSource {
@@ -60,6 +63,11 @@ final class FeedPostsDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+// MARK: - PostCellDelegate
+
 extension FeedPostsDataSource: PostCellDelegate {
     
+    func didTapLikeButton(withPost post: Post) {
+        delegate?.didTapLikeButton(withPost: post)
+    }
 }

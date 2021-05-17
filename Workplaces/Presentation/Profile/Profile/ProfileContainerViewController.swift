@@ -39,6 +39,7 @@ final class ProfileContainerViewController: UIViewController {
     // MARK: - Private properties
     
     private let profileService: ProfileService
+    private let feedService: FeedService
     private let authorizationService: AuthorizationService
     private var profile: User?
     private lazy var postListDataSource = ProfilePostsDataSource(delegate: self)
@@ -85,9 +86,11 @@ final class ProfileContainerViewController: UIViewController {
     
     init(
         profileService: ProfileService = ServiceLayer.shared.profileService,
+        feedService: FeedService = ServiceLayer.shared.feedService,
         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
         self.profileService = profileService
+        self.feedService = feedService
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -378,6 +381,25 @@ extension ProfileContainerViewController: ProfilePostsDataSourceDelegate {
     func needUpdatePostList() {
         postListVC.updateData()
     }
+    
+    func didTapLikeButtonInPostList(withPost post: Post) {
+        let resultCompletion: VoidResultHandler = { [weak self] result in
+            switch result {
+            case .success():
+                self?.fetchMyPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        if post.liked {
+            let progress = feedService.unlikePost(postID: post.id, completion: resultCompletion)
+            progressList.append(progress)
+        } else {
+            let progress = feedService.likePost(postID: post.id, completion: resultCompletion)
+            progressList.append(progress)
+        }
+    }
 }
 
 // MARK: - ProfileLikesDataSourceDelegate
@@ -386,6 +408,25 @@ extension ProfileContainerViewController: ProfileLikesDataSourceDelegate {
     
     func needUpdateLikeList() {
         likeListVC.updateData()
+    }
+    
+    func didTapLikeButtonInLikeList(withPost post: Post) {
+        let resultCompletion: VoidResultHandler = { [weak self] result in
+            switch result {
+            case .success():
+                self?.fetchLikedPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        if post.liked {
+            let progress = feedService.unlikePost(postID: post.id, completion: resultCompletion)
+            progressList.append(progress)
+        } else {
+            let progress = feedService.likePost(postID: post.id, completion: resultCompletion)
+            progressList.append(progress)
+        }
     }
 }
 
