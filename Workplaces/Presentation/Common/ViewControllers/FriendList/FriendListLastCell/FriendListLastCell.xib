@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDC-XT-kpM">
-                                <rect key="frame" x="96.5" y="17.5" width="127" height="33"/>
+                                <rect key="frame" x="97" y="18.5" width="126" height="31"/>
                                 <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                                 <state key="normal" title="Find more friends">
                                     <color key="titleColor" name="orange"/>

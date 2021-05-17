@@ -19,7 +19,7 @@ protocol SearchService {
     @discardableResult
     func searchUsers(query: String, completion: @escaping UserListResultHandler) -> Progress
     
-    /// Поиск публикаций по поисковому запросу (поиск производится в тексте публикаций).
+    /// Поиск постов по поисковому запросу (поиск производится в тексте постов).
     /// - Parameters:
     ///   - query: Искомый текстовый фрагмент.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.

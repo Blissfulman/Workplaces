@@ -102,6 +102,12 @@
 		CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A926528B650028990A /* SearchServiceImpl.swift */; };
 		CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */; };
 		CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */; };
+		CE5E71B32652A3670028990A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B12652A3670028990A /* UserListViewController.swift */; };
+		CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B22652A3670028990A /* UserListViewController.xib */; };
+		CE5E71B82652A47C0028990A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B62652A47C0028990A /* UserCell.swift */; };
+		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
+		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
+		CE5E71BD2652E9D10028990A /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -340,6 +346,12 @@
 		CE5E71A926528B650028990A /* SearchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceImpl.swift; sourceTree = "<group>"; };
 		CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserEndpoint.swift; sourceTree = "<group>"; };
 		CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostEndpoint.swift; sourceTree = "<group>"; };
+		CE5E71B12652A3670028990A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		CE5E71B22652A3670028990A /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
+		CE5E71B62652A47C0028990A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -903,6 +915,26 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		CE5E71B02652A2FF0028990A /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71B12652A3670028990A /* UserListViewController.swift */,
+				CE5E71B22652A3670028990A /* UserListViewController.xib */,
+				CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */,
+				CE5E71B52652A45C0028990A /* UserCell */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		CE5E71B52652A45C0028990A /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71B62652A47C0028990A /* UserCell.swift */,
+				CE5E71B72652A47C0028990A /* UserCell.xib */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
 		CE7C4944262B58E4007FA94E = {
 			isa = PBXGroup;
 			children = (
@@ -1080,8 +1112,10 @@
 			isa = PBXGroup;
 			children = (
 				CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */,
+				CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */,
 				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
 				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
+				CE5E71B02652A2FF0028990A /* UserList */,
 			);
 			path = SearchFriends;
 			sourceTree = "<group>";
@@ -1433,6 +1467,7 @@
 			files = (
 				CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */,
 				CE09D778262E8E1C009A96B3 /* ProfileContainerViewController.xib in Resources */,
+				CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */,
@@ -1451,9 +1486,11 @@
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
 				CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */,
+				CE5E71BD2652E9D10028990A /* SearchFriendsContainerViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
+				CE5E71B92652A47C0028990A /* UserCell.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
 				CE15089826443E7900568006 /* SignUpFirstViewController.xib in Resources */,
 			);
@@ -1629,6 +1666,7 @@
 				CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */,
 				CE150860264241A000568006 /* NibTableViewCell.swift in Sources */,
 				CEB07511264E82940060E818 /* EditProfileModel.swift in Sources */,
+				CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */,
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */,
@@ -1649,8 +1687,10 @@
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
+				CE5E71B32652A3670028990A /* UserListViewController.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */,
+				CE5E71B82652A47C0028990A /* UserCell.swift in Sources */,
 				CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
 				CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */,

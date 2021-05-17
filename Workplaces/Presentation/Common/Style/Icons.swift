@@ -20,6 +20,7 @@ enum Icons {
     static let calendar = #imageLiteral(resourceName: "24-calendar")
     static let search = #imageLiteral(resourceName: "24-search")
     static let geoSmall = #imageLiteral(resourceName: "geo_small")
+    static let plus = #imageLiteral(resourceName: "plus")
     
     static let feed = #imageLiteral(resourceName: "feed")
     static let newPost = #imageLiteral(resourceName: "new_post")

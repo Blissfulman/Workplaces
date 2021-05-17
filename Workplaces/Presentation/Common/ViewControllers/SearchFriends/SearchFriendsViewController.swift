@@ -15,11 +15,13 @@ protocol SearchFriendsViewControllerDelegate: AnyObject {
 
 final class SearchFriendsViewController: UIViewController {
     
-    private weak var delegate: SearchFriendsViewControllerDelegate?
-    
     // MARK: - Outlets
     
-    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    
+    // MARK: - Private properties
+    
+    private weak var delegate: SearchFriendsViewControllerDelegate?
     
     // MARK: - Initializers
     
@@ -44,16 +46,25 @@ final class SearchFriendsViewController: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Actions
-    
-    @IBAction private func searchButtonTapped() {
-        // TEMP
-        delegate?.didTapSearchButton(query: searchTextField.text ?? "")
-    }
-    
     // MARK: - Private methods
     
     private func setupUI() {
-        searchTextField.leftView = UIImageView(image: Icons.close)
+        searchBar.setImage(Icons.search, for: .search, state: .normal)
+        searchBar.setImage(Icons.close, for: .clear, state: .normal)
+        searchBar.searchTextField.backgroundColor = .clear
+        let attributedString = NSAttributedString(
+            string: "Name or nickname".localized(),
+            attributes: [.foregroundColor: Palette.middleGrey]
+        )
+        searchBar.searchTextField.attributedPlaceholder = attributedString
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchFriendsViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        delegate?.didTapSearchButton(query: searchBar.text ?? "")
     }
 }

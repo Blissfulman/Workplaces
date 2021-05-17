@@ -4,20 +4,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="IBMPlexSans.ttf">
-            <string>IBMPlexSans</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchFriendsViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="searchTextField" destination="Oup-hh-ref" id="J9Z-jl-1kQ"/>
+                <outlet property="searchBar" destination="YQ0-EP-23s" id="lPW-Jl-tA0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,56 +19,26 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя или никнейм" textAlignment="natural" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-hh-ref">
-                    <rect key="frame" x="64" y="86" width="294" height="20.5"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="24-search" translatesAutoresizingMaskIntoConstraints="NO" id="j4u-WL-Xus">
-                    <rect key="frame" x="32" y="84" width="24" height="24"/>
+                <searchBar contentMode="redraw" placeholder="Name or nickname" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-EP-23s">
+                    <rect key="frame" x="16" y="43" width="382" height="51"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="UfI-uu-9HR"/>
-                        <constraint firstAttribute="height" constant="24" id="bQj-l6-guA"/>
+                        <constraint firstAttribute="height" constant="51" id="Zo5-Me-9aP"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните вводить имя или никнейм вашего друга" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azt-GC-z3A">
-                    <rect key="frame" x="83" y="156.5" width="248" height="37.5"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <color key="textColor" name="middleGrey"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLX-ne-kZn">
-                    <rect key="frame" x="183" y="224" width="48" height="30"/>
-                    <state key="normal" title="Search"/>
+                    <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="searchButtonTapped" destination="-1" eventType="touchUpInside" id="d34-cd-IaN"/>
+                        <outlet property="delegate" destination="-1" id="V7b-xG-dR9"/>
                     </connections>
-                </button>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="XLX-ne-kZn" firstAttribute="top" secondItem="azt-GC-z3A" secondAttribute="bottom" constant="30" id="3ob-JM-TLi"/>
-                <constraint firstItem="j4u-WL-Xus" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Luc-IQ-Jgx"/>
-                <constraint firstItem="azt-GC-z3A" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="U4r-BB-r8X"/>
-                <constraint firstItem="Oup-hh-ref" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="42" id="U90-aM-r2M"/>
-                <constraint firstItem="Oup-hh-ref" firstAttribute="leading" secondItem="j4u-WL-Xus" secondAttribute="trailing" constant="8" id="Up2-lD-U3Y"/>
-                <constraint firstItem="azt-GC-z3A" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="X7G-aB-cLi"/>
-                <constraint firstItem="XLX-ne-kZn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fi3-Vj-U36"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Oup-hh-ref" secondAttribute="trailing" constant="56" id="fkP-nM-odd"/>
-                <constraint firstItem="azt-GC-z3A" firstAttribute="top" secondItem="Oup-hh-ref" secondAttribute="bottom" constant="50" id="m5c-ca-Hkz"/>
-                <constraint firstItem="j4u-WL-Xus" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="roT-Ah-EJG"/>
+                <constraint firstItem="YQ0-EP-23s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-1" id="0q1-KP-kip"/>
+                <constraint firstItem="YQ0-EP-23s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OFl-dk-pMH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YQ0-EP-23s" secondAttribute="trailing" constant="16" id="Wn5-9V-IN9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YQ0-EP-23s" secondAttribute="bottom" priority="750" id="iMj-p4-TAy"/>
             </constraints>
-            <point key="canvasLocation" x="129" y="94"/>
+            <point key="canvasLocation" x="128.98550724637681" y="93.75"/>
         </view>
     </objects>
-    <resources>
-        <image name="24-search" width="24" height="24"/>
-        <namedColor name="middleGrey">
-            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
