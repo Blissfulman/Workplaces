@@ -230,17 +230,17 @@ final class ProfileContainerViewController: UIViewController {
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToNewPost()
             }
-            zeroSubview = ZeroView(viewType: .profileNoPosts, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoPosts, buttonAction: buttonAction)
         case .likes:
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToFeed()
             }
-            zeroSubview = ZeroView(viewType: .profileNoLikes, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoLikes, buttonAction: buttonAction)
         case .friends:
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToSearchFriends()
             }
-            zeroSubview = ZeroView(viewType: .profileNoFriends, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoFriends, buttonAction: buttonAction)
         }
         
         if let zeroSubview = zeroSubview {

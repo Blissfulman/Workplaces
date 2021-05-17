@@ -42,7 +42,7 @@ final class FeedContainerViewController: UIViewController {
         let buttonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToSearchFriends()
         }
-        let zeroVC = ZeroViewController(viewType: .feedNoFriends, buttonAction: buttonAction)
+        let zeroVC = ZeroViewController(model: .feedNoFriends, buttonAction: buttonAction)
         zeroVC.view.frame = view.bounds
         return zeroVC
     }()
@@ -50,7 +50,7 @@ final class FeedContainerViewController: UIViewController {
         let buttonAction: VoidBlock = { [weak self] in
             self?.fetchPosts()
         }
-        let zeroVC = ZeroViewController(viewType: .error, buttonAction: buttonAction)
+        let zeroVC = ZeroViewController(model: .error, buttonAction: buttonAction)
         zeroVC.view.frame = view.bounds
         return zeroVC
     }()

@@ -11,9 +11,9 @@ final class ZeroViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(viewType: ZeroView.ViewType, buttonAction: VoidBlock? = nil) {
+    init(model: ZeroViewModel, buttonAction: VoidBlock? = nil) {
         super.init(nibName: nil, bundle: nil)
-        view = ZeroView(viewType: viewType, buttonAction: buttonAction)
+        view = ZeroView(model: model, buttonAction: buttonAction)
     }
     
     required init?(coder: NSCoder) {
