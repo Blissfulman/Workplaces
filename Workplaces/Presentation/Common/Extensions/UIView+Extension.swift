@@ -16,25 +16,21 @@ extension UIView {
         layer.cornerRadius = value
     }
     
-    /// Анимация масштабирования.
+    /// Анимация уменьшения размера.
     /// - Parameters:
-    ///   - duration: Длительность анимации (по умолчанию равна `0.15`).
-    ///   - delay: Задержка перед началом анимации (по умолчанию равна `0`).
+    ///   - duration: Длительность анимации (по умолчанию равна `0.08`).
     ///   - scale: Коэффициент масштабирования (по умолчанию равен `0.98`).
-    ///   - completion: Обработчик, выполняемый после завершения анимации.
-    func scaleAnimation(
-        duration: TimeInterval = 0.15,
-        delay: TimeInterval = 0,
-        scale: CGFloat = 0.98,
-        completion: @escaping VoidBlock
-    ) {
-        UIView.animate(withDuration: duration, delay: delay, options: [.curveEaseOut, .autoreverse]) {
+    func downscaleAnimation(duration: TimeInterval = 0.08, scale: CGFloat = 0.98) {
+        UIView.animate(withDuration: duration, delay: 0, options: []) {
             self.transform = CGAffineTransform(scaleX: scale, y: scale)
-        } completion: { isDone in
-            if isDone {
-                self.transform = CGAffineTransform(scaleX: 1, y: 1)
-                completion()
-            }
+        }
+    }
+    
+    /// Анимация восстановления исходного размера.
+    /// - Parameter duration: Длительность анимации (по умолчанию равна `0.08`).
+    func resetScaleAnimation(duration: TimeInterval = 0.08) {
+        UIView.animate(withDuration: duration, delay: 0, options: []) {
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
     }
     

@@ -24,8 +24,8 @@ final class SignInViewController: UIViewController {
     
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var enterButton: UIButton!
-    @IBOutlet private weak var enterButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var signInButton: UIButton!
+    @IBOutlet private weak var signInButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -71,7 +71,7 @@ final class SignInViewController: UIViewController {
             signInModel.password = passwordTextField.text
             updatePasswordTextFieldState()
         }
-        updateEnterButtonState()
+        updateSignInButtonState()
     }
     
     @IBAction private func signUpButtonTapped() {
@@ -88,10 +88,7 @@ final class SignInViewController: UIViewController {
             }
             return
         }
-        
-        enterButton.scaleAnimation {
-            self.delegate?.didTapSignInButton()
-        }
+        delegate?.didTapSignInButton()
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -100,7 +97,7 @@ final class SignInViewController: UIViewController {
         let keyboardHeight = value.cgRectValue.height
         
         UIView.animate(withDuration: 0.5) {
-            self.enterButtonBottomConstraint.constant = keyboardHeight
+            self.signInButtonBottomConstraint.constant = keyboardHeight
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
         }
@@ -108,15 +105,15 @@ final class SignInViewController: UIViewController {
     
     @objc private func keyboardWillHide() {
         UIView.animate(withDuration: 0.5) {
-            self.enterButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.signInButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }
     }
     
     // MARK: - Private methods
     
-    private func updateEnterButtonState() {
-        enterButton.isEnabled = signInModel.isPossibleToSignIn
+    private func updateSignInButtonState() {
+        signInButton.isEnabled = signInModel.isPossibleToSignIn
     }
     
     // MARK: - Private methods

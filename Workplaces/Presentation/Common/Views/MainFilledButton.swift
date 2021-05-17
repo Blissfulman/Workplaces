@@ -9,6 +9,13 @@ import UIKit
 
 final class MainFilledButton: UIButton {
     
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != isHighlighted else { return }
+            isHighlighted ? downscaleAnimation() : resetScaleAnimation()
+        }
+    }
+    
     // MARK: - UIView
     
     override func layoutSubviews() {

@@ -79,9 +79,7 @@ final class SignUpSecondViewController: UIViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
-        signUpButton.scaleAnimation {
-            self.delegate?.didTapSignUpButton()
-        }
+        delegate?.didTapSignUpButton()
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
