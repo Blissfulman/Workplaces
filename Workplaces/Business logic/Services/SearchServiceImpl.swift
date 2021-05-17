@@ -22,11 +22,17 @@ final class SearchServiceImpl: SearchService {
     
     // MARK: - Public methods
     
-    func searchUser(query: String, completion: @escaping UserResultHandler) -> Progress {
-        Progress()
+    func searchUsers(query: String, completion: @escaping UserListResultHandler) -> Progress {
+        let endpoint = SearchUserEndpoint(query: query)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
     
-    func searchPost(query: String, completion: @escaping PostResultHandler) -> Progress {
-        Progress()
+    func searchPosts(query: String, completion: @escaping PostListResultHandler) -> Progress {
+        let endpoint = SearchPostEndpoint(query: query)
+        return apiClient.request(endpoint) { result in
+            completion(result.mapError { $0.unwrapAFError() })
+        }
     }
 }

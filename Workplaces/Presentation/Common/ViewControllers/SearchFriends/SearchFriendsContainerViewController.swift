@@ -22,18 +22,18 @@ final class SearchFriendsContainerViewController: UIViewController {
     
     // MARK: - Private properties
     
-//    private let searchService: SearchService
+    private let searchService: SearchService
     private var progressList = [Progress]()
     private lazy var searchFriendsVC: SearchFriendsViewController = {
-        let searchFriendsVC = SearchFriendsViewController()
+        let searchFriendsVC = SearchFriendsViewController(delegate: self)
         searchFriendsVC.view.frame = view.bounds
         return searchFriendsVC
     }()
     
     // MARK: - Initializers
     
-    init() {
-//        self.searchService = searchService
+    init(searchService: SearchService = ServiceLayer.shared.searchService) {
+        self.searchService = searchService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -60,5 +60,21 @@ final class SearchFriendsContainerViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Поиск друзей"
         add(searchFriendsVC)
+    }
+}
+
+// MARK: - SearchFriendsViewControllerDelegate
+
+extension SearchFriendsContainerViewController: SearchFriendsViewControllerDelegate {
+    
+    func didTapSearchButton(query: String) {
+        searchService.searchUsers(query: query) { result in
+            switch result {
+            case let .success(users):
+                print(users)
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

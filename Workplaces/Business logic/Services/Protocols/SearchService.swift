@@ -9,20 +9,20 @@ import Foundation
 
 protocol SearchService {
     
-    typealias UserResultHandler = ResultHandler<User>
-    typealias PostResultHandler = ResultHandler<Post>
+    typealias UserListResultHandler = ResultHandler<[User]>
+    typealias PostListResultHandler = ResultHandler<[Post]>
     
-    /// Поиск пользователя по части имени, фамилии или ника.
+    /// Поиск пользователей по поисковому запросу (поиск производится в именах, фамилиях и никах пользователей).
     /// - Parameters:
     ///   - query: Искомый текстовый фрагмент.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func searchUser(query: String, completion: @escaping UserResultHandler) -> Progress
+    func searchUsers(query: String, completion: @escaping UserListResultHandler) -> Progress
     
-    /// Поиск публикации по части текста.
+    /// Поиск публикаций по поисковому запросу (поиск производится в тексте публикаций).
     /// - Parameters:
     ///   - query: Искомый текстовый фрагмент.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func searchPost(query: String, completion: @escaping PostResultHandler) -> Progress
+    func searchPosts(query: String, completion: @escaping PostListResultHandler) -> Progress
 }

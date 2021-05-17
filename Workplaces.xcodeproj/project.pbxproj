@@ -100,6 +100,8 @@
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
 		CE5E71A826528A350028990A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A726528A350028990A /* SearchService.swift */; };
 		CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A926528B650028990A /* SearchServiceImpl.swift */; };
+		CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */; };
+		CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -336,6 +338,8 @@
 		CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
 		CE5E71A726528A350028990A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		CE5E71A926528B650028990A /* SearchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceImpl.swift; sourceTree = "<group>"; };
+		CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserEndpoint.swift; sourceTree = "<group>"; };
+		CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostEndpoint.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -890,6 +894,15 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		CE5E71AB26528C850028990A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */,
+				CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		CE7C4944262B58E4007FA94E = {
 			isa = PBXGroup;
 			children = (
@@ -1004,6 +1017,7 @@
 				CEAF176F2635EA7300DE0311 /* Feed */,
 				CEAF176E2635EA6D00DE0311 /* NewPost */,
 				CEAF176D2635EA6700DE0311 /* Profile */,
+				CE5E71AB26528C850028990A /* Search */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -1699,6 +1713,7 @@
 				CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
+				CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */,
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
@@ -1721,6 +1736,7 @@
 				CE12A25D26371E1F00EE6549 /* AuthorizationData.swift in Sources */,
 				CE12A2482637153800EE6549 /* LoginEndpoint.swift in Sources */,
 				CE12A23D2637091C00EE6549 /* AuthRequestInterceptor.swift in Sources */,
+				CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */,
 				CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */,
 				CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */,
 				CE12A2442637151B00EE6549 /* RegistrationEndpoint.swift in Sources */,
