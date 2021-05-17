@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="KGk-i7-Jjw" customClass="FriendCell" customModule="Workplaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="419" height="68"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCZ-p8-Ov5">
+                        <rect key="frame" x="16" y="2" width="387" height="64"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="XUK-5p-IEg">
+                                <rect key="frame" x="12" y="8" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="WI7-Ga-H92"/>
+                                    <constraint firstAttribute="height" constant="48" id="pLk-pm-uMc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSz-zN-fNy">
+                                <rect key="frame" x="76" y="12" width="105" height="19"/>
+                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@irlarion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN8-Lk-1u1">
+                                <rect key="frame" x="76" y="31" width="61" height="19"/>
+                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                                <color key="textColor" name="middleGrey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsW-eN-DIw">
+                                <rect key="frame" x="351" y="22" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Rds-MQ-Pfp"/>
+                                    <constraint firstAttribute="height" constant="20" id="qER-po-Nto"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="24-close"/>
+                                <connections>
+                                    <action selector="deleteFriendButtonTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ir7-dy-xSJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="Ffe-YG-rb5"/>
+                            <constraint firstItem="nsW-eN-DIw" firstAttribute="centerY" secondItem="cCZ-p8-Ov5" secondAttribute="centerY" id="Jod-EI-OCW"/>
+                            <constraint firstItem="YSz-zN-fNy" firstAttribute="top" secondItem="cCZ-p8-Ov5" secondAttribute="top" constant="12" id="UYK-Ng-7Jw"/>
+                            <constraint firstItem="YSz-zN-fNy" firstAttribute="leading" secondItem="XUK-5p-IEg" secondAttribute="trailing" constant="16" id="VQH-pt-OOv"/>
+                            <constraint firstAttribute="trailing" secondItem="nsW-eN-DIw" secondAttribute="trailing" constant="16" id="WQg-Zf-wel"/>
+                            <constraint firstItem="qN8-Lk-1u1" firstAttribute="leading" secondItem="XUK-5p-IEg" secondAttribute="trailing" constant="16" id="Y9o-go-Qsh"/>
+                            <constraint firstItem="XUK-5p-IEg" firstAttribute="leading" secondItem="cCZ-p8-Ov5" secondAttribute="leading" constant="12" id="ceX-77-zdZ"/>
+                            <constraint firstItem="XUK-5p-IEg" firstAttribute="top" secondItem="cCZ-p8-Ov5" secondAttribute="top" constant="8" id="pJJ-aw-0io"/>
+                            <constraint firstAttribute="bottom" secondItem="XUK-5p-IEg" secondAttribute="bottom" constant="8" id="pis-Dv-lmn"/>
+                            <constraint firstItem="qN8-Lk-1u1" firstAttribute="top" secondItem="YSz-zN-fNy" secondAttribute="bottom" id="qUa-Yu-Xmf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="lightGrey"/>
+                <constraints>
+                    <constraint firstItem="cCZ-p8-Ov5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="1HO-bl-tPA"/>
+                    <constraint firstItem="cCZ-p8-Ov5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Bm-LZ-Ssm"/>
+                    <constraint firstAttribute="trailing" secondItem="cCZ-p8-Ov5" secondAttribute="trailing" constant="16" id="BNp-P7-nJS"/>
+                    <constraint firstAttribute="bottom" secondItem="cCZ-p8-Ov5" secondAttribute="bottom" constant="2" id="Tsd-0J-JTz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="XUK-5p-IEg" id="cG5-dM-nKa"/>
+                <outlet property="backView" destination="cCZ-p8-Ov5" id="ULS-QQ-oNM"/>
+                <outlet property="fullNameLabel" destination="YSz-zN-fNy" id="Imb-MC-EAD"/>
+                <outlet property="nicknameLabel" destination="qN8-Lk-1u1" id="7IC-Xi-VwD"/>
+            </connections>
+            <point key="canvasLocation" x="106.5217391304348" y="101.78571428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="24-close" width="24" height="24"/>
+        <image name="avatar" width="64" height="64"/>
+        <namedColor name="lightGrey">
+            <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="middleGrey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

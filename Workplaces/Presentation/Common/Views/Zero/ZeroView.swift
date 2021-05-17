@@ -13,8 +13,10 @@ final class ZeroView: NibInitializableView {
     
     public enum ViewType {
         case error
-        case noData
-        case noFriends
+        case feedNoFriends
+        case profileNoPosts
+        case profileNoLikes
+        case profileNoFriends
     }
     
     // MARK: - Outlets
@@ -51,15 +53,25 @@ final class ZeroView: NibInitializableView {
             titleLabel.text = "Упс..."
             subtitleLabel.text = "Что-то пошло не так"
             button.setTitle("Обновить", for: .normal)
-        case .noData:
+        case .feedNoFriends:
+            imageView.image = Images.noDataScreen
+            titleLabel.text = "Пустота"
+            subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
+            button.setTitle("Найти друзей", for: .normal)
+        case .profileNoPosts:
             imageView.image = Images.noDataScreen
             titleLabel.text = "Пустота"
             subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
             button.setTitle("Создать пост", for: .normal)
-        case .noFriends:
+        case .profileNoLikes:
             imageView.image = Images.noDataScreen
             titleLabel.text = "Пустота"
-            subtitleLabel.text = "Вам нужны друзья, чтобы лента стала живой"
+            subtitleLabel.text = "Вы ещё не поставили ни одного лайка, но можете из ленты"
+            button.setTitle("Перейти к ленте", for: .normal)
+        case .profileNoFriends:
+            imageView.image = Images.noDataScreen
+            titleLabel.text = "Пустота"
+            subtitleLabel.text = "Вы пока одиноки в сервисе, но это можно исправить"
             button.setTitle("Найти друзей", for: .normal)
         }
         if buttonAction != nil {

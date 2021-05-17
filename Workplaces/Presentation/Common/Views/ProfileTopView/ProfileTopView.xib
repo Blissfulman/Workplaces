@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileTopView" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="ageLabel" destination="OOd-Cd-qEQ" id="jJZ-Ri-6hE"/>
+                <outlet property="avatarImageView" destination="Pd8-z6-7Cj" id="EwB-Fx-qXS"/>
+                <outlet property="bottomBackView" destination="WnZ-cP-tg7" id="AWq-lu-uRc"/>
+                <outlet property="fullNameLabel" destination="Vde-Wt-rvN" id="yqj-t4-lwF"/>
+                <outlet property="topBackView" destination="p7T-im-aEA" id="p7M-1V-uLz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProfileTopView" customModule="Workplaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-im-aEA">
+                    <rect key="frame" x="16" y="715" width="382" height="88"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Pd8-z6-7Cj">
+                            <rect key="frame" x="12" y="12" width="64" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="JdC-sZ-hkM"/>
+                                <constraint firstAttribute="height" constant="64" id="Lgo-fK-CwL"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-Wt-rvN">
+                            <rect key="frame" x="92" y="12" width="105" height="19"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 лет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-Cd-qEQ">
+                            <rect key="frame" x="92" y="31" width="47.5" height="19"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YF5-ei-c3i">
+                            <rect key="frame" x="338" y="12" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="UM9-Dl-B8J"/>
+                                <constraint firstAttribute="height" constant="32" id="ex5-KU-Vz8"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="32-edit"/>
+                            <connections>
+                                <action selector="editProfileTapped" destination="-1" eventType="touchUpInside" id="o26-5m-QIF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="OOd-Cd-qEQ" firstAttribute="leading" secondItem="Pd8-z6-7Cj" secondAttribute="trailing" constant="16" id="0Eo-53-kgh"/>
+                        <constraint firstAttribute="bottom" secondItem="Pd8-z6-7Cj" secondAttribute="bottom" constant="12" id="56g-sI-rbc"/>
+                        <constraint firstAttribute="height" constant="88" id="C21-rG-sC3"/>
+                        <constraint firstItem="Pd8-z6-7Cj" firstAttribute="leading" secondItem="p7T-im-aEA" secondAttribute="leading" constant="12" id="GdK-E2-9cS"/>
+                        <constraint firstItem="Pd8-z6-7Cj" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="L70-bK-fGA"/>
+                        <constraint firstItem="YF5-ei-c3i" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="LPO-Te-UQU"/>
+                        <constraint firstAttribute="trailing" secondItem="YF5-ei-c3i" secondAttribute="trailing" constant="12" id="Ts2-sc-kwl"/>
+                        <constraint firstItem="OOd-Cd-qEQ" firstAttribute="top" secondItem="Vde-Wt-rvN" secondAttribute="bottom" id="bZ2-BL-oyx"/>
+                        <constraint firstItem="Vde-Wt-rvN" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="rpK-AC-mTT"/>
+                        <constraint firstItem="Vde-Wt-rvN" firstAttribute="leading" secondItem="Pd8-z6-7Cj" secondAttribute="trailing" constant="16" id="uCf-GX-c2d"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnZ-cP-tg7">
+                    <rect key="frame" x="16" y="805" width="382" height="56"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NFn-VC-SxX" customClass="ProfileSegmentedControl" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="O9o-5A-gBW"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Posts"/>
+                                <segment title="Likes"/>
+                                <segment title="Friends"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="-1" eventType="valueChanged" id="hKP-O3-jGF"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="NFn-VC-SxX" firstAttribute="centerY" secondItem="WnZ-cP-tg7" secondAttribute="centerY" id="F2V-Y8-F4w"/>
+                        <constraint firstAttribute="height" constant="56" id="WAv-gt-HiK"/>
+                        <constraint firstItem="NFn-VC-SxX" firstAttribute="leading" secondItem="WnZ-cP-tg7" secondAttribute="leading" id="fqq-if-CuQ"/>
+                        <constraint firstAttribute="trailing" secondItem="NFn-VC-SxX" secondAttribute="trailing" id="kMH-Ag-Xaq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="lightGrey"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WnZ-cP-tg7" secondAttribute="trailing" constant="16" id="3My-Y8-wej"/>
+                <constraint firstItem="p7T-im-aEA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" priority="995" constant="1" id="Bxg-gq-hsI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="p7T-im-aEA" secondAttribute="trailing" constant="16" id="XOc-te-2Gs"/>
+                <constraint firstItem="WnZ-cP-tg7" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="bottom" constant="2" id="jL9-ow-bwm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WnZ-cP-tg7" secondAttribute="bottom" constant="1" id="r1V-Sk-vO5"/>
+                <constraint firstItem="WnZ-cP-tg7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rNT-8G-sz7"/>
+                <constraint firstItem="p7T-im-aEA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zyD-HF-ltL"/>
+            </constraints>
+            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="32-edit" width="32" height="32"/>
+        <image name="avatar" width="64" height="64"/>
+        <namedColor name="lightGrey">
+            <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

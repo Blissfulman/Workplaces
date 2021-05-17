@@ -15,8 +15,12 @@ enum GlobalFlags {
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
+    // MARK: - Public properties
+    
     var window: UIWindow?
-    var applicationCoordinator: ApplicationCoordinator!
+    var rootCoordinator: RootCoordinator!
+    
+    // MARK: - UIWindowSceneDelegate
     
     func scene(
         _ scene: UIScene,
@@ -27,8 +31,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        applicationCoordinator = ApplicationCoordinator(window: window)
-        applicationCoordinator.start()
+        rootCoordinator = RootCoordinator(window: window)
+        rootCoordinator.start()
         window?.makeKeyAndVisible()
     }
 }

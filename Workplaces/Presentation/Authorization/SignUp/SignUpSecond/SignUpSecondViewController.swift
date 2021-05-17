@@ -9,47 +9,36 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol SignUpSecondScreenDelegate: AnyObject {
-    func successfulSignUp()
+protocol SignUpSecondViewControllerDelegate: AnyObject {
+    func didTapSignUpButton()
 }
 
 final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Public properties
     
-    weak var delegate: SignUpSecondScreenDelegate?
+    weak var delegate: SignUpSecondViewControllerDelegate?
     
     // MARK: - Outlets
     
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var bithdayTextField: UITextField!
+    @IBOutlet private weak var birthdayTextField: UITextField!
     
     // MARK: - Private properties
     
-    private let userCredentials: UserCredentials
-    private let authorizationService: AuthorizationService
-    private var progressList = [Progress]()
+    private let signUpModel: SignUpModel
     
     // MARK: - Initializers
     
-    init(
-        userCredentials: UserCredentials,
-        authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
-    ) {
-        self.userCredentials = userCredentials
-        self.authorizationService = authorizationService
+    init(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        self.signUpModel = signUpModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Deinitializer
-    
-    deinit {
-        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
@@ -66,27 +55,22 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        switch sender {
+        case firstNameTextField:
+            signUpModel.firstName = sender.text
+        case lastNameTextField:
+            signUpModel.lastName = sender.text
+        case birthdayTextField:
+            // Временно. Позже дата будет выбираться в DatePicker
+            signUpModel.birthday = DateFormatter.profileDateFormatter.date(from: sender.text ?? "") ?? Date()
+        default:
+            break
+        }
+    }
+    
     @IBAction private func signUpButtonTapped() {
-        guard let email = userCredentials.email, !email.isEmpty,
-              let password = userCredentials.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести e-mail и пароль") // TEMP
-            return
-        }
-        
-        let userCredentials = UserCredentials(email: email, password: password)
-        
-        LoadingView.show()
-        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case .success:
-                self?.delegate?.successfulSignUp()
-            case let .failure(error):
-                self?.showAlert(error)
-            }
-        }
-        progressList.append(progress)
+        delegate?.didTapSignUpButton()
     }
     
     // MARK: - Private methods
@@ -94,5 +78,10 @@ final class SignUpSecondViewController: UIViewController {
     private func setupUI() {
         title = "Sign up".localized()
         navigationController?.setNavigationBarHidden(false, animated: true)
+        firstNameTextField.text = signUpModel.firstName
+        lastNameTextField.text = signUpModel.lastName
+        if let birthday = signUpModel.birthday {
+            birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
+        }
     }
 }

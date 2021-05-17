@@ -11,11 +11,17 @@ import UIKit
 
 protocol ProfileCoordinator: Coordinator {}
 
+protocol ProfileCoordinatorDelegate: AnyObject {
+    func goToFeed()
+    func goToNewPost()
+}
+
 final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Public properties
     
     var onFinish: VoidBlock
+    weak var delegate: ProfileCoordinatorDelegate?
     
     // MARK: - Private properties
     
@@ -23,9 +29,14 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController, onFinish: @escaping VoidBlock) {
+    init(
+        navigationController: UINavigationController,
+        onFinish: @escaping VoidBlock,
+        delegate: ProfileCoordinatorDelegate
+    ) {
         self.navigationController = navigationController
         self.onFinish = onFinish
+        self.delegate = delegate
     }
     
     // MARK: - Public methods
@@ -37,24 +48,41 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     // MARK: - Private methods
     
     private func showProfileScreen() {
-        let profileVC = ProfileViewController()
-        profileVC.delegate = self
-        navigationController?.pushViewController(profileVC, animated: false)
+        let profileContainerVC = ProfileContainerViewController()
+        profileContainerVC.delegate = self
+        navigationController?.pushViewController(profileContainerVC, animated: false)
     }
     
     private func showEditProfileScreen(profile: User) {
-        let editProfileVC = EditProfileViewController(profile: profile)
-        editProfileVC.delegate = self
-        navigationController?.pushViewController(editProfileVC, animated: true)
+        let editProfileContainerVC = EditProfileContainerViewController(profile: profile)
+        editProfileContainerVC.delegate = self
+        navigationController?.pushViewController(editProfileContainerVC, animated: true)
+    }
+    
+    private func showSearchFriendsScreen() {
+        let searchFriendsContainerVC = SearchFriendsContainerViewController()
+        navigationController?.pushViewController(searchFriendsContainerVC, animated: true)
     }
 }
 
-// MARK: - ProfileScreenDelegate
+// MARK: - ProfileContainerViewControllerDelegate
 
-extension ProfileCoordinatorImpl: ProfileScreenDelegate {
+extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     
     func goToEditProfile(profile: User) {
         showEditProfileScreen(profile: profile)
+    }
+    
+    func goToNewPost() {
+        delegate?.goToNewPost()
+    }
+    
+    func goToFeed() {
+        delegate?.goToFeed()
+    }
+    
+    func goToSearchFriends() {
+        showSearchFriendsScreen()
     }
     
     func signOut() {
@@ -62,12 +90,11 @@ extension ProfileCoordinatorImpl: ProfileScreenDelegate {
     }
 }
 
-// MARK: - EditProfileScreenDelegate
+// MARK: - EditProfileContainerViewControllerDelegate
 
-extension ProfileCoordinatorImpl: EditProfileScreenDelegate {
+extension ProfileCoordinatorImpl: EditProfileContainerViewControllerDelegate {
     
     func profileDidSave() {
         navigationController?.popViewController(animated: true)
     }
-    
 }

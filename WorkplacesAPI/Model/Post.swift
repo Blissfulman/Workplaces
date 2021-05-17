@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-public struct Post: Identifiable, Codable {
+public struct Post: Identifiable, Codable, Comparable {
     
     public let id: String
     public let text: String?
@@ -45,5 +45,15 @@ public struct Post: Identifiable, Codable {
         self.author = author
         self.likes = likes
         self.liked = liked
+    }
+    
+    // MARK: - Comparable
+    
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        lhs.id < rhs.id
+    }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
     }
 }

@@ -27,8 +27,8 @@ final class ServiceLayer {
         return AlamofireClient(
             requestInterceptor: interceptor,
             configuration: .ephemeral,
-            responseObserver: { [weak self] _, _, _, error in
-                self?.validateSession(responseError: error)
+            responseObserver: { _, _, _, error in
+                self.validateSession(responseError: error)
             }
         )
     }()

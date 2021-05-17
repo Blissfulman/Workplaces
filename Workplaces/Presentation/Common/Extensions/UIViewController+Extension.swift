@@ -32,4 +32,22 @@ extension UIViewController {
             self?.present(alert, animated: true)
         }
     }
+    
+    /// Добавление дочернего вью контроллера на текущий.
+    /// - Parameter child: Добавляемый вью контроллер.
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+    
+    /// Удаление указанного дочернего вью контроллера с его родительского контроллера.
+    /// - Parameter child: Удаляемые вью контроллер.
+    func remove(_ child: UIViewController) {
+        guard parent != nil else { return }
+
+        child.willMove(toParent: nil)
+        child.view.removeFromSuperview()
+        child.removeFromParent()
+    }
 }

@@ -48,25 +48,22 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
             return
         }
         
-        let signInVC = SignInViewController()
-        signInVC.delegate = self
-        navigationController?.pushViewController(signInVC, animated: true)
+        let signInContainerVC = SignInContainerViewController(delegate: self)
+        navigationController?.pushViewController(signInContainerVC, animated: true)
     }
     
-    private func showSignUpFirstScreen() {
-        guard navigationController?.viewControllers.first(where: { $0 is SignUpFirstViewController }) == nil else {
+    private func showSignUpContainerController() {
+        guard navigationController?.viewControllers.first(where: { $0 is SignUpContainerViewController }) == nil else {
             navigationController?.popViewController(animated: true)
             return
         }
         
-        let signUpFirstVC = SignUpFirstViewController()
-        signUpFirstVC.delegate = self
-        navigationController?.pushViewController(signUpFirstVC, animated: true)
+        let signUpContainerVC = SignUpContainerViewController(delegate: self)
+        navigationController?.pushViewController(signUpContainerVC, animated: true)
     }
     
-    private func showSignUpSecondScreen(userCredentials: UserCredentials) {
-        let signUpSecondVC = SignUpSecondViewController(userCredentials: userCredentials)
-        signUpSecondVC.delegate = self
+    private func showSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        let signUpSecondVC = SignUpSecondViewController(signUpModel: signUpModel, delegate: delegate)
         navigationController?.pushViewController(signUpSecondVC, animated: true)
     }
     
@@ -96,16 +93,16 @@ extension AuthorizationCoordinatorImpl: LoginScreenDelegate {
     func didTapSignInWithVKButton() {}
     
     func didTapSignUpWithEmail() {
-        showSignUpFirstScreen()
+        showSignUpContainerController()
     }
 }
 
-// MARK: - SignInScreenDelegate
+// MARK: - SignInContainerViewControllerDelegate
 
-extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
+extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
     
     func goToSignUp() {
-        showSignUpFirstScreen()
+        showSignUpContainerController()
     }
     
     func successfulSignIn() {
@@ -113,22 +110,17 @@ extension AuthorizationCoordinatorImpl: SignInScreenDelegate {
     }
 }
 
-// MARK: - SignUpFirstScreenDelegate
+// MARK: - SignUpContainerViewControllerDelegate
 
-extension AuthorizationCoordinatorImpl: SignUpFirstScreenDelegate {
+extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
     
-    func didTapNextButton(userCredentials: UserCredentials) {
-        showSignUpSecondScreen(userCredentials: userCredentials)
+    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)
     }
     
     func goToSignIn() {
         showSignInScreen()
     }
-}
-
-// MARK: - SignUpSecondScreenDelegate
-
-extension AuthorizationCoordinatorImpl: SignUpSecondScreenDelegate {
     
     func successfulSignUp() {
         showSignInDoneScreen()

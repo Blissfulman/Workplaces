@@ -10,6 +10,8 @@ import UIKit
 /// Родителский класс для всех переиспользуемых `UIView`, инициализируемых из `UINib`.
 class NibInitializableView: UIView, NibInitializable {
     
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initFromNib(nibName: String(describing: Self.self))
