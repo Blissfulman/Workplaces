@@ -77,13 +77,14 @@ final class ProfileTopView: NibInitializableView {
     func configure(profile: User, editProfileButtonAction: @escaping VoidBlock) {
         self.editProfileButtonAction = editProfileButtonAction
         
+        // Временная реализация получения картинки
         if let avatarURL = profile.avatarURL,
            let data = try? Data(contentsOf: avatarURL),
            let imageData = Data(base64Encoded: data) {
             self.avatarImageView.image = UIImage(data: imageData)
         }
         fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
-        if let age = profile.birthday.getAgFromBirthday() {
+        if let age = profile.birthday.getAgeFromBirthday() {
             ageLabel.text = "\(age) years"
         }
     }
@@ -101,7 +102,7 @@ final class ProfileTopView: NibInitializableView {
 
 fileprivate extension Date {
     
-    func getAgFromBirthday() -> Int? {
+    func getAgeFromBirthday() -> Int? {
         Calendar.current.dateComponents([.year], from: self, to: Date()).year
     }
 }

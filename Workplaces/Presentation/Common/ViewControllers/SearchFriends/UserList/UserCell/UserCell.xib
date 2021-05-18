@@ -42,16 +42,16 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQN-yh-dN8">
-                        <rect key="frame" x="80" y="11" width="104.5" height="42"/>
+                        <rect key="frame" x="80" y="13" width="105" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCw-lo-9Kf">
-                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="105" height="19"/>
                                 <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@irlarion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm2-ML-NVs">
-                                <rect key="frame" x="0.0" y="21" width="104.5" height="21"/>
+                                <rect key="frame" x="0.0" y="19" width="105" height="19"/>
                                 <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                                 <color key="textColor" name="middleGrey"/>
                                 <nil key="highlightedColor"/>

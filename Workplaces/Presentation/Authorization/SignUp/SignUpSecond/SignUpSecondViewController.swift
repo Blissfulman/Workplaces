@@ -123,7 +123,9 @@ final class SignUpSecondViewController: UIViewController {
         lastNameTextField.text = signUpModel.lastName
         if let birthday = signUpModel.birthday {
             birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
+            datePicker.date = birthday
         }
+        datePicker.subviews.first?.subviews.last?.backgroundColor = .clear
     }
     
     private func registerForKeyboardNotifications() {

@@ -83,7 +83,12 @@ extension SearchFriendsContainerViewController: SearchFriendsViewControllerDeleg
 
 // MARK: - UserListViewControllerDelegate
 
-extension SearchFriendsContainerViewController: UserListViewControllerDelegate {}
+extension SearchFriendsContainerViewController: UserListViewControllerDelegate {
+    
+    func needEndEditing() {
+        view.endEditing(true)
+    }
+}
 
 // MARK: - UserListDataSourceDelegate
 

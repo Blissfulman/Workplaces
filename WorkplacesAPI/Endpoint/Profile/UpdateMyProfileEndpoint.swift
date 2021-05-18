@@ -25,9 +25,9 @@ public struct UpdateMyProfileEndpoint: JsonEndpoint {
         multipartFormData.append(uploadUser.lastName.data(using: .utf8) ?? Data(), withName: "last_name")
         multipartFormData.append(uploadUser.nickname.data(using: .utf8) ?? Data(), withName: "nickname")
         multipartFormData.append(
-            uploadUser.avatarFile.data(using: .utf8) ?? Data(),
+            uploadUser.avatarFile.data(using: .utf8, allowLossyConversion: false) ?? Data(),
             withName: "avatar_file",
-            fileName: "avatar.png"
+            fileName: "avatar.jpg"
         )
         multipartFormData.append(uploadUser.birthday.data(using: .utf8) ?? Data(), withName: "birth_day")
 

@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol UserListViewControllerDelegate: AnyObject {
-    
+    func needEndEditing()
 }
 
 final class UserListViewController: UIViewController {
@@ -55,5 +55,12 @@ final class UserListViewController: UIViewController {
     
     private func setupUI() {
         tableView.register(UserCell.nib(), forCellReuseIdentifier: UserCell.identifier)
+    }
+}
+
+extension UserListViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.needEndEditing()
     }
 }

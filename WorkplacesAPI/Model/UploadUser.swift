@@ -36,9 +36,8 @@ public struct UploadUser: Encodable {
         nickname = user.nickname ?? ""
         if let url = user.avatarURL,
            let imageData = try? Data(contentsOf: url),
-           let base64Data = UIImage(data: imageData)?.pngData()?.base64EncodedData(),
-           let stringData = String(data: base64Data, encoding: .utf8) {
-            avatarFile = stringData
+           let jpegData = UIImage(data: imageData)?.jpegData(compressionQuality: 1) {
+            avatarFile = jpegData.base64EncodedString()
         } else {
             avatarFile = ""
         }
