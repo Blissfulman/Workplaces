@@ -24,6 +24,7 @@ final class SignUpContainerViewController: UIViewController {
     // MARK: - Private properties
     
     private let authorizationService: AuthorizationService
+    private let profileService: ProfileService
     private let signUpModel = SignUpModel()
     private var progressList = [Progress]()
     private lazy var signUpFirstVC: SignUpFirstViewController = {
@@ -36,9 +37,11 @@ final class SignUpContainerViewController: UIViewController {
     
     init(
         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService,
+        profileService: ProfileService = ServiceLayer.shared.profileService,
         delegate: SignUpContainerViewControllerDelegate
     ) {
         self.authorizationService = authorizationService
+        self.profileService = profileService
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -68,6 +71,10 @@ final class SignUpContainerViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         add(signUpFirstVC)
     }
+    
+    private func updateProfile() {
+        profileService.updateMyProfile(user: signUpModel.updatedProfile) { _ in }
+    }
 }
 
 // MARK: - SignUpFirstViewControllerDelegate
@@ -88,19 +95,15 @@ extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
 extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
     
     func didTapSignUpButton() {
-        guard let email = signUpModel.email, !email.isEmpty,
-              let password = signUpModel.password, !password.isEmpty else {
-            showAlert("Необходимо было ввести e-mail и пароль") // TEMP
-            return
-        }
-        let userCredentials = UserCredentials(email: email, password: password)
-        
         LoadingView.show()
+        let userCredentials = signUpModel.userCredentials
+        
         let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case .success:
+                self?.updateProfile()
                 self?.delegate?.successfulSignUp()
             case let .failure(error):
                 self?.signUpFirstVC.showAlert(error)

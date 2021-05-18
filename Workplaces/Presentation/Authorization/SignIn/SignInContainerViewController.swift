@@ -76,10 +76,9 @@ extension SignInContainerViewController: SignInViewControllerDelegate {
     
     func didTapSignInButton() {
         LoadingView.show()
+        let userCredentials = signInModel.userCredentials
         
-        let progress = authorizationService.signInWithEmail(
-            userCredentials: signInModel.userCredentials
-        ) { [weak self] result in
+        let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
             
             switch result {

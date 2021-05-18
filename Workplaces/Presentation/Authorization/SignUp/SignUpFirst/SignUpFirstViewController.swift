@@ -72,6 +72,7 @@ final class SignUpFirstViewController: UIViewController {
             updateEmailTextFieldState()
         case passwordTextField:
             signUpModel.password = passwordTextField.text
+            updatePasswordTextFieldState()
         default:
             break
         }
@@ -111,7 +112,10 @@ final class SignUpFirstViewController: UIViewController {
     
     private func updateEmailTextFieldState() {
         emailTextField.textColor = signUpModel.isValidEmail ? Palette.black : Palette.orange
-        // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+    }
+    
+    private func updatePasswordTextFieldState() {
+        passwordTextField.textColor = signUpModel.isValidPassword ? Palette.black : Palette.orange
     }
     
     private func registerForKeyboardNotifications() {

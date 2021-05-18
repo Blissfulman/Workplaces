@@ -31,19 +31,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN">
-                    <rect key="frame" x="32" y="90" width="350" height="18"/>
+                    <rect key="frame" x="32" y="90" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingDidEnd" id="1dM-sy-9Ju"/>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="due-hj-fXa"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
-                    <rect key="frame" x="32" y="156" width="350" height="18"/>
+                    <rect key="frame" x="32" y="158" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingDidEnd" id="hH9-B6-guN"/>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="WAS-2g-EyK"/>
                     </connections>
                 </textField>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7L2-Ow-d4M">
@@ -66,11 +66,11 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
-                    <rect key="frame" x="32" y="222" width="350" height="18"/>
+                    <rect key="frame" x="32" y="226" width="350" height="20"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingDidEnd" id="6bD-rB-LCn"/>
+                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="LbO-TW-9KL"/>
                     </connections>
                 </textField>
             </subviews>
