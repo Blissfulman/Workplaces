@@ -30,22 +30,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN">
-                    <rect key="frame" x="32" y="90" width="350" height="20"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="due-hj-fXa"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
-                    <rect key="frame" x="32" y="158" width="350" height="20"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="WAS-2g-EyK"/>
-                    </connections>
-                </textField>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="7L2-Ow-d4M">
                     <rect key="frame" x="0.0" y="44" width="414" height="4"/>
                     <color key="progressTintColor" name="orange"/>
@@ -65,38 +49,67 @@
                         <action selector="signUpButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
                     </connections>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
-                    <rect key="frame" x="32" y="226" width="350" height="20"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="LbO-TW-9KL"/>
-                    </connections>
-                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="snE-5f-5qE">
+                    <rect key="frame" x="32" y="90" width="350" height="156"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="due-hj-fXa"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
+                            <rect key="frame" x="0.0" y="66" width="350" height="18"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="WAS-2g-EyK"/>
+                            </connections>
+                        </textField>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-h8-5v2">
+                            <rect key="frame" x="0.0" y="132" width="350" height="24"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
+                                    <rect key="frame" x="0.0" y="0.0" width="314" height="24"/>
+                                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="LbO-TW-9KL"/>
+                                    </connections>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkd-dG-aJf">
+                                    <rect key="frame" x="326" y="0.0" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="ae9-5W-mQo"/>
+                                        <constraint firstAttribute="height" constant="24" id="brh-xb-Zkz"/>
+                                    </constraints>
+                                    <state key="normal" image="24-calendar"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="7L2-Ow-d4M" secondAttribute="trailing" id="1p6-SH-CiR"/>
-                <constraint firstItem="4oU-tD-sUg" firstAttribute="top" secondItem="7Os-rp-pcN" secondAttribute="bottom" constant="48" id="3pI-bM-n4e"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S8u-nc-WXc" secondAttribute="bottom" constant="44" id="4Ow-FS-dvX"/>
                 <constraint firstItem="S8u-nc-WXc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5Ej-7a-YO2"/>
+                <constraint firstItem="snE-5f-5qE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="AeV-I5-2Hs"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Crc-ES-PEK"/>
-                <constraint firstAttribute="trailing" secondItem="4oU-tD-sUg" secondAttribute="trailing" constant="32" id="HLj-Jc-7pN"/>
-                <constraint firstItem="7Os-rp-pcN" firstAttribute="top" secondItem="7L2-Ow-d4M" secondAttribute="bottom" constant="42" id="Irp-5U-lhb"/>
-                <constraint firstItem="7Os-rp-pcN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="KhS-SS-3rQ"/>
-                <constraint firstAttribute="trailing" secondItem="iEh-H0-W4S" secondAttribute="trailing" constant="32" id="Lhp-TB-nq6"/>
-                <constraint firstAttribute="trailing" secondItem="7Os-rp-pcN" secondAttribute="trailing" constant="32" id="UZ1-Ik-YW8"/>
-                <constraint firstItem="iEh-H0-W4S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="blN-V2-Te2"/>
-                <constraint firstItem="4oU-tD-sUg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="f77-Lt-KG3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="snE-5f-5qE" secondAttribute="trailing" constant="32" id="gZv-HC-Ts5"/>
                 <constraint firstAttribute="trailing" secondItem="S8u-nc-WXc" secondAttribute="trailing" constant="16" id="ii4-Fv-EWl"/>
-                <constraint firstItem="iEh-H0-W4S" firstAttribute="top" secondItem="4oU-tD-sUg" secondAttribute="bottom" constant="48" id="lto-VO-N12"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oV1-R0-JJ6"/>
+                <constraint firstItem="snE-5f-5qE" firstAttribute="top" secondItem="7L2-Ow-d4M" secondAttribute="bottom" constant="42" id="rNW-wF-xJy"/>
             </constraints>
             <point key="canvasLocation" x="35" y="94"/>
         </view>
     </objects>
     <resources>
+        <image name="24-calendar" width="24" height="24"/>
         <namedColor name="lightGreyBlue">
             <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
