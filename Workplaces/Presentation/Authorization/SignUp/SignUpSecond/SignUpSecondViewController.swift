@@ -100,7 +100,7 @@ final class SignUpSecondViewController: UIViewController {
               let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardHeight = value.cgRectValue.height
         
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
             self.signUpButtonBottomConstraint.constant = keyboardHeight
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
@@ -108,7 +108,7 @@ final class SignUpSecondViewController: UIViewController {
     }
     
     @objc private func keyboardWillHide() {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
             self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }

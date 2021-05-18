@@ -15,4 +15,5 @@ enum UIConstants {
     
     static let defaultLowerButtonsBottomSpacing: CGFloat = 44
     static let defaultSpacingBetweenContentAndKeyboard: CGFloat = 16
+    static let keyboardAppearAnimationDuration: TimeInterval = 0.5
 }
