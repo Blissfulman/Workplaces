@@ -61,6 +61,16 @@ final class SignUpFirstViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Public methods
+    
+    func shakeEmailTextField() {
+        emailTextField.shakeAnimation(duration: 1)
+    }
+    
+    func shakePasswordTextField() {
+        passwordTextField.shakeAnimation(duration: 1)
+    }
+    
     // MARK: - Actions
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {

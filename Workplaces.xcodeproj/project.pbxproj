@@ -108,6 +108,7 @@
 		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
 		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
 		CE5E71BD2652E9D10028990A /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */; };
+		CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -352,6 +353,7 @@
 		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
 		CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
+		CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceError.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
 				CE5E71A926528B650028990A /* SearchServiceImpl.swift */,
 				CE8F1BDE2635173F00C0C52C /* Protocols */,
+				CE7825AB2654524800CE3291 /* Errors */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -933,6 +936,14 @@
 				CE5E71B72652A47C0028990A /* UserCell.xib */,
 			);
 			path = UserCell;
+			sourceTree = "<group>";
+		};
+		CE7825AB2654524800CE3291 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		CE7C4944262B58E4007FA94E = {
@@ -1720,6 +1731,7 @@
 				CE1508972643D54800568006 /* NibInitializableView.swift in Sources */,
 				CEB07519264EE7130060E818 /* SignInModel.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
+				CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */,
 				CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */,
 				CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,

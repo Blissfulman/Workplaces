@@ -13,6 +13,7 @@ protocol SignUpContainerViewControllerDelegate: AnyObject {
     func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func goToSignIn()
     func successfulSignUp()
+    func backFromSecondToFirstScreen()
 }
 
 final class SignUpContainerViewController: UIViewController {
@@ -75,6 +76,21 @@ final class SignUpContainerViewController: UIViewController {
     private func updateProfile() {
         profileService.updateMyProfile(user: signUpModel.updatedProfile) { _ in }
     }
+    
+    private func handleAuthorizationError(_ error: Error) {
+        guard let authError = error as? AuthorizationServiceError else { return }
+        
+        switch authError {
+        case .emailValidationError:
+            delegate?.backFromSecondToFirstScreen()
+            signUpFirstVC.shakeEmailTextField()
+        case .passwordValidationError:
+            delegate?.backFromSecondToFirstScreen()
+            signUpFirstVC.shakePasswordTextField()
+        default:
+            showAlert(authError)
+        }
+    }
 }
 
 // MARK: - SignUpFirstViewControllerDelegate
@@ -106,7 +122,7 @@ extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
                 self?.updateProfile()
                 self?.delegate?.successfulSignUp()
             case let .failure(error):
-                self?.signUpFirstVC.showAlert(error)
+                self?.handleAuthorizationError(error)
             }
         }
         progressList.append(progress)

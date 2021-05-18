@@ -125,6 +125,12 @@ extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
     func successfulSignUp() {
         showSignInDoneScreen()
     }
+    
+    func backFromSecondToFirstScreen() {
+        if navigationController?.viewControllers.last is SignUpSecondViewController {
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }
 
 // MARK: - SignInDoneScreenDelegate
