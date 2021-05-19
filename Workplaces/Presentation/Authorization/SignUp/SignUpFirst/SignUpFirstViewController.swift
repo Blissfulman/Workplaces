@@ -14,7 +14,7 @@ protocol SignUpFirstViewControllerDelegate: AnyObject {
     func didTapAlreadySignedUpButton()
 }
 
-final class SignUpFirstViewController: UIViewController {
+final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
     // MARK: - Public properties
     
@@ -43,22 +43,30 @@ final class SignUpFirstViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Deinitializer
-    
-    deinit {
-        removeKeyboardNotifications()
-    }
-    
     // MARK: - UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerForKeyboardNotifications()
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    // MARK: - KeyboardNotificationsViewController
+    
+    override func keyboardWillShow(_ notification: Notification) {
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func keyboardWillHide() {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Public methods
@@ -97,42 +105,9 @@ final class SignUpFirstViewController: UIViewController {
         delegate?.didTapAlreadySignedUpButton()
     }
     
-    @objc private func keyboardWillShow(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardHeight = value.cgRectValue.height
-        
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = keyboardHeight
-                + UIConstants.defaultSpacingBetweenContentAndKeyboard
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc private func keyboardWillHide() {
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
-            self.view.layoutIfNeeded()
-        }
-    }
-    
     // MARK: - Private methods
     
     private func updateSignUpButtonState() {
         signUpButton.isEnabled = signUpModel.isPossibleToSignUp
-    }
-    
-    private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil
-        )
-    }
-    
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }

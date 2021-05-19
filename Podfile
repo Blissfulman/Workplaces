@@ -3,6 +3,7 @@ platform :ios, '13.0'
 
 target 'Workplaces' do
   use_frameworks!
+  pod 'SwiftLint'
   pod 'Apexy'
 
   target 'WorkplacesTests' do

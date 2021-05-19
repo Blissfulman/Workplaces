@@ -13,7 +13,7 @@ protocol EditProfileViewControllerDelegate: AnyObject {
     func didTapSaveButton()
 }
 
-final class EditProfileViewController: UIViewController {
+final class EditProfileViewController: KeyboardNotificationsViewController {
     
     // MARK: - Outlets
     
@@ -22,6 +22,7 @@ final class EditProfileViewController: UIViewController {
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var birthdayTextField: UITextField!
     @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -50,6 +51,25 @@ final class EditProfileViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    // MARK: - KeyboardNotificationsViewController
+    
+    override func keyboardWillShow(_ notification: Notification) {
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func keyboardWillHide() {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Actions
