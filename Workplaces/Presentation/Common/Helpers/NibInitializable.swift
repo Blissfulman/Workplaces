@@ -16,8 +16,6 @@ extension NibInitializable where Self: UIView {
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? Self else {
             fatalError("Failed to instantiate \(nibName)")
         }
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(view)
+        addFulloverSubview(view)
     }
 }

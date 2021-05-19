@@ -55,9 +55,7 @@ final class ProfileContainerViewController: UIViewController {
     
     private lazy var profileTopView: ProfileTopView = {
         let profileTopView = ProfileTopView(delegate: self)
-        profileTopView.frame = topView.bounds
-        profileTopView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        topView.addSubview(profileTopView)
+        topView.addFulloverSubview(profileTopView)
         return profileTopView
     }()
     private lazy var postListVC: PostListViewController = {
@@ -245,9 +243,7 @@ final class ProfileContainerViewController: UIViewController {
         
         if let zeroSubview = zeroSubview {
             zeroView.subviews.forEach { $0.removeFromSuperview() }
-            zeroSubview.frame = zeroView.bounds
-            zeroSubview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            zeroView.addSubview(zeroSubview)
+            zeroView.addFulloverSubview(zeroSubview)
             view.bringSubviewToFront(zeroView)
         }
     }
