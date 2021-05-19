@@ -37,7 +37,7 @@ final class FriendCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        avatarImageView.image = nil
+        avatarImageView.image = Icons.avatar
         fullNameLabel.text = nil
         nicknameLabel.text = nil
     }
