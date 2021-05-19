@@ -42,7 +42,7 @@ final class SignInDoneViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut, .autoreverse, .repeat]) {
-            self.imageView.frame.origin.y -= 10
+            self.imageView.transform.ty -= 10
         }
     }
 }

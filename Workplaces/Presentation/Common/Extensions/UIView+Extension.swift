@@ -35,8 +35,8 @@ extension UIView {
     }
     
     /// Анимация горизонтальной тряски.
-    /// - Parameter duration: Длительность анимации (по умолчанию равна `0.4`).
-    func shakeAnimation(duration: TimeInterval = 0.4) {
+    /// - Parameter duration: Длительность анимации (по умолчанию равна `0.5`).
+    func shakeAnimation(duration: TimeInterval = 0.5) {
         let shakeAnimation = CAKeyframeAnimation(keyPath: "position.x")
         shakeAnimation.values = [0, 10, -10, 10, -5, 5, -5, 0]
         shakeAnimation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.8, 1]
