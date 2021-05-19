@@ -66,10 +66,9 @@ final class SignInViewController: UIViewController {
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
         if sender == emailTextField {
             signInModel.email = emailTextField.text
-            updateEmailTextFieldState()
-        } else {
+        }
+        if sender == passwordTextField {
             signInModel.password = passwordTextField.text
-            updatePasswordTextFieldState()
         }
         updateSignInButtonState()
     }
@@ -79,15 +78,6 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction private func signInButtonTapped() {
-        guard signInModel.isValidEmail && signInModel.isValidPassword else {
-            if !signInModel.isValidEmail {
-                emailTextField.shakeAnimation()
-            }
-            if !signInModel.isValidPassword {
-                passwordTextField.shakeAnimation()
-            }
-            return
-        }
         delegate?.didTapSignInButton()
     }
     
@@ -114,16 +104,6 @@ final class SignInViewController: UIViewController {
     
     private func updateSignInButtonState() {
         signInButton.isEnabled = signInModel.isPossibleToSignIn
-    }
-    
-    // MARK: - Private methods
-    
-    private func updateEmailTextFieldState() {
-        emailTextField.textColor = signInModel.isValidEmail ? Palette.black : Palette.orange
-    }
-    
-    private func updatePasswordTextFieldState() {
-        passwordTextField.textColor = signInModel.isValidPassword ? Palette.black : Palette.orange
     }
     
     private func registerForKeyboardNotifications() {

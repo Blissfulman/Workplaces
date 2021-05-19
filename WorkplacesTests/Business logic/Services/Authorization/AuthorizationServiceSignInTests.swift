@@ -46,8 +46,8 @@ final class AuthorizationServiceSignInTests: XCTestCase {
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { result in
             var boolResult = false
             if case let .failure(error) = result,
-               let apiError = error as? APIError,
-               apiError.code == expectedError.code {
+               let authError = error as? AuthorizationServiceError,
+               authError == .passwordValidationError {
                 boolResult = true
             }
             XCTAssertTrue(boolResult)

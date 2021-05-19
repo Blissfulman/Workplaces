@@ -75,17 +75,14 @@ final class SignUpContainerViewController: UIViewController {
         guard let authError = error as? AuthorizationServiceError else { return }
         
         switch authError {
-        case .dublicateUserError:
-            signUpFirstVC.indicateInvalidEmail()
-            showAlert(authError)
         case .emailValidationError:
             signUpFirstVC.indicateInvalidEmail()
         case .passwordValidationError:
             signUpFirstVC.indicateInvalidPassword()
-            showAlert(authError)
         default:
-            showAlert(authError)
+            break
         }
+        showAlert(authError)
     }
 }
 

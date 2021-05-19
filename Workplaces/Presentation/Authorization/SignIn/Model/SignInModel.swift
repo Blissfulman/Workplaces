@@ -12,14 +12,8 @@ final class SignInModel {
     var email: String?
     var password: String?
     
-    var isValidEmail: Bool {
-        EmailValidator.isValid(email)
-    }
-    var isValidPassword: Bool {
-        PasswordValidator.isValid(password)
-    }
     var isPossibleToSignIn: Bool {
-        !isEmptyAtLeastOneProperty
+        !isEmptyEmailOrPassword
     }
     var userCredentials: UserCredentials {
         UserCredentials(email: email, password: password)
@@ -27,7 +21,7 @@ final class SignInModel {
     
     // MARK: - Private properties
     
-    private var isEmptyAtLeastOneProperty: Bool {
+    private var isEmptyEmailOrPassword: Bool {
         if let email = email, !email.isEmpty,
            let password = password, !password.isEmpty {
             return false
