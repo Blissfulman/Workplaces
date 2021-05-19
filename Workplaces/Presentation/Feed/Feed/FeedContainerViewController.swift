@@ -58,8 +58,8 @@ final class FeedContainerViewController: UIViewController {
     private var state: State = .data(posts: []) {
         willSet {
             switch newValue {
-            case .data:
-                showPostListView(postList: Post.getMockPosts()) // TEMP
+            case let .data(posts):
+                showPostListView(postList: posts)
             case .noFriends:
                 showNoFriendsZeroView()
             case .error:
@@ -89,6 +89,7 @@ final class FeedContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Palette.white
         setupUI()
     }
     
@@ -112,7 +113,7 @@ final class FeedContainerViewController: UIViewController {
             
             switch result {
             case let .success(posts):
-                self?.state = Bool.random() // posts.isEmpty
+                self?.state = posts.isEmpty
                     ? .noFriends
                     : .data(posts: posts)
             case .failure:

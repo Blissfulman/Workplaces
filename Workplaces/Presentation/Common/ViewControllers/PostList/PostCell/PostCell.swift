@@ -57,7 +57,6 @@ final class PostCell: UITableViewCell {
     
     @IBAction private func likeButtonTapped() {
         guard let post = post else { return }
-        print(post.id)
         delegate?.didTapLikeButton(withPost: post)
     }
 }
