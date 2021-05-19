@@ -244,7 +244,7 @@ extension ProfileContainerViewController {
     private func fetchProfile() {
         LoadingView.show()
         
-        profileService.fetchMyProfile { [weak self] result in
+        let progress = profileService.fetchMyProfile { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -256,12 +256,13 @@ extension ProfileContainerViewController {
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchMyPosts() {
         LoadingView.show()
 
-        profileService.fetchMyPosts { [weak self] result in
+        let progress = profileService.fetchMyPosts { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -274,12 +275,13 @@ extension ProfileContainerViewController {
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchLikedPosts() {
         LoadingView.show()
 
-        profileService.fetchLikedPosts { [weak self] result in
+        let progress = profileService.fetchLikedPosts { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -292,12 +294,13 @@ extension ProfileContainerViewController {
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchFriends() {
         LoadingView.show()
 
-        profileService.fetchFriends { [weak self] result in
+        let progress = profileService.fetchFriends { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -310,17 +313,7 @@ extension ProfileContainerViewController {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    private func deleteFriend(withID userID: User.ID) {
-        profileService.removeFriend(userID: userID) { [weak self] result in
-            switch result {
-            case .success:
-                self?.fetchFriends()
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+        progressList.append(progress)
     }
 }
 
@@ -331,10 +324,13 @@ extension ProfileContainerViewController: ProfileTopViewDelegate {
     func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
         switch newState {
         case .posts:
+            fetchMyPosts()
             state = .posts
         case .likes:
+            fetchLikedPosts()
             state = .likes
         case .friends:
+            fetchFriends()
             state = .friends
         }
     }
@@ -427,6 +423,14 @@ extension ProfileContainerViewController: ProfileFriendsDataSourceDelegate {
     }
     
     func didTapDeleteFriend(withID userID: User.ID) {
-        deleteFriend(withID: userID)
+        let progress = profileService.removeFriend(userID: userID) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchFriends()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
     }
 }

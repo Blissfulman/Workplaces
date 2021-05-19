@@ -72,7 +72,7 @@ final class SearchFriendsContainerViewController: UIViewController {
 extension SearchFriendsContainerViewController: SearchFriendsViewControllerDelegate {
     
     func didTapSearchButton(query: String) {
-        searchService.searchUsers(query: query) { [weak self] result in
+        let progress = searchService.searchUsers(query: query) { [weak self] result in
             switch result {
             case let .success(users):
                 self?.userListDataSource.updateData(users: users)
@@ -83,6 +83,7 @@ extension SearchFriendsContainerViewController: SearchFriendsViewControllerDeleg
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
 }
 
