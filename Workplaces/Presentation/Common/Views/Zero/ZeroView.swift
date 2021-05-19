@@ -11,6 +11,7 @@ final class ZeroView: NibInitializableView {
     
     // MARK: - Outlets
     
+    @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
@@ -45,5 +46,8 @@ final class ZeroView: NibInitializableView {
         if buttonAction != nil {
             button.isHidden = false
         }
+        
+        stackView.setCustomSpacing(0, after: imageView)
+        stackView.setCustomSpacing(8, after: titleLabel)
     }
 }

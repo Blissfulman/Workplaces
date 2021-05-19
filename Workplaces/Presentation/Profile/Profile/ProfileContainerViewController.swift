@@ -282,7 +282,7 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(myPosts):
-                self?.postListDataSource.updateData(posts: Bool.random() ? myPosts : Post.getMockPosts())
+                self?.postListDataSource.updateData(posts: myPosts)
                 if self?.state == .posts {
                     self?.updateScreen()
                 }
@@ -300,7 +300,7 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(likedPosts):
-                self?.likeListDataSource.updateData(posts: Bool.random() ? likedPosts : Post.getMockPosts())
+                self?.likeListDataSource.updateData(posts: likedPosts)
                 if self?.state == .likes {
                     self?.updateScreen()
                 }
@@ -318,7 +318,7 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(friends):
-                self?.friendListDataSource.updateData(friends: Bool.random() ? friends : User.getMockUsers())
+                self?.friendListDataSource.updateData(friends: friends)
                 if self?.state == .friends {
                     self?.updateScreen()
                 }

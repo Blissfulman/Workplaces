@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="button" destination="Pvd-zZ-s2l" id="aMa-Ck-qbc"/>
                 <outlet property="imageView" destination="NcV-WM-y7C" id="Dvv-LF-cwh"/>
+                <outlet property="stackView" destination="D0L-yZ-Bl1" id="L74-8s-r3l"/>
                 <outlet property="subtitleLabel" destination="Ts7-JG-9h6" id="g2v-tG-Mfk"/>
                 <outlet property="titleLabel" destination="f1L-Wh-RDj" id="YuQ-wh-1nM"/>
             </connections>
@@ -27,50 +28,49 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NcV-WM-y7C">
-                    <rect key="frame" x="107" y="199.5" width="200" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="fo3-sf-BtJ"/>
-                        <constraint firstAttribute="width" constant="200" id="xf3-uU-3Zs"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1L-Wh-RDj">
-                    <rect key="frame" x="171" y="424.5" width="72" height="47"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-JG-9h6">
-                    <rect key="frame" x="62" y="479.5" width="290" height="21"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <color key="textColor" name="middleGrey"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvd-zZ-s2l">
-                    <rect key="frame" x="182.5" y="525.5" width="49" height="33"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Button">
-                        <color key="titleColor" name="orange"/>
-                    </state>
-                    <connections>
-                        <action selector="buttonTapped" destination="-1" eventType="touchUpInside" id="2JS-zl-2lm"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="D0L-yZ-Bl1">
+                    <rect key="frame" x="62" y="295" width="290" height="316"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NcV-WM-y7C">
+                            <rect key="frame" x="45" y="0.0" width="200" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="fo3-sf-BtJ"/>
+                                <constraint firstAttribute="width" constant="200" id="xf3-uU-3Zs"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1L-Wh-RDj">
+                            <rect key="frame" x="109" y="224" width="72" height="47"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-JG-9h6">
+                            <rect key="frame" x="117" y="295" width="56" height="21"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <color key="textColor" name="middleGrey"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvd-zZ-s2l">
+                            <rect key="frame" x="120.5" y="316" width="49" height="0.0"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" name="orange"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonTapped" destination="-1" eventType="touchUpInside" id="2JS-zl-2lm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="lightGrey"/>
             <constraints>
-                <constraint firstItem="NcV-WM-y7C" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5Ny-Rn-oeK"/>
-                <constraint firstItem="Pvd-zZ-s2l" firstAttribute="top" secondItem="Ts7-JG-9h6" secondAttribute="bottom" constant="25" id="EIm-9C-AGl"/>
-                <constraint firstItem="Ts7-JG-9h6" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="GZ1-ZD-mDf"/>
-                <constraint firstItem="Ts7-JG-9h6" firstAttribute="top" secondItem="f1L-Wh-RDj" secondAttribute="bottom" constant="8" id="XZG-QE-eiq"/>
-                <constraint firstItem="f1L-Wh-RDj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xlq-j8-R2b"/>
-                <constraint firstItem="f1L-Wh-RDj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="d7c-Lp-1HX"/>
-                <constraint firstItem="f1L-Wh-RDj" firstAttribute="top" secondItem="NcV-WM-y7C" secondAttribute="bottom" constant="25" id="g1G-93-cEQ"/>
-                <constraint firstItem="Ts7-JG-9h6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lCh-LZ-6Nh"/>
-                <constraint firstItem="Pvd-zZ-s2l" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="rfk-Ge-NdL"/>
+                <constraint firstItem="D0L-yZ-Bl1" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="KcR-ch-MLr"/>
+                <constraint firstItem="D0L-yZ-Bl1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fAW-VO-gIx"/>
+                <constraint firstItem="D0L-yZ-Bl1" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="kYp-P8-1hf"/>
             </constraints>
-            <point key="canvasLocation" x="35" y="69"/>
+            <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
         </view>
     </objects>
     <resources>

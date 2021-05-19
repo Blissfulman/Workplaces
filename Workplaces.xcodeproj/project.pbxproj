@@ -161,7 +161,6 @@
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
 		CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7426495E47007C2DCE /* FriendListViewController.swift */; };
 		CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7526495E47007C2DCE /* FriendListViewController.xib */; };
-		CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* MockModels.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */; };
 		CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */; };
@@ -408,7 +407,6 @@
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		CEA46B7426495E47007C2DCE /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		CEA46B7526495E47007C2DCE /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
-		CEA46B7A264A846B007C2DCE /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOffsetConfigurable.swift; sourceTree = "<group>"; };
@@ -606,7 +604,6 @@
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
 				CEB0751C265050110060E818 /* PasswordValidator.swift */,
-				CEA46B7A264A846B007C2DCE /* MockModels.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1689,7 +1686,6 @@
 				CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
-				CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */,
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,
 				CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */,
 				CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */,
