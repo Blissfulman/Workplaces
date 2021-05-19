@@ -16,6 +16,7 @@ final class SearchFriendsContainerViewController: UIViewController {
     // MARK: - Private properties
     
     private let searchService: SearchService
+    private let profileService: ProfileService
     private var progressList = [Progress]()
     private lazy var searchFriendsVC = SearchFriendsViewController(delegate: self)
     private lazy var userListDataSource = UserListDataSource(delegate: self)
@@ -23,8 +24,12 @@ final class SearchFriendsContainerViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(searchService: SearchService = ServiceLayer.shared.searchService) {
+    init(
+        searchService: SearchService = ServiceLayer.shared.searchService,
+        profileService: ProfileService = ServiceLayer.shared.profileService
+    ) {
         self.searchService = searchService
+        self.profileService = profileService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -99,6 +104,11 @@ extension SearchFriendsContainerViewController: UserListDataSourceDelegate {
     }
     
     func didTapAddFriend(withID userID: User.ID) {
-        
+        let progress = profileService.addFriend(userID: userID) { result in
+            if case let .failure(error) = result {
+                print(error.localizedDescription) // TEMP
+            }
+        }
+        progressList.append(progress)
     }
 }
