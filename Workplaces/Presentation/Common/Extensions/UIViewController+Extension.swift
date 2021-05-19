@@ -9,14 +9,16 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ error: Error?) {
+    func showAlert(_ error: Error?, competion: @escaping VoidBlock = {}) {
         DispatchQueue.main.async { [weak self] in
             LoadingView.hide()
             
-            let alert = UIAlertController(title: "Ошибка",
+            let alert = UIAlertController(title: "Error".localized(),
                                           message: error?.localizedDescription,
                                           preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
+            let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                competion()
+            }
             alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
@@ -24,7 +26,7 @@ extension UIViewController {
     
     func showAlert(_ message: String?) {
         DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: "Ошибка",
+            let alert = UIAlertController(title: "Error".localized(),
                                           message: message,
                                           preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
