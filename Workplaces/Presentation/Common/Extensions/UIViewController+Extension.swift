@@ -41,6 +41,15 @@ extension UIViewController {
         child.didMove(toParent: self)
     }
     
+    /// Добавление дочернего вью контроллера на текущий с полным перекрытием родительского.
+    /// - Parameter child: Добавляемый вью контроллер.
+    func addFullover(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.view.fillToSuperview()
+        child.didMove(toParent: self)
+    }
+    
     /// Удаление указанного дочернего вью контроллера с его родительского контроллера.
     /// - Parameter child: Удаляемые вью контроллер.
     func remove(_ child: UIViewController) {

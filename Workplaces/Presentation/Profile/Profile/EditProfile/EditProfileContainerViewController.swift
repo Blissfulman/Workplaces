@@ -24,11 +24,7 @@ final class EditProfileContainerViewController: UIViewController {
     private let profileService: ProfileService
     private let editProfileModel: EditProfileModel
     private var progressList = [Progress]()
-    private lazy var editProfileVC: EditProfileViewController = {
-        let editProfileVC = EditProfileViewController(editProfileModel: editProfileModel, delegate: self)
-        editProfileVC.view.frame = view.bounds
-        return editProfileVC
-    }()
+    private lazy var editProfileVC = EditProfileViewController(editProfileModel: editProfileModel, delegate: self)
     
     // MARK: - Initializers
     
@@ -59,7 +55,7 @@ final class EditProfileContainerViewController: UIViewController {
     
     private func setupUI() {
         tabBarController?.tabBar.isHidden = true
-        add(editProfileVC)
+        addFullover(editProfileVC)
     }
 }
 

@@ -33,26 +33,18 @@ final class FeedContainerViewController: UIViewController {
     private var progressList = [Progress]()
     
     private lazy var postListDataSource = FeedPostsDataSource(delegate: self)
-    private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
-    }()
+    private lazy var postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
     private lazy var noFriendsZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToSearchFriends()
         }
-        let zeroVC = ZeroViewController(model: .feedNoFriends, buttonAction: buttonAction)
-        zeroVC.view.frame = view.bounds
-        return zeroVC
+        return ZeroViewController(model: .feedNoFriends, buttonAction: buttonAction)
     }()
     private lazy var errorZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.fetchPosts()
         }
-        let zeroVC = ZeroViewController(model: .error, buttonAction: buttonAction)
-        zeroVC.view.frame = view.bounds
-        return zeroVC
+        return ZeroViewController(model: .error, buttonAction: buttonAction)
     }()
     
     private var state: State = .data(posts: []) {
@@ -124,16 +116,16 @@ final class FeedContainerViewController: UIViewController {
     }
     
     private func showNoFriendsZeroView() {
-        add(noFriendsZeroVC)
+        addFullover(noFriendsZeroVC)
     }
     
     private func showPostListView(postList: [Post]) {
         postListDataSource.updateData(posts: postList)
-        add(postListVC)
+        addFullover(postListVC)
     }
     
     private func showErrorZeroView() {
-        add(errorZeroVC)
+        addFullover(errorZeroVC)
     }
 }
 

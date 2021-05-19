@@ -9,19 +9,25 @@ import UIKit
 
 extension UIView {
     
-    /// Добавить сабвью с полным перекрытием родительского вью.
+    /// Добавляет сабвью с полным перекрытием родительского вью.
     ///
     /// - Parameters:
     ///   - subview: Сабвью.
     func addFulloverSubview(_ subview: UIView) {
-        subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
-        NSLayoutConstraint.activate([
-            subview.topAnchor.constraint(equalTo: topAnchor),
-            subview.leadingAnchor.constraint(equalTo: leadingAnchor),
-            subview.trailingAnchor.constraint(equalTo: trailingAnchor),
-            subview.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
+        subview.fillToSuperview()
+    }
+    
+    /// Заполняет родительское вью (устанавливает нулевые констрейнты по всем сторонам).
+    func fillToSuperview() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+            let left = leftAnchor.constraint(equalTo: superview.leftAnchor)
+            let right = rightAnchor.constraint(equalTo: superview.rightAnchor)
+            let top = topAnchor.constraint(equalTo: superview.topAnchor)
+            let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            NSLayoutConstraint.activate([left, right, top, bottom])
+        }
     }
     
     /// Устанавливает переданный радиус скругления углов.

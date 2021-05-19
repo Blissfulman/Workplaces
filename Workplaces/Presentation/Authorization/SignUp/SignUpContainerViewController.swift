@@ -27,11 +27,7 @@ final class SignUpContainerViewController: UIViewController {
     private let profileService: ProfileService
     private let signUpModel = SignUpModel()
     private var progressList = [Progress]()
-    private lazy var signUpFirstVC: SignUpFirstViewController = {
-        let signUpFirstVC = SignUpFirstViewController(signUpModel: signUpModel, delegate: self)
-        signUpFirstVC.view.frame = view.bounds
-        return signUpFirstVC
-    }()
+    private lazy var signUpFirstVC = SignUpFirstViewController(signUpModel: signUpModel, delegate: self)
     
     // MARK: - Initializers
     
@@ -68,7 +64,7 @@ final class SignUpContainerViewController: UIViewController {
     private func setupUI() {
         title = "Sign up".localized()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        add(signUpFirstVC)
+        addFullover(signUpFirstVC)
     }
     
     private func handleAuthorizationError(_ error: Error) {

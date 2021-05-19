@@ -58,21 +58,9 @@ final class ProfileContainerViewController: UIViewController {
         topView.addFulloverSubview(profileTopView)
         return profileTopView
     }()
-    private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
-    }()
-    private lazy var likeListVC: PostListViewController = {
-        let likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
-        likeListVC.view.frame = view.bounds
-        return likeListVC
-    }()
-    private lazy var friendListVC: FriendListViewController = {
-        let friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
-        friendListVC.view.frame = view.bounds
-        return friendListVC
-    }()
+    private lazy var postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
+    private lazy var likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
+    private lazy var friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
     
     private var state: State = .posts {
         didSet {
@@ -158,13 +146,13 @@ final class ProfileContainerViewController: UIViewController {
     }
     
     private func addChildViewControllers() {
-        add(friendListVC)
+        addFullover(friendListVC)
         friendListVC.setContentInset(
             contentInset: UIEdgeInsets(top: topViewHeight + friendListSeparator, left: 0, bottom: 0, right: 0)
         )
-        add(likeListVC)
+        addFullover(likeListVC)
         likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
-        add(postListVC)
+        addFullover(postListVC)
         postListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
     }
     
@@ -198,7 +186,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             postListVC.setTopOffset(offset: -topViewHeight)
-            add(postListVC)
+            addFullover(postListVC)
         }
     }
     
@@ -207,7 +195,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             likeListVC.setTopOffset(offset: -topViewHeight)
-            add(likeListVC)
+            addFullover(likeListVC)
         }
     }
     
@@ -216,7 +204,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             friendListVC.setTopOffset(offset: -(topViewHeight + friendListSeparator))
-            add(friendListVC)
+            addFullover(friendListVC)
         }
     }
     

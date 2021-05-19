@@ -20,7 +20,7 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     // MARK: - Public properties
     
     var contentOffset: CGPoint {
-        tableView.contentOffset
+        tableView?.contentOffset ?? CGPoint(x: 0, y: 0)
     }
     
     // MARK: - Outlets
@@ -64,7 +64,7 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     
     /// Обновление данных таблицы.
     func updateData() {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     // MARK: - Private methods

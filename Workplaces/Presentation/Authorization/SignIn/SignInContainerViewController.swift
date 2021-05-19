@@ -22,11 +22,7 @@ final class SignInContainerViewController: UIViewController {
     private let signInModel = SignInModel()
     private var progressList = [Progress]()
     private weak var delegate: SignInContainerViewControllerDelegate?
-    private lazy var signInVC: SignInViewController = {
-        let signInVC = SignInViewController(signInModel: signInModel, delegate: self)
-        signInVC.view.frame = view.bounds
-        return signInVC
-    }()
+    private lazy var signInVC = SignInViewController(signInModel: signInModel, delegate: self)
     
     // MARK: - Initializers
     
@@ -62,7 +58,7 @@ final class SignInContainerViewController: UIViewController {
         title = "Sign in with email".localized()
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
-        add(signInVC)
+        addFullover(signInVC)
     }
 }
 
