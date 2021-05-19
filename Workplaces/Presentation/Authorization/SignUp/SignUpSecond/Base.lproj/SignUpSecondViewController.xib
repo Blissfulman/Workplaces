@@ -21,8 +21,8 @@
                 <outlet property="datePicker" destination="wpI-8F-JFH" id="QCX-7g-D4D"/>
                 <outlet property="firstNameTextField" destination="7Os-rp-pcN" id="grj-z7-R5w"/>
                 <outlet property="lastNameTextField" destination="4oU-tD-sUg" id="fvf-hp-sQD"/>
-                <outlet property="signUpButton" destination="S8u-nc-WXc" id="NRo-xb-idJ"/>
-                <outlet property="signUpButtonBottomConstraint" destination="4Ow-FS-dvX" id="Aw6-MQ-dPd"/>
+                <outlet property="nicknameTextField" destination="107-Pl-FFH" id="Sc7-4a-Dfi"/>
+                <outlet property="saveButtonBottomConstraint" destination="4Ow-FS-dvX" id="Aw6-MQ-dPd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-8F-JFH">
-                    <rect key="frame" x="32" y="282" width="326" height="216"/>
+                    <rect key="frame" x="32" y="332" width="326" height="216"/>
                     <date key="minimumDate" timeIntervalSinceReferenceDate="-3187310553">
                         <!--1899-12-31 19:57:27 +0000-->
                     </date>
@@ -55,18 +55,27 @@
                         <constraint firstAttribute="height" constant="56" id="ElK-aG-KD9"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Sign up">
+                    <state key="normal" title="Save">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="signUpButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
+                        <action selector="saveButtonTapped" destination="-1" eventType="touchUpInside" id="PJO-9y-vCW"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="snE-5f-5qE">
-                    <rect key="frame" x="32" y="90" width="326" height="160"/>
+                    <rect key="frame" x="32" y="90" width="326" height="222"/>
                     <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="107-Pl-FFH">
+                            <rect key="frame" x="0.0" y="0.0" width="326" height="18"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="S07-6R-Aro"/>
+                                <action selector="textFieldsEditingDidBegin" destination="-1" eventType="editingDidBegin" id="P2Z-33-4hF"/>
+                            </connections>
+                        </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN">
-                            <rect key="frame" x="0.0" y="0.0" width="326" height="20"/>
+                            <rect key="frame" x="0.0" y="66" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -75,7 +84,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg">
-                            <rect key="frame" x="0.0" y="68" width="326" height="20"/>
+                            <rect key="frame" x="0.0" y="132" width="326" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -83,11 +92,11 @@
                                 <action selector="textFieldsEditingDidBegin" destination="-1" eventType="editingDidBegin" id="vmW-K4-qdu"/>
                             </connections>
                         </textField>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-h8-5v2">
-                            <rect key="frame" x="0.0" y="136" width="326" height="24"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="M4d-h8-5v2">
+                            <rect key="frame" x="0.0" y="198" width="326" height="24"/>
                             <subviews>
                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="24"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="24"/>
                                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -116,7 +125,7 @@
                 <constraint firstItem="snE-5f-5qE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="AeV-I5-2Hs"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Crc-ES-PEK"/>
                 <constraint firstItem="wpI-8F-JFH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="coH-Fu-D6P"/>
-                <constraint firstItem="wpI-8F-JFH" firstAttribute="top" secondItem="snE-5f-5qE" secondAttribute="bottom" constant="32" id="cyg-h1-Jtm"/>
+                <constraint firstItem="wpI-8F-JFH" firstAttribute="top" secondItem="snE-5f-5qE" secondAttribute="bottom" constant="20" id="cyg-h1-Jtm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="snE-5f-5qE" secondAttribute="trailing" constant="32" id="gZv-HC-Ts5"/>
                 <constraint firstAttribute="trailing" secondItem="S8u-nc-WXc" secondAttribute="trailing" constant="16" id="ii4-Fv-EWl"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oV1-R0-JJ6"/>

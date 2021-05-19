@@ -18,11 +18,8 @@ final class SignUpModel {
     var lastName: String?
     var birthday: Date?
     
-    var isValidEmail: Bool {
-        EmailValidator.isValid(email)
-    }
-    var isValidPassword: Bool {
-        PasswordValidator.isValid(password)
+    var isPossibleToSignUp: Bool {
+        !isEmptyEmailOrPassword
     }
     var userCredentials: UserCredentials {
         UserCredentials(email: email, password: password)
@@ -36,5 +33,16 @@ final class SignUpModel {
             avatarURL: nil,
             birthday: birthday ?? Date()
         )
+    }
+    
+    // MARK: - Private properties
+    
+    private var isEmptyEmailOrPassword: Bool {
+        if let email = email, !email.isEmpty,
+           let password = password, !password.isEmpty {
+            return false
+        } else {
+            return true
+        }
     }
 }

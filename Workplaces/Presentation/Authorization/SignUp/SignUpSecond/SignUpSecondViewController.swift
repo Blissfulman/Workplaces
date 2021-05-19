@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpSecondViewControllerDelegate: AnyObject {
-    func didTapSignUpButton()
+    func didTapSaveButton()
 }
 
 final class SignUpSecondViewController: UIViewController {
@@ -21,12 +21,12 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var firstNameTextField: UITextField!
     @IBOutlet private weak var lastNameTextField: UITextField!
     @IBOutlet private weak var birthdayTextField: UITextField!
     @IBOutlet private weak var datePicker: UIDatePicker!
-    @IBOutlet private weak var signUpButton: UIButton!
-    @IBOutlet private weak var signUpButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var saveButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -68,6 +68,8 @@ final class SignUpSecondViewController: UIViewController {
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
         switch sender {
+        case nicknameTextField:
+            signUpModel.nickname = nicknameTextField.text
         case firstNameTextField:
             signUpModel.firstName = firstNameTextField.text
         case lastNameTextField:
@@ -91,8 +93,8 @@ final class SignUpSecondViewController: UIViewController {
         signUpModel.birthday = datePicker.date
     }
     
-    @IBAction private func signUpButtonTapped() {
-        delegate?.didTapSignUpButton()
+    @IBAction private func saveButtonTapped() {
+        delegate?.didTapSaveButton()
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -101,7 +103,7 @@ final class SignUpSecondViewController: UIViewController {
         let keyboardHeight = value.cgRectValue.height
         
         UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = keyboardHeight
+            self.saveButtonBottomConstraint.constant = keyboardHeight
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
         }
@@ -109,7 +111,7 @@ final class SignUpSecondViewController: UIViewController {
     
     @objc private func keyboardWillHide() {
         UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.saveButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }
     }
@@ -118,14 +120,7 @@ final class SignUpSecondViewController: UIViewController {
     
     private func setupUI() {
         title = "Sign up".localized()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        firstNameTextField.text = signUpModel.firstName
-        lastNameTextField.text = signUpModel.lastName
-        if let birthday = signUpModel.birthday {
-            birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
-            datePicker.date = birthday
-        }
-        datePicker.subviews.first?.subviews.last?.backgroundColor = .clear
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func registerForKeyboardNotifications() {

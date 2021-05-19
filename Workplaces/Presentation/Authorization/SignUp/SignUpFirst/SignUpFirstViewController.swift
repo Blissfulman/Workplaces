@@ -10,8 +10,8 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpFirstViewControllerDelegate: AnyObject {
-    func didTapNextButton()
-    func didTapSignInButton()
+    func didTapSignUpButton()
+    func didTapAlreadySignedUpButton()
 }
 
 final class SignUpFirstViewController: UIViewController {
@@ -22,10 +22,10 @@ final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var alreadySignedUpButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -63,40 +63,38 @@ final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Public methods
     
-    func shakeEmailTextField() {
-        emailTextField.shakeAnimation(duration: 1)
+    /// Отображает анимацию поля ввода email, сообщающую о некорректно введённых данных
+    func indicateInvalidEmail() {
+        emailTextField.textColor = Palette.orange
+        emailTextField.shakeAnimation()
     }
     
-    func shakePasswordTextField() {
-        passwordTextField.shakeAnimation(duration: 1)
+    /// Отображает анимацию поля ввода пароля, сообщающую о некорректно введённых данных
+    func indicateInvalidPassword() {
+        passwordTextField.textColor = Palette.orange
+        passwordTextField.shakeAnimation()
     }
     
     // MARK: - Actions
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
-        switch sender {
-        case nicknameTextField:
-            signUpModel.nickname = nicknameTextField.text
-        case emailTextField:
+        if sender == emailTextField {
+            emailTextField.textColor = Palette.black
             signUpModel.email = emailTextField.text
-            updateEmailTextFieldState()
-        case passwordTextField:
-            signUpModel.password = passwordTextField.text
-            updatePasswordTextFieldState()
-        default:
-            break
         }
+        if sender == passwordTextField {
+            passwordTextField.textColor = Palette.black
+            signUpModel.password = passwordTextField.text
+        }
+        updateSignUpButtonState()
     }
     
-    @IBAction private func forwardNextTapped() {
-        signUpModel.nickname = nicknameTextField.text
-        signUpModel.email = emailTextField.text
-        signUpModel.password = passwordTextField.text
-        delegate?.didTapNextButton()
+    @IBAction private func signUpButtonTapped() {
+        delegate?.didTapSignUpButton()
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
-        delegate?.didTapSignInButton()
+        delegate?.didTapAlreadySignedUpButton()
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -105,7 +103,7 @@ final class SignUpFirstViewController: UIViewController {
         let keyboardHeight = value.cgRectValue.height
         
         UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.alreadySignedUpButtonBottomConstraint.constant = keyboardHeight
+            self.signUpButtonBottomConstraint.constant = keyboardHeight
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
             self.view.layoutIfNeeded()
         }
@@ -113,19 +111,15 @@ final class SignUpFirstViewController: UIViewController {
     
     @objc private func keyboardWillHide() {
         UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.alreadySignedUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
             self.view.layoutIfNeeded()
         }
     }
     
     // MARK: - Private methods
     
-    private func updateEmailTextFieldState() {
-        emailTextField.textColor = signUpModel.isValidEmail ? Palette.black : Palette.orange
-    }
-    
-    private func updatePasswordTextFieldState() {
-        passwordTextField.textColor = signUpModel.isValidPassword ? Palette.black : Palette.orange
+    private func updateSignUpButtonState() {
+        signUpButton.isEnabled = signUpModel.isPossibleToSignUp
     }
     
     private func registerForKeyboardNotifications() {

@@ -12,8 +12,7 @@ import UIKit
 protocol SignUpContainerViewControllerDelegate: AnyObject {
     func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func goToSignIn()
-    func successfulSignUp()
-    func backFromSecondToFirstScreen()
+    func didFinishSignUp()
 }
 
 final class SignUpContainerViewController: UIViewController {
@@ -68,25 +67,22 @@ final class SignUpContainerViewController: UIViewController {
     
     private func setupUI() {
         title = "Sign up".localized()
-        navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         add(signUpFirstVC)
-    }
-    
-    private func updateProfile() {
-        profileService.updateMyProfile(user: signUpModel.updatedProfile) { _ in }
     }
     
     private func handleAuthorizationError(_ error: Error) {
         guard let authError = error as? AuthorizationServiceError else { return }
         
         switch authError {
+        case .dublicateUserError:
+            signUpFirstVC.indicateInvalidEmail()
+            showAlert(authError)
         case .emailValidationError:
-            delegate?.backFromSecondToFirstScreen()
-            signUpFirstVC.shakeEmailTextField()
+            signUpFirstVC.indicateInvalidEmail()
         case .passwordValidationError:
-            delegate?.backFromSecondToFirstScreen()
-            signUpFirstVC.shakePasswordTextField()
+            signUpFirstVC.indicateInvalidPassword()
+            showAlert(authError)
         default:
             showAlert(authError)
         }
@@ -97,11 +93,25 @@ final class SignUpContainerViewController: UIViewController {
 
 extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
     
-    func didTapNextButton() {
-        delegate?.goToSignUpSecondScreen(signUpModel: signUpModel, delegate: self)
+    func didTapSignUpButton() {
+        LoadingView.show()
+        let userCredentials = signUpModel.userCredentials
+        
+        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
+            LoadingView.hide()
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                self.delegate?.goToSignUpSecondScreen(signUpModel: self.signUpModel, delegate: self)
+            case let .failure(error):
+                self.handleAuthorizationError(error)
+            }
+        }
+        progressList.append(progress)
     }
     
-    func didTapSignInButton() {
+    func didTapAlreadySignedUpButton() {
         delegate?.goToSignIn()
     }
 }
@@ -110,21 +120,9 @@ extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
 
 extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
     
-    func didTapSignUpButton() {
-        LoadingView.show()
-        let userCredentials = signUpModel.userCredentials
-        
-        let progress = authorizationService.signUpWithEmail(userCredentials: userCredentials) { [weak self] result in
-            LoadingView.hide()
-            
-            switch result {
-            case .success:
-                self?.updateProfile()
-                self?.delegate?.successfulSignUp()
-            case let .failure(error):
-                self?.handleAuthorizationError(error)
-            }
-        }
+    func didTapSaveButton() {
+        let progress = profileService.updateMyProfile(user: signUpModel.updatedProfile) { _ in }
         progressList.append(progress)
+        delegate?.didFinishSignUp()
     }
 }

@@ -122,7 +122,7 @@ extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
         showSignInScreen()
     }
     
-    func successfulSignUp() {
+    func didFinishSignUp() {
         showSignInDoneScreen()
     }
     
