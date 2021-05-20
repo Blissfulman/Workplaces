@@ -88,7 +88,7 @@
                         <constraint firstAttribute="width" constant="325" id="f2A-qf-aea"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0" customClass="MainUnfilledButton" customModule="Workplaces" customModuleProvider="target">
                     <rect key="frame" x="16" y="687.5" width="382" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="06C-gK-pZt"/>

@@ -20,7 +20,7 @@
                 <outlet property="emailTextField" destination="rlT-M0-OZj" id="Wfs-6L-bkk"/>
                 <outlet property="passwordTextField" destination="ACl-g1-wIO" id="5fz-4u-IVr"/>
                 <outlet property="signInButton" destination="WKZ-5L-VY9" id="0EF-CN-rSv"/>
-                <outlet property="signInButtonBottomConstraint" destination="Zs9-U8-tgE" id="5Dc-Hb-oOs"/>
+                <outlet property="signInButtonBottomConstraint" destination="VVr-u8-8yT" id="jJ9-rI-fnZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,30 +29,38 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="710" width="358" height="56"/>
-                    <color key="backgroundColor" name="lightGreyBlue"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="i4Q-ha-Yhw"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Sign in">
-                        <color key="titleColor" name="middleGrey"/>
-                    </state>
-                    <connections>
-                        <action selector="signInButtonTapped" destination="-1" eventType="touchUpInside" id="8RF-il-9Gn"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs">
-                    <rect key="frame" x="167.66666666666666" y="659" width="55" height="31"/>
-                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                    <state key="normal" title="Sign up">
-                        <color key="titleColor" name="orange"/>
-                    </state>
-                    <connections>
-                        <action selector="signUpButtonTapped" destination="-1" eventType="touchUpInside" id="fc8-Y7-v1Q"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Fi-Jj-lJu">
+                    <rect key="frame" x="16" y="654" width="358" height="112"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8i-dH-VUs" customClass="MainUnfilledButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="UCI-vY-flS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <state key="normal" title="Sign up">
+                                <color key="titleColor" name="orange"/>
+                            </state>
+                            <connections>
+                                <action selector="signUpButtonTapped" destination="-1" eventType="touchUpInside" id="fc8-Y7-v1Q"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5L-VY9" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="56" width="358" height="56"/>
+                            <color key="backgroundColor" name="lightGreyBlue"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="i4Q-ha-Yhw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                            <state key="normal" title="Sign in">
+                                <color key="titleColor" name="middleGrey"/>
+                            </state>
+                            <connections>
+                                <action selector="signInButtonTapped" destination="-1" eventType="touchUpInside" id="8RF-il-9Gn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="Pou-KP-tnA">
                     <rect key="frame" x="32" y="90" width="326" height="83"/>
                     <subviews>
@@ -78,14 +86,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="I8i-dH-VUs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BTX-VT-fcj"/>
-                <constraint firstItem="WKZ-5L-VY9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EQO-vW-b7o"/>
+                <constraint firstItem="1Fi-Jj-lJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4wW-fs-Hgp"/>
                 <constraint firstItem="Pou-KP-tnA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="46" id="TRd-Rl-tQT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WKZ-5L-VY9" secondAttribute="bottom" constant="44" id="Zs9-U8-tgE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Fi-Jj-lJu" secondAttribute="bottom" constant="44" id="VVr-u8-8yT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Fi-Jj-lJu" secondAttribute="trailing" constant="16" id="Xtt-D0-L0O"/>
                 <constraint firstItem="Pou-KP-tnA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="beJ-fC-cVZ"/>
-                <constraint firstItem="WKZ-5L-VY9" firstAttribute="top" secondItem="I8i-dH-VUs" secondAttribute="bottom" constant="20" id="iKG-ap-S3p"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pou-KP-tnA" secondAttribute="trailing" constant="32" id="r9D-V6-d8W"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WKZ-5L-VY9" secondAttribute="trailing" constant="16" id="zGO-Kp-17a"/>
             </constraints>
             <point key="canvasLocation" x="128.98550724637681" y="88.392857142857139"/>
         </view>

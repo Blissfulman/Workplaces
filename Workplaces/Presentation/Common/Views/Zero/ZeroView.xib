@@ -28,30 +28,32 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="D0L-yZ-Bl1">
-                    <rect key="frame" x="62" y="295" width="290" height="316"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="D0L-yZ-Bl1">
+                    <rect key="frame" x="16" y="282.5" width="382" height="341"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NcV-WM-y7C">
-                            <rect key="frame" x="45" y="0.0" width="200" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="fo3-sf-BtJ"/>
-                                <constraint firstAttribute="width" constant="200" id="xf3-uU-3Zs"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1L-Wh-RDj">
-                            <rect key="frame" x="109" y="224" width="72" height="47"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1L-Wh-RDj">
+                            <rect key="frame" x="0.0" y="208" width="382" height="42"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-JG-9h6">
-                            <rect key="frame" x="117" y="295" width="56" height="21"/>
+                            <rect key="frame" x="0.0" y="258" width="382" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <color key="textColor" name="middleGrey"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvd-zZ-s2l">
-                            <rect key="frame" x="120.5" y="316" width="49" height="0.0"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvd-zZ-s2l" customClass="MainUnfilledButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="285" width="382" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="DYG-AB-Eyr"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <state key="normal" title="Button">
                                 <color key="titleColor" name="orange"/>
@@ -67,8 +69,9 @@
             <color key="backgroundColor" name="lightGrey"/>
             <constraints>
                 <constraint firstItem="D0L-yZ-Bl1" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="KcR-ch-MLr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D0L-yZ-Bl1" secondAttribute="trailing" constant="16" id="Q7f-cL-eev"/>
+                <constraint firstItem="D0L-yZ-Bl1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="eDP-hu-YQz"/>
                 <constraint firstItem="D0L-yZ-Bl1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fAW-VO-gIx"/>
-                <constraint firstItem="D0L-yZ-Bl1" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="kYp-P8-1hf"/>
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
         </view>

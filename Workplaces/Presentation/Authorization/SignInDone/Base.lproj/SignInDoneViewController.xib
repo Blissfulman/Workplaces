@@ -27,20 +27,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_done_screen" translatesAutoresizingMaskIntoConstraints="NO" id="zYk-xb-DHJ">
-                    <rect key="frame" x="107" y="177" width="200" height="200"/>
+                    <rect key="frame" x="107" y="184.5" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="8Lf-8D-mbt"/>
                         <constraint firstAttribute="height" constant="200" id="ntg-hz-CTf"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="PqM-vW-29Z">
-                    <rect key="frame" x="71" y="377" width="272.5" height="47"/>
+                    <rect key="frame" x="70" y="384.5" width="274.5" height="42"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can watch and add posts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozb-t7-ezu">
-                    <rect key="frame" x="94.5" y="432" width="225" height="42"/>
+                    <rect key="frame" x="94.5" y="434.5" width="225" height="37.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="PNr-m3-At7"/>
                     </constraints>

@@ -48,6 +48,5 @@ final class ZeroView: NibInitializableView {
         }
         
         stackView.setCustomSpacing(0, after: imageView)
-        stackView.setCustomSpacing(8, after: titleLabel)
     }
 }

@@ -55,7 +55,7 @@ final class SignInContainerViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Sign in with email".localized()
+        title = "Sign in".localized()
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         addFullover(signInVC)
