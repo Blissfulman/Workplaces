@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lek-bd-a3x" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="762" width="382" height="56"/>
+                    <rect key="frame" x="20" y="762" width="374" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="5Su-uK-tFx"/>
@@ -68,16 +68,17 @@
             <constraints>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="top" secondItem="PqM-vW-29Z" secondAttribute="bottom" constant="8" id="2EK-II-DOa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lek-bd-a3x" secondAttribute="bottom" constant="44" id="4em-H3-Xz5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lek-bd-a3x" secondAttribute="trailing" constant="16" id="6px-lu-H5f"/>
+                <constraint firstAttribute="trailingMargin" secondItem="lek-bd-a3x" secondAttribute="trailing" id="6px-lu-H5f"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="top" secondItem="zYk-xb-DHJ" secondAttribute="bottom" id="FWF-3w-68W"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="NvH-PR-Ca9"/>
                 <constraint firstItem="PqM-vW-29Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="OKe-vB-Kub"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="U3e-3s-cA0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PqM-vW-29Z" secondAttribute="trailing" constant="16" id="VzB-CY-aHy"/>
-                <constraint firstItem="lek-bd-a3x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WHk-XW-h5d"/>
+                <constraint firstItem="lek-bd-a3x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="WHk-XW-h5d"/>
                 <constraint firstItem="ozb-t7-ezu" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="a95-nw-CPD"/>
                 <constraint firstItem="zYk-xb-DHJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="qSF-FN-jul"/>
             </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="16" leading="16" bottom="16" trailing="16"/>
             <point key="canvasLocation" x="35" y="89"/>
         </view>
     </objects>

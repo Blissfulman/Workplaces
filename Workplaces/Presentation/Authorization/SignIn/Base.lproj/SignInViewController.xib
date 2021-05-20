@@ -64,7 +64,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pou-KP-tnA">
                     <rect key="frame" x="16" y="75" width="358" height="55"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" background="input_red_bg" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="358" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -86,18 +86,18 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="1Fi-Jj-lJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4wW-fs-Hgp"/>
+                <constraint firstItem="1Fi-Jj-lJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="4wW-fs-Hgp"/>
                 <constraint firstItem="Pou-KP-tnA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="31" id="TRd-Rl-tQT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Fi-Jj-lJu" secondAttribute="bottom" constant="44" id="VVr-u8-8yT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Fi-Jj-lJu" secondAttribute="trailing" constant="16" id="Xtt-D0-L0O"/>
-                <constraint firstItem="Pou-KP-tnA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="beJ-fC-cVZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pou-KP-tnA" secondAttribute="trailing" constant="16" id="r9D-V6-d8W"/>
+                <constraint firstAttribute="trailingMargin" secondItem="1Fi-Jj-lJu" secondAttribute="trailing" id="Xtt-D0-L0O"/>
+                <constraint firstItem="Pou-KP-tnA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="beJ-fC-cVZ"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Pou-KP-tnA" secondAttribute="trailing" id="r9D-V6-d8W"/>
             </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="16" leading="16" bottom="16" trailing="16"/>
             <point key="canvasLocation" x="128.98550724637681" y="88.392857142857139"/>
         </view>
     </objects>
     <resources>
-        <image name="input_red_bg" width="20" height="48"/>
         <namedColor name="lightGreyBlue">
             <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

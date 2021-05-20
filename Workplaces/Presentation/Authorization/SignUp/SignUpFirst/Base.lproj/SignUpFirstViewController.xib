@@ -35,10 +35,10 @@
                     <color key="trackTintColor" name="lightGreyBlue"/>
                 </progressView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0om-rB-271">
-                    <rect key="frame" x="16" y="706" width="382" height="112"/>
+                    <rect key="frame" x="20" y="706" width="374" height="112"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKX-e8-OAN" customClass="MainUnfilledButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="56" id="zf8-KT-mXA"/>
                             </constraints>
@@ -51,7 +51,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqh-yA-vbi" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="56" width="382" height="56"/>
+                            <rect key="frame" x="0.0" y="56" width="374" height="56"/>
                             <color key="backgroundColor" name="orange"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="56" id="zP7-bL-9nF"/>
@@ -66,19 +66,19 @@
                         </button>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-yA-tgd">
-                    <rect key="frame" x="32" y="90" width="350" height="83"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-yA-tgd">
+                    <rect key="frame" x="20" y="75" width="374" height="55"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY">
-                            <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" textContentType="email"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="8cY-r0-49O"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV">
-                            <rect key="frame" x="0.0" y="66" width="350" height="17"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="38" width="374" height="17"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             <connections>
@@ -91,16 +91,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d9x-yA-tgd" secondAttribute="trailing" constant="32" id="J2c-Be-Wcx"/>
+                <constraint firstAttribute="trailingMargin" secondItem="d9x-yA-tgd" secondAttribute="trailing" id="J2c-Be-Wcx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1GM-i3-iHm" secondAttribute="trailing" id="OCg-aQ-hqX"/>
                 <constraint firstItem="1GM-i3-iHm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Q8c-Ff-f7a"/>
-                <constraint firstItem="d9x-yA-tgd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="QGF-SJ-n6l"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0om-rB-271" secondAttribute="trailing" constant="16" id="cQE-ZN-iJk"/>
-                <constraint firstItem="d9x-yA-tgd" firstAttribute="top" secondItem="1GM-i3-iHm" secondAttribute="bottom" constant="42" id="dqE-Fd-HYz"/>
+                <constraint firstItem="d9x-yA-tgd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="QGF-SJ-n6l"/>
+                <constraint firstAttribute="trailingMargin" secondItem="0om-rB-271" secondAttribute="trailing" id="cQE-ZN-iJk"/>
+                <constraint firstItem="d9x-yA-tgd" firstAttribute="top" secondItem="1GM-i3-iHm" secondAttribute="bottom" constant="27" id="dqE-Fd-HYz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0om-rB-271" secondAttribute="bottom" constant="44" id="i4K-X0-cGT"/>
-                <constraint firstItem="0om-rB-271" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="iZI-Fo-VNG"/>
+                <constraint firstItem="0om-rB-271" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="iZI-Fo-VNG"/>
                 <constraint firstItem="1GM-i3-iHm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pgr-fM-gtJ"/>
             </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="16" leading="16" bottom="16" trailing="16"/>
             <point key="canvasLocation" x="129" y="94"/>
         </view>
     </objects>
