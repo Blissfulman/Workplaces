@@ -61,19 +61,19 @@
                         </button>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="Pou-KP-tnA">
-                    <rect key="frame" x="32" y="90" width="326" height="83"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pou-KP-tnA">
+                    <rect key="frame" x="16" y="75" width="358" height="55"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj">
-                            <rect key="frame" x="0.0" y="0.0" width="326" height="18"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" background="input_red_bg" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rlT-M0-OZj" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="K9c-mW-iqu"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO">
-                            <rect key="frame" x="0.0" y="66" width="326" height="17"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ACl-g1-wIO" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="38" width="358" height="17"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             <connections>
@@ -87,16 +87,17 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="1Fi-Jj-lJu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4wW-fs-Hgp"/>
-                <constraint firstItem="Pou-KP-tnA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="46" id="TRd-Rl-tQT"/>
+                <constraint firstItem="Pou-KP-tnA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="31" id="TRd-Rl-tQT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Fi-Jj-lJu" secondAttribute="bottom" constant="44" id="VVr-u8-8yT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Fi-Jj-lJu" secondAttribute="trailing" constant="16" id="Xtt-D0-L0O"/>
-                <constraint firstItem="Pou-KP-tnA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="beJ-fC-cVZ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pou-KP-tnA" secondAttribute="trailing" constant="32" id="r9D-V6-d8W"/>
+                <constraint firstItem="Pou-KP-tnA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="beJ-fC-cVZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pou-KP-tnA" secondAttribute="trailing" constant="16" id="r9D-V6-d8W"/>
             </constraints>
             <point key="canvasLocation" x="128.98550724637681" y="88.392857142857139"/>
         </view>
     </objects>
     <resources>
+        <image name="input_red_bg" width="20" height="48"/>
         <namedColor name="lightGreyBlue">
             <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -95,6 +95,7 @@
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
+		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
@@ -339,6 +340,7 @@
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
+		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 			children = (
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
+				CE5223322656DE11005C5075 /* MainTextField.swift */,
 				CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */,
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
@@ -1748,6 +1751,7 @@
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
+				CE5223332656DE11005C5075 /* MainTextField.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 				CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */,
 				CEB07502264D6A770060E818 /* FriendListLastCell.swift in Sources */,

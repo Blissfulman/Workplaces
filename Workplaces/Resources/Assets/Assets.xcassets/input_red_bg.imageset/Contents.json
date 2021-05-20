@@ -2,7 +2,18 @@
   "images" : [
     {
       "filename" : "input_red_bg.pdf",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "left" : 2,
+          "right" : 2
+        },
+        "center" : {
+          "mode" : "stretch",
+          "width" : 16
+        },
+        "mode" : "3-part-horizontal"
+      }
     }
   ],
   "info" : {
