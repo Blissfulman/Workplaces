@@ -35,6 +35,7 @@ extension UIView {
     func setCornerRadius(_ value: CGFloat) {
         layer.cornerCurve = .continuous
         layer.cornerRadius = value
+        clipsToBounds = true
     }
     
     /// Анимация уменьшения размера.

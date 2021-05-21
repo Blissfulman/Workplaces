@@ -9,13 +9,6 @@ import UIKit
 
 final class MainFilledButton: UIButton {
     
-    override var isHighlighted: Bool {
-        didSet {
-            guard oldValue != isHighlighted else { return }
-            isHighlighted ? downscaleAnimation() : resetScaleAnimation()
-        }
-    }
-    
     // MARK: - UIView
     
     override func layoutSubviews() {
@@ -27,6 +20,14 @@ final class MainFilledButton: UIButton {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setCornerRadius(UIConstants.buttonCornerRadius)
-        clipsToBounds = true
+    }
+    
+    // MARK: - UIButton
+    
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != isHighlighted else { return }
+            isHighlighted ? downscaleAnimation() : resetScaleAnimation()
+        }
     }
 }

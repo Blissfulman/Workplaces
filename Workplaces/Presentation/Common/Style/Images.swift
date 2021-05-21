@@ -13,6 +13,6 @@ enum Images {
     static let errorScreen = #imageLiteral(resourceName: "error_screen")
     static let noDataScreen = #imageLiteral(resourceName: "no_data_screen")
     
-    static let textFieldUnderlineDefault = #imageLiteral(resourceName: "input_bg")
-    static let textFieldUnderlineAccent = #imageLiteral(resourceName: "input_red_bg")
+    static let textFieldBackgroundDefault = #imageLiteral(resourceName: "textfield_bg")
+    static let textFieldBackgroundAccent = #imageLiteral(resourceName: "textfield_bg_accent")
 }

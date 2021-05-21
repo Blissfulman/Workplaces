@@ -63,6 +63,7 @@ final class SignUpContainerViewController: UIViewController {
     
     private func setupUI() {
         title = "Sign up".localized()
+        navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         addFullover(signUpFirstVC)
     }
@@ -73,11 +74,11 @@ final class SignUpContainerViewController: UIViewController {
         switch authError {
         case .emailValidationError, .dublicateUserError:
             showAlert(authError) { [weak self] in
-                self?.signUpFirstVC.indicateInvalidEmail()
+                self?.signUpFirstVC.indicateToIncorrectEmail()
             }
         case .passwordValidationError:
             showAlert(authError) { [weak self] in
-                self?.signUpFirstVC.indicateInvalidPassword()
+                self?.signUpFirstVC.indicateToIncorrectPassword()
             }
         default:
             showAlert(authError)

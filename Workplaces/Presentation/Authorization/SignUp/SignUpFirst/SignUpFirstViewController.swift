@@ -71,15 +71,17 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
     // MARK: - Public methods
     
-    /// Отображает анимацию поля ввода email, сообщающую о некорректно введённых данных
-    func indicateInvalidEmail() {
+    /// Отображает анимацию поля ввода email, сообщающую о некорректно введённых данных.
+    func indicateToIncorrectEmail() {
         emailTextField.textColor = Palette.orange
+        emailTextField.background = Images.textFieldBackgroundAccent
         emailTextField.shakeAnimation()
     }
     
-    /// Отображает анимацию поля ввода пароля, сообщающую о некорректно введённых данных
-    func indicateInvalidPassword() {
+    /// Отображает анимацию поля ввода пароля, сообщающую о некорректно введённых данных.
+    func indicateToIncorrectPassword() {
         passwordTextField.textColor = Palette.orange
+        passwordTextField.background = Images.textFieldBackgroundAccent
         passwordTextField.shakeAnimation()
     }
     
@@ -88,10 +90,12 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
         if sender == emailTextField {
             emailTextField.textColor = Palette.black
+            emailTextField.background = Images.textFieldBackgroundDefault
             signUpModel.email = emailTextField.text
         }
         if sender == passwordTextField {
             passwordTextField.textColor = Palette.black
+            passwordTextField.background = Images.textFieldBackgroundDefault
             signUpModel.password = passwordTextField.text
         }
         updateSignUpButtonState()

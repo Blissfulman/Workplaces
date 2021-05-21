@@ -17,7 +17,9 @@ final class MainTextField: UITextField {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        background = Images.textFieldUnderlineDefault
+        if textColor != Palette.orange {
+            background = Images.textFieldBackgroundDefault
+        }
     }
     
     // MARK: - UITextField
