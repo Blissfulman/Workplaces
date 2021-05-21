@@ -53,6 +53,10 @@ final class PostCell: UITableViewCell {
         likeButton.setImage(post.liked ? Icons.liked : Icons.like, for: .normal)
     }
     
+    func updateCellAlpha(value: CGFloat) {
+        backView.subviews.forEach { $0.alpha = value + 0.1 }
+    }
+    
     // MARK: - Actions
     
     @IBAction private func likeButtonTapped() {

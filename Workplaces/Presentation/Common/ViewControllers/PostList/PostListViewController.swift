@@ -72,6 +72,22 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     private func setupUI() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
     }
+    
+    /// Вычисление доли видимой части ячейки таблицы.
+    /// - Parameter cell: Ячейка.
+    /// - Returns: Доля видимой части ячейки (для полностью видимой ячейки вернётся значение 1, для полностью скрытой - 0).
+    private func shareOfCellVisibility(forCell cell: UITableViewCell) -> CGFloat {
+        // Значение скрытой части ячейки относительно верхнего края таблицы
+        let topDelta = contentOffset.y - cell.frame.origin.y
+        
+        if topDelta >= 0 {
+            return max(1 - topDelta / cell.frame.height, 0)
+        } else {
+            // Значение видимой части ячейки относительно нижнего края таблицы
+            let bottomDelta = tableView.frame.height + topDelta
+            return min(bottomDelta / cell.frame.height, 1)
+        }
+    }
 }
 
 // MARK: - Table view delegate
@@ -80,5 +96,11 @@ extension PostListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll(scrollView)
+        
+        tableView.visibleCells.forEach {
+            if let postCell = $0 as? PostCell {
+                postCell.updateCellAlpha(value: shareOfCellVisibility(forCell: $0))
+            }
+        }
     }
 }
