@@ -99,7 +99,7 @@ extension PostListViewController: UITableViewDelegate {
         
         tableView.visibleCells.forEach {
             if let postCell = $0 as? PostCell {
-                postCell.updateCellAlpha(value: shareOfCellVisibility(forCell: $0))
+                postCell.updateDescriptionLabelAlpha(value: shareOfCellVisibility(forCell: $0))
             }
         }
     }
