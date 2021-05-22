@@ -21,8 +21,10 @@ final class PostCell: UITableViewCell {
     
     @IBOutlet private var backView: UIView!
     @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var locationStackView: UIStackView!
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var postImageView: UIImageView!
+    @IBOutlet private var authorLabel: UILabel!
     @IBOutlet private var likeButton: UIButton!
     
     // MARK: - Private properties
@@ -41,6 +43,7 @@ final class PostCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         descriptionLabel.text = nil
+        authorLabel.text = nil
     }
     
     // MARK: - Public methods
@@ -50,6 +53,21 @@ final class PostCell: UITableViewCell {
         self.delegate = delegate
         
         descriptionLabel.text = post.text
+        // Нужно будет добавить отображение локации
+        if post.latitude != nil,
+           post.longitude != nil {
+            locationLabel.text = "Location is exist" // TEMP
+            locationStackView.isHidden = false
+        } else {
+            locationStackView.isHidden = true
+        }
+        if let url = post.imageURL {
+            postImageView.fetchImage(byURL: url)
+            postImageView.isHidden = false
+        } else {
+            postImageView.isHidden = true
+        }
+        authorLabel.text = post.author.nickname
         likeButton.setImage(post.liked ? Icons.liked : Icons.like, for: .normal)
     }
     

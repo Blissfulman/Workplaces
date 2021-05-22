@@ -81,7 +81,7 @@ final class ProfileTopView: NibInitializableView {
         if let avatarURL = profile.avatarURL,
            let data = try? Data(contentsOf: avatarURL),
            let imageData = Data(base64Encoded: data) {
-            self.avatarImageView.image = UIImage(data: imageData)
+            avatarImageView.image = UIImage(data: imageData)
         }
         fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
         if let age = profile.birthday.getAgeFromBirthday() {

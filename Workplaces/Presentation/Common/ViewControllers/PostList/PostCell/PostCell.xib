@@ -28,43 +28,48 @@
                         <rect key="frame" x="16" y="1" width="418" height="323"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soprano, we like to keep it on a high note. It's levels to it, you and I know" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr5-LA-KSc">
-                                <rect key="frame" x="16" y="16" width="386" height="98"/>
+                                <rect key="frame" x="16" y="16" width="386" height="109.5"/>
                                 <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-4I-A6e">
-                                <rect key="frame" x="18" y="130" width="158" height="16"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dbd-5U-kUc">
+                                <rect key="frame" x="16" y="143" width="160" height="164"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="geo_small" translatesAutoresizingMaskIntoConstraints="NO" id="LM5-UF-OOj">
-                                        <rect key="frame" x="0.0" y="0.0" width="12" height="16"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2z4-4I-A6e">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="16"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="geo_small" translatesAutoresizingMaskIntoConstraints="NO" id="LM5-UF-OOj">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="COH-NJ-jbM"/>
+                                                    <constraint firstAttribute="width" constant="16" id="pUO-gx-sRG"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Russia, St. Petersburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNh-QI-kHF">
+                                                <rect key="frame" x="22" y="0.0" width="138" height="16"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                                                <color key="textColor" name="darkGrey"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uj5-vr-WE7">
+                                        <rect key="frame" x="0.0" y="32" width="148" height="100"/>
+                                        <color key="backgroundColor" name="lightGreyBlue"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="COH-NJ-jbM"/>
-                                            <constraint firstAttribute="width" constant="12" id="pUO-gx-sRG"/>
+                                            <constraint firstAttribute="width" constant="148" id="kYp-Qj-pnx"/>
+                                            <constraint firstAttribute="height" constant="100" id="yjB-BU-iTN"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Russia, St. Petersburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNh-QI-kHF">
-                                        <rect key="frame" x="18" y="0.0" width="140" height="16"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                                        <color key="textColor" name="darkGrey"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="@author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj9-Qq-ryf">
+                                        <rect key="frame" x="0.0" y="148" width="46.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="12"/>
+                                        <color key="textColor" name="middleGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="@author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj9-Qq-ryf">
-                                <rect key="frame" x="16" y="278" width="44.5" height="29"/>
-                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="12"/>
-                                <color key="textColor" name="middleGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uj5-vr-WE7">
-                                <rect key="frame" x="16" y="162" width="148" height="100"/>
-                                <color key="backgroundColor" name="lightGreyBlue"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="148" id="kYp-Qj-pnx"/>
-                                    <constraint firstAttribute="height" constant="100" id="yjB-BU-iTN"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X93-ZJ-OUw">
                                 <rect key="frame" x="362" y="267" width="40" height="40"/>
                                 <constraints>
@@ -80,19 +85,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Pr5-LA-KSc" secondAttribute="trailing" id="0n8-Jt-pJB"/>
-                            <constraint firstItem="Uj5-vr-WE7" firstAttribute="leading" secondItem="OjL-8P-b5R" secondAttribute="leadingMargin" id="DHL-31-Uzd"/>
-                            <constraint firstItem="2z4-4I-A6e" firstAttribute="top" secondItem="Pr5-LA-KSc" secondAttribute="bottom" constant="16" id="MRM-U2-qqP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="dbd-5U-kUc" secondAttribute="bottom" id="80k-H2-3gw"/>
                             <constraint firstItem="Pr5-LA-KSc" firstAttribute="top" secondItem="OjL-8P-b5R" secondAttribute="topMargin" id="Pcm-a5-X1e"/>
-                            <constraint firstItem="2z4-4I-A6e" firstAttribute="leading" secondItem="OjL-8P-b5R" secondAttribute="leadingMargin" constant="2" id="SHN-BD-qxw"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="hj9-Qq-ryf" secondAttribute="bottom" id="VYp-L5-sBT"/>
-                            <constraint firstItem="hj9-Qq-ryf" firstAttribute="top" secondItem="Uj5-vr-WE7" secondAttribute="bottom" constant="16" id="YVT-7m-3yE"/>
+                            <constraint firstItem="X93-ZJ-OUw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pr5-LA-KSc" secondAttribute="bottom" constant="16" id="aIh-4k-Dbr"/>
                             <constraint firstAttribute="bottomMargin" secondItem="X93-ZJ-OUw" secondAttribute="bottom" id="bDr-ry-t2Y"/>
-                            <constraint firstItem="Uj5-vr-WE7" firstAttribute="top" secondItem="2z4-4I-A6e" secondAttribute="bottom" constant="16" id="f6d-2o-Sbj"/>
-                            <constraint firstItem="hj9-Qq-ryf" firstAttribute="leading" secondItem="OjL-8P-b5R" secondAttribute="leadingMargin" id="k9a-eo-2qu"/>
+                            <constraint firstItem="dbd-5U-kUc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pr5-LA-KSc" secondAttribute="bottom" constant="16" id="g59-pf-i4G"/>
+                            <constraint firstItem="dbd-5U-kUc" firstAttribute="leading" secondItem="OjL-8P-b5R" secondAttribute="leadingMargin" id="sY2-8p-mGy"/>
                             <constraint firstItem="Pr5-LA-KSc" firstAttribute="leading" secondItem="OjL-8P-b5R" secondAttribute="leadingMargin" id="u5Z-jj-2sX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X93-ZJ-OUw" secondAttribute="trailing" id="ygn-m9-rvh"/>
                         </constraints>
-                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                        <directionalEdgeInsets key="directionalLayoutMargins" top="16" leading="16" bottom="16" trailing="16"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" name="lightGrey"/>
@@ -105,10 +107,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="authorLabel" destination="hj9-Qq-ryf" id="l9n-OR-Fgz"/>
                 <outlet property="backView" destination="OjL-8P-b5R" id="j3C-SU-2UK"/>
                 <outlet property="descriptionLabel" destination="Pr5-LA-KSc" id="R0y-bQ-aHH"/>
                 <outlet property="likeButton" destination="X93-ZJ-OUw" id="gl6-TZ-pNS"/>
                 <outlet property="locationLabel" destination="zNh-QI-kHF" id="plE-XM-fAD"/>
+                <outlet property="locationStackView" destination="2z4-4I-A6e" id="x4G-9d-8jb"/>
                 <outlet property="postImageView" destination="Uj5-vr-WE7" id="o95-7C-ez0"/>
             </connections>
             <point key="canvasLocation" x="-52.173913043478265" y="172.43303571428569"/>
