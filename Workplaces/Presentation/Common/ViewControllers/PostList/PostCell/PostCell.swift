@@ -19,11 +19,11 @@ final class PostCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var backView: UIView!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var postImageView: UIImageView!
-    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private var backView: UIView!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    @IBOutlet private var postImageView: UIImageView!
+    @IBOutlet private var likeButton: UIButton!
     
     // MARK: - Private properties
     

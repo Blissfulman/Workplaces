@@ -22,10 +22,10 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var signUpButton: UIButton!
-    @IBOutlet private weak var signUpButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var signUpButton: UIButton!
+    @IBOutlet private var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     

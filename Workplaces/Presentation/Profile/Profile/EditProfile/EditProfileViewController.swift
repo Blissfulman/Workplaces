@@ -17,12 +17,12 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var nicknameTextField: UITextField!
-    @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var birthdayTextField: UITextField!
-    @IBOutlet private weak var saveButton: UIButton!
-    @IBOutlet private weak var saveButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var nicknameTextField: UITextField!
+    @IBOutlet private var firstNameTextField: UITextField!
+    @IBOutlet private var lastNameTextField: UITextField!
+    @IBOutlet private var birthdayTextField: UITextField!
+    @IBOutlet private var saveButton: UIButton!
+    @IBOutlet private var saveButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     

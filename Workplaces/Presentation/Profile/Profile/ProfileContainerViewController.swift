@@ -33,8 +33,8 @@ final class ProfileContainerViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var topView: UIView!
-    @IBOutlet private weak var zeroView: UIView!
+    @IBOutlet private var topView: UIView!
+    @IBOutlet private var zeroView: UIView!
     
     // MARK: - Private properties
     

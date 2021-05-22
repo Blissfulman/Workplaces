@@ -11,7 +11,7 @@ final class SearchFriendsContainerViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView!
     
     // MARK: - Private properties
     

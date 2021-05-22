@@ -21,7 +21,7 @@ final class SignInDoneViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
     // MARK: - UIViewController
     

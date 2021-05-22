@@ -25,7 +25,7 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Private properties
     

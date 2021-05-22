@@ -43,11 +43,11 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var topBackView: UIView!
-    @IBOutlet private weak var bottomBackView: UIView!
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var fullNameLabel: UILabel!
-    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private var topBackView: UIView!
+    @IBOutlet private var bottomBackView: UIView!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var fullNameLabel: UILabel!
+    @IBOutlet private var ageLabel: UILabel!
     
     // MARK: - Private properties
     

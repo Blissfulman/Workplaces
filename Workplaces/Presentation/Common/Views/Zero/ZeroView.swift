@@ -11,11 +11,11 @@ final class ZeroView: NibInitializableView {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var subtitleLabel: UILabel!
+    @IBOutlet private var button: UIButton!
     
     // MARK: - Private properties
     

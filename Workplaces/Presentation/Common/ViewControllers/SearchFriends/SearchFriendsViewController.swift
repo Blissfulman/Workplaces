@@ -17,7 +17,7 @@ final class SearchFriendsViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private var searchBar: UISearchBar!
     
     // MARK: - Private properties
     

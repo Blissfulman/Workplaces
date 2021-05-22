@@ -17,9 +17,9 @@ final class UserCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var fullNameLabel: UILabel!
-    @IBOutlet private weak var nicknameLabel: UILabel!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var fullNameLabel: UILabel!
+    @IBOutlet private var nicknameLabel: UILabel!
     
     // MARK: - Private properties
     
