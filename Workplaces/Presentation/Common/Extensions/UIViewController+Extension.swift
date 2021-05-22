@@ -9,38 +9,21 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ error: Error?, competion: @escaping VoidBlock = {}) {
+    func showAlert(_ error: Error?, competion: VoidBlock? = nil) {
         DispatchQueue.main.async { [weak self] in
             LoadingView.hide()
             
-            let alert = UIAlertController(title: "Error".localized(),
-                                          message: error?.localizedDescription,
-                                          preferredStyle: .alert)
+            let alert = UIAlertController(
+                title: "Error".localized(),
+                message: error?.localizedDescription,
+                preferredStyle: .alert
+            )
             let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-                competion()
+                competion?()
             }
             alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
-    }
-    
-    func showAlert(_ message: String?) {
-        DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: "Error".localized(),
-                                          message: message,
-                                          preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(okAction)
-            self?.present(alert, animated: true)
-        }
-    }
-    
-    /// Добавление дочернего вью контроллера на текущий.
-    /// - Parameter child: Добавляемый вью контроллер.
-    func add(_ child: UIViewController) {
-        addChild(child)
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
     }
     
     /// Добавление дочернего вью контроллера на текущий с полным перекрытием родительского.

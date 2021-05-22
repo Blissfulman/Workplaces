@@ -668,8 +668,8 @@
 			children = (
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
-				CE5223322656DE11005C5075 /* MainTextField.swift */,
 				CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */,
+				CE5223322656DE11005C5075 /* MainTextField.swift */,
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508662642601200568006 /* ProfileTopView */,

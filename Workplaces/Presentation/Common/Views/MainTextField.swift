@@ -17,6 +17,8 @@ final class MainTextField: UITextField {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        // Эта проверка нужна, чтобы при клике в поле, когда оно в состоянии ошибки, картинка не обновлялась
+        // Решение мне не нравится, но пока лучшего не нашёл
         if textColor != Palette.orange {
             background = Images.textFieldBackgroundDefault
         }
