@@ -103,4 +103,10 @@ extension PostListViewController: UITableViewDelegate {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let postCell = cell as? PostCell {
+            postCell.updateDescriptionLabelAlpha(value: shareOfCellVisibility(forCell: cell))
+        }
+    }
 }
