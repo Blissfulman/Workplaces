@@ -20,7 +20,7 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
     // MARK: - Public properties
     
     var contentOffset: CGPoint {
-        tableView?.contentOffset ?? CGPoint(x: 0, y: 0)
+        tableView?.contentOffset ?? .zero
     }
     
     // MARK: - Outlets
