@@ -363,22 +363,17 @@ extension ProfileContainerViewController: ProfilePostsDataSourceDelegate {
     }
     
     func didTapLikeButtonInPostList(withPost post: Post) {
-        let resultCompletion: VoidResultHandler = { [weak self] result in
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
             switch result {
-            case .success():
+            case .success:
                 self?.fetchMyPosts()
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
-        
-        if post.liked {
-            let progress = feedService.unlikePost(postID: post.id, completion: resultCompletion)
-            progressList.append(progress)
-        } else {
-            let progress = feedService.likePost(postID: post.id, completion: resultCompletion)
-            progressList.append(progress)
-        }
+        progressList.append(progress)
     }
 }
 
@@ -391,22 +386,17 @@ extension ProfileContainerViewController: ProfileLikesDataSourceDelegate {
     }
     
     func didTapLikeButtonInLikeList(withPost post: Post) {
-        let resultCompletion: VoidResultHandler = { [weak self] result in
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
             switch result {
-            case .success():
+            case .success:
                 self?.fetchLikedPosts()
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
-        
-        if post.liked {
-            let progress = feedService.unlikePost(postID: post.id, completion: resultCompletion)
-            progressList.append(progress)
-        } else {
-            let progress = feedService.likePost(postID: post.id, completion: resultCompletion)
-            progressList.append(progress)
-        }
+        progressList.append(progress)
     }
 }
 

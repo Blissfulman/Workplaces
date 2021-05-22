@@ -145,28 +145,16 @@ extension FeedContainerViewController: FeedPostsDataSourceDelegate {
     }
     
     func didTapLikeButton(withPost post: Post) {
-        if post.liked {
-            let progress = feedService.unlikePost(postID: post.id) { [weak self] result in
-                switch result {
-                case .success():
-                    print("Unliked!")
-                    self?.fetchPosts()
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
             }
-            progressList.append(progress)
-        } else {
-            let progress = feedService.likePost(postID: post.id) { [weak self] result in
-                switch result {
-                case .success():
-                    print("Liked!")
-                    self?.fetchPosts()
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-            }
-            progressList.append(progress)
         }
+        progressList.append(progress)
     }
 }
