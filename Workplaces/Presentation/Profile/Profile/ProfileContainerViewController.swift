@@ -117,11 +117,8 @@ final class ProfileContainerViewController: UIViewController {
     
     @objc private func logOutBarButtonTapped() {
         let progress = authorizationService.signOut { [weak self] result in
-            switch result {
-            case .success:
+            if case .success = result {
                 self?.delegate?.signOut()
-            case .failure:
-                break
             }
         }
         progressList.append(progress)

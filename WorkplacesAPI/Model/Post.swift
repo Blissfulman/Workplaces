@@ -52,8 +52,4 @@ public struct Post: Identifiable, Codable, Comparable {
     public static func < (lhs: Self, rhs: Self) -> Bool {
         lhs.id < rhs.id
     }
-    
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
-    }
 }
