@@ -175,7 +175,10 @@ final class ProfileContainerViewController: UIViewController {
         let editProfileButtonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToEditProfile(profile: profile)
         }
-        profileTopView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
+        profileTopView.configure(
+            model: ProfileTopViewModel(profile: profile),
+            editProfileButtonAction: editProfileButtonAction
+        )
     }
     
     private func showPostList() {
