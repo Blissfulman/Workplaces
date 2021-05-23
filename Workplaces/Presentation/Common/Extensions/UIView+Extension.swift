@@ -10,7 +10,6 @@ import UIKit
 extension UIView {
     
     /// Добавляет сабвью с полным перекрытием родительского вью.
-    ///
     /// - Parameters:
     ///   - subview: Сабвью.
     func addFulloverSubview(_ subview: UIView) {

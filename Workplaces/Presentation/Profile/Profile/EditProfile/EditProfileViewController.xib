@@ -101,7 +101,8 @@
             <constraints>
                 <constraint firstAttribute="trailingMargin" secondItem="Hdy-Ef-yQW" secondAttribute="trailing" id="3XM-fC-2H9"/>
                 <constraint firstAttribute="trailingMargin" secondItem="XmE-jY-QXB" secondAttribute="trailing" id="C9Z-NM-E7i"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" constant="44" id="VIv-7G-jMG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" priority="250" constant="44" id="VIv-7G-jMG"/>
+                <constraint firstItem="Hdy-Ef-yQW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XmE-jY-QXB" secondAttribute="bottom" priority="500" constant="16" id="YVJ-YF-23m"/>
                 <constraint firstItem="Hdy-Ef-yQW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="d4v-fG-Sfw"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="31" id="o3D-nl-gxo"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="wRF-oq-Wuk"/>
