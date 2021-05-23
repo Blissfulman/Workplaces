@@ -37,10 +37,6 @@ final class ProfileTopView: NibInitializableView {
         }
     }
     
-    // MARK: - Public properties
-    
-    weak var delegate: ProfileTopViewDelegate?
-    
     // MARK: - Outlets
     
     @IBOutlet private var topBackView: UIView!
@@ -51,13 +47,15 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Private properties
     
+    private var model: ProfileTopViewModel?
+    private weak var delegate: ProfileTopViewDelegate?
     private var editProfileButtonAction: VoidBlock?
     
     // MARK: - Initializers
     
     init(delegate: ProfileTopViewDelegate) {
-        super.init(frame: .zero)
         self.delegate = delegate
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -74,19 +72,13 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Public methods
     
-    func configure(profile: User, editProfileButtonAction: @escaping VoidBlock) {
+    func configure(model: ProfileTopViewModel, editProfileButtonAction: @escaping VoidBlock) {
+        self.model = model
         self.editProfileButtonAction = editProfileButtonAction
         
-        // Временная реализация получения картинки
-        if let avatarURL = profile.avatarURL,
-           let data = try? Data(contentsOf: avatarURL),
-           let imageData = Data(base64Encoded: data) {
-            avatarImageView.image = UIImage(data: imageData)
-        }
-        fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
-        if let age = profile.birthday.getAgeFromBirthday() {
-            ageLabel.text = "\(age) years"
-        }
+        avatarImageView.image = UIImage(data: model.avatarImageData ?? Data())
+        fullNameLabel.text = model.fullName
+        ageLabel.text = model.age
     }
     
     // MARK: - Actions
@@ -97,12 +89,5 @@ final class ProfileTopView: NibInitializableView {
     
     @IBAction private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         delegate?.viewStateNeedChange(to: SegmentedControlState.getStateByIndex(sender.selectedSegmentIndex))
-    }
-}
-
-fileprivate extension Date {
-    
-    func getAgeFromBirthday() -> Int? {
-        Calendar.current.dateComponents([.year], from: self, to: Date()).year
     }
 }
