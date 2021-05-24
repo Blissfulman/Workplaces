@@ -13,7 +13,7 @@ extension HTTPBody {
     ///
     /// - Parameters:
     ///   - data: HTTP body data.
-    ///   - boundary: Значеине boundary.
+    ///   - boundary: Значение boundary.
     /// - Returns: HTTPBody.
     static func multipart(_ data: Data, boundary: String) -> HTTPBody {
         HTTPBody(data: data, contentType: "multipart/form-data; boundary=\(boundary)")

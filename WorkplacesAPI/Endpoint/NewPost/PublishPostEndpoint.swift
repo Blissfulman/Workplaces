@@ -10,16 +10,24 @@ import Apexy
 
 public struct PublishPostEndpoint: JsonEndpoint {
     
+    // MARK: - Typealiases
+    
     public typealias Content = Post
     
+    // MARK: - Private properties
+    
     private let uploadPost: UploadPost
+    
+    // MARK: - Initializers
     
     public init(post: Post) {
         self.uploadPost = UploadPost(post: post)
     }
     
+    // MARK: - Public methods
+    
     public func makeRequest() throws -> URLRequest {
-        let multipartFormData = MultipartFormData(fileManager: FileManager(), boundary: MultipartFormData().boundary)
+        let multipartFormData = MultipartFormData()
         
         multipartFormData.append(uploadPost.text.data(using: .utf8) ?? Data(), withName: "text")
         multipartFormData.append(
