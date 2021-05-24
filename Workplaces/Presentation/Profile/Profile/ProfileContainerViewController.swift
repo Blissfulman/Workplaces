@@ -98,6 +98,7 @@ final class ProfileContainerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.showTransparent()
         fetchProfile()
         fetchMyPosts()
         fetchLikedPosts()
@@ -106,7 +107,7 @@ final class ProfileContainerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.alpha = 1
     }
     
     // MARK: - Actions

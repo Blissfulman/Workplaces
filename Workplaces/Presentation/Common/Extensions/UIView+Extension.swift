@@ -99,4 +99,10 @@ extension UIView {
             }
         }
     }
+    
+    /// Делает вью видимым, но прозрачным.
+    func showTransparent() {
+        alpha = 0
+        isHidden = false
+    }
 }

@@ -72,7 +72,7 @@ final class PostCell: UITableViewCell {
     }
     
     func updateDescriptionLabelAlpha(value: CGFloat) {
-        descriptionLabel.alpha = value + 0.1
+        descriptionLabel.alpha = value
     }
     
     // MARK: - Actions

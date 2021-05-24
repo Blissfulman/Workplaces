@@ -35,7 +35,7 @@ class RoundedTabBarController: UITabBarController {
         layer.fillColor = Palette.white.cgColor
         tabBar.layer.insertSublayer(layer, at: 0)
         
-        tabBar.itemWidth = 30.0
+        tabBar.itemWidth = 24.0
         tabBar.itemPositioning = .centered
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()

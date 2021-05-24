@@ -85,9 +85,14 @@ final class FeedContainerViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.showTransparent()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.alpha = 1
         fetchPosts()
     }
     
