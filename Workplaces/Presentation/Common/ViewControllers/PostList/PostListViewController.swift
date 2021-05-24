@@ -64,7 +64,10 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     
     /// Обновление данных таблицы.
     func updateData() {
-        tableView?.reloadData()
+        if let tableView = tableView {
+            tableView.reloadData()
+            delegate?.scrollViewDidScroll(tableView)
+        }
     }
     
     // MARK: - Private methods

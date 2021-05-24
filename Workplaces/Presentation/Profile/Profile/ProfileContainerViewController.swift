@@ -46,8 +46,6 @@ final class ProfileContainerViewController: UIViewController {
     private lazy var likeListDataSource = ProfileLikesDataSource(delegate: self)
     private lazy var friendListDataSource = ProfileFriendsDataSource(delegate: self)
     
-    /// Изначальное положение topView по вертикали.
-    private var topViewInitialY: CGFloat?
     /// Толщина разделителя между верхним вью и списком друзей.
     private let friendListSeparator: CGFloat = 9
     private var topViewHeight: CGFloat { topView.frame.height }
@@ -109,8 +107,6 @@ final class ProfileContainerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        // Свойство должно быть высчитано один раз при первом появлении вью на экране
-        topViewInitialY = topViewInitialY ?? topView.frame.origin.y
     }
     
     // MARK: - Actions
@@ -344,13 +340,13 @@ extension ProfileContainerViewController: PostListViewControllerDelegate, Friend
         var topViewOffsetY: CGFloat = 0
         switch state {
         case .posts:
-            topViewOffsetY = topViewHeight + postListVC.contentOffset.y
+            topViewOffsetY = postListVC.contentOffset.y
         case .likes:
-            topViewOffsetY = topViewHeight + likeListVC.contentOffset.y
+            topViewOffsetY = likeListVC.contentOffset.y
         case .friends:
-            topViewOffsetY = friendListSeparator + topViewHeight + friendListVC.contentOffset.y
+            topViewOffsetY = friendListSeparator + friendListVC.contentOffset.y
         }
-        topView.frame.origin.y = (topViewInitialY ?? 0) - topViewOffsetY
+        topView.frame.origin.y = scrollView.frame.origin.y - topViewOffsetY - topViewHeight
     }
 }
 
