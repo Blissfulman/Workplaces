@@ -71,6 +71,7 @@
 		CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */; };
 		CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */; };
 		CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* EmailValidatorTests.swift */; };
+		CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
@@ -187,6 +188,7 @@
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED98E2637B89100619CF3 /* RefreshToken.swift */; };
 		CECED9932637B9CA00619CF3 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED9922637B9CA00619CF3 /* UserID.swift */; };
+		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
@@ -317,6 +319,7 @@
 		CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignInTests.swift; sourceTree = "<group>"; };
 		CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageMock.swift; sourceTree = "<group>"; };
 		CE1627A426412AE500468CDA /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
+		CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBarController.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
@@ -438,6 +441,7 @@
 		CECED98E2637B89100619CF3 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		CECED9922637B9CA00619CF3 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		CED6F3862635EF2500096D72 /* Apexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */,
+				CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				CEB0751A265034720060E818 /* UIView+Extension.swift */,
 				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
+				CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1708,6 +1714,7 @@
 				CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */,
 				CE5E71B82652A47C0028990A /* UserCell.swift in Sources */,
 				CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */,
+				CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
 				CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */,
 				CEB0750B264DAA300060E818 /* ProfileFriendsDataSource.swift in Sources */,
@@ -1747,6 +1754,7 @@
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
+				CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */,
 				CE5E71A826528A350028990A /* SearchService.swift in Sources */,
 				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
