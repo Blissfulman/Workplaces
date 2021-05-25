@@ -68,7 +68,10 @@ final class PostCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction private func likeButtonTapped() {
-        guard let post = post else { return }
-        delegate?.didTapLikeButton(withPost: post)
+        guard let model = model else { return }
+        
+        likeButton.likeAnimation { [weak self] in
+            self?.delegate?.didTapLikeButton(withPost: model.post)
+        }
     }
 }

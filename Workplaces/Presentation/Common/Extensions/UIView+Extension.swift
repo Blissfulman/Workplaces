@@ -66,6 +66,20 @@ extension UIView {
         layer.add(shakeAnimation, forKey: "shake")
     }
     
+    /// Анимация кнопки лайка.
+    /// - Parameters:
+    ///   - duration: Длительность анимации (по умолчанию равна `0.08`).
+    ///   - scale: Коэффициент масштабирования (по умолчанию равен `1.3`).
+    ///   - completion: Блок, выполняемый после окончания анимации.
+    func likeAnimation(duration: TimeInterval = 0.08, scale: CGFloat = 1.3, completion: VoidBlock? = nil) {
+        UIView.animate(withDuration: duration, delay: 0, options: [.autoreverse, .curveLinear]) {
+            self.transform = CGAffineTransform(scaleX: scale, y: scale)
+        } completion: { _ in
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            completion?()
+        }
+    }
+    
     /// Анимация плавного появления.
     /// - Parameters:
     ///   - fromValue: Изначальное значение параметра `alpha` (по умолчанию равно `0`).

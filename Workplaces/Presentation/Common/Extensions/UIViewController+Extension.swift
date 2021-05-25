@@ -9,6 +9,10 @@ import UIKit
 
 extension UIViewController {
     
+    /// Отображение ошибки с помощью `UIAlertController`.
+    /// - Parameters:
+    ///   - error: Ошибка.
+    ///   - competion: Блок, выполняемый после нажатия кнопки "Ok" в открывшемся `UIAlertController`.
     func showAlert(_ error: Error?, competion: VoidBlock? = nil) {
         DispatchQueue.main.async { [weak self] in
             LoadingView.hide()
