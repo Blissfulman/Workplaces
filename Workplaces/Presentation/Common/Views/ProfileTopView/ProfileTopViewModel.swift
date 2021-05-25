@@ -29,12 +29,6 @@ struct ProfileTopViewModel {
     // MARK: - Private properties
     
     let profile: User
-    
-    // MARK: - Initializers
-    
-    init(profile: User) {
-        self.profile = profile
-    }
 }
 
 // MARK: - Extensions

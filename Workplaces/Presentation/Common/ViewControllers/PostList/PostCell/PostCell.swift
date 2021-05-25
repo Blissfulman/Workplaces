@@ -29,7 +29,7 @@ final class PostCell: UITableViewCell {
     
     // MARK: - Private properties
     
-    private var post: Post?
+    private var model: PostCellModel?
     private weak var delegate: PostCellDelegate?
     
     // MARK: - UITableViewCell
@@ -48,27 +48,17 @@ final class PostCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func configure(post: Post, delegate: PostCellDelegate) {
-        self.post = post
+    func configure(model: PostCellModel, delegate: PostCellDelegate) {
+        self.model = model
         self.delegate = delegate
         
-        descriptionLabel.text = post.text
-        // Нужно будет добавить отображение локации
-        if post.latitude != nil,
-           post.longitude != nil {
-            locationLabel.text = "Location is exist" // TEMP
-            locationStackView.isHidden = false
-        } else {
-            locationStackView.isHidden = true
-        }
-        if let url = post.imageURL {
-            postImageView.fetchImage(byURL: url)
-            postImageView.isHidden = false
-        } else {
-            postImageView.isHidden = true
-        }
-        authorLabel.text = post.author.nickname
-        likeButton.setImage(post.liked ? Icons.liked : Icons.like, for: .normal)
+        descriptionLabel.text = model.post.text
+        locationStackView.isHidden = model.isHiddenLocation
+        locationLabel.text = model.location
+        postImageView.isHidden = model.isHiddenPostImage
+        postImageView.image = UIImage(data: model.postImageData ?? Data())
+        authorLabel.text = model.nickname
+        likeButton.setImage(model.post.liked ? Icons.liked : Icons.like, for: .normal)
     }
     
     func updateDescriptionLabelAlpha(value: CGFloat) {

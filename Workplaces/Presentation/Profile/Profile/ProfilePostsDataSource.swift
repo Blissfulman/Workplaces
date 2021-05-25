@@ -47,7 +47,7 @@ final class ProfilePostsDataSource: NSObject, UITableViewDataSource {
             withIdentifier: PostCell.identifier,
             for: indexPath
         ) as? PostCell else { return UITableViewCell() }
-        cell.configure(post: posts[indexPath.row], delegate: self)
+        cell.configure(model: PostCellModel(post: posts[indexPath.row]), delegate: self)
         return cell
     }
     
