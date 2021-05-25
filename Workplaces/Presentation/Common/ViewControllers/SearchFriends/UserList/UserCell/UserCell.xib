@@ -71,6 +71,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addFriendButton" destination="6SE-jH-42n" id="GEA-gL-f7U"/>
                 <outlet property="avatarImageView" destination="1GR-4Z-NXf" id="ZSW-xs-rfQ"/>
                 <outlet property="fullNameLabel" destination="xCw-lo-9Kf" id="k8k-KP-tXq"/>
                 <outlet property="nicknameLabel" destination="Fm2-ML-NVs" id="K4s-B2-Jt6"/>

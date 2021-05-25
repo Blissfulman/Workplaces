@@ -47,6 +47,8 @@ final class SearchFriendsContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchProfile()
+        fetchFriends()
         setupUI()
     }
     
@@ -56,6 +58,24 @@ final class SearchFriendsContainerViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         navigationItem.title = "Поиск друзей"
         stackView.addArrangedSubview(searchFriendsVC.view)
+    }
+    
+    private func fetchProfile() {
+        let progress = profileService.fetchMyProfile { [weak self] result in
+            if case let .success(profile) = result {
+                self?.userListDataSource.profileID = profile.id
+            }
+        }
+        progressList.append(progress)
+    }
+    
+    private func fetchFriends() {
+        let progress = profileService.fetchFriends { [weak self] result in
+            if case let .success(friendList) = result {
+                self?.userListDataSource.updateFriendList(friendList: friendList)
+            }
+        }
+        progressList.append(progress)
     }
     
     private func showUserList() {
@@ -105,9 +125,12 @@ extension SearchFriendsContainerViewController: UserListDataSourceDelegate {
     }
     
     func didTapAddFriend(withID userID: User.ID) {
-        let progress = profileService.addFriend(userID: userID) { result in
-            if case let .failure(error) = result {
-                print(error.localizedDescription) // TEMP
+        let progress = profileService.addFriend(userID: userID) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchFriends()
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
         progressList.append(progress)

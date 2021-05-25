@@ -20,6 +20,7 @@ final class UserCell: UITableViewCell {
     @IBOutlet private var avatarImageView: UIImageView!
     @IBOutlet private var fullNameLabel: UILabel!
     @IBOutlet private var nicknameLabel: UILabel!
+    @IBOutlet private var addFriendButton: UIButton!
     
     // MARK: - Private properties
     
@@ -48,7 +49,7 @@ final class UserCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func configure(user: User, delegate: UserCellDelegate) {
+    func configure(user: User, delegate: UserCellDelegate, isAddable: Bool) {
         self.user = user
         self.delegate = delegate
         
@@ -57,5 +58,6 @@ final class UserCell: UITableViewCell {
         }
         fullNameLabel.text = "\(user.firstName) \(user.lastName)"
         nicknameLabel.text = user.nickname
+        addFriendButton.isHidden = !isAddable
     }
 }

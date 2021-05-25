@@ -22,13 +22,15 @@ final class UserListDataSource: NSObject, UITableViewDataSource {
     // MARK: - Public properties
     
     var isEmptyData: Bool {
-        users.isEmpty
+        foundUsers.isEmpty
     }
-    weak var delegate: UserListDataSourceDelegate?
+    var profileID: User.ID?
     
     // MARK: - Private properties
     
-    private var users = [User]()
+    private weak var delegate: UserListDataSourceDelegate?
+    private var foundUsers = [User]()
+    private var friendList = [User]()
     
     // MARK: - Initializers
     
@@ -39,7 +41,7 @@ final class UserListDataSource: NSObject, UITableViewDataSource {
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        foundUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +49,8 @@ final class UserListDataSource: NSObject, UITableViewDataSource {
             withIdentifier: UserCell.identifier,
             for: indexPath
         ) as? UserCell else { return UITableViewCell() }
-        cell.configure(user: users[indexPath.row], delegate: self)
+        let isAddable = checkAddabilityToFriends(ofUser: foundUsers[indexPath.row])
+        cell.configure(user: foundUsers[indexPath.row], delegate: self, isAddable: isAddable)
         return cell
     }
     
@@ -56,10 +59,25 @@ final class UserListDataSource: NSObject, UITableViewDataSource {
     /// Обновление пользователей в таблице, если переданные данные отличаются от уже имеющихся.
     /// - Parameter users: Массив пользователей для обновления.
     func updateData(users: [User]) {
-        if self.users != users {
-            self.users = users
+        if self.foundUsers != users {
+            self.foundUsers = users
             delegate?.needUpdateUserList()
         }
+    }
+    
+    /// Обновление списка друзей, если переданные данные отличаются от уже имеющихся.
+    /// - Parameter friendList: Список друзей для обновления.
+    func updateFriendList(friendList: [User]) {
+        if self.friendList != friendList {
+            self.friendList = friendList
+            delegate?.needUpdateUserList()
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func checkAddabilityToFriends(ofUser user: User) -> Bool {
+        !friendList.map { $0.id }.contains(user.id) && (user.id != profileID)
     }
 }
 
