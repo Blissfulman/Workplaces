@@ -110,7 +110,6 @@
 		CE5E71B82652A47C0028990A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B62652A47C0028990A /* UserCell.swift */; };
 		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
 		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
-		CE5E71BD2652E9D10028990A /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */; };
 		CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */; };
 		CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
@@ -169,7 +168,6 @@
 		CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */; };
 		CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FD264D46FF0060E818 /* SignUpModel.swift */; };
 		CEB07502264D6A770060E818 /* FriendListLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07500264D6A770060E818 /* FriendListLastCell.swift */; };
-		CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB07501264D6A770060E818 /* FriendListLastCell.xib */; };
 		CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */; };
 		CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */; };
 		CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */; };
@@ -190,6 +188,8 @@
 		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
 		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
+		CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF759265E1560000A765C /* FriendListLastCell.xib */; };
+		CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
@@ -360,7 +360,6 @@
 		CE5E71B62652A47C0028990A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
-		CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
 		CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceError.swift; sourceTree = "<group>"; };
 		CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationsViewController.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -422,7 +421,6 @@
 		CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerViewController.swift; sourceTree = "<group>"; };
 		CEB074FD264D46FF0060E818 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		CEB07500264D6A770060E818 /* FriendListLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListLastCell.swift; sourceTree = "<group>"; };
-		CEB07501264D6A770060E818 /* FriendListLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListLastCell.xib; sourceTree = "<group>"; };
 		CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostsDataSource.swift; sourceTree = "<group>"; };
 		CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsDataSource.swift; sourceTree = "<group>"; };
 		CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLikesDataSource.swift; sourceTree = "<group>"; };
@@ -445,6 +443,10 @@
 		CEDFF750265D1FF9000A765C /* PostCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellModel.swift; sourceTree = "<group>"; };
 		CEDFF755265E1364000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditProfileViewController.xib; sourceTree = "<group>"; };
 		CEDFF756265E136D000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EditProfileViewController.strings; sourceTree = "<group>"; };
+		CEDFF75A265E1564000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FriendListLastCell.xib; sourceTree = "<group>"; };
+		CEDFF75B265E156B000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FriendListLastCell.strings; sourceTree = "<group>"; };
+		CEDFF75F265E15FA000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
+		CEDFF760265E1602000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchFriendsContainerViewController.strings; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -1139,7 +1141,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */,
-				CE5E71BC2652E9D10028990A /* SearchFriendsContainerViewController.xib */,
+				CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */,
 				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
 				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
 				CE5E71B02652A2FF0028990A /* UserList */,
@@ -1277,7 +1279,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB07500264D6A770060E818 /* FriendListLastCell.swift */,
-				CEB07501264D6A770060E818 /* FriendListLastCell.xib */,
+				CEDFF759265E1560000A765C /* FriendListLastCell.xib */,
 			);
 			path = FriendListLastCell;
 			sourceTree = "<group>";
@@ -1497,7 +1499,7 @@
 				CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
-				CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */,
+				CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
@@ -1512,7 +1514,7 @@
 				CE1508652642597700568006 /* PostCell.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
-				CE5E71BD2652E9D10028990A /* SearchFriendsContainerViewController.xib in Resources */,
+				CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
@@ -1939,6 +1941,24 @@
 				CEDFF756265E136D000A765C /* ru */,
 			);
 			name = EditProfileViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF759265E1560000A765C /* FriendListLastCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF75A265E1564000A765C /* Base */,
+				CEDFF75B265E156B000A765C /* ru */,
+			);
+			name = FriendListLastCell.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF75F265E15FA000A765C /* Base */,
+				CEDFF760265E1602000A765C /* ru */,
+			);
+			name = SearchFriendsContainerViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
