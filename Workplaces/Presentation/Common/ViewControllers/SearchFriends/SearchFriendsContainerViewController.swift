@@ -56,7 +56,7 @@ final class SearchFriendsContainerViewController: UIViewController {
     
     private func setupUI() {
         tabBarController?.tabBar.isHidden = true
-        navigationItem.title = "Поиск друзей"
+        navigationItem.title = "Search friends".localized()
         stackView.addArrangedSubview(searchFriendsVC.view)
     }
     

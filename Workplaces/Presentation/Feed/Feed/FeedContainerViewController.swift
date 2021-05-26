@@ -99,7 +99,7 @@ final class FeedContainerViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.title = "Популярное"
+        navigationItem.title = "Popular".localized()
         navigationItem.backButtonTitle = ""
     }
     

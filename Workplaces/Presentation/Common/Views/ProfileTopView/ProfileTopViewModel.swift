@@ -23,7 +23,7 @@ struct ProfileTopViewModel {
     }
     var age: String? {
         guard let age = profile.birthday.getAgeFromBirthday() else { return nil }
-        return "\(age) years"
+        return "\(age) " + "years".localized() // Доделать правильную русскую локализацию
     }
     
     // MARK: - Private properties

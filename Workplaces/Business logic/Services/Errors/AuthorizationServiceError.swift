@@ -20,18 +20,18 @@ enum AuthorizationServiceError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .credentialsInvalid:
-            return "Email или пароль указаны неверно"
+            return "Email or password are incorrect".localized()
         case .emailValidationError:
-            return "Email имеет недопустимый формат"
+            return "Email is in invalid format".localized()
         case .passwordValidationError:
             return """
-            Пароль имеет недопустимый формат.
-            Он должен быть не менее 8 символов, а также содержать заглавные, строчные буквы и цифры.
-            """
+            Invalid password. Please, use uppercase, lowercase letters and numbers.
+            Minimum password length is 8 symbols.
+            """.localized()
         case .dublicateUserError:
-            return "Пользователь с указанным email уже зарегистрирован"
+            return "Unable to create user. The user with the specified email is already registered".localized()
         case .unexpectedError:
-            return "Непредвиденная ошибка авторизации"
+            return "Unexpected authorization error".localized()
         }
     }
     
