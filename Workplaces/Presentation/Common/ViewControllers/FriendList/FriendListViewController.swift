@@ -64,10 +64,7 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
     
     /// Обновление данных таблицы.
     func updateData() {
-        if let tableView = tableView {
-            tableView.reloadData()
-            delegate?.scrollViewDidScroll(tableView)
-        }
+        tableView?.reloadData()
     }
     
     // MARK: - Private methods

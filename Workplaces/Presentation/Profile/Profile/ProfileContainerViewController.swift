@@ -265,9 +265,6 @@ extension ProfileContainerViewController {
             switch result {
             case let .success(myPosts):
                 self?.postListDataSource.updateData(posts: myPosts)
-                if self?.state == .posts {
-                    self?.updateScreen()
-                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -284,9 +281,6 @@ extension ProfileContainerViewController {
             switch result {
             case let .success(likedPosts):
                 self?.likeListDataSource.updateData(posts: likedPosts)
-                if self?.state == .likes {
-                    self?.updateScreen()
-                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
@@ -303,9 +297,6 @@ extension ProfileContainerViewController {
             switch result {
             case let .success(friends):
                 self?.friendListDataSource.updateData(friends: friends)
-                if self?.state == .friends {
-                    self?.updateScreen()
-                }
             case let .failure(error):
                 print(error.localizedDescription)
             }
