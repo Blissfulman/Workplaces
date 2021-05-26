@@ -39,7 +39,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     private func showLoginScreen() {
         let loginVC = LoginViewController()
         loginVC.delegate = self
-        navigationController?.pushViewController(loginVC, animated: false)
+        navigationController?.show(loginVC, sender: nil)
     }
     
     private func showSignInScreen() {
@@ -49,7 +49,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signInContainerVC = SignInContainerViewController(delegate: self)
-        navigationController?.pushViewController(signInContainerVC, animated: true)
+        navigationController?.show(signInContainerVC, sender: nil)
     }
     
     private func showSignUpContainerController() {
@@ -59,18 +59,18 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         }
         
         let signUpContainerVC = SignUpContainerViewController(delegate: self)
-        navigationController?.pushViewController(signUpContainerVC, animated: true)
+        navigationController?.show(signUpContainerVC, sender: nil)
     }
     
     private func showSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
         let signUpSecondVC = SignUpSecondViewController(signUpModel: signUpModel, delegate: delegate)
-        navigationController?.pushViewController(signUpSecondVC, animated: true)
+        navigationController?.show(signUpSecondVC, sender: nil)
     }
     
     private func showSignInDoneScreen() {
         let signInDoneVC = SignInDoneViewController()
         signInDoneVC.delegate = self
-        navigationController?.pushViewController(signInDoneVC, animated: true)
+        navigationController?.show(signInDoneVC, sender: nil)
     }
     
     private func showTabBarController() {
