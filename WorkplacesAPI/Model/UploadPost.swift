@@ -5,12 +5,11 @@
 //  Created by Evgeny Novgorodov on 28.04.2021.
 //
 
+import UIKit
+
 public struct UploadPost: Encodable {
     
-    let text: String
-    let imageFile: String
-    let longitude: Double
-    let latitude: Double
+    // MARK: - Nested types
     
     private enum CodingKeys: String, CodingKey {
         case text
@@ -19,15 +18,27 @@ public struct UploadPost: Encodable {
         case latitude = "lat"
     }
     
+    // MARK: - Public properties
+    
+    let text: String
+    let imageFile: String
+    let longitude: String
+    let latitude: String
+    
+    // MARK: - Initializers
+    
+    // Временный инициализатор
     init(post: Post) {
         text = post.text ?? ""
         if let url = post.imageURL,
-           let imageData = try? Data(contentsOf: url) {
-            imageFile = String(data: imageData, encoding: .utf8) ?? ""
+           let imageData = try? Data(contentsOf: url),
+           let base64Data = UIImage(data: imageData)?.pngData()?.base64EncodedData(),
+           let stringData = String(data: base64Data, encoding: .utf8) {
+            imageFile = stringData
         } else {
             imageFile = ""
         }
-        longitude = post.longitude ?? 0
-        latitude = post.latitude ?? 0
+        longitude = String(describing: post.longitude ?? 0)
+        latitude = String(describing: post.latitude ?? 0)
     }
 }

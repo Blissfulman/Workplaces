@@ -12,6 +12,9 @@ import UIKit
 protocol ProfilePostsDataSourceDelegate: AnyObject {
     /// Оповещение делегата о необходимости обновления данных.
     func needUpdatePostList()
+    /// Оповещение делегата о том, что пользователь произвёл тап по кнопке лайка.
+    /// - Parameter withPost: Пост, в котором произошёл тап.
+    func didTapLikeButtonInPostList(withPost post: Post)
 }
 
 final class ProfilePostsDataSource: NSObject, UITableViewDataSource {
@@ -44,7 +47,7 @@ final class ProfilePostsDataSource: NSObject, UITableViewDataSource {
             withIdentifier: PostCell.identifier,
             for: indexPath
         ) as? PostCell else { return UITableViewCell() }
-        cell.configure(post: posts[indexPath.row], delegate: self)
+        cell.configure(model: PostCellModel(post: posts[indexPath.row]), delegate: self)
         return cell
     }
     
@@ -64,4 +67,7 @@ final class ProfilePostsDataSource: NSObject, UITableViewDataSource {
 
 extension ProfilePostsDataSource: PostCellDelegate {
     
+    func didTapLikeButton(withPost post: Post) {
+        delegate?.didTapLikeButtonInPostList(withPost: post)
+    }
 }

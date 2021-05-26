@@ -20,12 +20,12 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     // MARK: - Public properties
     
     var contentOffset: CGPoint {
-        tableView.contentOffset
+        tableView?.contentOffset ?? .zero
     }
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Private properties
     
@@ -64,13 +64,29 @@ final class PostListViewController: UIViewController, TableViewOffsetConfigurabl
     
     /// Обновление данных таблицы.
     func updateData() {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
         tableView.register(PostCell.nib(), forCellReuseIdentifier: PostCell.identifier)
+    }
+    
+    /// Вычисление доли видимой части ячейки таблицы.
+    /// - Parameter cell: Ячейка.
+    /// - Returns: Доля видимой части ячейки (для полностью видимой ячейки вернётся значение 1, для полностью скрытой - 0).
+    private func shareOfCellVisibility(forCell cell: UITableViewCell) -> CGFloat {
+        // Значение скрытой части ячейки относительно верхнего края таблицы
+        let topDelta = contentOffset.y - cell.frame.origin.y
+        
+        if topDelta >= 0 {
+            return max(1 - topDelta / cell.frame.height, 0)
+        } else {
+            // Значение видимой части ячейки относительно нижнего края таблицы
+            let bottomDelta = tableView.frame.height + topDelta
+            return min(bottomDelta / cell.frame.height, 1)
+        }
     }
 }
 
@@ -80,5 +96,17 @@ extension PostListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll(scrollView)
+        
+        tableView.visibleCells.forEach {
+            if let postCell = $0 as? PostCell {
+                postCell.updateDescriptionLabelAlpha(value: shareOfCellVisibility(forCell: $0))
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let postCell = cell as? PostCell {
+            postCell.updateDescriptionLabelAlpha(value: shareOfCellVisibility(forCell: cell))
+        }
     }
 }

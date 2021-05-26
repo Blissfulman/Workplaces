@@ -13,15 +13,16 @@ protocol EditProfileViewControllerDelegate: AnyObject {
     func didTapSaveButton()
 }
 
-final class EditProfileViewController: UIViewController {
+final class EditProfileViewController: KeyboardNotificationsViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var nicknameTextField: UITextField!
-    @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var birthdayTextField: UITextField!
-    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private var nicknameTextField: UITextField!
+    @IBOutlet private var firstNameTextField: UITextField!
+    @IBOutlet private var lastNameTextField: UITextField!
+    @IBOutlet private var birthdayTextField: UITextField!
+    @IBOutlet private var saveButton: UIButton!
+    @IBOutlet private var saveButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -50,6 +51,25 @@ final class EditProfileViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    // MARK: - KeyboardNotificationsViewController
+    
+    override func keyboardWillShow(_ notification: Notification) {
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func keyboardWillHide() {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Actions

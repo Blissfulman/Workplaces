@@ -12,4 +12,7 @@ enum Images {
     static let loginDoneScreen = #imageLiteral(resourceName: "login_done_screen")
     static let errorScreen = #imageLiteral(resourceName: "error_screen")
     static let noDataScreen = #imageLiteral(resourceName: "no_data_screen")
+    
+    static let textFieldBackgroundDefault = #imageLiteral(resourceName: "textfield_bg")
+    static let textFieldBackgroundAccent = #imageLiteral(resourceName: "textfield_bg_accent")
 }

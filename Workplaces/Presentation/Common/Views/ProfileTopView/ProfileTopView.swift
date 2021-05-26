@@ -37,27 +37,25 @@ final class ProfileTopView: NibInitializableView {
         }
     }
     
-    // MARK: - Public properties
-    
-    weak var delegate: ProfileTopViewDelegate?
-    
     // MARK: - Outlets
     
-    @IBOutlet private weak var topBackView: UIView!
-    @IBOutlet private weak var bottomBackView: UIView!
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var fullNameLabel: UILabel!
-    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private var topBackView: UIView!
+    @IBOutlet private var bottomBackView: UIView!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var fullNameLabel: UILabel!
+    @IBOutlet private var ageLabel: UILabel!
     
     // MARK: - Private properties
     
+    private var model: ProfileTopViewModel?
+    private weak var delegate: ProfileTopViewDelegate?
     private var editProfileButtonAction: VoidBlock?
     
     // MARK: - Initializers
     
     init(delegate: ProfileTopViewDelegate) {
-        super.init(frame: .zero)
         self.delegate = delegate
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -67,19 +65,20 @@ final class ProfileTopView: NibInitializableView {
     // MARK: - UIView
     
     override func didAddSubview(_ subview: UIView) {
-        topBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
-        bottomBackView?.layer.cornerRadius = UIConstants.cellCornerRadius
-        avatarImageView?.layer.cornerRadius = UIConstants.avatarCornerRadius
+        topBackView?.setCornerRadius(UIConstants.cellCornerRadius)
+        bottomBackView?.setCornerRadius(UIConstants.cellCornerRadius)
+        avatarImageView?.setCornerRadius(UIConstants.avatarCornerRadius)
     }
     
     // MARK: - Public methods
     
-    func configure(profile: User, editProfileButtonAction: @escaping VoidBlock) {
+    func configure(model: ProfileTopViewModel, editProfileButtonAction: @escaping VoidBlock) {
+        self.model = model
         self.editProfileButtonAction = editProfileButtonAction
-        if let avatarURL = profile.avatarURL {
-            avatarImageView.fetchImage(byURL: avatarURL)
-        }
-        fullNameLabel.text = "\(profile.firstName) \(profile.lastName)"
+        
+        avatarImageView.image = UIImage(data: model.avatarImageData ?? Data())
+        fullNameLabel.text = model.fullName
+        ageLabel.text = model.age
     }
     
     // MARK: - Actions

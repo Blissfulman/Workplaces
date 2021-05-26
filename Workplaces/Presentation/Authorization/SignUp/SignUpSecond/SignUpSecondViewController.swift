@@ -10,10 +10,10 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpSecondViewControllerDelegate: AnyObject {
-    func didTapSignUpButton()
+    func didTapSaveButton()
 }
 
-final class SignUpSecondViewController: UIViewController {
+final class SignUpSecondViewController: KeyboardNotificationsViewController {
     
     // MARK: - Public properties
     
@@ -21,9 +21,12 @@ final class SignUpSecondViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var firstNameTextField: UITextField!
-    @IBOutlet private weak var lastNameTextField: UITextField!
-    @IBOutlet private weak var birthdayTextField: UITextField!
+    @IBOutlet private var nicknameTextField: UITextField!
+    @IBOutlet private var firstNameTextField: UITextField!
+    @IBOutlet private var lastNameTextField: UITextField!
+    @IBOutlet private var birthdayTextField: UITextField!
+    @IBOutlet private var datePicker: UIDatePicker!
+    @IBOutlet private var saveButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -51,37 +54,65 @@ final class SignUpSecondViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+        datePicker.disappear()
+    }
+    
+    // MARK: - KeyboardNotificationsViewController
+    
+    override func keyboardWillShow(_ notification: Notification) {
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func keyboardWillHide() {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.saveButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Actions
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
         switch sender {
+        case nicknameTextField:
+            signUpModel.nickname = nicknameTextField.text
         case firstNameTextField:
-            signUpModel.firstName = sender.text
+            signUpModel.firstName = firstNameTextField.text
         case lastNameTextField:
-            signUpModel.lastName = sender.text
-        case birthdayTextField:
-            // Временно. Позже дата будет выбираться в DatePicker
-            signUpModel.birthday = DateFormatter.profileDateFormatter.date(from: sender.text ?? "") ?? Date()
+            signUpModel.lastName = lastNameTextField.text
         default:
             break
         }
     }
     
-    @IBAction private func signUpButtonTapped() {
-        delegate?.didTapSignUpButton()
+    @IBAction private func textFieldsEditingDidBegin() {
+        datePicker.disappear()
+    }
+    
+    @IBAction private func pickDateButtonTapped() {
+        view.endEditing(true)
+        datePicker.appear()
+    }
+    
+    @IBAction private func datePickerValueChanged() {
+        birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: datePicker.date)
+        signUpModel.birthday = datePicker.date
+    }
+    
+    @IBAction private func saveButtonTapped() {
+        delegate?.didTapSaveButton()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
         title = "Sign up".localized()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        firstNameTextField.text = signUpModel.firstName
-        lastNameTextField.text = signUpModel.lastName
-        if let birthday = signUpModel.birthday {
-            birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: birthday)
-        }
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 }

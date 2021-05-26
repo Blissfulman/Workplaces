@@ -17,7 +17,6 @@
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */; };
 		CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */; };
-		CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */; };
 		CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */; };
 		CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */; };
 		CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D775262E8E1C009A96B3 /* ProfileContainerViewController.swift */; };
@@ -72,6 +71,7 @@
 		CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */; };
 		CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */; };
 		CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* EmailValidatorTests.swift */; };
+		CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
 		CE1F48FF26388DC000FD117C /* RemoveFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */; };
 		CE1F490126388E9600FD117C /* AddFriendEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */; };
@@ -95,9 +95,23 @@
 		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
+		CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */; };
+		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
+		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
 		CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */; };
 		CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */; };
 		CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */; };
+		CE5E71A826528A350028990A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A726528A350028990A /* SearchService.swift */; };
+		CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71A926528B650028990A /* SearchServiceImpl.swift */; };
+		CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */; };
+		CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */; };
+		CE5E71B32652A3670028990A /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B12652A3670028990A /* UserListViewController.swift */; };
+		CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B22652A3670028990A /* UserListViewController.xib */; };
+		CE5E71B82652A47C0028990A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B62652A47C0028990A /* UserCell.swift */; };
+		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
+		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
+		CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */; };
+		CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
 		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
@@ -105,7 +119,6 @@
 		CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */; };
 		CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B5B2633FEA200C0C52C /* ZeroViewController.swift */; };
 		CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B6026340EAB00C0C52C /* NibInitializable.swift */; };
-		CE8F1B6C263470ED00C0C52C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */; };
 		CE8F1BB52634A9BB00C0C52C /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; };
 		CE8F1BBE2634A9BB00C0C52C /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE8F1BC12634A9BB00C0C52C /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */; };
@@ -128,7 +141,6 @@
 		CE972187263EFCEE006ACEB2 /* SearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */; };
 		CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */; };
 		CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */; };
-		CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */; };
 		CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */; };
 		CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */; };
 		CEA46B4326465EB3007C2DCE /* FeedServiceLikePostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */; };
@@ -144,19 +156,16 @@
 		CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5B2646C193007C2DCE /* PostListViewController.swift */; };
 		CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B5C2646C193007C2DCE /* PostListViewController.xib */; };
 		CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B642647C323007C2DCE /* ProfileTopView.swift */; };
-		CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B662647C334007C2DCE /* ProfileTopView.xib */; };
 		CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */; };
 		CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6F26495BE0007C2DCE /* FriendCell.swift */; };
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
 		CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7426495E47007C2DCE /* FriendListViewController.swift */; };
 		CEA46B7726495E47007C2DCE /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7526495E47007C2DCE /* FriendListViewController.xib */; };
-		CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B7A264A846B007C2DCE /* MockModels.swift */; };
 		CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */; };
 		CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */; };
 		CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */; };
 		CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB074FD264D46FF0060E818 /* SignUpModel.swift */; };
 		CEB07502264D6A770060E818 /* FriendListLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07500264D6A770060E818 /* FriendListLastCell.swift */; };
-		CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB07501264D6A770060E818 /* FriendListLastCell.xib */; };
 		CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */; };
 		CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */; };
 		CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */; };
@@ -166,11 +175,20 @@
 		CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */; };
 		CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */; };
 		CEB07519264EE7130060E818 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB07518264EE7130060E818 /* SignInModel.swift */; };
+		CEB0751B265034720060E818 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751A265034720060E818 /* UIView+Extension.swift */; };
+		CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751C265050110060E818 /* PasswordValidator.swift */; };
+		CEB0751F26524A550060E818 /* ZeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751E26524A550060E818 /* ZeroViewModel.swift */; };
 		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED98E2637B89100619CF3 /* RefreshToken.swift */; };
 		CECED9932637B9CA00619CF3 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED9922637B9CA00619CF3 /* UserID.swift */; };
+		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
+		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
+		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
+		CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF759265E1560000A765C /* FriendListLastCell.xib */; };
+		CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */; };
+		CEDFF761265E1734000A765C /* ProfileTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF763265E1734000A765C /* ProfileTopView.xib */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
@@ -238,7 +256,6 @@
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatingController.swift; sourceTree = "<group>"; };
 		CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContainerViewController.swift; sourceTree = "<group>"; };
-		CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedContainerViewController.xib; sourceTree = "<group>"; };
 		CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		CE09D775262E8E1C009A96B3 /* ProfileContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainerViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +319,7 @@
 		CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignInTests.swift; sourceTree = "<group>"; };
 		CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageMock.swift; sourceTree = "<group>"; };
 		CE1627A426412AE500468CDA /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
+		CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBarController.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		CE1F48FE26388DC000FD117C /* RemoveFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpointTests.swift; sourceTree = "<group>"; };
 		CE1F490026388E9600FD117C /* AddFriendEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpointTests.swift; sourceTree = "<group>"; };
@@ -325,10 +343,24 @@
 		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
+		CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
+		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
+		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE573783262DC4A900A6DC20 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		CE573788262DEEB000A6DC20 /* SignUpFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstViewController.swift; sourceTree = "<group>"; };
 		CE57378D262DEEC700A6DC20 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
+		CE5E71A726528A350028990A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		CE5E71A926528B650028990A /* SearchServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceImpl.swift; sourceTree = "<group>"; };
+		CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserEndpoint.swift; sourceTree = "<group>"; };
+		CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostEndpoint.swift; sourceTree = "<group>"; };
+		CE5E71B12652A3670028990A /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		CE5E71B22652A3670028990A /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
+		CE5E71B62652A47C0028990A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceError.swift; sourceTree = "<group>"; };
+		CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationsViewController.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -338,7 +370,6 @@
 		CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CE8F1B5B2633FEA200C0C52C /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 		CE8F1B6026340EAB00C0C52C /* NibInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
-		CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		CE8F1BAC2634A9BB00C0C52C /* WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8F1BAE2634A9BB00C0C52C /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		CE8F1BAF2634A9BB00C0C52C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -361,7 +392,6 @@
 		CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsViewController.xib; sourceTree = "<group>"; };
 		CE972188263F0BC8006ACEB2 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		CE972190263F3881006ACEB2 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CEA46B4226465EB3007C2DCE /* FeedServiceLikePostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceLikePostTests.swift; sourceTree = "<group>"; };
@@ -377,20 +407,17 @@
 		CEA46B5B2646C193007C2DCE /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		CEA46B5C2646C193007C2DCE /* PostListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListViewController.xib; sourceTree = "<group>"; };
 		CEA46B642647C323007C2DCE /* ProfileTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopView.swift; sourceTree = "<group>"; };
-		CEA46B662647C334007C2DCE /* ProfileTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTopView.xib; sourceTree = "<group>"; };
 		CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegmentedControl.swift; sourceTree = "<group>"; };
 		CEA46B6F26495BE0007C2DCE /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		CEA46B7426495E47007C2DCE /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		CEA46B7526495E47007C2DCE /* FriendListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
-		CEA46B7A264A846B007C2DCE /* MockModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModels.swift; sourceTree = "<group>"; };
 		CEAF17702635EA9E00DE0311 /* FeedPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostListEndpoint.swift; sourceTree = "<group>"; };
 		CEAF17742635EB9B00DE0311 /* Pods_Workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB074F8264B91A60060E818 /* TableViewOffsetConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOffsetConfigurable.swift; sourceTree = "<group>"; };
 		CEB074FA264D30B70060E818 /* SignUpContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainerViewController.swift; sourceTree = "<group>"; };
 		CEB074FD264D46FF0060E818 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		CEB07500264D6A770060E818 /* FriendListLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListLastCell.swift; sourceTree = "<group>"; };
-		CEB07501264D6A770060E818 /* FriendListLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendListLastCell.xib; sourceTree = "<group>"; };
 		CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostsDataSource.swift; sourceTree = "<group>"; };
 		CEB07506264DA8A90060E818 /* ProfilePostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostsDataSource.swift; sourceTree = "<group>"; };
 		CEB07508264DA96D0060E818 /* ProfileLikesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLikesDataSource.swift; sourceTree = "<group>"; };
@@ -400,12 +427,25 @@
 		CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsContainerViewController.swift; sourceTree = "<group>"; };
 		CEB07515264EE5B40060E818 /* SignInContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInContainerViewController.swift; sourceTree = "<group>"; };
 		CEB07518264EE7130060E818 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		CEB0751A265034720060E818 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CEB0751C265050110060E818 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		CEB0751E26524A550060E818 /* ZeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewModel.swift; sourceTree = "<group>"; };
 		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CECED98E2637B89100619CF3 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		CECED9922637B9CA00619CF3 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		CED6F3862635EF2500096D72 /* Apexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		CEDFF750265D1FF9000A765C /* PostCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellModel.swift; sourceTree = "<group>"; };
+		CEDFF755265E1364000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditProfileViewController.xib; sourceTree = "<group>"; };
+		CEDFF756265E136D000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EditProfileViewController.strings; sourceTree = "<group>"; };
+		CEDFF75A265E1564000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FriendListLastCell.xib; sourceTree = "<group>"; };
+		CEDFF75B265E156B000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FriendListLastCell.strings; sourceTree = "<group>"; };
+		CEDFF75F265E15FA000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
+		CEDFF760265E1602000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchFriendsContainerViewController.strings; sourceTree = "<group>"; };
+		CEDFF764265E173C000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileTopView.xib; sourceTree = "<group>"; };
+		CEDFF765265E1743000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProfileTopView.strings; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +527,7 @@
 			children = (
 				CE0748302633FB8C00C628FF /* ZeroView.swift */,
 				CE0748342633FBB300C628FF /* ZeroView.xib */,
+				CEB0751E26524A550060E818 /* ZeroViewModel.swift */,
 			);
 			path = Zero;
 			sourceTree = "<group>";
@@ -495,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */,
+				CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -576,7 +618,7 @@
 				CE09D77F262EBA13009A96B3 /* Typealiases.swift */,
 				CE12A25826371C1A00EE6549 /* Constants.swift */,
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
-				CEA46B7A264A846B007C2DCE /* MockModels.swift */,
+				CEB0751C265050110060E818 /* PasswordValidator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -589,7 +631,9 @@
 				CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */,
 				CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */,
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
+				CE5E71A926528B650028990A /* SearchServiceImpl.swift */,
 				CE8F1BDE2635173F00C0C52C /* Protocols */,
+				CE7825AB2654524800CE3291 /* Errors */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -623,8 +667,9 @@
 			children = (
 				CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */,
 				CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */,
-				CE8F1B6B263470ED00C0C52C /* UITextField+Extension.swift */,
+				CEB0751A265034720060E818 /* UIView+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
+				CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -634,6 +679,8 @@
 			children = (
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
+				CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */,
+				CE5223322656DE11005C5075 /* MainTextField.swift */,
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508662642601200568006 /* ProfileTopView */,
@@ -644,6 +691,7 @@
 		CE1331A4262C26E60086433C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */,
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 				CEA46B5F2646C19B007C2DCE /* PostList */,
 				CEA46B7326495E23007C2DCE /* FriendList */,
@@ -704,6 +752,7 @@
 			children = (
 				CE1508622642597700568006 /* PostCell.swift */,
 				CE1508632642597700568006 /* PostCell.xib */,
+				CEDFF750265D1FF9000A765C /* PostCellModel.swift */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -712,7 +761,8 @@
 			isa = PBXGroup;
 			children = (
 				CEA46B642647C323007C2DCE /* ProfileTopView.swift */,
-				CEA46B662647C334007C2DCE /* ProfileTopView.xib */,
+				CEDFF763265E1734000A765C /* ProfileTopView.xib */,
+				CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */,
 			);
 			path = ProfileTopView;
 			sourceTree = "<group>";
@@ -876,6 +926,43 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		CE5E71AB26528C850028990A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71AC26528CC30028990A /* SearchUserEndpoint.swift */,
+				CE5E71AE26529AB80028990A /* SearchPostEndpoint.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CE5E71B02652A2FF0028990A /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71B12652A3670028990A /* UserListViewController.swift */,
+				CE5E71B22652A3670028990A /* UserListViewController.xib */,
+				CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */,
+				CE5E71B52652A45C0028990A /* UserCell */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		CE5E71B52652A45C0028990A /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E71B62652A47C0028990A /* UserCell.swift */,
+				CE5E71B72652A47C0028990A /* UserCell.xib */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		CE7825AB2654524800CE3291 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		CE7C4944262B58E4007FA94E = {
 			isa = PBXGroup;
 			children = (
@@ -990,6 +1077,7 @@
 				CEAF176F2635EA7300DE0311 /* Feed */,
 				CEAF176E2635EA6D00DE0311 /* NewPost */,
 				CEAF176D2635EA6700DE0311 /* Profile */,
+				CE5E71AB26528C850028990A /* Search */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -1014,6 +1102,7 @@
 				CE8F1BE9263519BA00C0C52C /* FeedService.swift */,
 				CE8F1BF926352E1E00C0C52C /* NewPostService.swift */,
 				CE8F1BF1263528BD00C0C52C /* ProfileService.swift */,
+				CE5E71A726528A350028990A /* SearchService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1041,7 +1130,6 @@
 			isa = PBXGroup;
 			children = (
 				CE09D76B262E8DF8009A96B3 /* FeedContainerViewController.swift */,
-				CE09D76C262E8DF8009A96B3 /* FeedContainerViewController.xib */,
 				CEB07504264DA2CC0060E818 /* FeedPostsDataSource.swift */,
 			);
 			path = Feed;
@@ -1051,8 +1139,10 @@
 			isa = PBXGroup;
 			children = (
 				CEB07513264ED8600060E818 /* SearchFriendsContainerViewController.swift */,
+				CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */,
 				CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */,
 				CE972185263EFCEE006ACEB2 /* SearchFriendsViewController.xib */,
+				CE5E71B02652A2FF0028990A /* UserList */,
 			);
 			path = SearchFriends;
 			sourceTree = "<group>";
@@ -1075,7 +1165,7 @@
 			children = (
 				CEB0750D264E7D690060E818 /* EditProfileContainerViewController.swift */,
 				CE97218C263F111B006ACEB2 /* EditProfileViewController.swift */,
-				CE97218D263F111B006ACEB2 /* EditProfileViewController.xib */,
+				CEDFF754265E135E000A765C /* EditProfileViewController.xib */,
 				CEB0750F264E81CB0060E818 /* Model */,
 			);
 			path = EditProfile;
@@ -1187,7 +1277,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB07500264D6A770060E818 /* FriendListLastCell.swift */,
-				CEB07501264D6A770060E818 /* FriendListLastCell.xib */,
+				CEDFF759265E1560000A765C /* FriendListLastCell.xib */,
 			);
 			path = FriendListLastCell;
 			sourceTree = "<group>";
@@ -1402,11 +1492,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */,
+				CEDFF761265E1734000A765C /* ProfileTopView.xib in Resources */,
 				CE09D778262E8E1C009A96B3 /* ProfileContainerViewController.xib in Resources */,
+				CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
-				CEB07503264D6A770060E818 /* FriendListLastCell.xib in Resources */,
+				CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
@@ -1416,15 +1507,16 @@
 				CE1331AF262C40550086433C /* Palette.xcassets in Resources */,
 				CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */,
 				CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */,
-				CE97218F263F111B006ACEB2 /* EditProfileViewController.xib in Resources */,
+				CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */,
 				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
 				CE1508652642597700568006 /* PostCell.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
-				CE09D76E262E8DF8009A96B3 /* FeedContainerViewController.xib in Resources */,
+				CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
 				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
+				CE5E71B92652A47C0028990A /* UserCell.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
 				CE15089826443E7900568006 /* SignUpFirstViewController.xib in Resources */,
 			);
@@ -1599,17 +1691,21 @@
 				CEB0750E264E7D690060E818 /* EditProfileContainerViewController.swift in Sources */,
 				CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */,
 				CE150860264241A000568006 /* NibTableViewCell.swift in Sources */,
+				CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */,
 				CEB07511264E82940060E818 /* EditProfileModel.swift in Sources */,
+				CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */,
 				CEB8B881262CAA9E00F030ED /* Images.swift in Sources */,
 				CE57378A262DEEB000A6DC20 /* SignUpFirstViewController.swift in Sources */,
 				CEA46B7626495E47007C2DCE /* FriendListViewController.swift in Sources */,
 				CEB074FE264D46FF0060E818 /* SignUpModel.swift in Sources */,
+				CEB0751B265034720060E818 /* UIView+Extension.swift in Sources */,
 				CE09D76D262E8DF8009A96B3 /* FeedContainerViewController.swift in Sources */,
+				CEB0751F26524A550060E818 /* ZeroViewModel.swift in Sources */,
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
+				CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
-				CEA46B7B264A846B007C2DCE /* MockModels.swift in Sources */,
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,
 				CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */,
 				CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */,
@@ -1617,9 +1713,12 @@
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,
+				CE5E71B32652A3670028990A /* UserListViewController.swift in Sources */,
 				CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */,
 				CEB07505264DA2CC0060E818 /* FeedPostsDataSource.swift in Sources */,
+				CE5E71B82652A47C0028990A /* UserCell.swift in Sources */,
 				CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */,
+				CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */,
 				CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */,
 				CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */,
 				CEB0750B264DAA300060E818 /* ProfileFriendsDataSource.swift in Sources */,
@@ -1629,9 +1728,9 @@
 				CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */,
 				CE1508642642597700568006 /* PostCell.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
+				CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */,
 				CEA1C3C42638188400B2D0F1 /* UIImageView+Extension.swift in Sources */,
 				CE1508A326446F3100568006 /* String+Extension.swift in Sources */,
-				CE8F1B6C263470ED00C0C52C /* UITextField+Extension.swift in Sources */,
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
 				CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */,
 				CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */,
@@ -1648,20 +1747,27 @@
 				CE1508972643D54800568006 /* NibInitializableView.swift in Sources */,
 				CEB07519264EE7130060E818 /* SignInModel.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
+				CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */,
+				CE5E71AA26528B650028990A /* SearchServiceImpl.swift in Sources */,
 				CE8F1BFA26352E1E00C0C52C /* NewPostService.swift in Sources */,
+				CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */,
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
+				CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */,
+				CE5E71A826528A350028990A /* SearchService.swift in Sources */,
 				CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */,
+				CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
+				CE5223332656DE11005C5075 /* MainTextField.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 				CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */,
 				CEB07502264D6A770060E818 /* FriendListLastCell.swift in Sources */,
@@ -1679,6 +1785,7 @@
 				CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
+				CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */,
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
@@ -1701,6 +1808,7 @@
 				CE12A25D26371E1F00EE6549 /* AuthorizationData.swift in Sources */,
 				CE12A2482637153800EE6549 /* LoginEndpoint.swift in Sources */,
 				CE12A23D2637091C00EE6549 /* AuthRequestInterceptor.swift in Sources */,
+				CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */,
 				CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */,
 				CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */,
 				CE12A2442637151B00EE6549 /* RegistrationEndpoint.swift in Sources */,
@@ -1821,6 +1929,42 @@
 				CE15087426428D2B00568006 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CEDFF754265E135E000A765C /* EditProfileViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF755265E1364000A765C /* Base */,
+				CEDFF756265E136D000A765C /* ru */,
+			);
+			name = EditProfileViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF759265E1560000A765C /* FriendListLastCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF75A265E1564000A765C /* Base */,
+				CEDFF75B265E156B000A765C /* ru */,
+			);
+			name = FriendListLastCell.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF75F265E15FA000A765C /* Base */,
+				CEDFF760265E1602000A765C /* ru */,
+			);
+			name = SearchFriendsContainerViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF763265E1734000A765C /* ProfileTopView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF764265E173C000A765C /* Base */,
+				CEDFF765265E1743000A765C /* ru */,
+			);
+			name = ProfileTopView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

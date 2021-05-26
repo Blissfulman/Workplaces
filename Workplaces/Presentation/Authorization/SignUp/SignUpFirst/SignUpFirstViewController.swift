@@ -10,11 +10,11 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpFirstViewControllerDelegate: AnyObject {
-    func didTapNextButton()
-    func didTapSignInButton()
+    func didTapSignUpButton()
+    func didTapAlreadySignedUpButton()
 }
 
-final class SignUpFirstViewController: UIViewController {
+final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
     // MARK: - Public properties
     
@@ -22,9 +22,10 @@ final class SignUpFirstViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var nicknameTextField: UITextField!
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var signUpButton: UIButton!
+    @IBOutlet private var signUpButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -49,37 +50,68 @@ final class SignUpFirstViewController: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Actions
+    // MARK: - KeyboardNotificationsViewController
     
-    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
-        switch sender {
-        case nicknameTextField:
-            signUpModel.nickname = nicknameTextField.text
-        case emailTextField:
-            signUpModel.email = emailTextField.text
-            updateEmailTextFieldState()
-        case passwordTextField:
-            signUpModel.password = passwordTextField.text
-        default:
-            break
+    override func keyboardWillShow(_ notification: Notification) {
+        let keyboardHeight = getKeyboardHeight(notification: notification)
+        
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = keyboardHeight
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+            self.view.layoutIfNeeded()
         }
     }
     
-    @IBAction private func forwardNextTapped() {
-        signUpModel.nickname = nicknameTextField.text
-        signUpModel.email = emailTextField.text
-        signUpModel.password = passwordTextField.text
-        delegate?.didTapNextButton()
+    override func keyboardWillHide() {
+        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+            self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    // MARK: - Public methods
+    
+    /// Отображает анимацию поля ввода email, сообщающую о некорректно введённых данных.
+    func indicateToIncorrectEmail() {
+        emailTextField.textColor = Palette.orange
+        emailTextField.background = Images.textFieldBackgroundAccent
+        emailTextField.shakeAnimation()
+    }
+    
+    /// Отображает анимацию поля ввода пароля, сообщающую о некорректно введённых данных.
+    func indicateToIncorrectPassword() {
+        passwordTextField.textColor = Palette.orange
+        passwordTextField.background = Images.textFieldBackgroundAccent
+        passwordTextField.shakeAnimation()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
+        if sender == emailTextField {
+            emailTextField.textColor = Palette.black
+            emailTextField.background = Images.textFieldBackgroundDefault
+            signUpModel.email = emailTextField.text
+        }
+        if sender == passwordTextField {
+            passwordTextField.textColor = Palette.black
+            passwordTextField.background = Images.textFieldBackgroundDefault
+            signUpModel.password = passwordTextField.text
+        }
+        updateSignUpButtonState()
+    }
+    
+    @IBAction private func signUpButtonTapped() {
+        delegate?.didTapSignUpButton()
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
-        delegate?.didTapSignInButton()
+        delegate?.didTapAlreadySignedUpButton()
     }
     
     // MARK: - Private methods
     
-    private func updateEmailTextFieldState() {
-        emailTextField.textColor = signUpModel.isValidEmail ? Palette.black : Palette.orange
-        // Нужно будет добавить обновление подсветки поля на основе валидации e-mail
+    private func updateSignUpButtonState() {
+        signUpButton.isEnabled = signUpModel.isPossibleToSignUp
     }
 }

@@ -13,9 +13,9 @@ extension HTTPBody {
     ///
     /// - Parameters:
     ///   - data: HTTP body data.
+    ///   - boundary: Значение boundary.
     /// - Returns: HTTPBody.
-    static func multipart(_ data: Data) -> HTTPBody {
-        // Необходимо добавить реализацию
-        HTTPBody(data: data, contentType: "multipart/form-data; boundary=Boundary-\(UUID().uuidString))")
+    static func multipart(_ data: Data, boundary: String) -> HTTPBody {
+        HTTPBody(data: data, contentType: "multipart/form-data; boundary=\(boundary)")
     }
 }

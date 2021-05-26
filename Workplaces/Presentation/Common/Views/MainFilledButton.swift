@@ -19,7 +19,15 @@ final class MainFilledButton: UIButton {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        layer.cornerRadius = UIConstants.buttonCornerRadius
-        clipsToBounds = true
+        setCornerRadius(UIConstants.buttonCornerRadius)
+    }
+    
+    // MARK: - UIButton
+    
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != isHighlighted else { return }
+            isHighlighted ? downscaleAnimation() : resetScaleAnimation()
+        }
     }
 }

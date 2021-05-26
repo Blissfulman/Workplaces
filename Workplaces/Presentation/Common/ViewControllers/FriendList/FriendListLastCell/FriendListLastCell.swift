@@ -17,7 +17,7 @@ final class FriendListLastCell: UITableViewCell {
             
     // MARK: - Outlets
     
-    @IBOutlet private weak var findMoreFriendsButton: UIButton!
+    @IBOutlet private var findMoreFriendsButton: UIButton!
     
     // MARK: - Private properties
     

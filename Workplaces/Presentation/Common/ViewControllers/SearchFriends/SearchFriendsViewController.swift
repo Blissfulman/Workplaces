@@ -7,11 +7,32 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol SearchFriendsViewControllerDelegate: AnyObject {
+    func didTapSearchButton(query: String)
+}
+
 final class SearchFriendsViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private var searchBar: UISearchBar!
+    
+    // MARK: - Private properties
+    
+    private weak var delegate: SearchFriendsViewControllerDelegate?
+    
+    // MARK: - Initializers
+    
+    init(delegate: SearchFriendsViewControllerDelegate) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UIViewController
     
@@ -28,6 +49,22 @@ final class SearchFriendsViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        searchTextField.leftView = UIImageView(image: Icons.close)
+        searchBar.setImage(Icons.search, for: .search, state: .normal)
+        searchBar.setImage(Icons.close, for: .clear, state: .normal)
+        searchBar.searchTextField.backgroundColor = .clear
+        let attributedString = NSAttributedString(
+            string: "Name or nickname".localized(),
+            attributes: [.foregroundColor: Palette.middleGrey]
+        )
+        searchBar.searchTextField.attributedPlaceholder = attributedString
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchFriendsViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        delegate?.didTapSearchButton(query: searchBar.text ?? "")
     }
 }

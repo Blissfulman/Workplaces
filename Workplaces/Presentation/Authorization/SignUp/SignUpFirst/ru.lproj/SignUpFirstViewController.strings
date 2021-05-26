@@ -2,11 +2,8 @@
 /* Class = "UITextField"; placeholder = "Email"; ObjectID = "519-bb-dBY"; */
 "519-bb-dBY.placeholder" = "Email";
 
-/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Fqh-yA-vbi"; */
-"Fqh-yA-vbi.normalTitle" = "Далее";
-
-/* Class = "UITextField"; placeholder = "Nickname"; ObjectID = "VvL-KK-U6J"; */
-"VvL-KK-U6J.placeholder" = "Никнейм";
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "Fqh-yA-vbi"; */
+"Fqh-yA-vbi.normalTitle" = "Зарегистрироваться";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "XeX-76-wGV"; */
 "XeX-76-wGV.placeholder" = "Пароль";

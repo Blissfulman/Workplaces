@@ -43,7 +43,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
     
     private func showSignInScreen() {
-        guard navigationController?.viewControllers.first(where: { $0 is SignInViewController }) == nil else {
+        guard navigationController?.viewControllers.first(where: { $0 is SignInContainerViewController }) == nil else {
             navigationController?.popViewController(animated: true)
             return
         }
@@ -122,7 +122,7 @@ extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
         showSignInScreen()
     }
     
-    func successfulSignUp() {
+    func didFinishSignUp() {
         showSignInDoneScreen()
     }
 }

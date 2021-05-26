@@ -33,33 +33,25 @@ final class FeedContainerViewController: UIViewController {
     private var progressList = [Progress]()
     
     private lazy var postListDataSource = FeedPostsDataSource(delegate: self)
-    private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
-    }()
+    private lazy var postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
     private lazy var noFriendsZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToSearchFriends()
         }
-        let zeroVC = ZeroViewController(viewType: .feedNoFriends, buttonAction: buttonAction)
-        zeroVC.view.frame = view.bounds
-        return zeroVC
+        return ZeroViewController(model: .feedNoFriends, buttonAction: buttonAction)
     }()
     private lazy var errorZeroVC: ZeroViewController = {
         let buttonAction: VoidBlock = { [weak self] in
             self?.fetchPosts()
         }
-        let zeroVC = ZeroViewController(viewType: .error, buttonAction: buttonAction)
-        zeroVC.view.frame = view.bounds
-        return zeroVC
+        return ZeroViewController(model: .error, buttonAction: buttonAction)
     }()
     
     private var state: State = .data(posts: []) {
         willSet {
             switch newValue {
-            case .data:
-                showPostListView(postList: Post.getMockPosts()) // TEMP
+            case let .data(posts):
+                showPostListView(postList: posts)
             case .noFriends:
                 showNoFriendsZeroView()
             case .error:
@@ -89,19 +81,25 @@ final class FeedContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Palette.white
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.showTransparent()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBar.alpha = 1
         fetchPosts()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.title = "Популярное"
+        navigationItem.title = "Popular".localized()
         navigationItem.backButtonTitle = ""
     }
     
@@ -109,31 +107,30 @@ final class FeedContainerViewController: UIViewController {
         LoadingView.show()
         let progress = feedService.fetchFeedPosts { [weak self] result in
             LoadingView.hide()
-            guard let self = self else { return }
             
             switch result {
             case let .success(posts):
-                self.state = Bool.random() // posts.isEmpty
+                self?.state = posts.isEmpty
                     ? .noFriends
                     : .data(posts: posts)
             case .failure:
-                self.state = .error
+                self?.state = .error
             }
         }
         progressList.append(progress)
     }
     
     private func showNoFriendsZeroView() {
-        add(noFriendsZeroVC)
+        addFullover(noFriendsZeroVC)
     }
     
     private func showPostListView(postList: [Post]) {
         postListDataSource.updateData(posts: postList)
-        add(postListVC)
+        addFullover(postListVC)
     }
     
     private func showErrorZeroView() {
-        add(errorZeroVC)
+        addFullover(errorZeroVC)
     }
 }
 
@@ -150,5 +147,19 @@ extension FeedContainerViewController: FeedPostsDataSourceDelegate {
     
     func needUpdatePostList() {
         postListVC.updateData()
+    }
+    
+    func didTapLikeButton(withPost post: Post) {
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
     }
 }

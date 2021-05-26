@@ -34,18 +34,6 @@
                                     <constraint firstAttribute="height" constant="48" id="pLk-pm-uMc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSz-zN-fNy">
-                                <rect key="frame" x="76" y="12" width="105" height="19"/>
-                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@irlarion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN8-Lk-1u1">
-                                <rect key="frame" x="76" y="31" width="61" height="19"/>
-                                <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
-                                <color key="textColor" name="middleGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsW-eN-DIw">
                                 <rect key="frame" x="351" y="22" width="20" height="20"/>
                                 <constraints>
@@ -57,19 +45,34 @@
                                     <action selector="deleteFriendButtonTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ir7-dy-xSJ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Byr-Jk-kjQ">
+                                <rect key="frame" x="69" y="13" width="105" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSz-zN-fNy">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="19"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@irlarion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qN8-Lk-1u1">
+                                        <rect key="frame" x="0.0" y="19" width="105" height="19"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                                        <color key="textColor" name="middleGrey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="64" id="Ffe-YG-rb5"/>
                             <constraint firstItem="nsW-eN-DIw" firstAttribute="centerY" secondItem="cCZ-p8-Ov5" secondAttribute="centerY" id="Jod-EI-OCW"/>
-                            <constraint firstItem="YSz-zN-fNy" firstAttribute="top" secondItem="cCZ-p8-Ov5" secondAttribute="top" constant="12" id="UYK-Ng-7Jw"/>
-                            <constraint firstItem="YSz-zN-fNy" firstAttribute="leading" secondItem="XUK-5p-IEg" secondAttribute="trailing" constant="16" id="VQH-pt-OOv"/>
+                            <constraint firstItem="Byr-Jk-kjQ" firstAttribute="leading" secondItem="XUK-5p-IEg" secondAttribute="trailing" constant="9" id="TqD-Md-dvD"/>
                             <constraint firstAttribute="trailing" secondItem="nsW-eN-DIw" secondAttribute="trailing" constant="16" id="WQg-Zf-wel"/>
-                            <constraint firstItem="qN8-Lk-1u1" firstAttribute="leading" secondItem="XUK-5p-IEg" secondAttribute="trailing" constant="16" id="Y9o-go-Qsh"/>
                             <constraint firstItem="XUK-5p-IEg" firstAttribute="leading" secondItem="cCZ-p8-Ov5" secondAttribute="leading" constant="12" id="ceX-77-zdZ"/>
                             <constraint firstItem="XUK-5p-IEg" firstAttribute="top" secondItem="cCZ-p8-Ov5" secondAttribute="top" constant="8" id="pJJ-aw-0io"/>
+                            <constraint firstItem="Byr-Jk-kjQ" firstAttribute="centerY" secondItem="cCZ-p8-Ov5" secondAttribute="centerY" id="pY5-N4-0Ed"/>
                             <constraint firstAttribute="bottom" secondItem="XUK-5p-IEg" secondAttribute="bottom" constant="8" id="pis-Dv-lmn"/>
-                            <constraint firstItem="qN8-Lk-1u1" firstAttribute="top" secondItem="YSz-zN-fNy" secondAttribute="bottom" id="qUa-Yu-Xmf"/>
                         </constraints>
                     </view>
                 </subviews>

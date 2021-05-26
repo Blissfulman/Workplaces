@@ -33,20 +33,19 @@ final class ProfileContainerViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var topView: UIView!
-    @IBOutlet private weak var zeroView: UIView!
+    @IBOutlet private var topView: UIView!
+    @IBOutlet private var zeroView: UIView!
     
     // MARK: - Private properties
     
     private let profileService: ProfileService
+    private let feedService: FeedService
     private let authorizationService: AuthorizationService
     private var profile: User?
     private lazy var postListDataSource = ProfilePostsDataSource(delegate: self)
     private lazy var likeListDataSource = ProfileLikesDataSource(delegate: self)
     private lazy var friendListDataSource = ProfileFriendsDataSource(delegate: self)
     
-    /// Изначальное положение topView по вертикали.
-    private var topViewInitialY: CGFloat?
     /// Толщина разделителя между верхним вью и списком друзей.
     private let friendListSeparator: CGFloat = 9
     private var topViewHeight: CGFloat { topView.frame.height }
@@ -54,26 +53,12 @@ final class ProfileContainerViewController: UIViewController {
     
     private lazy var profileTopView: ProfileTopView = {
         let profileTopView = ProfileTopView(delegate: self)
-        profileTopView.frame = topView.bounds
-        profileTopView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        topView.addSubview(profileTopView)
+        topView.addFulloverSubview(profileTopView)
         return profileTopView
     }()
-    private lazy var postListVC: PostListViewController = {
-        let postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
-        postListVC.view.frame = view.bounds
-        return postListVC
-    }()
-    private lazy var likeListVC: PostListViewController = {
-        let likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
-        likeListVC.view.frame = view.bounds
-        return likeListVC
-    }()
-    private lazy var friendListVC: FriendListViewController = {
-        let friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
-        friendListVC.view.frame = view.bounds
-        return friendListVC
-    }()
+    private lazy var postListVC = PostListViewController(dataSource: postListDataSource, delegate: self)
+    private lazy var likeListVC = PostListViewController(dataSource: likeListDataSource, delegate: self)
+    private lazy var friendListVC = FriendListViewController(dataSource: friendListDataSource, delegate: self)
     
     private var state: State = .posts {
         didSet {
@@ -85,9 +70,11 @@ final class ProfileContainerViewController: UIViewController {
     
     init(
         profileService: ProfileService = ServiceLayer.shared.profileService,
+        feedService: FeedService = ServiceLayer.shared.feedService,
         authorizationService: AuthorizationService = ServiceLayer.shared.authorizationService
     ) {
         self.profileService = profileService
+        self.feedService = feedService
         self.authorizationService = authorizationService
         super.init(nibName: nil, bundle: nil)
     }
@@ -111,6 +98,7 @@ final class ProfileContainerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.showTransparent()
         fetchProfile()
         fetchMyPosts()
         fetchLikedPosts()
@@ -119,20 +107,15 @@ final class ProfileContainerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.isHidden = false
-        // Свойство должно быть высчитано один раз при первом появлении вью на экране
-        topViewInitialY = topViewInitialY ?? topView.frame.origin.y
+        tabBarController?.tabBar.alpha = 1
     }
     
     // MARK: - Actions
     
     @objc private func logOutBarButtonTapped() {
         let progress = authorizationService.signOut { [weak self] result in
-            switch result {
-            case .success:
+            if case .success = result {
                 self?.delegate?.signOut()
-            case .failure:
-                break
             }
         }
         progressList.append(progress)
@@ -157,13 +140,13 @@ final class ProfileContainerViewController: UIViewController {
     }
     
     private func addChildViewControllers() {
-        add(friendListVC)
+        addFullover(friendListVC)
         friendListVC.setContentInset(
             contentInset: UIEdgeInsets(top: topViewHeight + friendListSeparator, left: 0, bottom: 0, right: 0)
         )
-        add(likeListVC)
+        addFullover(likeListVC)
         likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
-        add(postListVC)
+        addFullover(postListVC)
         postListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
     }
     
@@ -189,7 +172,10 @@ final class ProfileContainerViewController: UIViewController {
         let editProfileButtonAction: VoidBlock = { [weak self] in
             self?.delegate?.goToEditProfile(profile: profile)
         }
-        profileTopView.configure(profile: profile, editProfileButtonAction: editProfileButtonAction)
+        profileTopView.configure(
+            model: ProfileTopViewModel(profile: profile),
+            editProfileButtonAction: editProfileButtonAction
+        )
     }
     
     private func showPostList() {
@@ -197,7 +183,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             postListVC.setTopOffset(offset: -topViewHeight)
-            add(postListVC)
+            addFullover(postListVC)
         }
     }
     
@@ -206,7 +192,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             likeListVC.setTopOffset(offset: -topViewHeight)
-            add(likeListVC)
+            addFullover(likeListVC)
         }
     }
     
@@ -215,7 +201,7 @@ final class ProfileContainerViewController: UIViewController {
             showZeroView()
         } else {
             friendListVC.setTopOffset(offset: -(topViewHeight + friendListSeparator))
-            add(friendListVC)
+            addFullover(friendListVC)
         }
     }
     
@@ -227,24 +213,22 @@ final class ProfileContainerViewController: UIViewController {
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToNewPost()
             }
-            zeroSubview = ZeroView(viewType: .profileNoPosts, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoPosts, buttonAction: buttonAction)
         case .likes:
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToFeed()
             }
-            zeroSubview = ZeroView(viewType: .profileNoLikes, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoLikes, buttonAction: buttonAction)
         case .friends:
             let buttonAction: VoidBlock = { [weak self] in
                 self?.delegate?.goToSearchFriends()
             }
-            zeroSubview = ZeroView(viewType: .profileNoFriends, buttonAction: buttonAction)
+            zeroSubview = ZeroView(model: .profileNoFriends, buttonAction: buttonAction)
         }
         
         if let zeroSubview = zeroSubview {
             zeroView.subviews.forEach { $0.removeFromSuperview() }
-            zeroSubview.frame = zeroView.bounds
-            zeroSubview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            zeroView.addSubview(zeroSubview)
+            zeroView.addFulloverSubview(zeroSubview)
             view.bringSubviewToFront(zeroView)
         }
     }
@@ -257,7 +241,7 @@ extension ProfileContainerViewController {
     private func fetchProfile() {
         LoadingView.show()
         
-        profileService.fetchMyProfile { [weak self] result in
+        let progress = profileService.fetchMyProfile { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -269,71 +253,55 @@ extension ProfileContainerViewController {
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchMyPosts() {
         LoadingView.show()
 
-        profileService.fetchMyPosts { [weak self] result in
+        let progress = profileService.fetchMyPosts { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case let .success(myPosts):
-                self?.postListDataSource.updateData(posts: Bool.random() ? myPosts : Post.getMockPosts())
-                if self?.state == .posts {
-                    self?.updateScreen()
-                }
+                self?.postListDataSource.updateData(posts: myPosts)
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchLikedPosts() {
         LoadingView.show()
 
-        profileService.fetchLikedPosts { [weak self] result in
+        let progress = profileService.fetchLikedPosts { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case let .success(likedPosts):
-                self?.likeListDataSource.updateData(posts: Bool.random() ? likedPosts : Post.getMockPosts())
-                if self?.state == .likes {
-                    self?.updateScreen()
-                }
+                self?.likeListDataSource.updateData(posts: likedPosts)
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
+        progressList.append(progress)
     }
     
     private func fetchFriends() {
         LoadingView.show()
 
-        profileService.fetchFriends { [weak self] result in
+        let progress = profileService.fetchFriends { [weak self] result in
             LoadingView.hide()
             
             switch result {
             case let .success(friends):
-                self?.friendListDataSource.updateData(friends: Bool.random() ? friends : User.getMockUsers())
-                if self?.state == .friends {
-                    self?.updateScreen()
-                }
+                self?.friendListDataSource.updateData(friends: friends)
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    private func deleteFriend(withID userID: User.ID) {
-        profileService.removeFriend(userID: userID) { [weak self] result in
-            switch result {
-            case .success:
-                self?.fetchFriends()
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        }
+        progressList.append(progress)
     }
 }
 
@@ -344,10 +312,13 @@ extension ProfileContainerViewController: ProfileTopViewDelegate {
     func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
         switch newState {
         case .posts:
+            fetchMyPosts()
             state = .posts
         case .likes:
+            fetchLikedPosts()
             state = .likes
         case .friends:
+            fetchFriends()
             state = .friends
         }
     }
@@ -361,13 +332,13 @@ extension ProfileContainerViewController: PostListViewControllerDelegate, Friend
         var topViewOffsetY: CGFloat = 0
         switch state {
         case .posts:
-            topViewOffsetY = topViewHeight + postListVC.contentOffset.y
+            topViewOffsetY = postListVC.contentOffset.y
         case .likes:
-            topViewOffsetY = topViewHeight + likeListVC.contentOffset.y
+            topViewOffsetY = likeListVC.contentOffset.y
         case .friends:
-            topViewOffsetY = friendListSeparator + topViewHeight + friendListVC.contentOffset.y
+            topViewOffsetY = friendListSeparator + friendListVC.contentOffset.y
         }
-        topView.frame.origin.y = (topViewInitialY ?? 0) - topViewOffsetY
+        topView.frame.origin.y = scrollView.frame.origin.y - topViewOffsetY - topViewHeight
     }
 }
 
@@ -378,6 +349,20 @@ extension ProfileContainerViewController: ProfilePostsDataSourceDelegate {
     func needUpdatePostList() {
         postListVC.updateData()
     }
+    
+    func didTapLikeButtonInPostList(withPost post: Post) {
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchMyPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
+    }
 }
 
 // MARK: - ProfileLikesDataSourceDelegate
@@ -386,6 +371,20 @@ extension ProfileContainerViewController: ProfileLikesDataSourceDelegate {
     
     func needUpdateLikeList() {
         likeListVC.updateData()
+    }
+    
+    func didTapLikeButtonInLikeList(withPost post: Post) {
+        let likeAction = post.liked ? feedService.unlikePost : feedService.likePost
+        
+        let progress = likeAction(post.id) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchLikedPosts()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
     }
 }
 
@@ -402,6 +401,14 @@ extension ProfileContainerViewController: ProfileFriendsDataSourceDelegate {
     }
     
     func didTapDeleteFriend(withID userID: User.ID) {
-        deleteFriend(withID: userID)
+        let progress = profileService.removeFriend(userID: userID) { [weak self] result in
+            switch result {
+            case .success:
+                self?.fetchFriends()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+        progressList.append(progress)
     }
 }

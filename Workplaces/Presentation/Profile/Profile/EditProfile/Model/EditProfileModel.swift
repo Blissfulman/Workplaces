@@ -12,15 +12,15 @@ final class EditProfileModel {
     // MARK: - Nested types
     
     struct EditingUser {
-        var nickname: String
         var firstName: String
         var lastName: String
+        var nickname: String
         var birthday: Date
         
         init(user: User) {
-            self.nickname = user.nickname ?? ""
             self.firstName = user.firstName
             self.lastName = user.lastName
+            self.nickname = user.nickname ?? ""
             self.birthday = user.birthday
         }
     }

@@ -9,35 +9,33 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ error: Error?) {
+    /// Отображение ошибки с помощью `UIAlertController`.
+    /// - Parameters:
+    ///   - error: Ошибка.
+    ///   - competion: Блок, выполняемый после нажатия кнопки "Ok" в открывшемся `UIAlertController`.
+    func showAlert(_ error: Error?, competion: VoidBlock? = nil) {
         DispatchQueue.main.async { [weak self] in
             LoadingView.hide()
             
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: error?.localizedDescription,
-                                          preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
+            let alert = UIAlertController(
+                title: "Error".localized(),
+                message: error?.localizedDescription,
+                preferredStyle: .alert
+            )
+            let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                competion?()
+            }
             alert.addAction(okAction)
             self?.present(alert, animated: true)
         }
     }
     
-    func showAlert(_ message: String?) {
-        DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: message,
-                                          preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alert.addAction(okAction)
-            self?.present(alert, animated: true)
-        }
-    }
-    
-    /// Добавление дочернего вью контроллера на текущий.
+    /// Добавление дочернего вью контроллера на текущий с полным перекрытием родительского.
     /// - Parameter child: Добавляемый вью контроллер.
-    func add(_ child: UIViewController) {
+    func addFullover(_ child: UIViewController) {
         addChild(child)
         view.addSubview(child.view)
+        child.view.fillToSuperview()
         child.didMove(toParent: self)
     }
     

@@ -22,11 +22,7 @@ final class SignInContainerViewController: UIViewController {
     private let signInModel = SignInModel()
     private var progressList = [Progress]()
     private weak var delegate: SignInContainerViewControllerDelegate?
-    private lazy var signInVC: SignInViewController = {
-        let signInVC = SignInViewController(signInModel: signInModel, delegate: self)
-        signInVC.view.frame = view.bounds
-        return signInVC
-    }()
+    private lazy var signInVC = SignInViewController(signInModel: signInModel, delegate: self)
     
     // MARK: - Initializers
     
@@ -59,10 +55,10 @@ final class SignInContainerViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        title = "Sign in with email".localized()
+        title = "Sign in".localized()
         navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
-        add(signInVC)
+        addFullover(signInVC)
     }
 }
 
@@ -75,11 +71,8 @@ extension SignInContainerViewController: SignInViewControllerDelegate {
     }
     
     func didTapSignInButton() {
-        guard let userCredentials = signInModel.userCredentials else {
-            assertionFailure("Error receiving user сredentials data from model")
-            return
-        }
         LoadingView.show()
+        let userCredentials = signInModel.userCredentials
         
         let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()

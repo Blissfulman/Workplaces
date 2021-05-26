@@ -9,22 +9,13 @@ import UIKit
 
 final class ZeroView: NibInitializableView {
     
-    // MARK: - Nested types
-    
-    public enum ViewType {
-        case error
-        case feedNoFriends
-        case profileNoPosts
-        case profileNoLikes
-        case profileNoFriends
-    }
-    
     // MARK: - Outlets
     
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var subtitleLabel: UILabel!
+    @IBOutlet private var button: UIButton!
     
     // MARK: - Private properties
     
@@ -32,10 +23,10 @@ final class ZeroView: NibInitializableView {
     
     // MARK: - Initializers
     
-    convenience init(viewType: ViewType, buttonAction: VoidBlock? = nil) {
+    convenience init(model: ZeroViewModel, buttonAction: VoidBlock? = nil) {
         self.init(frame: .zero)
         self.buttonAction = buttonAction
-        configure(viewType: viewType, buttonAction: buttonAction)
+        configure(model: model, buttonAction: buttonAction)
     }
     
     // MARK: - Actions
@@ -46,36 +37,16 @@ final class ZeroView: NibInitializableView {
     
     // MARK: - Private methods
     
-    private func configure(viewType: ViewType, buttonAction: VoidBlock? = nil) {
-        switch viewType {
-        case .error:
-            imageView.image = Images.errorScreen
-            titleLabel.text = "Упс..."
-            subtitleLabel.text = "Что-то пошло не так"
-            button.setTitle("Обновить", for: .normal)
-        case .feedNoFriends:
-            imageView.image = Images.noDataScreen
-            titleLabel.text = "Пустота"
-            subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
-            button.setTitle("Найти друзей", for: .normal)
-        case .profileNoPosts:
-            imageView.image = Images.noDataScreen
-            titleLabel.text = "Пустота"
-            subtitleLabel.text = "Если молчать, люди никогда не узнают о вас"
-            button.setTitle("Создать пост", for: .normal)
-        case .profileNoLikes:
-            imageView.image = Images.noDataScreen
-            titleLabel.text = "Пустота"
-            subtitleLabel.text = "Вы ещё не поставили ни одного лайка, но можете из ленты"
-            button.setTitle("Перейти к ленте", for: .normal)
-        case .profileNoFriends:
-            imageView.image = Images.noDataScreen
-            titleLabel.text = "Пустота"
-            subtitleLabel.text = "Вы пока одиноки в сервисе, но это можно исправить"
-            button.setTitle("Найти друзей", for: .normal)
-        }
+    private func configure(model: ZeroViewModel, buttonAction: VoidBlock? = nil) {
+        imageView.image = model.image
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitle
+        button.setTitle(model.buttonTitle, for: .normal)
+        
         if buttonAction != nil {
             button.isHidden = false
         }
+        
+        stackView.setCustomSpacing(0, after: imageView)
     }
 }

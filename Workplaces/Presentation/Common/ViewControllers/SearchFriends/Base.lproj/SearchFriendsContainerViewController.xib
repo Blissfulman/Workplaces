@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchFriendsContainerViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="stackView" destination="DJZ-52-uKA" id="LY9-r1-11d"/>
+                <outlet property="view" destination="iN0-l3-epB" id="2hc-YU-pIX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start typing your friend's name or nickname" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujs-AY-k4d">
+                    <rect key="frame" x="83" y="125" width="248" height="37.5"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                    <color key="textColor" name="middleGrey"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJZ-52-uKA">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ujs-AY-k4d" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="2KC-BR-BSy"/>
+                <constraint firstItem="DJZ-52-uKA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="96E-d2-dva"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DJZ-52-uKA" secondAttribute="trailing" id="Q8C-Xs-F0h"/>
+                <constraint firstItem="DJZ-52-uKA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YnI-Xe-oV4"/>
+                <constraint firstItem="Ujs-AY-k4d" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="81" id="jQs-WQ-8Yx"/>
+                <constraint firstItem="Ujs-AY-k4d" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ubG-Nm-mNT"/>
+                <constraint firstAttribute="bottom" secondItem="DJZ-52-uKA" secondAttribute="bottom" id="xst-QK-98i"/>
+            </constraints>
+            <point key="canvasLocation" x="128.98550724637681" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="middleGrey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

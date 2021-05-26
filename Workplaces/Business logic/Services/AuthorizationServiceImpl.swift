@@ -35,7 +35,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
                 self?.authDataStorage.saveAuthData(authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
-                completion(.failure(error.unwrapAFError()))
+                completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
             }
         }
     }
@@ -51,7 +51,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
                 self?.authDataStorage.saveAuthData(authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
-                completion(.failure(error.unwrapAFError()))
+                completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
             }
         }
     }

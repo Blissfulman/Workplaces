@@ -16,8 +16,7 @@ public struct RemoveFriendEndpoint: EmptyEndpoint {
     }
     
     public func makeRequest() throws -> URLRequest {
-        let url = URL(string: "me/friends")!
-            .appendingPathComponent(userID)
+        let url = URL(string: "me/friends")!.appendingPathComponent(userID)
         return delete(url)
     }
 }

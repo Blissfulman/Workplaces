@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TabBarCoordinatingController: UITabBarController, Coordinator {
+final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     
     // MARK: - Public properties
     
@@ -65,10 +65,12 @@ final class TabBarCoordinatingController: UITabBarController, Coordinator {
     // MARK: - Private methods
     
     private func setupUI() {
-        tabBar.backgroundColor = Palette.white
-        tabBar.barTintColor = Palette.white
-        tabBar.tintColor = Palette.orange
-        tabBar.unselectedItemTintColor = Palette.grey
+        if !UIDevice.isSquareScreen() {
+            tabBar.items?.forEach { $0.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -22, right: 0) }
+        } else {
+            tabBar.backgroundColor = Palette.white
+            tabBar.barTintColor = Palette.white
+        }
     }
 }
 

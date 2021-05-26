@@ -20,12 +20,12 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
     // MARK: - Public properties
     
     var contentOffset: CGPoint {
-        tableView.contentOffset
+        tableView?.contentOffset ?? .zero
     }
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
     // MARK: - Private properties
     
@@ -64,7 +64,7 @@ final class FriendListViewController: UIViewController, TableViewOffsetConfigura
     
     /// Обновление данных таблицы.
     func updateData() {
-        tableView.reloadData()
+        tableView?.reloadData()
     }
     
     // MARK: - Private methods

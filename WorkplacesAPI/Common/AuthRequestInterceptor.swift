@@ -9,6 +9,8 @@ import Alamofire
 
 public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
     
+    // MARK: - Typealiases
+    
     typealias RetryCompletion = (RetryResult) -> Void
     
     // MARK: - Private properties
@@ -98,6 +100,8 @@ public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
         }
     }
 }
+
+// MARK: - Extensions
 
 fileprivate extension Error {
     

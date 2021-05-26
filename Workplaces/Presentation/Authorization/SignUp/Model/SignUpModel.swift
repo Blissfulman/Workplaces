@@ -9,6 +9,8 @@ import Foundation
 
 final class SignUpModel {
     
+    // MARK: - Public properties
+    
     var nickname: String?
     var email: String?
     var password: String?
@@ -16,7 +18,31 @@ final class SignUpModel {
     var lastName: String?
     var birthday: Date?
     
-    var isValidEmail: Bool {
-        EmailValidator.isValid(email)
+    var isPossibleToSignUp: Bool {
+        !isEmptyEmailOrPassword
+    }
+    var userCredentials: UserCredentials {
+        UserCredentials(email: email, password: password)
+    }
+    var updatedProfile: User {
+        User(
+            id: "",
+            firstName: firstName ?? "",
+            lastName: lastName ?? "",
+            nickname: nickname,
+            avatarURL: nil,
+            birthday: birthday ?? Date()
+        )
+    }
+    
+    // MARK: - Private properties
+    
+    private var isEmptyEmailOrPassword: Bool {
+        if let email = email, !email.isEmpty,
+           let password = password, !password.isEmpty {
+            return false
+        } else {
+            return true
+        }
     }
 }
