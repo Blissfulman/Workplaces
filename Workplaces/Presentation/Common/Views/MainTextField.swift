@@ -22,6 +22,7 @@ final class MainTextField: UITextField {
         if textColor != Palette.orange {
             background = Images.textFieldBackgroundDefault
         }
+        clearButtonMode = .whileEditing
     }
     
     // MARK: - UITextField
@@ -34,5 +35,25 @@ final class MainTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.editingRect(forBounds: bounds)
         return rect.inset(by: textPadding)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setCustomClearButton()
+    }
+}
+
+// MARK: - Extensions
+
+fileprivate extension UITextField {
+    
+    func setCustomClearButton() {
+        // Это неправильно, но пока что лучшего решения не нашёл
+        subviews.forEach {
+            if let clearButton = $0 as? UIButton {
+                clearButton.frame.size = CGSize(width: 24, height: 24)
+                clearButton.setImage(Icons.crossSmall, for: .normal)
+            }
+        }
     }
 }
