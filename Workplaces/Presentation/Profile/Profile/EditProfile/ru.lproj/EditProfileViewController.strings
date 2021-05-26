@@ -1,0 +1,15 @@
+
+/* Class = "UITextField"; placeholder = "Last name"; ObjectID = "5Sz-uE-9ar"; */
+"5Sz-uE-9ar.placeholder" = "Фамилия";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Hdy-Ef-yQW"; */
+"Hdy-Ef-yQW.normalTitle" = "Сохранить";
+
+/* Class = "UITextField"; placeholder = "First name"; ObjectID = "J90-uD-xdO"; */
+"J90-uD-xdO.placeholder" = "Имя";
+
+/* Class = "UITextField"; placeholder = "Nickname"; ObjectID = "OEW-WN-88S"; */
+"OEW-WN-88S.placeholder" = "Никнейм";
+
+/* Class = "UITextField"; placeholder = "Birthday"; ObjectID = "yC5-VZ-Nif"; */
+"yC5-VZ-Nif.placeholder" = "Дата рождения";
