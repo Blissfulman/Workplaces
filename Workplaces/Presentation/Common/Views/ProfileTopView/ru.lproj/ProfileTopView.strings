@@ -1,0 +1,18 @@
+
+/* Class = "UISegmentedControl"; NFn-VC-SxX.segmentTitles[0] = "Posts"; ObjectID = "NFn-VC-SxX"; */
+"NFn-VC-SxX.segmentTitles[0]" = "Посты";
+
+/* Class = "UISegmentedControl"; NFn-VC-SxX.segmentTitles[1] = "Likes"; ObjectID = "NFn-VC-SxX"; */
+"NFn-VC-SxX.segmentTitles[1]" = "Лайки";
+
+/* Class = "UISegmentedControl"; NFn-VC-SxX.segmentTitles[2] = "Friends"; ObjectID = "NFn-VC-SxX"; */
+"NFn-VC-SxX.segmentTitles[2]" = "Друзья";
+
+/* Class = "UILabel"; text = "          "; ObjectID = "OOd-Cd-qEQ"; */
+"OOd-Cd-qEQ.text" = "          ";
+
+/* Class = "UILabel"; text = "          "; ObjectID = "Vde-Wt-rvN"; */
+"Vde-Wt-rvN.text" = "          ";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "YF5-ei-c3i"; */
+"YF5-ei-c3i.normalTitle" = "";

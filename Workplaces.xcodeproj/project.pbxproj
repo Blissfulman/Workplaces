@@ -157,7 +157,6 @@
 		CEA46B5D2646C193007C2DCE /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B5B2646C193007C2DCE /* PostListViewController.swift */; };
 		CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B5C2646C193007C2DCE /* PostListViewController.xib */; };
 		CEA46B652647C323007C2DCE /* ProfileTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B642647C323007C2DCE /* ProfileTopView.swift */; };
-		CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B662647C334007C2DCE /* ProfileTopView.xib */; };
 		CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */; };
 		CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA46B6F26495BE0007C2DCE /* FriendCell.swift */; };
 		CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA46B7026495BE0007C2DCE /* FriendCell.xib */; };
@@ -190,6 +189,7 @@
 		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
 		CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF759265E1560000A765C /* FriendListLastCell.xib */; };
 		CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF75E265E15F4000A765C /* SearchFriendsContainerViewController.xib */; };
+		CEDFF761265E1734000A765C /* ProfileTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF763265E1734000A765C /* ProfileTopView.xib */; };
 		CEE7FBA5262D44B0001D5DAD /* IBMPlexSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */; };
 		CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */; };
 		CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */; };
@@ -409,7 +409,6 @@
 		CEA46B5B2646C193007C2DCE /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		CEA46B5C2646C193007C2DCE /* PostListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListViewController.xib; sourceTree = "<group>"; };
 		CEA46B642647C323007C2DCE /* ProfileTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopView.swift; sourceTree = "<group>"; };
-		CEA46B662647C334007C2DCE /* ProfileTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTopView.xib; sourceTree = "<group>"; };
 		CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSegmentedControl.swift; sourceTree = "<group>"; };
 		CEA46B6F26495BE0007C2DCE /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		CEA46B7026495BE0007C2DCE /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -447,6 +446,8 @@
 		CEDFF75B265E156B000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FriendListLastCell.strings; sourceTree = "<group>"; };
 		CEDFF75F265E15FA000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchFriendsContainerViewController.xib; sourceTree = "<group>"; };
 		CEDFF760265E1602000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchFriendsContainerViewController.strings; sourceTree = "<group>"; };
+		CEDFF764265E173C000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileTopView.xib; sourceTree = "<group>"; };
+		CEDFF765265E1743000A765C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProfileTopView.strings; sourceTree = "<group>"; };
 		CEE7FBA1262D44A6001D5DAD /* IBMPlexSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IBMPlexSans.ttf; sourceTree = "<group>"; };
 		CEE7FBA7262D4709001D5DAD /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		CEE7FBAF262D4F29001D5DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -763,7 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA46B642647C323007C2DCE /* ProfileTopView.swift */,
-				CEA46B662647C334007C2DCE /* ProfileTopView.xib */,
+				CEDFF763265E1734000A765C /* ProfileTopView.xib */,
 				CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */,
 			);
 			path = ProfileTopView;
@@ -1494,7 +1495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA46B672647C334007C2DCE /* ProfileTopView.xib in Resources */,
+				CEDFF761265E1734000A765C /* ProfileTopView.xib in Resources */,
 				CE09D778262E8E1C009A96B3 /* ProfileContainerViewController.xib in Resources */,
 				CE5E71B42652A3670028990A /* UserListViewController.xib in Resources */,
 				CE15088726429F7700568006 /* SignInViewController.xib in Resources */,
@@ -1959,6 +1960,15 @@
 				CEDFF760265E1602000A765C /* ru */,
 			);
 			name = SearchFriendsContainerViewController.xib;
+			sourceTree = "<group>";
+		};
+		CEDFF763265E1734000A765C /* ProfileTopView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEDFF764265E173C000A765C /* Base */,
+				CEDFF765265E1743000A765C /* ru */,
+			);
+			name = ProfileTopView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -40,13 +40,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vde-Wt-rvN">
-                            <rect key="frame" x="92" y="12" width="38" height="21"/>
+                            <rect key="frame" x="92" y="12" width="230" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-Cd-qEQ">
-                            <rect key="frame" x="92" y="33" width="38" height="21"/>
+                            <rect key="frame" x="92" y="31" width="230" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                 <constraint firstAttribute="width" constant="32" id="UM9-Dl-B8J"/>
                                 <constraint firstAttribute="height" constant="32" id="ex5-KU-Vz8"/>
                             </constraints>
-                            <state key="normal" title="Button" image="32-edit"/>
+                            <state key="normal" image="32-edit"/>
                             <connections>
                                 <action selector="editProfileTapped" destination="-1" eventType="touchUpInside" id="o26-5m-QIF"/>
                             </connections>
@@ -67,10 +67,12 @@
                     <constraints>
                         <constraint firstItem="OOd-Cd-qEQ" firstAttribute="leading" secondItem="Pd8-z6-7Cj" secondAttribute="trailing" constant="16" id="0Eo-53-kgh"/>
                         <constraint firstAttribute="bottom" secondItem="Pd8-z6-7Cj" secondAttribute="bottom" constant="12" id="56g-sI-rbc"/>
+                        <constraint firstItem="YF5-ei-c3i" firstAttribute="leading" secondItem="Vde-Wt-rvN" secondAttribute="trailing" constant="16" id="5bD-Ls-Vlv"/>
                         <constraint firstAttribute="height" constant="88" id="C21-rG-sC3"/>
                         <constraint firstItem="Pd8-z6-7Cj" firstAttribute="leading" secondItem="p7T-im-aEA" secondAttribute="leading" constant="12" id="GdK-E2-9cS"/>
                         <constraint firstItem="Pd8-z6-7Cj" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="L70-bK-fGA"/>
                         <constraint firstItem="YF5-ei-c3i" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="LPO-Te-UQU"/>
+                        <constraint firstItem="YF5-ei-c3i" firstAttribute="leading" secondItem="OOd-Cd-qEQ" secondAttribute="trailing" constant="16" id="OQk-py-R3J"/>
                         <constraint firstAttribute="trailing" secondItem="YF5-ei-c3i" secondAttribute="trailing" constant="12" id="Ts2-sc-kwl"/>
                         <constraint firstItem="OOd-Cd-qEQ" firstAttribute="top" secondItem="Vde-Wt-rvN" secondAttribute="bottom" id="bZ2-BL-oyx"/>
                         <constraint firstItem="Vde-Wt-rvN" firstAttribute="top" secondItem="p7T-im-aEA" secondAttribute="top" constant="12" id="rpK-AC-mTT"/>
