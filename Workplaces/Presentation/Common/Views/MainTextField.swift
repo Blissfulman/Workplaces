@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 20.05.2021.
 //
 
-import UIKit
+import UIKit.UITextField
 
 final class MainTextField: UITextField {
     
@@ -13,16 +13,16 @@ final class MainTextField: UITextField {
     
     private let textPadding = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 40)
     
-    // MARK: - UIView
+    // MARK: - Initializers
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        // Эта проверка нужна, чтобы при клике в поле, когда оно в состоянии ошибки, картинка не обновлялась
-        // Решение мне не нравится, но пока лучшего не нашёл
-        if textColor != Palette.orange {
-            background = Images.textFieldBackgroundDefault
-        }
-        clearButtonMode = .whileEditing
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
     }
     
     // MARK: - UITextField
@@ -37,23 +37,28 @@ final class MainTextField: UITextField {
         return rect.inset(by: textPadding)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - Actions
+    
+    @objc private func clearText() {
+        text = ""
+        sendActions(for: .editingChanged)
+    }
+    
+    // MARK: - Private methods
+    
+    private func commonInit() {
+        borderStyle = .none
+        tintColor = Palette.black
+        background = Images.textFieldBackgroundDefault
         setCustomClearButton()
     }
-}
-
-// MARK: - Extensions
-
-fileprivate extension UITextField {
     
     func setCustomClearButton() {
-        // Это неправильно, но пока что лучшего решения не нашёл
-        subviews.forEach {
-            if let clearButton = $0 as? UIButton {
-                clearButton.frame.size = CGSize(width: 24, height: 24)
-                clearButton.setImage(Icons.crossSmall, for: .normal)
-            }
-        }
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        button.setImage(Icons.crossSmall, for: .normal)
+        button.contentMode = .scaleToFill
+        button.addTarget(self, action: #selector(clearText), for: .touchUpInside)
+        rightView = button
+        rightViewMode = .whileEditing
     }
 }
