@@ -53,19 +53,15 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     // MARK: - KeyboardNotificationsViewController
     
     override func keyboardWillShow(_ notification: Notification) {
-        let keyboardHeight = getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = keyboardHeight
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.signUpButtonBottomConstraint.constant = keyboardFrame.height
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
-            self.view.layoutIfNeeded()
         }
     }
     
-    override func keyboardWillHide() {
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+    override func keyboardWillHide(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { _ in
             self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -126,6 +122,7 @@ extension SignUpFirstViewController: UITextFieldDelegate {
         }
         if textField == passwordTextField {
             signUpButtonTapped()
+            textField.resignFirstResponder()
         }
         return true
     }

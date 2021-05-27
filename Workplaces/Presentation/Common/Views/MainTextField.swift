@@ -61,7 +61,7 @@ final class MainTextField: UITextField {
     }
     
     func setCustomClearButton() {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        let button = UIButton()
         button.setImage(Icons.crossSmall, for: .normal)
         button.contentMode = .scaleToFill
         button.addTarget(self, action: #selector(clearText), for: .touchUpInside)

@@ -26,22 +26,39 @@ class KeyboardNotificationsViewController: BaseViewController {
     
     @objc func keyboardWillShow(_ notification: Notification) {}
     
-    @objc func keyboardWillHide() {}
+    @objc func keyboardWillHide(_ notification: Notification) {}
     
-    func getKeyboardHeight(notification: Notification) -> CGFloat {
+    func animateWithKeyboard(notification: Notification, animations: ((_ keyboardFrame: CGRect) -> Void)?) {
         guard let userInfo = notification.userInfo,
-              let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return 0 }
-        return value.cgRectValue.height
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let curveValue = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int,
+              let curve = UIView.AnimationCurve(rawValue: curveValue) else { return }
+        
+        let animator = UIViewPropertyAnimator(
+            duration: duration,
+            curve: curve
+        ) {
+            animations?(keyboardFrame.cgRectValue)
+            self.view?.layoutIfNeeded()
+        }
+        animator.startAnimation()
     }
     
     // MARK: - Private methods
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(
-            self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
         )
         NotificationCenter.default.addObserver(
-            self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
         )
     }
     
