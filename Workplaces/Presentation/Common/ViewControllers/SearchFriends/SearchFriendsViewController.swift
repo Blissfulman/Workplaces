@@ -13,7 +13,7 @@ protocol SearchFriendsViewControllerDelegate: AnyObject {
     func didTapSearchButton(query: String)
 }
 
-final class SearchFriendsViewController: UIViewController {
+final class SearchFriendsViewController: BaseViewController {
     
     // MARK: - Outlets
     

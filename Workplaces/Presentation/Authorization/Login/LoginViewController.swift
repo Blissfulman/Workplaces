@@ -17,18 +17,13 @@ protocol LoginScreenDelegate: AnyObject {
     func didTapSignUpWithEmail()
 }
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: BaseViewController {
     
     // MARK: - Public properties
     
     weak var delegate: LoginScreenDelegate?
     
     // MARK: - UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,11 +50,5 @@ final class LoginViewController: UIViewController {
     
     @IBAction private func signUpWithEmailTapped() {
         delegate?.didTapSignUpWithEmail()
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupUI() {
-        navigationItem.backButtonTitle = ""
     }
 }

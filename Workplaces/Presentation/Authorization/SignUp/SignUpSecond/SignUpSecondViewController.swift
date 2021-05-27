@@ -116,3 +116,22 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
         navigationItem.setHidesBackButton(true, animated: true)
     }
 }
+
+// MARK: - Text field delegate
+
+extension SignUpSecondViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nicknameTextField:
+            firstNameTextField.becomeFirstResponder()
+        case firstNameTextField:
+            lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            pickDateButtonTapped()
+        default:
+            break
+        }
+        return true
+    }
+}

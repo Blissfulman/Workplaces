@@ -13,7 +13,7 @@ protocol UserListViewControllerDelegate: AnyObject {
     func needEndEditing()
 }
 
-final class UserListViewController: UIViewController {
+final class UserListViewController: BaseViewController {
 
     // MARK: - Outlets
     

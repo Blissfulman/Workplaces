@@ -115,3 +115,18 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
         signUpButton.isEnabled = signUpModel.isPossibleToSignUp
     }
 }
+
+// MARK: - Text field delegate
+
+extension SignUpFirstViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            signUpButtonTapped()
+        }
+        return true
+    }
+}

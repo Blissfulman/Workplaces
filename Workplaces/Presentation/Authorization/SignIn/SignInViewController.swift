@@ -95,3 +95,18 @@ final class SignInViewController: KeyboardNotificationsViewController {
         signInButton.isEnabled = signInModel.isPossibleToSignIn
     }
 }
+
+// MARK: - Text field delegate
+
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            signInButtonTapped()
+        }
+        return true
+    }
+}

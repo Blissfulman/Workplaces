@@ -15,7 +15,7 @@ protocol PostListViewControllerDelegate: AnyObject {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
 }
 
-final class PostListViewController: UIViewController, TableViewOffsetConfigurable {
+final class PostListViewController: BaseViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     

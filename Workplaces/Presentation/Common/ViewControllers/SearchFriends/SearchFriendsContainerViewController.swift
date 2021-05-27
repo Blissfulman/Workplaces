@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchFriendsContainerViewController: UIViewController {
+final class SearchFriendsContainerViewController: BaseViewController {
     
     // MARK: - Outlets
     

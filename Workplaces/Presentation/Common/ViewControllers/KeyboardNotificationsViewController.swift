@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KeyboardNotificationsViewController: UIViewController {
+class KeyboardNotificationsViewController: BaseViewController {
     
     // MARK: - Deinitializer
     

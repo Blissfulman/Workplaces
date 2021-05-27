@@ -13,7 +13,7 @@ protocol SignInDoneScreenDelegate: AnyObject {
     func goToFeed()
 }
 
-final class SignInDoneViewController: UIViewController {
+final class SignInDoneViewController: BaseViewController {
     
     // MARK: - Public properties
     

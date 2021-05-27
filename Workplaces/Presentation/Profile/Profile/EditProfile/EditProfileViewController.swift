@@ -110,3 +110,23 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
         saveButton.isEnabled = editProfileModel.isPossibleToSaveProfile
     }
 }
+
+// MARK: - Text field delegate
+
+extension EditProfileViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nicknameTextField:
+            firstNameTextField.becomeFirstResponder()
+        case firstNameTextField:
+            lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            break // TEMP
+//            pickDateButtonTapped() // Добавится, когда будет DatePicker
+        default:
+            break
+        }
+        return true
+    }
+}

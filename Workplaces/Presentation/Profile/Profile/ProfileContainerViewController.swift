@@ -17,7 +17,7 @@ protocol ProfileContainerViewControllerDelegate: AnyObject {
     func signOut()
 }
 
-final class ProfileContainerViewController: UIViewController {
+final class ProfileContainerViewController: BaseViewController {
     
     // MARK: - Nested types
     
@@ -124,7 +124,6 @@ final class ProfileContainerViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.backButtonTitle = ""
         addLogOutButton() // TEMP
         addChildViewControllers()
         bringProfileTopViewToFront()
