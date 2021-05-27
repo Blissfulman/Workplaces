@@ -25,12 +25,12 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Private properties
     
-    private weak var navigationController: UINavigationController?
+    private weak var navigationController: NavigationController?
     
     // MARK: - Initializers
     
     init(
-        navigationController: UINavigationController,
+        navigationController: NavigationController,
         onFinish: @escaping VoidBlock,
         delegate: ProfileCoordinatorDelegate
     ) {

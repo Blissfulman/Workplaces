@@ -197,7 +197,7 @@
 		CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */; };
 		CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */; };
 		CEE7FBC8262D826B001D5DAD /* MainFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */; };
-		CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */; };
+		CEE7FBCB262D8F00001D5DAD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCA262D8F00001D5DAD /* NavigationController.swift */; };
 		CEE7FBCE262D8FC4001D5DAD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
@@ -456,7 +456,7 @@
 		CEE7FBB5262D5E3D001D5DAD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CEE7FBC1262D805D001D5DAD /* SignInDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDoneViewController.swift; sourceTree = "<group>"; };
 		CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilledButton.swift; sourceTree = "<group>"; };
-		CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		CEE7FBCA262D8F00001D5DAD /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		CEE7FBCD262D8FC4001D5DAD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		D1F47BB9A4BCDCBF72F25400 /* Pods-Workplaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.debug.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.debug.xcconfig"; sourceTree = "<group>"; };
 		EBC78DAF634729397C4198D1 /* Pods_WorkplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -670,7 +670,6 @@
 			isa = PBXGroup;
 			children = (
 				CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */,
-				CEE7FBCA262D8F00001D5DAD /* UINavigationController+Extension.swift */,
 				CEB0751A265034720060E818 /* UIView+Extension.swift */,
 				CEA1C3C32638188400B2D0F1 /* UIImageView+Extension.swift */,
 				CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */,
@@ -696,6 +695,7 @@
 		CE1331A4262C26E60086433C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEE7FBCA262D8F00001D5DAD /* NavigationController.swift */,
 				CE0BE5B7265FB43200C0DD04 /* BaseViewController.swift */,
 				CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */,
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
@@ -1774,7 +1774,7 @@
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
-				CEE7FBCB262D8F00001D5DAD /* UINavigationController+Extension.swift in Sources */,
+				CEE7FBCB262D8F00001D5DAD /* NavigationController.swift in Sources */,
 				CE5223332656DE11005C5075 /* MainTextField.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,
 				CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */,

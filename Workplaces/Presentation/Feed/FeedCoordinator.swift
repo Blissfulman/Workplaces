@@ -19,11 +19,11 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     
     // MARK: - Private properties
     
-    private weak var navigationController: UINavigationController?
+    private weak var navigationController: NavigationController?
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController, onFinish: @escaping VoidBlock) {
+    init(navigationController: NavigationController, onFinish: @escaping VoidBlock) {
         self.navigationController = navigationController
         self.onFinish = onFinish
     }
