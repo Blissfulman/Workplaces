@@ -124,17 +124,18 @@ final class ProfileContainerViewController: BaseViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        addLogOutButton() // TEMP
+        addLogOutButton()
         addChildViewControllers()
         bringProfileTopViewToFront()
     }
     
     private func addLogOutButton() {
-        // Временная кнопка для завершения сессии
-        let logOutBarButtonItem = UIBarButtonItem(
-            title: "Log out", style: .plain, target: self, action: #selector(logOutBarButtonTapped)
+        let logOutBarButtonItem = MainBarButtonItem(
+            title: "Log out".localized(),
+            style: .plain,
+            target: self,
+            action: #selector(logOutBarButtonTapped)
         )
-        logOutBarButtonItem.tintColor = Palette.orange
         navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
