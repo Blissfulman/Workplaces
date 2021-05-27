@@ -37,6 +37,13 @@ final class MainTextField: UITextField {
         return rect.inset(by: textPadding)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Необходимо, чтобы убрать баг с "плывущим" rightView при первом тапе по полю
+        let rightViewX = frame.maxX - (rightView?.frame.width ?? 0)
+        rightView?.frame = CGRect(x: rightViewX, y: 0, width: 24, height: 24)
+    }
+    
     // MARK: - Actions
     
     @objc private func clearText() {
