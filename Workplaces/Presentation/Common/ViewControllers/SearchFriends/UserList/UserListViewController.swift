@@ -7,12 +7,6 @@
 
 import UIKit
 
-// MARK: - Protocols
-
-protocol UserListViewControllerDelegate: AnyObject {
-    func needEndEditing()
-}
-
 final class UserListViewController: BaseViewController {
 
     // MARK: - Outlets
@@ -22,13 +16,11 @@ final class UserListViewController: BaseViewController {
     // MARK: - Private properties
     
     private var tableViewDataSource: UITableViewDataSource?
-    private weak var delegate: UserListViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(dataSource: UITableViewDataSource, delegate: UserListViewControllerDelegate) {
+    init(dataSource: UITableViewDataSource) {
         self.tableViewDataSource = dataSource
-        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,12 +47,6 @@ final class UserListViewController: BaseViewController {
     
     private func setupUI() {
         tableView.register(UserCell.nib(), forCellReuseIdentifier: UserCell.identifier)
-    }
-}
-
-extension UserListViewController: UITableViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.needEndEditing()
+        tableView.keyboardDismissMode = .onDrag
     }
 }

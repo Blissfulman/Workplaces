@@ -20,7 +20,7 @@ final class SearchFriendsContainerViewController: BaseViewController {
     private var progressList = [Progress]()
     private lazy var searchFriendsVC = SearchFriendsViewController(delegate: self)
     private lazy var userListDataSource = UserListDataSource(delegate: self)
-    private lazy var userListVC = UserListViewController(dataSource: userListDataSource, delegate: self)
+    private lazy var userListVC = UserListViewController(dataSource: userListDataSource)
     
     // MARK: - Initializers
     
@@ -104,15 +104,6 @@ extension SearchFriendsContainerViewController: SearchFriendsViewControllerDeleg
             }
         }
         progressList.append(progress)
-    }
-}
-
-// MARK: - UserListViewControllerDelegate
-
-extension SearchFriendsContainerViewController: UserListViewControllerDelegate {
-    
-    func needEndEditing() {
-        view.endEditing(true)
     }
 }
 
