@@ -19,11 +19,11 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     
     // MARK: - Private properties
     
-    private weak var navigationController: UINavigationController?
+    private weak var navigationController: NavigationController?
     
     // MARK: - Initializers
     
-    init(navigationController: UINavigationController, onFinish: @escaping VoidBlock) {
+    init(navigationController: NavigationController, onFinish: @escaping VoidBlock) {
         self.navigationController = navigationController
         self.onFinish = onFinish
     }
@@ -36,7 +36,7 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     
     private func showSearchFriendsScreen() {
         let searchFriendsContainerVC = SearchFriendsContainerViewController()
-        navigationController?.pushViewController(searchFriendsContainerVC, animated: true)
+        navigationController?.show(searchFriendsContainerVC, sender: nil)
     }
     
     // MARK: - Private methods
@@ -44,7 +44,7 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     private func showFeedScreen() {
         let feedContainerVC = FeedContainerViewController()
         feedContainerVC.delegate = self
-        navigationController?.pushViewController(feedContainerVC, animated: false)
+        navigationController?.show(feedContainerVC, sender: nil)
     }
 }
 

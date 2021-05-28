@@ -13,7 +13,7 @@ protocol FeedContainerViewControllerDelegate: AnyObject {
     func goToSearchFriends()
 }
 
-final class FeedContainerViewController: UIViewController {
+final class FeedContainerViewController: BaseViewController {
     
     // MARK: - Nested types
     
@@ -100,7 +100,6 @@ final class FeedContainerViewController: UIViewController {
     
     private func setupUI() {
         navigationItem.title = "Popular".localized()
-        navigationItem.backButtonTitle = ""
     }
     
     private func fetchPosts() {

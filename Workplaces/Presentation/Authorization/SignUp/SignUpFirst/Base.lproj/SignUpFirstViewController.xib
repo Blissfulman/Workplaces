@@ -72,17 +72,19 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="519-bb-dBY" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" textContentType="email"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="8cY-r0-49O"/>
+                                <outlet property="delegate" destination="-1" id="MXh-K7-Mh4"/>
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-76-wGV" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="39" width="374" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="EqY-ym-gkt"/>
+                                <outlet property="delegate" destination="-1" id="aaF-Ee-G5r"/>
                             </connections>
                         </textField>
                     </subviews>

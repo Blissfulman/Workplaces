@@ -5,9 +5,21 @@
 //  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
-import UIKit
+import UIKit.UIButton
 
 final class MainFilledButton: UIButton {
+    
+    // MARK: - Initializers
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
     
     // MARK: - UIView
     
@@ -17,11 +29,6 @@ final class MainFilledButton: UIButton {
         titleLabel?.textColor = isEnabled ? Palette.white : Palette.middleGrey
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        setCornerRadius(UIConstants.buttonCornerRadius)
-    }
-    
     // MARK: - UIButton
     
     override var isHighlighted: Bool {
@@ -29,5 +36,13 @@ final class MainFilledButton: UIButton {
             guard oldValue != isHighlighted else { return }
             isHighlighted ? downscaleAnimation() : resetScaleAnimation()
         }
+    }
+    
+    // MARK: - Private methods
+    
+    private func commonInit() {
+        backgroundColor = .clear
+        isExclusiveTouch = true
+        setCornerRadius(UIConstants.buttonCornerRadius)
     }
 }

@@ -13,7 +13,7 @@ protocol SearchFriendsViewControllerDelegate: AnyObject {
     func didTapSearchButton(query: String)
 }
 
-final class SearchFriendsViewController: UIViewController {
+final class SearchFriendsViewController: BaseViewController {
     
     // MARK: - Outlets
     
@@ -52,6 +52,7 @@ final class SearchFriendsViewController: UIViewController {
         searchBar.setImage(Icons.search, for: .search, state: .normal)
         searchBar.setImage(Icons.close, for: .clear, state: .normal)
         searchBar.searchTextField.backgroundColor = .clear
+        searchBar.searchTextField.tintColor = Palette.orange
         let attributedString = NSAttributedString(
             string: "Name or nickname".localized(),
             attributes: [.foregroundColor: Palette.middleGrey]
@@ -65,6 +66,7 @@ final class SearchFriendsViewController: UIViewController {
 extension SearchFriendsViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
         delegate?.didTapSearchButton(query: searchBar.text ?? "")
     }
 }

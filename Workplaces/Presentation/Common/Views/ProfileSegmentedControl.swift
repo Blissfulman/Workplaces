@@ -5,14 +5,25 @@
 //  Created by Evgeny Novgorodov on 10.05.2021.
 //
 
-import UIKit
+import UIKit.UISegmentedControl
 
 final class ProfileSegmentedControl: UISegmentedControl {
     
-    // MARK: - UIView
+    // MARK: - Initializers
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    // MARK: - Private methods
+    
+    private func commonInit() {
         setTitleTextAttributes([.foregroundColor: Palette.middleGrey, .font: Fonts.bodyLarge], for: .normal)
         setTitleTextAttributes([.foregroundColor: Palette.black], for: .selected)
         setBackgroundImage(UIImage(), for: .normal, barMetrics: UIBarMetrics.default)

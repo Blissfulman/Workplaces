@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ZeroViewController: UIViewController {
+final class ZeroViewController: BaseViewController {
     
     // MARK: - Initializers
     

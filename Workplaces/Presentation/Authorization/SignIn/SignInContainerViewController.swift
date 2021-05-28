@@ -14,7 +14,7 @@ protocol SignInContainerViewControllerDelegate: AnyObject {
     func successfulSignIn()
 }
 
-final class SignInContainerViewController: UIViewController {
+final class SignInContainerViewController: BaseViewController {
     
     // MARK: - Private properties
     
@@ -56,7 +56,6 @@ final class SignInContainerViewController: UIViewController {
     
     private func setupUI() {
         title = "Sign in".localized()
-        navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         addFullover(signInVC)
     }

@@ -15,7 +15,7 @@ protocol SignUpContainerViewControllerDelegate: AnyObject {
     func didFinishSignUp()
 }
 
-final class SignUpContainerViewController: UIViewController {
+final class SignUpContainerViewController: BaseViewController {
     
     // MARK: - Public properties
     
@@ -63,7 +63,6 @@ final class SignUpContainerViewController: UIViewController {
     
     private func setupUI() {
         title = "Sign up".localized()
-        navigationItem.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         addFullover(signUpFirstVC)
     }

@@ -13,7 +13,7 @@ protocol EditProfileContainerViewControllerDelegate: AnyObject {
     func profileDidSave()
 }
 
-final class EditProfileContainerViewController: UIViewController {
+final class EditProfileContainerViewController: BaseViewController {
     
     // MARK: - Public properties
     

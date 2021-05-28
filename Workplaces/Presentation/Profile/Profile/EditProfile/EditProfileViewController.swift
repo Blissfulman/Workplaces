@@ -56,19 +56,15 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     // MARK: - KeyboardNotificationsViewController
     
     override func keyboardWillShow(_ notification: Notification) {
-        let keyboardHeight = getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.saveButtonBottomConstraint.constant = keyboardHeight
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.saveButtonBottomConstraint.constant = keyboardFrame.height
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
-            self.view.layoutIfNeeded()
         }
     }
     
-    override func keyboardWillHide() {
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+    override func keyboardWillHide(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { _ in
             self.saveButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -93,6 +89,7 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func saveButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSaveButton()
     }
     
@@ -108,5 +105,25 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     
     private func updateSaveButtonState() {
         saveButton.isEnabled = editProfileModel.isPossibleToSaveProfile
+    }
+}
+
+// MARK: - Text field delegate
+
+extension EditProfileViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nicknameTextField:
+            firstNameTextField.becomeFirstResponder()
+        case firstNameTextField:
+            lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            textField.resignFirstResponder()
+//            pickDateButtonTapped() // Добавится, когда будет DatePicker
+        default:
+            break
+        }
+        return true
     }
 }

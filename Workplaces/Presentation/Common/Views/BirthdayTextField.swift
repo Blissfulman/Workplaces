@@ -1,13 +1,13 @@
 //
-//  MainTextField.swift
+//  BirthdayTextField.swift
 //  Workplaces
 //
-//  Created by Evgeny Novgorodov on 20.05.2021.
+//  Created by Evgeny Novgorodov on 27.05.2021.
 //
 
-import UIKit.UITextField
+import UIKit.UIButton
 
-final class MainTextField: UITextField {
+final class BirthdayTextField: UITextField {
     
     // MARK: - Initializers
     
@@ -33,18 +33,10 @@ final class MainTextField: UITextField {
         return rect.inset(by: UIConstants.textFieldPadding)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        // Необходимо, чтобы убрать баг с "плывущим" rightView при первом тапе по полю
-        let rightViewX = frame.width - (rightView?.frame.width ?? 0)
-        rightView?.frame = CGRect(x: rightViewX, y: 0, width: 24, height: frame.height)
-    }
-    
     // MARK: - Actions
     
-    @objc private func clearText() {
-        text = ""
-        sendActions(for: .editingChanged)
+    @objc private func calendarButtonTapped() {
+        sendActions(for: .editingDidBegin)
     }
     
     // MARK: - Private methods
@@ -53,15 +45,15 @@ final class MainTextField: UITextField {
         borderStyle = .none
         tintColor = Palette.black
         background = Images.textFieldBackgroundDefault
-        setCustomClearButton()
+        setCalendarButton()
     }
     
-    private func setCustomClearButton() {
-        let button = UIButton()
-        button.setImage(Icons.crossSmall, for: .normal)
+    private func setCalendarButton() {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        button.setImage(Icons.calendar, for: .normal)
         button.contentMode = .scaleToFill
-        button.addTarget(self, action: #selector(clearText), for: .touchUpInside)
+        button.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
         rightView = button
-        rightViewMode = .whileEditing
+        rightViewMode = .always
     }
 }

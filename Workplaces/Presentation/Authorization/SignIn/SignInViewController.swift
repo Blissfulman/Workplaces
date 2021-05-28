@@ -53,19 +53,15 @@ final class SignInViewController: KeyboardNotificationsViewController {
     // MARK: - KeyboardNotificationsViewController
     
     override func keyboardWillShow(_ notification: Notification) {
-        let keyboardHeight = getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signInButtonBottomConstraint.constant = keyboardHeight
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.signInButtonBottomConstraint.constant = keyboardFrame.height
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
-            self.view.layoutIfNeeded()
         }
     }
     
-    override func keyboardWillHide() {
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+    override func keyboardWillHide(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { _ in
             self.signInButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -82,10 +78,12 @@ final class SignInViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignUpButton()
     }
     
     @IBAction private func signInButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignInButton()
     }
     
@@ -93,5 +91,21 @@ final class SignInViewController: KeyboardNotificationsViewController {
     
     private func updateSignInButtonState() {
         signInButton.isEnabled = signInModel.isPossibleToSignIn
+    }
+}
+
+// MARK: - Text field delegate
+
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            signInButtonTapped()
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }

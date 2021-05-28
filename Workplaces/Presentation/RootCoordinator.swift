@@ -32,7 +32,7 @@ final class RootCoordinator {
             tabBarCoordinatingController.start()
             window?.rootViewController = tabBarCoordinatingController
         } else {
-            let navigationController = UINavigationController()
+            let navigationController = NavigationController()
             authorizationCoordinator = AuthorizationCoordinatorImpl(
                 navigationController: navigationController
             ) { [weak self] in

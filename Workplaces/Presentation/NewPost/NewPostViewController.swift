@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class NewPostViewController: UIViewController {
+final class NewPostViewController: BaseViewController {
     
     // MARK: - Private properties
     

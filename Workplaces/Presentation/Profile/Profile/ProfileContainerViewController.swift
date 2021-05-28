@@ -17,7 +17,7 @@ protocol ProfileContainerViewControllerDelegate: AnyObject {
     func signOut()
 }
 
-final class ProfileContainerViewController: UIViewController {
+final class ProfileContainerViewController: BaseViewController {
     
     // MARK: - Nested types
     
@@ -124,18 +124,18 @@ final class ProfileContainerViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupUI() {
-        navigationItem.backButtonTitle = ""
-        addLogOutButton() // TEMP
+        addLogOutButton()
         addChildViewControllers()
         bringProfileTopViewToFront()
     }
     
     private func addLogOutButton() {
-        // Временная кнопка для завершения сессии
-        let logOutBarButtonItem = UIBarButtonItem(
-            title: "Log out", style: .plain, target: self, action: #selector(logOutBarButtonTapped)
+        let logOutBarButtonItem = MainBarButtonItem(
+            title: "Log out".localized(),
+            style: .plain,
+            target: self,
+            action: #selector(logOutBarButtonTapped)
         )
-        logOutBarButtonItem.tintColor = Palette.orange
         navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     

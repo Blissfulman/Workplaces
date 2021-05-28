@@ -53,19 +53,15 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     // MARK: - KeyboardNotificationsViewController
     
     override func keyboardWillShow(_ notification: Notification) {
-        let keyboardHeight = getKeyboardHeight(notification: notification)
-        
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
-            self.signUpButtonBottomConstraint.constant = keyboardHeight
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.signUpButtonBottomConstraint.constant = keyboardFrame.height
                 + UIConstants.defaultSpacingBetweenContentAndKeyboard
-            self.view.layoutIfNeeded()
         }
     }
     
-    override func keyboardWillHide() {
-        UIView.animate(withDuration: UIConstants.keyboardAppearAnimationDuration) {
+    override func keyboardWillHide(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { _ in
             self.signUpButtonBottomConstraint.constant = UIConstants.defaultLowerButtonsBottomSpacing
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -102,10 +98,12 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignUpButton()
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapAlreadySignedUpButton()
     }
     
@@ -113,5 +111,21 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
     private func updateSignUpButtonState() {
         signUpButton.isEnabled = signUpModel.isPossibleToSignUp
+    }
+}
+
+// MARK: - Text field delegate
+
+extension SignUpFirstViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        if textField == passwordTextField {
+            signUpButtonTapped()
+            textField.resignFirstResponder()
+        }
+        return true
     }
 }

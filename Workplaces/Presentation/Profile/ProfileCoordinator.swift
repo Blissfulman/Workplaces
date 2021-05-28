@@ -25,12 +25,12 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     // MARK: - Private properties
     
-    private weak var navigationController: UINavigationController?
+    private weak var navigationController: NavigationController?
     
     // MARK: - Initializers
     
     init(
-        navigationController: UINavigationController,
+        navigationController: NavigationController,
         onFinish: @escaping VoidBlock,
         delegate: ProfileCoordinatorDelegate
     ) {
@@ -50,18 +50,18 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     private func showProfileScreen() {
         let profileContainerVC = ProfileContainerViewController()
         profileContainerVC.delegate = self
-        navigationController?.pushViewController(profileContainerVC, animated: false)
+        navigationController?.show(profileContainerVC, sender: nil)
     }
     
     private func showEditProfileScreen(profile: User) {
         let editProfileContainerVC = EditProfileContainerViewController(profile: profile)
         editProfileContainerVC.delegate = self
-        navigationController?.pushViewController(editProfileContainerVC, animated: true)
+        navigationController?.show(editProfileContainerVC, sender: nil)
     }
     
     private func showSearchFriendsScreen() {
         let searchFriendsContainerVC = SearchFriendsContainerViewController()
-        navigationController?.pushViewController(searchFriendsContainerVC, animated: true)
+        navigationController?.show(searchFriendsContainerVC, sender: nil)
     }
 }
 

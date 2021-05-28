@@ -19,7 +19,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     private var profileCoordinator: ProfileCoordinator?
     
     private var feedTab: UIViewController {
-        let navigationController = UINavigationController()
+        let navigationController = NavigationController()
         feedCoordinator = FeedCoordinatorImpl(navigationController: navigationController, onFinish: onFinish)
         navigationController.tabBarItem.image = Icons.feed
         feedCoordinator?.start()
@@ -33,7 +33,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     }
     
     private var profileTab: UIViewController {
-        let navigationController = UINavigationController()
+        let navigationController = NavigationController()
         profileCoordinator = ProfileCoordinatorImpl(
             navigationController: navigationController,
             onFinish: onFinish,

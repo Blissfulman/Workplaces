@@ -32,53 +32,44 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-jY-QXB">
-                    <rect key="frame" x="20" y="75" width="374" height="138"/>
+                    <rect key="frame" x="20" y="75" width="374" height="140"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OEW-WN-88S" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="nickname"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="E2J-nK-kw3"/>
+                                <outlet property="delegate" destination="-1" id="4cL-2G-q7f"/>
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="J90-uD-xdO" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="38" width="374" height="18"/>
+                            <rect key="frame" x="0.0" y="40" width="374" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="5yG-XX-PUU"/>
+                                <outlet property="delegate" destination="-1" id="6NG-od-NBF"/>
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="5Sz-uE-9ar" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="76" width="374" height="18"/>
+                            <rect key="frame" x="0.0" y="80" width="374" height="20"/>
+                            <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
+                            <connections>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="GAh-xz-rec"/>
+                                <outlet property="delegate" destination="-1" id="NI3-h9-EZ7"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="yC5-VZ-Nif" customClass="BirthdayTextField" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="120" width="374" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="GAh-xz-rec"/>
+                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="U1S-Rw-fmv"/>
+                                <outlet property="delegate" destination="-1" id="r4k-5k-NlN"/>
                             </connections>
                         </textField>
-                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bDw-1E-lfn">
-                            <rect key="frame" x="0.0" y="114" width="374" height="24"/>
-                            <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="yC5-VZ-Nif" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="3" width="334" height="18"/>
-                                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="U1S-Rw-fmv"/>
-                                    </connections>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-50-tFP">
-                                    <rect key="frame" x="350" y="0.0" width="24" height="24"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="NFp-10-99h"/>
-                                        <constraint firstAttribute="height" constant="24" id="NxE-BQ-GJh"/>
-                                    </constraints>
-                                    <state key="normal" image="24-calendar"/>
-                                </button>
-                            </subviews>
-                        </stackView>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdy-Ef-yQW" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
@@ -112,7 +103,6 @@
         </view>
     </objects>
     <resources>
-        <image name="24-calendar" width="24" height="24"/>
         <namedColor name="orange">
             <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

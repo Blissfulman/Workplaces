@@ -15,7 +15,7 @@ protocol FriendListViewControllerDelegate: AnyObject {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
 }
 
-final class FriendListViewController: UIViewController, TableViewOffsetConfigurable {
+final class FriendListViewController: BaseViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     
