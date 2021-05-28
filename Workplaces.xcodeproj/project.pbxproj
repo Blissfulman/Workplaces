@@ -25,6 +25,7 @@
 		CE09D783262EC90D009A96B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D782262EC90D009A96B3 /* LoadingView.swift */; };
 		CE0BE5B8265FB43200C0DD04 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BE5B7265FB43200C0DD04 /* BaseViewController.swift */; };
 		CE0BE5BA265FC03E00C0DD04 /* MainBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BE5B9265FC03E00C0DD04 /* MainBarButtonItem.swift */; };
+		CE0BE5BC26600DFB00C0DD04 /* BirthdayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0BE5BB26600DFB00C0DD04 /* BirthdayTextField.swift */; };
 		CE12A1DA2635F6C300EE6549 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1D92635F6C300EE6549 /* Post.swift */; };
 		CE12A1E62635F8B600EE6549 /* EmptyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1E42635F8B600EE6549 /* EmptyEndpoint.swift */; };
 		CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A1E52635F8B600EE6549 /* JsonEndpoint.swift */; };
@@ -267,6 +268,7 @@
 		CE09D782262EC90D009A96B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CE0BE5B7265FB43200C0DD04 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE0BE5B9265FC03E00C0DD04 /* MainBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBarButtonItem.swift; sourceTree = "<group>"; };
+		CE0BE5BB26600DFB00C0DD04 /* BirthdayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTextField.swift; sourceTree = "<group>"; };
 		CE12A1D92635F6C300EE6549 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CE12A1E42635F8B600EE6549 /* EmptyEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyEndpoint.swift; sourceTree = "<group>"; };
 		CE12A1E52635F8B600EE6549 /* JsonEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonEndpoint.swift; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 				CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */,
 				CE5223322656DE11005C5075 /* MainTextField.swift */,
+				CE0BE5BB26600DFB00C0DD04 /* BirthdayTextField.swift */,
 				CE0BE5B9265FC03E00C0DD04 /* MainBarButtonItem.swift */,
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
@@ -1617,7 +1620,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		E8D26971335AF6AB05F2AE55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1774,6 +1777,7 @@
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
+				CE0BE5BC26600DFB00C0DD04 /* BirthdayTextField.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* NavigationController.swift in Sources */,
 				CE5223332656DE11005C5075 /* MainTextField.swift in Sources */,
 				CE8F1BF2263528BD00C0C52C /* ProfileService.swift in Sources */,

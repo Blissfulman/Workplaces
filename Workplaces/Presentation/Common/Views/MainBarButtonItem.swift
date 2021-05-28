@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 27.05.2021.
 //
 
-import UIKit
+import UIKit.UIBarButtonItem
 
 class MainBarButtonItem: UIBarButtonItem {
     

@@ -87,13 +87,15 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
         }
     }
     
-    @IBAction private func textFieldsEditingDidBegin() {
-        datePicker.disappear()
-    }
-    
-    @IBAction private func pickDateButtonTapped() {
-        view.endEditing(true)
-        datePicker.appear()
+    @IBAction private func textFieldsEditingDidBegin(_ sender: UITextField) {
+        if sender != birthdayTextField {
+            datePicker.disappear()
+        } else {
+            // Необходимо добавить скрытие клавиатуры
+            sender.resignFirstResponder() // Клавиатура не скрывается
+            view.endEditing(true) // Тоже не срабатывает
+            showDatePicker()
+        }
     }
     
     @IBAction private func datePickerValueChanged() {
@@ -111,6 +113,12 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
         title = "Sign up".localized()
         navigationItem.setHidesBackButton(true, animated: true)
     }
+    
+    private func showDatePicker() {
+        guard datePicker.isHidden else { return }
+        // По-хорошему реализовать скрытие клавиатуры достаточно в одном этом месте
+        datePicker.appear()
+    }
 }
 
 // MARK: - Text field delegate
@@ -124,8 +132,8 @@ extension SignUpSecondViewController: UITextFieldDelegate {
         case firstNameTextField:
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
-            pickDateButtonTapped()
-            textField.resignFirstResponder()
+            textField.resignFirstResponder() // В этом случае клавиатура скрывается
+            showDatePicker()
         default:
             break
         }

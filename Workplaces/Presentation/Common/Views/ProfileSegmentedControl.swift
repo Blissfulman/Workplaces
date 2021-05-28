@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 10.05.2021.
 //
 
-import UIKit
+import UIKit.UISegmentedControl
 
 final class ProfileSegmentedControl: UISegmentedControl {
     

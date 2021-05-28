@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 19.04.2021.
 //
 
-import UIKit
+import UIKit.UIButton
 
 final class MainFilledButton: UIButton {
     
