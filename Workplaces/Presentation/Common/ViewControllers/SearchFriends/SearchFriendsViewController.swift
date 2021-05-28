@@ -66,6 +66,7 @@ final class SearchFriendsViewController: BaseViewController {
 extension SearchFriendsViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
         delegate?.didTapSearchButton(query: searchBar.text ?? "")
     }
 }

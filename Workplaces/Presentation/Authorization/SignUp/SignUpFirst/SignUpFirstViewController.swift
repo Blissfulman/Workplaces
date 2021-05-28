@@ -98,10 +98,12 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignUpButton()
     }
     
     @IBAction private func alreadySignedUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapAlreadySignedUpButton()
     }
     

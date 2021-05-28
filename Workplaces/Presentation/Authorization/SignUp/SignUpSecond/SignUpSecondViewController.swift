@@ -104,6 +104,7 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func saveButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSaveButton()
     }
     

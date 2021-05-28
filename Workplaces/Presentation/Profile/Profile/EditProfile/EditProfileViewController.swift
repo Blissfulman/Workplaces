@@ -89,6 +89,7 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func saveButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSaveButton()
     }
     
@@ -118,8 +119,8 @@ extension EditProfileViewController: UITextFieldDelegate {
         case firstNameTextField:
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
-//            pickDateButtonTapped() // Добавится, когда будет DatePicker
             textField.resignFirstResponder()
+//            pickDateButtonTapped() // Добавится, когда будет DatePicker
         default:
             break
         }

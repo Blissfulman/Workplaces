@@ -78,10 +78,12 @@ final class SignInViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func signUpButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignUpButton()
     }
     
     @IBAction private func signInButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapSignInButton()
     }
     
