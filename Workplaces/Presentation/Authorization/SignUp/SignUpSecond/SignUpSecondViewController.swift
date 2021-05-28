@@ -90,6 +90,7 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
         if sender != birthdayTextField {
             datePicker.disappear()
         } else {
+            view.endEditing(true)
             showDatePicker()
         }
     }
