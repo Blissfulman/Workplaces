@@ -54,7 +54,6 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
-        datePicker.disappear()
     }
     
     // MARK: - KeyboardNotificationsViewController
@@ -91,9 +90,6 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
         if sender != birthdayTextField {
             datePicker.disappear()
         } else {
-            // Необходимо добавить скрытие клавиатуры
-            sender.resignFirstResponder() // Клавиатура не скрывается
-            view.endEditing(true) // Тоже не срабатывает
             showDatePicker()
         }
     }
@@ -137,6 +133,15 @@ extension SignUpSecondViewController: UITextFieldDelegate {
             showDatePicker()
         default:
             break
+        }
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == birthdayTextField {
+            view.endEditing(true)
+            showDatePicker()
+            return false
         }
         return true
     }
