@@ -12,16 +12,16 @@ final class NavigationController: UINavigationController {
     // MARK: - Static methods
     
     static func setupAppearance() {
-        let apperance = UINavigationBarAppearance()
-        apperance.configureWithTransparentBackground()
-        apperance.backgroundColor = Palette.white
-        apperance.shadowColor = Palette.lightGreyBlue
-        apperance.titleTextAttributes = [.font: Fonts.bodyLarge]
-        apperance.setBackIndicatorImage(Icons.backSmall, transitionMaskImage: Icons.backSmall)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = Palette.white
+        appearance.shadowColor = Palette.lightGreyBlue
+        appearance.titleTextAttributes = [.font: Fonts.bodyLarge]
+        appearance.setBackIndicatorImage(Icons.backSmall, transitionMaskImage: Icons.backSmall)
         
         let navigationBar = UINavigationBar.appearance(whenContainedInInstancesOf: [NavigationController.self])
-        navigationBar.standardAppearance = apperance
-        navigationBar.compactAppearance = apperance
+        navigationBar.standardAppearance = appearance
+        navigationBar.compactAppearance = appearance
         navigationBar.tintColor = Palette.grey
     }
 }
