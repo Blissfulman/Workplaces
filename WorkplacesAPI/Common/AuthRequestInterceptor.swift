@@ -7,7 +7,7 @@
 
 import Alamofire
 
-public final class AuthRequestInterceptor: Alamofire.RequestInterceptor {
+public final class AuthRequestInterceptor: RequestInterceptor {
     
     // MARK: - Typealiases
     

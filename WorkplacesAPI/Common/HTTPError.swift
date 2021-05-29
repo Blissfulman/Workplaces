@@ -7,6 +7,8 @@
 
 struct HTTPError: Error {
     
+    // MARK: - Public properties
+    
     let statusCode: Int
     let url: URL?
     
