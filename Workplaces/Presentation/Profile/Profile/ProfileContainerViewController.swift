@@ -21,7 +21,7 @@ final class ProfileContainerViewController: BaseViewController {
     
     // MARK: - Nested types
     
-    enum State {
+    private enum State {
         case posts
         case likes
         case friends
@@ -130,13 +130,12 @@ final class ProfileContainerViewController: BaseViewController {
     }
     
     private func addLogOutButton() {
-        let logOutBarButtonItem = MainBarButtonItem(
+        navigationItem.rightBarButtonItem = MainBarButtonItem(
             title: "Log out".localized(),
             style: .plain,
             target: self,
             action: #selector(logOutBarButtonTapped)
         )
-        navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
     private func addChildViewControllers() {
@@ -168,14 +167,7 @@ final class ProfileContainerViewController: BaseViewController {
     
     private func configureProfileTopView() {
         guard let profile = profile else { return }
-        
-        let editProfileButtonAction: VoidBlock = { [weak self] in
-            self?.delegate?.goToEditProfile(profile: profile)
-        }
-        profileTopView.configure(
-            model: ProfileTopViewModel(profile: profile),
-            editProfileButtonAction: editProfileButtonAction
-        )
+        profileTopView.configure(model: ProfileTopViewModel(profile: profile))
     }
     
     private func showPostList() {
@@ -309,7 +301,12 @@ extension ProfileContainerViewController {
 
 extension ProfileContainerViewController: ProfileTopViewDelegate {
     
-    func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
+    func didTapEditProfileButton() {
+        guard let profile = profile else { return }
+        delegate?.goToEditProfile(profile: profile)
+    }
+    
+    func didChangeProfileTopViewState(to newState: ProfileTopView.State) {
         switch newState {
         case .posts:
             fetchMyPosts()
