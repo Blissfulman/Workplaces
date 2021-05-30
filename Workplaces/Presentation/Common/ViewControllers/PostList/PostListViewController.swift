@@ -10,17 +10,17 @@ import UIKit
 // MARK: - Protocols
 
 protocol PostListViewControllerDelegate: AnyObject {
-    /// Сообщает делегату, когда пользователь прокручивает контент таблицы.
-    /// - Parameter scrollView: Объект, в котором произошла прокрутка.
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    /// Сообщает делегату, что пользователь прокручивает контент таблицы.
+    func scrollViewDidScroll()
 }
 
 final class PostListViewController: BaseViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     
-    var contentOffset: CGPoint {
-        tableView?.contentOffset ?? .zero
+    var topYContentPosition: CGFloat {
+        guard let tableView = tableView else { return 0 }
+        return tableView.frame.origin.y - tableView.contentOffset.y
     }
     
     // MARK: - Outlets
@@ -54,12 +54,12 @@ final class PostListViewController: BaseViewController, TableViewOffsetConfigura
     
     // MARK: - Public methods
     
-    func setContentInset(contentInset: UIEdgeInsets) {
-        tableView.contentInset = contentInset
+    func setInitialVerticalOffset(_ offset: CGFloat) {
+        tableView?.contentInset.top = offset
     }
     
-    func setTopOffset(offset: CGFloat) {
-        tableView.contentOffset.y = offset
+    func resetToInitialOffset() {
+        tableView.contentOffset.y = -tableView.contentInset.top
     }
     
     /// Обновление данных таблицы.
@@ -78,7 +78,7 @@ final class PostListViewController: BaseViewController, TableViewOffsetConfigura
     /// - Returns: Доля видимой части ячейки (для полностью видимой ячейки вернётся значение 1, для полностью скрытой - 0).
     private func shareOfCellVisibility(forCell cell: UITableViewCell) -> CGFloat {
         // Значение скрытой части ячейки относительно верхнего края таблицы
-        let topDelta = contentOffset.y - cell.frame.origin.y
+        let topDelta = (tableView?.contentOffset.y ?? 0) - cell.frame.origin.y
         
         if topDelta >= 0 {
             return max(1 - topDelta / cell.frame.height, 0)
@@ -95,7 +95,7 @@ final class PostListViewController: BaseViewController, TableViewOffsetConfigura
 extension PostListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.scrollViewDidScroll(scrollView)
+        delegate?.scrollViewDidScroll()
         
         tableView.visibleCells.forEach {
             if let postCell = $0 as? PostCell {
