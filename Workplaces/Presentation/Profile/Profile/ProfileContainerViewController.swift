@@ -127,6 +127,8 @@ final class ProfileContainerViewController: BaseViewController {
         addLogOutButton()
         addChildViewControllers()
         bringProfileTopViewToFront()
+        // Необходимо для правильного отображения начального состояния экрана при отсутствии публикаций
+        showPostList()
     }
     
     private func addLogOutButton() {
