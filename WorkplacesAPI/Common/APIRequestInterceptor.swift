@@ -14,8 +14,8 @@ public final class APIRequestInterceptor: RequestInterceptor {
     private let baseURL: URL
     private let authDataStorage: AuthDataStorage
     private let tokenRefreshService: () -> TokenRefreshService
-    private let retryManager = RetryManager()
-    private var retryCompletionStorage = RetryCompletionStorage()
+    private let retryManager: RetryManager
+    private var retryCompletionStorage: RetryCompletionStorage
     
     // MARK: - Initializers
     
@@ -24,14 +24,20 @@ public final class APIRequestInterceptor: RequestInterceptor {
     ///   - baseURL: Базовый `URL` для адаптера.
     ///   - authDataStorage: Хранилище авторизационных данных `AuthDataStorage`.
     ///   - tokenRefreshService: Сервис обновления токена `TokenRefreshService`.
+    ///   - retryManager: Менеджер обработки повторных запросов `RetryManager`.
+    ///   - retryCompletionStorage: Хранилище комплишенов для повторных запросов `RetryCompletionStorage`.
     public init(
         baseURL: URL,
         authDataStorage: AuthDataStorage,
-        tokenRefreshService: @escaping () -> TokenRefreshService
+        tokenRefreshService: @escaping () -> TokenRefreshService,
+        retryManager: RetryManager,
+        retryCompletionStorage: RetryCompletionStorage
     ) {
         self.baseURL = baseURL
         self.authDataStorage = authDataStorage
         self.tokenRefreshService = tokenRefreshService
+        self.retryManager = retryManager
+        self.retryCompletionStorage = retryCompletionStorage
     }
     
     // MARK: - Alamofire.RequestInterceptor
@@ -90,20 +96,5 @@ public final class APIRequestInterceptor: RequestInterceptor {
                 self?.retryCompletionStorage.getCompletions().forEach { $0(.doNotRetry) }
             }
         }
-    }
-}
-
-// MARK: - Extensions
-
-fileprivate extension Error {
-    
-    /// Разворачивает ошибку валидации из Alamofire.
-    func unwrapAFError() -> Error {
-        guard let afError = asAFError else { return self }
-        if case .responseValidationFailed(let reason) = afError,
-           case .customValidationFailed(let underlyingError) = reason {
-            return underlyingError
-        }
-        return self
     }
 }

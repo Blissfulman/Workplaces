@@ -21,7 +21,9 @@ final class ServiceLayer {
         let interceptor = APIRequestInterceptor(
             baseURL: Constants.apiBaseURL,
             authDataStorage: authDataStorage,
-            tokenRefreshService: { self.tokenRefreshService }
+            tokenRefreshService: { self.tokenRefreshService },
+            retryManager: retryManager,
+            retryCompletionStorage: retryCompletionStorage
         )
         
         return AlamofireClient(
@@ -45,8 +47,10 @@ final class ServiceLayer {
         apiClient: apiClient,
         authDataStorage: authDataStorage
     )
+    lazy var retryManager: RetryManager = RetryManagerImpl()
     
     lazy var authDataStorage: AuthDataStorage = AuthDataStorageImpl(storage: UserDefaults.standard)
+    lazy var retryCompletionStorage: RetryCompletionStorage = RetryCompletionStorageImpl()
     
     // MARK: - Initializers
     

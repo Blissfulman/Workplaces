@@ -1,5 +1,5 @@
 //
-//  RetryManager.swift
+//  RetryManagerImpl.swift
 //  WorkplacesAPI
 //
 //  Created by Evgeny Novgorodov on 31.05.2021.
@@ -7,17 +7,21 @@
 
 import Alamofire
 
-final class RetryManager {
+public final class RetryManagerImpl: RetryManager {
     
     // MARK: - Private properties
     
     private let retryDelays: [Int: TimeInterval] = [0: 1, 1: 2, 2: 4, 3: 10, 4: 15]
     
+    // MARK: - Initializers
+    
+    public init() {}
+    
     // MARK: - Public methods
     
-    func handle(request: Request, error: Error, completion: @escaping (RetryResult) -> Void) {
+    public func handle(request: Request, error: Error, completion: @escaping (RetryResult) -> Void) {
         guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
-        print(request.retryCount, "Description:", request.description)
+        print(request.retryCount, "Description:", request.description) // TEMP
         print(Date(timeIntervalSinceNow: 0))
         
         request.retryCount < 5
@@ -41,20 +45,5 @@ final class RetryManager {
             return true
         }
         return false
-    }
-}
-
-// MARK: - Extensions
-
-fileprivate extension Error {
-    
-    /// Разворачивает ошибку валидации из Alamofire.
-    func unwrapAFError() -> Error {
-        guard let afError = asAFError else { return self }
-        if case .responseValidationFailed(let reason) = afError,
-           case .customValidationFailed(let underlyingError) = reason {
-            return underlyingError
-        }
-        return self
     }
 }

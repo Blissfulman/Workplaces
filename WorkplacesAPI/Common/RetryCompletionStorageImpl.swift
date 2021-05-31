@@ -1,5 +1,5 @@
 //
-//  RetryCompletionStorage.swift
+//  RetryCompletionStorageImpl.swift
 //  WorkplacesAPI
 //
 //  Created by Evgeny Novgorodov on 31.05.2021.
@@ -9,10 +9,10 @@ import Alamofire
 
 // MARK: - Typealiases
 
-typealias RetryCompletion = (RetryResult) -> Void
+public typealias RetryCompletion = (RetryResult) -> Void
 
 /// Потокобезопасное хранилище для объектов `RetryCompletion` и статуса обновления токена.
-class RetryCompletionStorage {
+public final class RetryCompletionStorageImpl: RetryCompletionStorage {
     
     // MARK: - Private properties
     
@@ -20,21 +20,25 @@ class RetryCompletionStorage {
     private var isInProgressRefreshingToken = false
     private var completions = [RetryCompletion]()
     
+    // MARK: - Initializers
+    
+    public init() {}
+    
     // MARK: - Public methods
     
-    func getProgressState() -> Bool {
+    public func getProgressState() -> Bool {
         queue.sync { isInProgressRefreshingToken }
     }
     
-    func switchProgress(to state: Bool) {
+    public func switchProgress(to state: Bool) {
         queue.sync { isInProgressRefreshingToken = state }
     }
     
-    func add(completion: @escaping RetryCompletion) {
+    public func add(completion: @escaping RetryCompletion) {
         queue.sync { completions.append(completion) }
     }
     
-    func getCompletions() -> [RetryCompletion] {
+    public func getCompletions() -> [RetryCompletion] {
         queue.sync {
             let result = completions
             completions = []

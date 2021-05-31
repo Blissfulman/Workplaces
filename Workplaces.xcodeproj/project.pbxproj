@@ -98,8 +98,11 @@
 		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
-		CE3F834F2664F97600120439 /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryManager.swift */; };
-		CE442BA526654AF100EB1E93 /* RetryCompletionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */; };
+		CE3F834F2664F97600120439 /* RetryManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryManagerImpl.swift */; };
+		CE442BA526654AF100EB1E93 /* RetryCompletionStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */; };
+		CE442BA72665691D00EB1E93 /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA62665691D00EB1E93 /* RetryManager.swift */; };
+		CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */; };
+		CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BAB26656BA400EB1E93 /* Error+Extension.swift */; };
 		CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */; };
 		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
 		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
@@ -351,8 +354,11 @@
 		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
-		CE3F834E2664F97600120439 /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
-		CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorage.swift; sourceTree = "<group>"; };
+		CE3F834E2664F97600120439 /* RetryManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManagerImpl.swift; sourceTree = "<group>"; };
+		CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorageImpl.swift; sourceTree = "<group>"; };
+		CE442BA62665691D00EB1E93 /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
+		CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorage.swift; sourceTree = "<group>"; };
+		CE442BAB26656BA400EB1E93 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
 		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
 		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -918,6 +924,15 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		CE442BAA26656B5800EB1E93 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F49212639374300FD117C /* HTTPBody+Extension.swift */,
+				CE442BAB26656BA400EB1E93 /* Error+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE573796262DF49A00A6DC20 /* SignUpSecond */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,13 +1114,13 @@
 			isa = PBXGroup;
 			children = (
 				CE12A23C2637091C00EE6549 /* APIRequestInterceptor.swift */,
-				CE3F834E2664F97600120439 /* RetryManager.swift */,
-				CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */,
+				CE3F834E2664F97600120439 /* RetryManagerImpl.swift */,
+				CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */,
 				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
 				CE12A1F32635F91600EE6549 /* APIError.swift */,
 				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
 				CE12A1F22635F91600EE6549 /* Codable.swift */,
-				CE1F49212639374300FD117C /* HTTPBody+Extension.swift */,
+				CE442BAA26656B5800EB1E93 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1137,6 +1152,8 @@
 			children = (
 				CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */,
 				CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */,
+				CE442BA62665691D00EB1E93 /* RetryManager.swift */,
+				CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1804,9 +1821,11 @@
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
 				CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */,
-				CE442BA526654AF100EB1E93 /* RetryCompletionStorage.swift in Sources */,
+				CE442BA526654AF100EB1E93 /* RetryCompletionStorageImpl.swift in Sources */,
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
+				CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
+				CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
 				CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */,
 				CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */,
@@ -1818,6 +1837,7 @@
 				CE12A1F72635F91600EE6549 /* HTTPError.swift in Sources */,
 				CE12A24C2637154B00EE6549 /* LogoutEndpoint.swift in Sources */,
 				CE1F492426398E1A00FD117C /* UploadUser.swift in Sources */,
+				CE442BA72665691D00EB1E93 /* RetryManager.swift in Sources */,
 				CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */,
 				CECED9932637B9CA00619CF3 /* UserID.swift in Sources */,
 				CE12A1FB2635F9C300EE6549 /* User.swift in Sources */,
@@ -1833,7 +1853,7 @@
 				CE12A2442637151B00EE6549 /* RegistrationEndpoint.swift in Sources */,
 				CE12A1F62635F91600EE6549 /* APIError.swift in Sources */,
 				CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */,
-				CE3F834F2664F97600120439 /* RetryManager.swift in Sources */,
+				CE3F834F2664F97600120439 /* RetryManagerImpl.swift in Sources */,
 				CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
