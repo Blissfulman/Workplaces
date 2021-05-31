@@ -99,6 +99,7 @@
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE3F834F2664F97600120439 /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryManager.swift */; };
+		CE442BA526654AF100EB1E93 /* RetryCompletionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */; };
 		CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */; };
 		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
 		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
@@ -351,6 +352,7 @@
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE3F834E2664F97600120439 /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
+		CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorage.swift; sourceTree = "<group>"; };
 		CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
 		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
 		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -1098,6 +1100,7 @@
 			children = (
 				CE12A23C2637091C00EE6549 /* APIRequestInterceptor.swift */,
 				CE3F834E2664F97600120439 /* RetryManager.swift */,
+				CE442BA426654AF100EB1E93 /* RetryCompletionStorage.swift */,
 				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
 				CE12A1F32635F91600EE6549 /* APIError.swift */,
 				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
@@ -1801,6 +1804,7 @@
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
 				CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */,
+				CE442BA526654AF100EB1E93 /* RetryCompletionStorage.swift in Sources */,
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,

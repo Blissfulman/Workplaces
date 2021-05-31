@@ -14,6 +14,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
     private let baseURL: URL
     private let authDataStorage: AuthDataStorage
     private let tokenRefreshService: () -> TokenRefreshService
+    private let retryManager = RetryManager()
     private var retryCompletionStorage = RetryCompletionStorage()
     
     // MARK: - Initializers
@@ -63,12 +64,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
             retryCompletionStorage.add(completion: completion)
             tryToRefreshToken()
         } else {
-            guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
-            print(request.retryCount, "Description:", request.description)
-            
-            request.retryCount < 5
-                ? completion(.retry)
-                : completion(.doNotRetry)
+            retryManager.handle(request: request, error: error, completion: completion)
         }
     }
     
@@ -76,22 +72,6 @@ public final class APIRequestInterceptor: RequestInterceptor {
     
     private func appendingBaseURL(to url: URL) -> URL {
         URL(string: url.absoluteString, relativeTo: baseURL)!
-    }
-    
-    /// Проверка необходимости повторной попытки запроса, основываясь на ошибке.
-    /// - Parameter error: Ошибка.
-    /// - Returns: Возвращает `true`, если необходим повторный запрос, в обратном случае возвращает `false`.
-    private func checkTheNeedToRetry(byError error: Error) -> Bool {
-        if let afError = error.unwrapAFError() as? AFError,
-           let urlError = afError.underlyingError as? URLError {
-            print("URLError:", urlError.localizedDescription)
-            return true
-        }
-        if let httpError = error.unwrapAFError() as? HTTPError, (300..<600).contains(httpError.statusCode) {
-            print("HTTPError, code \(httpError.statusCode):", error.localizedDescription)
-            return true
-        }
-        return false
     }
     
     private func tryToRefreshToken() {
@@ -103,8 +83,10 @@ public final class APIRequestInterceptor: RequestInterceptor {
 
             switch result {
             case .success:
+                print("Token refresh successfully")
                 self?.retryCompletionStorage.getCompletions().forEach { $0(.retry) }
             case .failure:
+                print("Token refresh error")
                 self?.retryCompletionStorage.getCompletions().forEach { $0(.doNotRetry) }
             }
         }
