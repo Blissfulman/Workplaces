@@ -1,5 +1,5 @@
 //
-//  AuthRequestInterceptor.swift
+//  APIRequestInterceptor.swift
 //  WorkplacesAPI
 //
 //  Created by Evgeny Novgorodov on 26.04.2021.
@@ -7,48 +7,7 @@
 
 import Alamofire
 
-public final class AuthRequestInterceptor: RequestInterceptor {
-    
-    // MARK: - Typealiases
-    
-    typealias RetryCompletion = (RetryResult) -> Void
-    
-    // MARK: - Nested types
-
-    struct RetryCompletionStorage {
-        
-        var isInProgressRefreshingToken = false
-        var progressLock = NSLock()
-        var completions = [RetryCompletion]()
-        let completionsLock = NSLock()
-        
-        func getProgressState() -> Bool {
-            progressLock.lock()
-            let result = isInProgressRefreshingToken
-            progressLock.unlock()
-            return result
-        }
-        
-        mutating func switchProgress(to state: Bool) {
-            progressLock.lock()
-            isInProgressRefreshingToken = state
-            progressLock.unlock()
-        }
-        
-        mutating func add(completion: @escaping RetryCompletion) {
-            completionsLock.lock()
-            completions.append(completion)
-            completionsLock.unlock()
-        }
-        
-        mutating func getCompletions() -> [RetryCompletion] {
-            completionsLock.lock()
-            let result = completions
-            completions = []
-            completionsLock.unlock()
-            return result
-        }
-    }
+public final class APIRequestInterceptor: RequestInterceptor {
     
     // MARK: - Private properties
     
@@ -59,7 +18,7 @@ public final class AuthRequestInterceptor: RequestInterceptor {
     
     // MARK: - Initializers
     
-    /// Создаёт экземпляр `AuthRequestInterceptor` с указанным базовым `URL` и токеном доступа.
+    /// Создаёт экземпляр `APIRequestInterceptor` с указанным базовым `URL` и токеном доступа.
     /// - Parameters:
     ///   - baseURL: Базовый `URL` для адаптера.
     ///   - authDataStorage: Хранилище авторизационных данных `AuthDataStorage`.
@@ -100,12 +59,17 @@ public final class AuthRequestInterceptor: RequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
-        
-        print(request.retryCount, "Description:", request.description)
-        
-        retryCompletionStorage.add(completion: completion)
-        tryToRefreshToken()
+        if let error = error.unwrapAFError() as? HTTPError, error.statusCode == 401 {
+            retryCompletionStorage.add(completion: completion)
+            tryToRefreshToken()
+        } else {
+            guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
+            print(request.retryCount, "Description:", request.description)
+            
+            request.retryCount < 5
+                ? completion(.retry)
+                : completion(.doNotRetry)
+        }
     }
     
     // MARK: - Private methods
@@ -118,42 +82,30 @@ public final class AuthRequestInterceptor: RequestInterceptor {
     /// - Parameter error: Ошибка.
     /// - Returns: Возвращает `true`, если необходим повторный запрос, в обратном случае возвращает `false`.
     private func checkTheNeedToRetry(byError error: Error) -> Bool {
-        print(type(of: error.unwrapAFError().unwrapAFError()))
-        print(error)
-        if let urlError = error.unwrapAFError() as? URLError {
+        if let afError = error.unwrapAFError() as? AFError,
+           let urlError = afError.underlyingError as? URLError {
             print("URLError:", urlError.localizedDescription)
             return true
         }
-        
-        if let afError = error.unwrapAFError() as? AFError {
-            print("AFError:", afError.localizedDescription)
-            return true
-        }
-        
         if let httpError = error.unwrapAFError() as? HTTPError, (300..<600).contains(httpError.statusCode) {
             print("HTTPError, code \(httpError.statusCode):", error.localizedDescription)
             return true
         }
-        print("Don't need retry. Error:", error.localizedDescription)
         return false
     }
     
     private func tryToRefreshToken() {
         guard !retryCompletionStorage.getProgressState() else { return }
-        
+
         retryCompletionStorage.switchProgress(to: true)
         tokenRefreshService().refreshToken { [weak self] result in
             self?.retryCompletionStorage.switchProgress(to: false)
-            
+
             switch result {
             case .success:
-                self?.retryCompletionStorage.getCompletions().forEach {
-                    $0(.retry)
-                }
+                self?.retryCompletionStorage.getCompletions().forEach { $0(.retry) }
             case .failure:
-                self?.retryCompletionStorage.getCompletions().forEach {
-                    $0(.doNotRetry)
-                }
+                self?.retryCompletionStorage.getCompletions().forEach { $0(.doNotRetry) }
             }
         }
     }

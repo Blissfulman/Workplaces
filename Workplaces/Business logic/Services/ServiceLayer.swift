@@ -18,7 +18,7 @@ final class ServiceLayer {
     
     lazy var apiClient: Client = {
         // tokenRefreshService передаётся по ссылке, чтобы не было зацикливания с инициализацией apiClient
-        let interceptor = AuthRequestInterceptor(
+        let interceptor = APIRequestInterceptor(
             baseURL: Constants.apiBaseURL,
             authDataStorage: authDataStorage,
             tokenRefreshService: { self.tokenRefreshService }

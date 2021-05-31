@@ -44,7 +44,7 @@
 		CE12A2272636AB2B00EE6549 /* AddFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */; };
 		CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */; };
 		CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */; };
-		CE12A23D2637091C00EE6549 /* AuthRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A23C2637091C00EE6549 /* AuthRequestInterceptor.swift */; };
+		CE12A23D2637091C00EE6549 /* APIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A23C2637091C00EE6549 /* APIRequestInterceptor.swift */; };
 		CE12A2442637151B00EE6549 /* RegistrationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2432637151B00EE6549 /* RegistrationEndpoint.swift */; };
 		CE12A2482637153800EE6549 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A2472637153800EE6549 /* LoginEndpoint.swift */; };
 		CE12A24C2637154B00EE6549 /* LogoutEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A24B2637154B00EE6549 /* LogoutEndpoint.swift */; };
@@ -98,6 +98,7 @@
 		CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */; };
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
+		CE3F834F2664F97600120439 /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryManager.swift */; };
 		CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */; };
 		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
 		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
@@ -287,7 +288,7 @@
 		CE12A2262636AB2B00EE6549 /* AddFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22A2636ADA000EE6549 /* RemoveFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFriendEndpoint.swift; sourceTree = "<group>"; };
 		CE12A22E2636AE3700EE6549 /* MyPostListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostListEndpoint.swift; sourceTree = "<group>"; };
-		CE12A23C2637091C00EE6549 /* AuthRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestInterceptor.swift; sourceTree = "<group>"; };
+		CE12A23C2637091C00EE6549 /* APIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestInterceptor.swift; sourceTree = "<group>"; };
 		CE12A2432637151B00EE6549 /* RegistrationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEndpoint.swift; sourceTree = "<group>"; };
 		CE12A2472637153800EE6549 /* LoginEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoint.swift; sourceTree = "<group>"; };
 		CE12A24B2637154B00EE6549 /* LogoutEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutEndpoint.swift; sourceTree = "<group>"; };
@@ -349,6 +350,7 @@
 		CE2909182645C3490010CF6C /* AuthorizationServiceSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignUpTests.swift; sourceTree = "<group>"; };
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
+		CE3F834E2664F97600120439 /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
 		CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
 		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
 		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -1094,7 +1096,8 @@
 		CE8F1BCE2634A9F300C0C52C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CE12A23C2637091C00EE6549 /* AuthRequestInterceptor.swift */,
+				CE12A23C2637091C00EE6549 /* APIRequestInterceptor.swift */,
+				CE3F834E2664F97600120439 /* RetryManager.swift */,
 				CE12A1EE2635F8EE00EE6549 /* ResponseValidator.swift */,
 				CE12A1F32635F91600EE6549 /* APIError.swift */,
 				CE12A1F42635F91600EE6549 /* HTTPError.swift */,
@@ -1819,13 +1822,14 @@
 				CE12A22B2636ADA000EE6549 /* RemoveFriendEndpoint.swift in Sources */,
 				CE12A25D26371E1F00EE6549 /* AuthorizationData.swift in Sources */,
 				CE12A2482637153800EE6549 /* LoginEndpoint.swift in Sources */,
-				CE12A23D2637091C00EE6549 /* AuthRequestInterceptor.swift in Sources */,
+				CE12A23D2637091C00EE6549 /* APIRequestInterceptor.swift in Sources */,
 				CE5E71AD26528CC30028990A /* SearchUserEndpoint.swift in Sources */,
 				CE12A2172636A8B100EE6549 /* LikedPostListEndpoint.swift in Sources */,
 				CE12A21126368B8300EE6549 /* PublishPostEndpoint.swift in Sources */,
 				CE12A2442637151B00EE6549 /* RegistrationEndpoint.swift in Sources */,
 				CE12A1F62635F91600EE6549 /* APIError.swift in Sources */,
 				CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */,
+				CE3F834F2664F97600120439 /* RetryManager.swift in Sources */,
 				CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
