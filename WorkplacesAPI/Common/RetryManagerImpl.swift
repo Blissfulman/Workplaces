@@ -21,8 +21,6 @@ public final class RetryManagerImpl: RetryManager {
     
     public func handle(request: Request, error: Error, completion: @escaping (RetryResult) -> Void) {
         guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
-        print(request.retryCount, "Description:", request.description) // TEMP
-        print(Date(timeIntervalSinceNow: 0))
         
         request.retryCount < 5
             ? completion(.retryWithDelay(retryDelays[request.retryCount] ?? 20))
@@ -36,14 +34,9 @@ public final class RetryManagerImpl: RetryManager {
     /// - Returns: Возвращает `true`, если необходим повторный запрос, в обратном случае возвращает `false`.
     private func checkTheNeedToRetry(byError error: Error) -> Bool {
         if let afError = error.unwrapAFError() as? AFError,
-           let urlError = afError.underlyingError as? URLError {
-            print("URLError:", urlError.localizedDescription)
-            return true
-        }
-        if let httpError = error.unwrapAFError() as? HTTPError, (300..<600).contains(httpError.statusCode) {
-            print("HTTPError, code \(httpError.statusCode):", error.localizedDescription)
-            return true
-        }
+           afError.underlyingError is URLError { return true }
+        if let httpError = error.unwrapAFError() as? HTTPError,
+           (300..<600).contains(httpError.statusCode) { return true }
         return false
     }
 }
