@@ -9,9 +9,15 @@ import Apexy
 
 public struct FeedPostListEndpoint: JsonEndpoint {
     
+    // MARK: - Typealiases
+    
     public typealias Content = [Post]
     
+    // MARK: - Initializers
+    
     public init() {}
+    
+    // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
         get(URL(string: "feed")!)

@@ -10,13 +10,21 @@ import Apexy
 
 public struct UpdateMyProfileEndpoint: JsonEndpoint {
     
+    // MARK: - Typealiases
+    
     public typealias Content = User
     
+    // MARK: - Private properties
+    
     private let uploadUser: UploadUser
+    
+    // MARK: - Initializers
     
     public init(user: User) {
         self.uploadUser = UploadUser(user: user)
     }
+    
+    // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
         let multipartFormData = MultipartFormData(fileManager: FileManager(), boundary: MultipartFormData().boundary)
