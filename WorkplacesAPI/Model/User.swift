@@ -7,12 +7,7 @@
 
 public struct User: Identifiable, Codable, Comparable {
     
-    public let id: String
-    public let firstName: String
-    public let lastName: String
-    public let nickname: String?
-    public let avatarURL: URL?
-    public let birthday: Date
+    // MARK: - Nested types
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -22,6 +17,17 @@ public struct User: Identifiable, Codable, Comparable {
         case avatarURL = "avatarUrl"
         case birthday = "birthDay"
     }
+    
+    // MARK: - Public properties
+    
+    public let id: String
+    public let firstName: String
+    public let lastName: String
+    public let nickname: String?
+    public let avatarURL: URL?
+    public let birthday: Date
+    
+    // MARK: - Initializers
     
     public init(id: String, firstName: String, lastName: String, nickname: String?, avatarURL: URL?, birthday: Date) {
         self.id = id

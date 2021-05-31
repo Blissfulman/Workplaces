@@ -7,14 +7,7 @@
 
 public struct Post: Identifiable, Codable, Comparable {
     
-    public let id: String
-    public let text: String?
-    public let imageURL: URL?
-    public let longitude: Double?
-    public let latitude: Double?
-    public let author: User
-    public let likes: Int
-    public let liked: Bool
+    // MARK: - Nested types
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -26,6 +19,19 @@ public struct Post: Identifiable, Codable, Comparable {
         case likes
         case liked
     }
+    
+    // MARK: - Public properties
+    
+    public let id: String
+    public let text: String?
+    public let imageURL: URL?
+    public let longitude: Double?
+    public let latitude: Double?
+    public let author: User
+    public let likes: Int
+    public let liked: Bool
+    
+    // MARK: - Initializers
     
     public init(
         id: String,
