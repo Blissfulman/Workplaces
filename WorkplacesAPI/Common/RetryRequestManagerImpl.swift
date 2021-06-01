@@ -28,6 +28,7 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
     private var retryCompletionStorage: RetryCompletionStorage
     private let maxRetryCount: Int
     private let retryDelays: [Int: TimeInterval]
+    private let maxDelay: TimeInterval = 20
     
     // MARK: - Initializers
     
@@ -56,12 +57,12 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
             retryCompletionStorage.add(completion: completion)
             tryToRefreshToken()
         } else {
-            guard checkTheNeedToRetry(byError: error) else { return completion(.doNotRetry) }
+            guard checkTheNeedToRetry(forError: error) else { return completion(.doNotRetry) }
             print(request.retryCount, "Description:", request.description) // TEMP
             print(Date(timeIntervalSinceNow: 0)) // TEMP
             
             request.retryCount < maxRetryCount
-                ? completion(.retryWithDelay(retryDelays[request.retryCount] ?? 20))
+                ? completion(.retryWithDelay(retryDelays[request.retryCount] ?? maxDelay))
                 : completion(.doNotRetry)
         }
     }
@@ -89,7 +90,7 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
     /// Проверка необходимости повторной попытки запроса, основываясь на ошибке.
     /// - Parameter error: Ошибка.
     /// - Returns: Возвращает `true`, если необходим повторный запрос, в обратном случае возвращает `false`.
-    private func checkTheNeedToRetry(byError error: Error) -> Bool {
+    private func checkTheNeedToRetry(forError error: Error) -> Bool {
         if let afError = error.unwrapAFError() as? AFError,
            afError.underlyingError is URLError { return true }
         if let httpError = error.unwrapAFError() as? HTTPError,
