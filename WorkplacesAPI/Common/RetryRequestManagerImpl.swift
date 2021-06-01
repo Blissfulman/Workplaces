@@ -26,27 +26,24 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
     
     private let tokenRefreshService: () -> TokenRefreshService
     private var retryCompletionStorage: RetryCompletionStorage
-    private let maxRetryCount: Int
-    private let retryDelays: [Int: TimeInterval]
-    private let maxDelay: TimeInterval = 20
+    private let retryDelays: [TimeInterval]
     
     // MARK: - Initializers
     
     /// Создаёт экземпляр `RetryRequestManagerImpl`.
+    ///
+    /// Количество элементов, переданное в параметр `retryDelays`, будет определять общее количество повторных запросов.
     /// - Parameters:
     ///   - tokenRefreshService: Передаваемый по ссылке сервис обновления токена `TokenRefreshService`.
     ///   - retryCompletionStorage: Хранилище комплишенов для повторных запросов `RetryCompletionStorage`.
-    ///   - maxRetryCount: Максимальное количество повторных запросов.
-    ///   - retryDelays: Временные интервалы между повторными запросами.
+    ///   - retryDelays: Массив временных интервалов между повторными запросами.
     public init(
         tokenRefreshService: @escaping () -> TokenRefreshService,
         retryCompletionStorage: RetryCompletionStorage,
-        maxRetryCount: Int = APIConstants.maxRetryCount,
-        retryDelays: [Int: TimeInterval] = APIConstants.retryDelays
+        retryDelays: [TimeInterval] = APIConstants.retryDelays
     ) {
         self.tokenRefreshService = tokenRefreshService
         self.retryCompletionStorage = retryCompletionStorage
-        self.maxRetryCount = maxRetryCount
         self.retryDelays = retryDelays
     }
     
@@ -61,8 +58,8 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
             print(request.retryCount, "Description:", request.description) // TEMP
             print(Date(timeIntervalSinceNow: 0)) // TEMP
             
-            request.retryCount < maxRetryCount
-                ? completion(.retryWithDelay(retryDelays[request.retryCount] ?? maxDelay))
+            request.retryCount < retryDelays.count
+                ? completion(.retryWithDelay(retryDelays[request.retryCount]))
                 : completion(.doNotRetry)
         }
     }
