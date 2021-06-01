@@ -38,7 +38,7 @@ public final class RetryCompletionStorageImpl: RetryCompletionStorage {
         queue.sync { completions.append(completion) }
     }
     
-    public func getCompletions() -> [RetryCompletion] {
+    public func extractCompletions() -> [RetryCompletion] {
         queue.sync {
             let result = completions
             completions = []

@@ -76,10 +76,10 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
             switch result {
             case .success:
                 print("Token refresh successfully") // TEMP
-                self?.retryCompletionStorage.getCompletions().forEach { $0(.retry) }
+                self?.retryCompletionStorage.extractCompletions().forEach { $0(.retry) }
             case .failure:
                 print("Token refresh error") // TEMP
-                self?.retryCompletionStorage.getCompletions().forEach { $0(.doNotRetry) }
+                self?.retryCompletionStorage.extractCompletions().forEach { $0(.doNotRetry) }
             }
         }
     }
