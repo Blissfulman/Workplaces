@@ -10,6 +10,8 @@ import XCTest
 
 final class LogoutEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = LogoutEndpoint()
         let urlRequest = try endpoint.makeRequest()

@@ -10,6 +10,8 @@ import XCTest
 
 final class UnlikePostEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let postID: Post.ID = "test"
         let endpoint = UnlikePostEndpoint(postID: postID)

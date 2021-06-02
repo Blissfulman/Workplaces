@@ -11,9 +11,11 @@ import XCTest
 
 final class NewPostServicePublishPostTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<PublishPostEndpoint>()
     private var newPostService: NewPostService?
-    let author = User(
+    private let author = User(
         id: "test",
         firstName: "test",
         lastName: "test",
@@ -21,7 +23,7 @@ final class NewPostServicePublishPostTests: XCTestCase {
         avatarURL: URL(string: "https://redmadrobot.com/")!,
         birthday: Date()
     )
-    lazy var post = Post(
+    private lazy var post = Post(
         id: "test",
         text: "test",
         imageURL: URL(string: "https://redmadrobot.com/")!,
@@ -32,10 +34,14 @@ final class NewPostServicePublishPostTests: XCTestCase {
         liked: true
     )
     
+    // MARK: - XCTestCase
+    
     override func setUp() {
         super.setUp()
         newPostService = NewPostServiceImpl(apiClient: client)
     }
+    
+    // MARK: - Public methods
     
     func testPublishPostSuccess() {
         client.result = .success(post)

@@ -10,6 +10,8 @@ import XCTest
 
 final class LoginEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let userCredentials = UserCredentials(email: "email", password: "password")
         let endpoint = LoginEndpoint(userCredentials: userCredentials)

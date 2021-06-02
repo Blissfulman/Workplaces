@@ -11,11 +11,15 @@ import XCTest
 
 final class AuthorizationServiceSignUpTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<RegistrationEndpoint>()
     private var authorizationService: AuthorizationService?
     private var authDataStorage = AuthDataStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
     private let userCredentials = UserCredentials(email: "test", password: "test")
     private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
+    
+    // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
@@ -26,6 +30,8 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
         authDataStorage.deleteAuthData()
         super.tearDown()
     }
+    
+    // MARK: - Public methods
     
     func testSignUpSuccess() {
         client.result = .success(authorizationData)

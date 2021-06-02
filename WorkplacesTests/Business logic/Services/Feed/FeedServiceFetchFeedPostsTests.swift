@@ -11,13 +11,19 @@ import XCTest
 
 final class FeedServiceFetchFeedPostsTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<FeedPostListEndpoint>()
     private var feedService: FeedService?
+    
+    // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
         feedService = FeedServiceImpl(apiClient: client)
     }
+    
+    // MARK: - Public methods
     
     func testFetchFeedPostsSuccess() {
         client.result = .success(([]))

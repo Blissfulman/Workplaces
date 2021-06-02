@@ -9,7 +9,11 @@ import Apexy
 
 final class ClientMock<T: Endpoint>: Client {
     
+    // MARK: - Public properties
+    
     var result: Result<T.Content, Error>?
+    
+    // MARK: - Public methods
     
     func request<T>(
         _ endpoint: T,

@@ -11,13 +11,19 @@ import XCTest
 
 final class ProfileServiceFetchFriendsTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<FriendListEndpoint>()
     private var profileService: ProfileService?
+    
+    // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
         profileService = ProfileServiceImpl(apiClient: client)
     }
+    
+    // MARK: - Public methods
     
     func testPublishPostSuccess() {
         client.result = .success(([]))
