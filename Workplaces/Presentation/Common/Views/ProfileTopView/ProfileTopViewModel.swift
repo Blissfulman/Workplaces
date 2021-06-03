@@ -22,7 +22,7 @@ struct ProfileTopViewModel {
         "\(profile.firstName) \(profile.lastName)"
     }
     var age: String? {
-        guard let age = profile.birthday.getAgeFromBirthday() else { return nil }
+        let age = profile.birthday.getAgeFromBirthday()
         return "\(age) " + "years".localized() // Доделать правильную русскую локализацию
     }
     
@@ -35,7 +35,7 @@ struct ProfileTopViewModel {
 
 fileprivate extension Date {
     
-    func getAgeFromBirthday() -> Int? {
-        Calendar.current.dateComponents([.year], from: self, to: Date()).year
+    func getAgeFromBirthday() -> Int {
+        max(0, Calendar.current.dateComponents([.year], from: self, to: Date()).year ?? 0)
     }
 }

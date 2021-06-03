@@ -10,7 +10,9 @@ import XCTest
 
 final class PublishPostEndpointTests: XCTestCase {
     
-    let author = User(
+    // MARK: - Private properties
+    
+    private let author = User(
         id: "test",
         firstName: "test",
         lastName: "test",
@@ -18,7 +20,7 @@ final class PublishPostEndpointTests: XCTestCase {
         avatarURL: URL(string: "https://redmadrobot.com/")!,
         birthday: Date()
     )
-    lazy var post = Post(
+    private lazy var post = Post(
         id: "test",
         text: "test",
         imageURL: URL(string: "https://redmadrobot.com/")!,
@@ -28,6 +30,8 @@ final class PublishPostEndpointTests: XCTestCase {
         likes: 0,
         liked: true
     )
+    
+    // MARK: - Public methods
     
     func testMakeRequest() throws {
         let endpoint = PublishPostEndpoint(post: post)

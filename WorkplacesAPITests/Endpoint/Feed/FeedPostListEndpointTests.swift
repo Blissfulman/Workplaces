@@ -10,6 +10,8 @@ import XCTest
 
 final class FeedPostListEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = FeedPostListEndpoint()
         let urlRequest = try endpoint.makeRequest()

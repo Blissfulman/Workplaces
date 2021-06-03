@@ -21,7 +21,7 @@ extension JSONEncoder {
     }()
 }
 
-// Публичный для доступности в тестах
+// Расширение публичное для доступности в тестах
 public extension JSONDecoder {
     
     static let `default`: JSONDecoder = {

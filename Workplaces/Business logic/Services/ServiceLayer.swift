@@ -17,11 +17,10 @@ final class ServiceLayer {
     // MARK: - Public properties
     
     lazy var apiClient: Client = {
-        // tokenRefreshService передаётся по ссылке, чтобы не было зацикливания с инициализацией apiClient
-        let interceptor = AuthRequestInterceptor(
+        let interceptor = APIRequestInterceptor(
             baseURL: Constants.apiBaseURL,
             authDataStorage: authDataStorage,
-            tokenRefreshService: { self.tokenRefreshService }
+            retryRequestManager: retryRequestManager
         )
         
         return AlamofireClient(
@@ -47,6 +46,15 @@ final class ServiceLayer {
     )
     
     lazy var authDataStorage: AuthDataStorage = AuthDataStorageImpl(storage: UserDefaults.standard)
+    
+    // MARK: - Private properties
+    
+    // tokenRefreshService передаётся по ссылке, чтобы не было зацикливания с инициализацией apiClient
+    private lazy var retryRequestManager: RetryRequestManager = RetryRequestManagerImpl(
+        tokenRefreshService: { self.tokenRefreshService },
+        retryCompletionStorage: retryCompletionStorage
+    )
+    private lazy var retryCompletionStorage: RetryCompletionStorage = RetryCompletionStorageImpl()
     
     // MARK: - Initializers
     

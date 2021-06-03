@@ -9,13 +9,21 @@ import Apexy
 
 public struct SearchPostEndpoint: JsonEndpoint {
     
+    // MARK: - Typealiases
+    
     public typealias Content = [Post]
     
+    // MARK: - Private properties
+    
     private let query: String
+    
+    // MARK: - Initializers
     
     public init(query: String) {
         self.query = query
     }
+    
+    // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
         var urlComponents = URLComponents(string: "search")!

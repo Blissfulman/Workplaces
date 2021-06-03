@@ -7,8 +7,12 @@
 
 public struct AuthorizationData: Codable {
     
+    // MARK: - Public properties
+    
     public let accessToken: String
     public let refreshToken: String
+    
+    // MARK: - Initializers
     
     public init(accessToken: String, refreshToken: String) {
         self.accessToken = accessToken

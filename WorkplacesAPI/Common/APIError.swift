@@ -7,6 +7,8 @@
 
 public struct APIError: Decodable, Error, LocalizedError {
     
+    // MARK: - Nested types
+    
     public enum Code: String, Decodable {
         case credentialsInvalid = "INVALID_CREDENTIALS"
         case tokenInvalid = "INVALID_TOKEN"
@@ -20,6 +22,8 @@ public struct APIError: Decodable, Error, LocalizedError {
         case genericError = "GENERIC_ERROR"
         case unknownError = "UNKNOWN_ERROR"
     }
+    
+    // MARK: - Public properties
     
     public let code: Code
     public let message: String?
@@ -50,6 +54,8 @@ public struct APIError: Decodable, Error, LocalizedError {
             return "Неизвестная ошибка. \(message ?? "")"
         }
     }
+    
+    // MARK: - Initializers
     
     public init(code: Code, message: String) {
         self.code = code

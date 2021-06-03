@@ -10,6 +10,8 @@ import XCTest
 
 final class LikedPostListEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = LikedPostListEndpoint()
         let urlRequest = try endpoint.makeRequest()

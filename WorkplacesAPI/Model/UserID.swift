@@ -7,9 +7,13 @@
 
 public struct UserID: Encodable {
     
-    let value: User.ID
+    // MARK: - Nested types
     
     private enum CodingKeys: String, CodingKey {
         case value = "user_id"
     }
+    
+    // MARK: - Public properties
+    
+    let value: User.ID
 }

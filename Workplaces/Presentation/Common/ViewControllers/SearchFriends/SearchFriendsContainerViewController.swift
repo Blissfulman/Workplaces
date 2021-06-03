@@ -92,7 +92,11 @@ final class SearchFriendsContainerViewController: BaseViewController {
 extension SearchFriendsContainerViewController: SearchFriendsViewControllerDelegate {
     
     func didTapSearchButton(query: String) {
+        LoadingView.show()
+        
         let progress = searchService.searchUsers(query: query) { [weak self] result in
+            LoadingView.hide()
+            
             switch result {
             case let .success(users):
                 self?.userListDataSource.updateData(users: users)

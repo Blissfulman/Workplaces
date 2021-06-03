@@ -9,7 +9,9 @@ import WorkplacesAPI
 import XCTest
 
 final class UserTests: XCTestCase {
-
+    
+    // MARK: - Public methods
+    
     func testDecoding() throws {
         let jsonData = """
             {

@@ -9,7 +9,9 @@
 import XCTest
 
 final class EmailValidatorTests: XCTestCase {
-
+    
+    // MARK: - Public methods
+    
     func testEmailValidationShouldBeSuccess() {
         let email = "test@test.ru"
         XCTAssertTrue(EmailValidator.isValid(email))

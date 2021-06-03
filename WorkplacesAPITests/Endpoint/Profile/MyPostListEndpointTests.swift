@@ -10,6 +10,8 @@ import XCTest
 
 final class MyPostListEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = MyPostListEndpoint()
         let urlRequest = try endpoint.makeRequest()

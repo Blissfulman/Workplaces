@@ -10,6 +10,8 @@ import XCTest
 
 final class FriendListEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = FriendListEndpoint()
         let urlRequest = try endpoint.makeRequest()

@@ -9,12 +9,12 @@ import Apexy
 
 extension HTTPBody {
     
-    /// Create HTTP body with multipart content type.
+    /// Создаёт HTTP body для контента типа "multipart/form-data".
     ///
     /// - Parameters:
-    ///   - data: HTTP body data.
+    ///   - data: Данные для HTTP body.
     ///   - boundary: Значение boundary.
-    /// - Returns: HTTPBody.
+    /// - Returns: Возвращает `HTTPBody`.
     static func multipart(_ data: Data, boundary: String) -> HTTPBody {
         HTTPBody(data: data, contentType: "multipart/form-data; boundary=\(boundary)")
     }

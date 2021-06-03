@@ -21,7 +21,7 @@ final class ProfileContainerViewController: BaseViewController {
     
     // MARK: - Nested types
     
-    enum State {
+    private enum State {
         case posts
         case likes
         case friends
@@ -130,24 +130,21 @@ final class ProfileContainerViewController: BaseViewController {
     }
     
     private func addLogOutButton() {
-        let logOutBarButtonItem = MainBarButtonItem(
+        navigationItem.rightBarButtonItem = MainBarButtonItem(
             title: "Log out".localized(),
             style: .plain,
             target: self,
             action: #selector(logOutBarButtonTapped)
         )
-        navigationItem.rightBarButtonItem = logOutBarButtonItem
     }
     
     private func addChildViewControllers() {
         addFullover(friendListVC)
-        friendListVC.setContentInset(
-            contentInset: UIEdgeInsets(top: topViewHeight + friendListSeparator, left: 0, bottom: 0, right: 0)
-        )
+        friendListVC.setInitialVerticalOffset(topViewHeight + friendListSeparator)
         addFullover(likeListVC)
-        likeListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
+        likeListVC.setInitialVerticalOffset(topViewHeight)
         addFullover(postListVC)
-        postListVC.setContentInset(contentInset: UIEdgeInsets(top: topViewHeight, left: 0, bottom: 0, right: 0))
+        postListVC.setInitialVerticalOffset(topViewHeight)
     }
     
     private func updateScreen() {
@@ -168,21 +165,14 @@ final class ProfileContainerViewController: BaseViewController {
     
     private func configureProfileTopView() {
         guard let profile = profile else { return }
-        
-        let editProfileButtonAction: VoidBlock = { [weak self] in
-            self?.delegate?.goToEditProfile(profile: profile)
-        }
-        profileTopView.configure(
-            model: ProfileTopViewModel(profile: profile),
-            editProfileButtonAction: editProfileButtonAction
-        )
+        profileTopView.configure(model: ProfileTopViewModel(profile: profile))
     }
     
     private func showPostList() {
         if postListDataSource.isEmptyData {
             showZeroView()
         } else {
-            postListVC.setTopOffset(offset: -topViewHeight)
+            postListVC.resetToInitialOffset()
             addFullover(postListVC)
         }
     }
@@ -191,7 +181,7 @@ final class ProfileContainerViewController: BaseViewController {
         if likeListDataSource.isEmptyData {
             showZeroView()
         } else {
-            likeListVC.setTopOffset(offset: -topViewHeight)
+            likeListVC.resetToInitialOffset()
             addFullover(likeListVC)
         }
     }
@@ -200,7 +190,7 @@ final class ProfileContainerViewController: BaseViewController {
         if friendListDataSource.isEmptyData {
             showZeroView()
         } else {
-            friendListVC.setTopOffset(offset: -(topViewHeight + friendListSeparator))
+            friendListVC.resetToInitialOffset()
             addFullover(friendListVC)
         }
     }
@@ -309,7 +299,12 @@ extension ProfileContainerViewController {
 
 extension ProfileContainerViewController: ProfileTopViewDelegate {
     
-    func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState) {
+    func didTapEditProfileButton() {
+        guard let profile = profile else { return }
+        delegate?.goToEditProfile(profile: profile)
+    }
+    
+    func didChangeProfileTopViewState(to newState: ProfileTopView.State) {
         switch newState {
         case .posts:
             fetchMyPosts()
@@ -328,17 +323,17 @@ extension ProfileContainerViewController: ProfileTopViewDelegate {
 
 extension ProfileContainerViewController: PostListViewControllerDelegate, FriendListViewControllerDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var topViewOffsetY: CGFloat = 0
+    func scrollViewDidScroll() {
+        var bottomViewContentOffsetY: CGFloat = 0
         switch state {
         case .posts:
-            topViewOffsetY = postListVC.contentOffset.y
+            bottomViewContentOffsetY = postListVC.topYContentPosition
         case .likes:
-            topViewOffsetY = likeListVC.contentOffset.y
+            bottomViewContentOffsetY = likeListVC.topYContentPosition
         case .friends:
-            topViewOffsetY = friendListSeparator + friendListVC.contentOffset.y
+            bottomViewContentOffsetY = friendListVC.topYContentPosition - friendListSeparator
         }
-        topView.frame.origin.y = scrollView.frame.origin.y - topViewOffsetY - topViewHeight
+        topView.frame.origin.y = bottomViewContentOffsetY - topViewHeight
     }
 }
 

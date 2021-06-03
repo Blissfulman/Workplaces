@@ -11,9 +11,11 @@ import XCTest
 
 final class ProfileServiceFetchMyProfileTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<MyProfileEndpoint>()
     private var profileService: ProfileService?
-    let profile = User(
+    private let profile = User(
         id: "test",
         firstName: "test",
         lastName: "test",
@@ -22,10 +24,14 @@ final class ProfileServiceFetchMyProfileTests: XCTestCase {
         birthday: Date()
     )
     
+    // MARK: - XCTestCase
+    
     override func setUp() {
         super.setUp()
         profileService = ProfileServiceImpl(apiClient: client)
     }
+    
+    // MARK: - Public methods
     
     func testPublishPostSuccess() {
         client.result = .success(profile)

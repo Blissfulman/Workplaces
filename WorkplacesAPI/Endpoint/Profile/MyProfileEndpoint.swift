@@ -9,9 +9,15 @@ import Apexy
 
 public struct MyProfileEndpoint: JsonEndpoint {
     
+    // MARK: - Typealiases
+    
     public typealias Content = User
     
+    // MARK: - Initializers
+    
     public init() {}
+    
+    // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
         get(URL(string: "me")!)

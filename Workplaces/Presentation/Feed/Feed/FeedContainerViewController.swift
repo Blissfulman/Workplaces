@@ -137,7 +137,7 @@ final class FeedContainerViewController: BaseViewController {
 
 extension FeedContainerViewController: PostListViewControllerDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {}
+    func scrollViewDidScroll() {}
 }
 
 // MARK: - FeedPostsDataSourceDelegate

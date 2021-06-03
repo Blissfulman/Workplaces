@@ -10,6 +10,8 @@ import XCTest
 
 final class MyProfileEndpointTests: XCTestCase {
     
+    // MARK: - Public methods
+    
     func testMakeRequest() throws {
         let endpoint = MyProfileEndpoint()
         let urlRequest = try endpoint.makeRequest()

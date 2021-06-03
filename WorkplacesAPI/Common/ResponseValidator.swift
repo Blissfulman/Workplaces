@@ -5,10 +5,9 @@
 //  Created by Evgeny Novgorodov on 26.04.2021.
 //
 
-import Foundation
-
-/// Response validation helper.
-internal enum ResponseValidator {
+enum ResponseValidator {
+    
+    // MARK: - Static methods
     
     /// Error response validation.
     ///
@@ -16,7 +15,7 @@ internal enum ResponseValidator {
     ///   - response: The metadata associated with the response.
     ///   - body: The response body.
     /// - Throws: `APIError`.
-    internal static func validate(_ response: URLResponse?, with body: Data) throws {
+    static func validate(_ response: URLResponse?, with body: Data) throws {
         try validateAPIResponse(response, with: body)
         try validateHTTPstatus(response)
     }

@@ -10,14 +10,18 @@ import UIKit
 // MARK: - Protocols
 
 protocol ProfileTopViewDelegate: AnyObject {
-    func viewStateNeedChange(to newState: ProfileTopView.SegmentedControlState)
+    /// Нажата кнопка редактирования профиля.
+    func didTapEditProfileButton()
+    /// Сообщает об изменении состояния `ProfileTopView`.
+    /// - Parameter newState: Новое состояние.
+    func didChangeProfileTopViewState(to newState: ProfileTopView.State)
 }
 
 final class ProfileTopView: NibInitializableView {
     
     // MARK: - Nested types
     
-    enum SegmentedControlState {
+    enum State {
         case posts
         case likes
         case friends
@@ -49,7 +53,6 @@ final class ProfileTopView: NibInitializableView {
     
     private var model: ProfileTopViewModel?
     private weak var delegate: ProfileTopViewDelegate?
-    private var editProfileButtonAction: VoidBlock?
     
     // MARK: - Initializers
     
@@ -72,10 +75,8 @@ final class ProfileTopView: NibInitializableView {
     
     // MARK: - Public methods
     
-    func configure(model: ProfileTopViewModel, editProfileButtonAction: @escaping VoidBlock) {
+    func configure(model: ProfileTopViewModel) {
         self.model = model
-        self.editProfileButtonAction = editProfileButtonAction
-        
         avatarImageView.image = UIImage(data: model.avatarImageData ?? Data())
         fullNameLabel.text = model.fullName
         ageLabel.text = model.age
@@ -84,10 +85,10 @@ final class ProfileTopView: NibInitializableView {
     // MARK: - Actions
     
     @IBAction private func editProfileTapped() {
-        editProfileButtonAction?()
+        delegate?.didTapEditProfileButton()
     }
     
     @IBAction private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        delegate?.viewStateNeedChange(to: SegmentedControlState.getStateByIndex(sender.selectedSegmentIndex))
+        delegate?.didChangeProfileTopViewState(to: State.getStateByIndex(sender.selectedSegmentIndex))
     }
 }

@@ -11,13 +11,19 @@ import XCTest
 
 final class FeedServiceLikePostTests: XCTestCase {
     
+    // MARK: - Private properties
+    
     private let client = ClientMock<LikePostEndpoint>()
     private var feedService: FeedService?
+    
+    // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
         feedService = FeedServiceImpl(apiClient: client)
     }
+    
+    // MARK: - Public methods
     
     func testLikePostSuccess() {
         client.result = .success(())

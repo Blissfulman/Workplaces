@@ -10,7 +10,9 @@ import XCTest
 
 final class UpdateMyProfileEndpointTests: XCTestCase {
     
-    let user = User(
+    // MARK: - Private properties
+    
+    private let user = User(
         id: "test",
         firstName: "test",
         lastName: "test",
@@ -27,6 +29,8 @@ final class UpdateMyProfileEndpointTests: XCTestCase {
         assertURL(urlRequest, "me")
         // Нужно ещё проверить body
     }
+    
+    // MARK: - Public methods
     
     func testContentDecoding() throws {
         let jsonData = """

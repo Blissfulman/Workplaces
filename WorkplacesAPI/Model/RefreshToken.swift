@@ -7,9 +7,13 @@
 
 public struct RefreshToken: Encodable {
     
-    let value: String
+    // MARK: - Nested types
     
     private enum CodingKeys: String, CodingKey {
         case value = "token"
     }
+    
+    // MARK: - Public properties
+    
+    let value: String
 }

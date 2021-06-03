@@ -7,17 +7,16 @@
 
 import UIKit
 
-/// Используется для настройки и отслеживания смещения контента таблиц в дочерних контроллерах.
+/// Используется для настройки и отслеживания положения контента таблиц в дочерних контроллерах.
 protocol TableViewOffsetConfigurable: UIViewController {
     
-    /// Значение параметра `contentOffset` таблицы.
-    var contentOffset: CGPoint { get }
+    /// Значение положения верхнего края контента таблицы по вертикали.
+    var topYContentPosition: CGFloat { get }
     
-    /// Установка параметра `contentInset` для таблицы.
-    /// - Parameter contentInset: Значение `contentInset`.
-    func setContentInset(contentInset: UIEdgeInsets)
+    /// Установка изначального вертикального смещения контента таблицы.
+    /// - Parameter offset: Значение смещения.
+    func setInitialVerticalOffset(_ offset: CGFloat)
     
-    /// Установка смещения контента от верхнего края для таблицы.
-    /// - Parameter topOffset: Значение смещения.
-    func setTopOffset(offset: CGFloat)
+    /// Сброс смещения контента таблицы к изначальному значению.
+    func resetToInitialOffset()
 }

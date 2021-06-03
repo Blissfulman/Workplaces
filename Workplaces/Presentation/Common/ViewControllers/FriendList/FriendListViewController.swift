@@ -10,17 +10,17 @@ import UIKit
 // MARK: - Protocols
 
 protocol FriendListViewControllerDelegate: AnyObject {
-    /// Сообщает делегату, когда пользователь прокручивает контент таблицы.
-    /// - Parameter scrollView: Объект, в котором произошла прокрутка.
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    /// Сообщает делегату, что пользователь прокручивает контент таблицы.
+    func scrollViewDidScroll()
 }
 
 final class FriendListViewController: BaseViewController, TableViewOffsetConfigurable {
     
     // MARK: - Public properties
     
-    var contentOffset: CGPoint {
-        tableView?.contentOffset ?? .zero
+    var topYContentPosition: CGFloat {
+        guard let tableView = tableView else { return 0 }
+        return tableView.frame.origin.y - tableView.contentOffset.y
     }
     
     // MARK: - Outlets
@@ -54,12 +54,12 @@ final class FriendListViewController: BaseViewController, TableViewOffsetConfigu
     
     // MARK: - Public methods
     
-    func setContentInset(contentInset: UIEdgeInsets) {
-        tableView.contentInset = contentInset
+    func setInitialVerticalOffset(_ offset: CGFloat) {
+        tableView?.contentInset.top = offset
     }
     
-    func setTopOffset(offset: CGFloat) {
-        tableView.contentOffset.y = offset
+    func resetToInitialOffset() {
+        tableView.contentOffset.y = -tableView.contentInset.top
     }
     
     /// Обновление данных таблицы.
@@ -80,6 +80,6 @@ final class FriendListViewController: BaseViewController, TableViewOffsetConfigu
 extension FriendListViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate?.scrollViewDidScroll(scrollView)
+        delegate?.scrollViewDidScroll()
     }
 }

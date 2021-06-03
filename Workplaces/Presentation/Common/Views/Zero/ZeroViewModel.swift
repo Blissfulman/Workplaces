@@ -26,7 +26,7 @@ extension ZeroViewModel {
     static let error = ZeroViewModel(
         image: Images.errorScreen,
         title: "Oops...".localized(),
-        subtitle: "Something went wrong",
+        subtitle: "Something went wrong".localized(),
         buttonTitle: "Refresh".localized()
     )
     static let feedNoFriends = ZeroViewModel(

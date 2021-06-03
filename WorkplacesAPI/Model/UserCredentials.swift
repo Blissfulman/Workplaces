@@ -7,8 +7,12 @@
 
 public struct UserCredentials: Encodable {
     
+    // MARK: - Public properties
+    
     public let email: String?
     public let password: String?
+    
+    // MARK: - Initializers
     
     public init(email: String?, password: String?) {
         self.email = email
