@@ -13,6 +13,8 @@
 		C68C97F900542DB4CC350EA8 /* Pods_WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */; };
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
+		CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* PinCodeViewController.swift */; };
+		CE09481A26694A040004CD7F /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09481826694A040004CD7F /* PinCodeViewController.xib */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */; };
@@ -260,6 +262,8 @@
 		BBA601C45707BE1116334C8C /* Pods-Workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.release.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.release.xcconfig"; sourceTree = "<group>"; };
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
+		CE09481726694A040004CD7F /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
+		CE09481826694A040004CD7F /* PinCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeViewController.xib; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatingController.swift; sourceTree = "<group>"; };
@@ -548,6 +552,15 @@
 			path = Zero;
 			sourceTree = "<group>";
 		};
+		CE094816266949D30004CD7F /* PinCode */ = {
+			isa = PBXGroup;
+			children = (
+				CE09481726694A040004CD7F /* PinCodeViewController.swift */,
+				CE09481826694A040004CD7F /* PinCodeViewController.xib */,
+			);
+			path = PinCode;
+			sourceTree = "<group>";
+		};
 		CE09D765262E8BD9009A96B3 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +724,7 @@
 				CEE7FBCA262D8F00001D5DAD /* NavigationController.swift */,
 				CE0BE5B7265FB43200C0DD04 /* BaseViewController.swift */,
 				CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */,
+				CE094816266949D30004CD7F /* PinCode */,
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 				CEA46B5F2646C19B007C2DCE /* PostList */,
 				CEA46B7326495E23007C2DCE /* FriendList */,
@@ -1531,6 +1545,7 @@
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
+				CE09481A26694A040004CD7F /* PinCodeViewController.xib in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */,
@@ -1771,6 +1786,7 @@
 				CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */,
 				CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */,
 				CE12A25926371C1A00EE6549 /* Constants.swift in Sources */,
+				CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */,
