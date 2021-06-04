@@ -15,18 +15,18 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     
     private let client = ClientMock<LogoutEndpoint>()
     private var authorizationService: AuthorizationService?
-    private var authDataStorage = AuthDataStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
+    private var tokenStorage = TokenStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
     private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
     
     // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
-        authorizationService = AuthorizationServiceImpl(apiClient: client, authDataStorage: authDataStorage)
+        authorizationService = AuthorizationServiceImpl(apiClient: client, tokenStorage: tokenStorage)
     }
 
     override func tearDown() {
-        authDataStorage.deleteAuthData()
+        tokenStorage.deleteAuthData()
         super.tearDown()
     }
     
@@ -60,23 +60,23 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
     
     func testTokenShouldBeRemovedWhenSignOutSuccessful() {
-        authDataStorage.saveAuthData(authorizationData)
+        tokenStorage.saveAuthData(authorizationData)
         client.result = .success(())
         
         authorizationService?.signOut { [weak self] _ in
-            XCTAssertNil(self?.authDataStorage.accessToken)
-            XCTAssertNil(self?.authDataStorage.refreshToken)
+            XCTAssertNil(self?.tokenStorage.accessToken)
+            XCTAssertNil(self?.tokenStorage.refreshToken)
         }
     }
     
     func testTokenShouldNotBeRemovedWhenSignOutFailed() {
-        authDataStorage.saveAuthData(authorizationData)
+        tokenStorage.saveAuthData(authorizationData)
         let error = APIError(code: .genericError, message: "")
         client.result = .failure(error)
                 
         authorizationService?.signOut { [weak self] _ in
-            XCTAssertNotNil(self?.authDataStorage.accessToken)
-            XCTAssertNotNil(self?.authDataStorage.refreshToken)
+            XCTAssertNotNil(self?.tokenStorage.accessToken)
+            XCTAssertNotNil(self?.tokenStorage.refreshToken)
         }
     }
 }

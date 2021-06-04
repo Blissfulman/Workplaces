@@ -12,20 +12,20 @@ final class RootCoordinator {
     // MARK: - Private properties
     
     private weak var window: UIWindow?
-    private let authDataStorage: AuthDataStorage
+    private let tokenStorage: TokenStorage
     private var authorizationCoordinator: AuthorizationCoordinator?
     
     // MARK: - Initializers
     
-    init(window: UIWindow?, authDataStorage: AuthDataStorage = ServiceLayer.shared.authDataStorage) {
+    init(window: UIWindow?, tokenStorage: TokenStorage = ServiceLayer.shared.tokenStorage) {
         self.window = window
-        self.authDataStorage = authDataStorage
+        self.tokenStorage = tokenStorage
     }
     
     // MARK: - Public methods
     
     func start() {
-        if authDataStorage.accessToken != nil {
+        if tokenStorage.accessToken != nil {
             let tabBarCoordinatingController = TabBarCoordinatingController { [weak self] in
                 self?.start()
             }

@@ -1,5 +1,5 @@
 //
-//  AuthDataStorageMock.swift
+//  TokenStorageMock.swift
 //  WorkplacesTests
 //
 //  Created by Evgeny Novgorodov on 03.05.2021.
@@ -7,7 +7,7 @@
 
 import WorkplacesAPI
 
-final class AuthDataStorageMock: AuthDataStorage {
+final class TokenStorageMock: TokenStorage {
     
     // MARK: - Public properties
     

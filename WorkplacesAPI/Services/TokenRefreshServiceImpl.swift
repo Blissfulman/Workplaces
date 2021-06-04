@@ -12,23 +12,23 @@ public final class TokenRefreshServiceImpl: TokenRefreshService {
     // MARK: - Private properties
     
     private let apiClient: Client
-    private let authDataStorage: AuthDataStorage
+    private let tokenStorage: TokenStorage
     
     // MARK: - Initializers
     
-    public init(apiClient: Client, authDataStorage: AuthDataStorage) {
+    public init(apiClient: Client, tokenStorage: TokenStorage) {
         self.apiClient = apiClient
-        self.authDataStorage = authDataStorage
+        self.tokenStorage = tokenStorage
     }
     
     // MARK: - Public methods
     
     public func refreshToken(completion: @escaping ResultHandler<AuthorizationData>) -> Progress {
-        let endpoint = RefreshTokenEndpoint(refreshToken: authDataStorage.refreshToken ?? "")
+        let endpoint = RefreshTokenEndpoint(refreshToken: tokenStorage.refreshToken ?? "")
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.saveAuthData(authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(error))

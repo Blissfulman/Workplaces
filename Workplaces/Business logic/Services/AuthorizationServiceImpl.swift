@@ -13,13 +13,13 @@ final class AuthorizationServiceImpl: AuthorizationService {
     // MARK: - Private properties
     
     private let apiClient: Client
-    private let authDataStorage: AuthDataStorage
+    private let tokenStorage: TokenStorage
     
     // MARK: - Initializers
     
-    init(apiClient: Client, authDataStorage: AuthDataStorage) {
+    init(apiClient: Client, tokenStorage: TokenStorage) {
         self.apiClient = apiClient
-        self.authDataStorage = authDataStorage
+        self.tokenStorage = tokenStorage
     }
     
     // MARK: - Public methods
@@ -32,7 +32,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.saveAuthData(authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -48,7 +48,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.saveAuthData(authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -73,7 +73,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success:
-                self?.authDataStorage.deleteAuthData()
+                self?.tokenStorage.deleteAuthData()
                 completion(.success(()))
             case .failure:
                 break

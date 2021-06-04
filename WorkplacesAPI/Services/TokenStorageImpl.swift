@@ -1,5 +1,5 @@
 //
-//  AuthDataStorage.swift
+//  TokenStorage.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 26.04.2021.
@@ -9,7 +9,7 @@ import Foundation
 
 // Сервис временно основан на UserDefaults
 
-public final class AuthDataStorageImpl: AuthDataStorage {
+public final class TokenStorageImpl: TokenStorage {
     
     // MARK: - Public properties
     

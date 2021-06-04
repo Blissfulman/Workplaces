@@ -12,7 +12,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
     // MARK: - Private properties
     
     private let baseURL: URL
-    private let authDataStorage: AuthDataStorage
+    private let tokenStorage: TokenStorage
     private let retryRequestManager: RetryRequestManager
     
     // MARK: - Initializers
@@ -20,15 +20,15 @@ public final class APIRequestInterceptor: RequestInterceptor {
     /// Создаёт экземпляр `APIRequestInterceptor` с указанным базовым `URL` и токеном доступа.
     /// - Parameters:
     ///   - baseURL: Базовый `URL` для адаптера.
-    ///   - authDataStorage: Хранилище авторизационных данных `AuthDataStorage`.
+    ///   - tokenStorage: Хранилище токена `TokenStorage`.
     ///   - retryRequestManager: Менеджер обработки повторных запросов `RetryRequestService`.
     public init(
         baseURL: URL,
-        authDataStorage: AuthDataStorage,
+        tokenStorage: TokenStorage,
         retryRequestManager: RetryRequestManager
     ) {
         self.baseURL = baseURL
-        self.authDataStorage = authDataStorage
+        self.tokenStorage = tokenStorage
         self.retryRequestManager = retryRequestManager
     }
     
@@ -46,7 +46,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        if let accessToken = authDataStorage.accessToken {
+        if let accessToken = tokenStorage.accessToken {
             request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
         completion(.success(request))

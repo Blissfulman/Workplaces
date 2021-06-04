@@ -19,7 +19,7 @@ final class ServiceLayer {
     lazy var apiClient: Client = {
         let interceptor = APIRequestInterceptor(
             baseURL: Constants.apiBaseURL,
-            authDataStorage: authDataStorage,
+            tokenStorage: tokenStorage,
             retryRequestManager: retryRequestManager
         )
         
@@ -34,7 +34,7 @@ final class ServiceLayer {
     
     lazy var authorizationService: AuthorizationService = AuthorizationServiceImpl(
         apiClient: apiClient,
-        authDataStorage: authDataStorage
+        tokenStorage: tokenStorage
     )
     lazy var feedService: FeedService = FeedServiceImpl(apiClient: apiClient)
     lazy var newPostService: NewPostService = NewPostServiceImpl(apiClient: apiClient)
@@ -42,10 +42,10 @@ final class ServiceLayer {
     lazy var searchService: SearchService = SearchServiceImpl(apiClient: apiClient)
     lazy var tokenRefreshService: TokenRefreshService = TokenRefreshServiceImpl(
         apiClient: apiClient,
-        authDataStorage: authDataStorage
+        tokenStorage: tokenStorage
     )
     
-    lazy var authDataStorage: AuthDataStorage = AuthDataStorageImpl(storage: UserDefaults.standard)
+    lazy var tokenStorage: TokenStorage = TokenStorageImpl(storage: UserDefaults.standard)
     
     // MARK: - Private properties
     

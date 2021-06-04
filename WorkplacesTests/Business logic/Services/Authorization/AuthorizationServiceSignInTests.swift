@@ -15,7 +15,7 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     
     private let client = ClientMock<LoginEndpoint>()
     private var authorizationService: AuthorizationService?
-    private var authDataStorage = AuthDataStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
+    private var tokenStorage = TokenStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
     private let userCredentials = UserCredentials(email: "test", password: "test")
     private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
     
@@ -23,11 +23,11 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        authorizationService = AuthorizationServiceImpl(apiClient: client, authDataStorage: authDataStorage)
+        authorizationService = AuthorizationServiceImpl(apiClient: client, tokenStorage: tokenStorage)
     }
 
     override func tearDown() {
-        authDataStorage.deleteAuthData()
+        tokenStorage.deleteAuthData()
         super.tearDown()
     }
     
@@ -61,23 +61,23 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     }
     
     func testTokenShouldBeSavedWhenSignInSuccessful() {
-        authDataStorage.deleteAuthData()
+        tokenStorage.deleteAuthData()
         client.result = .success(authorizationData)
         
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
-            XCTAssertNotNil(self?.authDataStorage.accessToken)
-            XCTAssertNotNil(self?.authDataStorage.refreshToken)
+            XCTAssertNotNil(self?.tokenStorage.accessToken)
+            XCTAssertNotNil(self?.tokenStorage.refreshToken)
         }
     }
     
     func testTokenShouldNotBeSavedWhenSignInFailed() {
-        authDataStorage.deleteAuthData()
+        tokenStorage.deleteAuthData()
         let error = APIError(code: .passwordValidationError, message: "")
         client.result = .failure(error)
                 
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
-            XCTAssertNil(self?.authDataStorage.accessToken)
-            XCTAssertNil(self?.authDataStorage.refreshToken)
+            XCTAssertNil(self?.tokenStorage.accessToken)
+            XCTAssertNil(self?.tokenStorage.refreshToken)
         }
     }
 }

@@ -75,7 +75,7 @@
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */; };
-		CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */; };
+		CE16279E26407A8200468CDA /* TokenStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* TokenStorageMock.swift */; };
 		CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* EmailValidatorTests.swift */; };
 		CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
@@ -145,7 +145,7 @@
 		CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1B263553FC00C0C52C /* Coordinator.swift */; };
 		CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972173263C7ED8006ACEB2 /* Error+Extension.swift */; };
 		CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
-		CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* AuthDataStorageImpl.swift */; };
+		CE972178263DB918006ACEB2 /* TokenStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* TokenStorageImpl.swift */; };
 		CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */; };
 		CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */; };
 		CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */; };
@@ -189,7 +189,7 @@
 		CEB0751B265034720060E818 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751A265034720060E818 /* UIView+Extension.swift */; };
 		CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751C265050110060E818 /* PasswordValidator.swift */; };
 		CEB0751F26524A550060E818 /* ZeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0751E26524A550060E818 /* ZeroViewModel.swift */; };
-		CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */; };
+		CEB2E97F2641617B00132E9B /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* TokenStorage.swift */; };
 		CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB8B87D262CA92900F030ED /* Images.xcassets */; };
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED98E2637B89100619CF3 /* RefreshToken.swift */; };
@@ -305,7 +305,7 @@
 		CE12A24F2637156000EE6549 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		CE12A25826371C1A00EE6549 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CE12A25C26371E1F00EE6549 /* AuthorizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationData.swift; sourceTree = "<group>"; };
-		CE12A262263733B200EE6549 /* AuthDataStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageImpl.swift; sourceTree = "<group>"; };
+		CE12A262263733B200EE6549 /* TokenStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageImpl.swift; sourceTree = "<group>"; };
 		CE1331AE262C40550086433C /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		CE1331B2262C431D0086433C /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		CE1331B5262C45C80086433C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE16279726406B9D00468CDA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignInTests.swift; sourceTree = "<group>"; };
-		CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorageMock.swift; sourceTree = "<group>"; };
+		CE16279D26407A8200468CDA /* TokenStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageMock.swift; sourceTree = "<group>"; };
 		CE1627A426412AE500468CDA /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
 		CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBarController.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 		CEB0751A265034720060E818 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CEB0751C265050110060E818 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		CEB0751E26524A550060E818 /* ZeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewModel.swift; sourceTree = "<group>"; };
-		CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataStorage.swift; sourceTree = "<group>"; };
+		CEB2E97E2641617B00132E9B /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		CEB8B87D262CA92900F030ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEB8B880262CAA9E00F030ED /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CECED98E2637B89100619CF3 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
@@ -916,7 +916,7 @@
 			isa = PBXGroup;
 			children = (
 				CE29091526456B7A0010CF6C /* ClientMock.swift */,
-				CE16279D26407A8200468CDA /* AuthDataStorageMock.swift */,
+				CE16279D26407A8200468CDA /* TokenStorageMock.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1158,7 +1158,7 @@
 			isa = PBXGroup;
 			children = (
 				CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */,
-				CE12A262263733B200EE6549 /* AuthDataStorageImpl.swift */,
+				CE12A262263733B200EE6549 /* TokenStorageImpl.swift */,
 				CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */,
 				CE97217B263DBFD8006ACEB2 /* Protocols */,
 			);
@@ -1169,7 +1169,7 @@
 			isa = PBXGroup;
 			children = (
 				CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */,
-				CEB2E97E2641617B00132E9B /* AuthDataStorage.swift */,
+				CEB2E97E2641617B00132E9B /* TokenStorage.swift */,
 				CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */,
 			);
 			path = Protocols;
@@ -1728,7 +1728,7 @@
 				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
 				CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */,
 				CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */,
-				CE16279E26407A8200468CDA /* AuthDataStorageMock.swift in Sources */,
+				CE16279E26407A8200468CDA /* TokenStorageMock.swift in Sources */,
 				CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */,
 				CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */,
 			);
@@ -1848,8 +1848,8 @@
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
 				CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
-				CE972178263DB918006ACEB2 /* AuthDataStorageImpl.swift in Sources */,
-				CEB2E97F2641617B00132E9B /* AuthDataStorage.swift in Sources */,
+				CE972178263DB918006ACEB2 /* TokenStorageImpl.swift in Sources */,
+				CEB2E97F2641617B00132E9B /* TokenStorage.swift in Sources */,
 				CE12A2502637156000EE6549 /* RefreshTokenEndpoint.swift in Sources */,
 				CE12A1F52635F91600EE6549 /* Codable.swift in Sources */,
 				CEAF17712635EA9E00DE0311 /* FeedPostListEndpoint.swift in Sources */,
