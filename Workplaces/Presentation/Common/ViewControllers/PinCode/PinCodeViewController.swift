@@ -17,6 +17,7 @@ final class PinCodeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
     
     // MARK: - Actions
@@ -25,7 +26,6 @@ final class PinCodeViewController: BaseViewController {
         if let buttonNumber = sender.titleLabel?.text {
             pinCodeTextField.text = "\(pinCodeTextField.text ?? "")\(buttonNumber)"
         }
-        print(pinCodeTextField.text)
     }
     
     // MARK: - Private methods

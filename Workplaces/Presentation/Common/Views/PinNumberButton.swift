@@ -25,7 +25,16 @@ final class PinNumberButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setCornerRadius(frame.width / 2)
+        layer.cornerRadius = frame.width / 2
+    }
+    
+    // MARK: - UIButton
+    
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != isHighlighted else { return }
+            isHighlighted ? downscaleAnimation(scale: 0.93) : resetScaleAnimation()
+        }
     }
     
     // MARK: - Private methods
