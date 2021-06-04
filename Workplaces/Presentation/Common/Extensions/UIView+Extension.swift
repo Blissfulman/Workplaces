@@ -9,6 +9,8 @@ import UIKit
 
 extension UIView {
     
+    // MARK: - Adding subview
+    
     /// Добавляет сабвью с полным перекрытием родительского вью.
     /// - Parameters:
     ///   - subview: Сабвью.
@@ -16,6 +18,8 @@ extension UIView {
         addSubview(subview)
         subview.fillToSuperview()
     }
+    
+    // MARK: - View setup
     
     /// Заполняет родительское вью (устанавливает нулевые констрейнты по всем сторонам).
     func fillToSuperview() {
@@ -36,6 +40,14 @@ extension UIView {
         layer.cornerRadius = value
         clipsToBounds = true
     }
+    
+    /// Делает вью видимым, но прозрачным.
+    func showTransparent() {
+        alpha = 0
+        isHidden = false
+    }
+    
+    // MARK: - Animations
     
     /// Анимация уменьшения размера.
     /// - Parameters:
@@ -112,11 +124,5 @@ extension UIView {
                 self.isHidden = true
             }
         }
-    }
-    
-    /// Делает вью видимым, но прозрачным.
-    func showTransparent() {
-        alpha = 0
-        isHidden = false
     }
 }
