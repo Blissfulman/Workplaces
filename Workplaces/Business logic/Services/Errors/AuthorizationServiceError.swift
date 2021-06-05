@@ -24,10 +24,8 @@ enum AuthorizationServiceError: Error, LocalizedError {
         case .emailValidationError:
             return "Email is in invalid format".localized()
         case .passwordValidationError:
-            return """
-            Invalid password. Please, use uppercase, lowercase letters and numbers.
-            Minimum password length is 8 symbols.
-            """.localized()
+            return "Invalid password. Please, use uppercase, lowercase letters and numbers.".localized() +
+                " Minimum password length is 8 symbols.".localized()
         case .dublicateUserError:
             return "Unable to create user. The user with the specified email is already registered".localized()
         case .unexpectedError:

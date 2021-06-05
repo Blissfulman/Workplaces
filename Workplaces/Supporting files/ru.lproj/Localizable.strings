@@ -10,7 +10,8 @@
 
 "Email or password are incorrect" = "Email или пароль указаны неверно";
 "Email is in invalid format" = "Email имеет недопустимый формат";
-"Invalid password. Please, use uppercase, lowercase letters and numbers. Minimum password length is 8 symbols." = "Пароль имеет недопустимый формат. Пожалуйста, используйте прописные, строчные буквы и цифры. Минимальная длина пароля - 8 символов.";
+"Invalid password. Please, use uppercase, lowercase letters and numbers." = "Пароль имеет недопустимый формат. Пожалуйста, используйте прописные, строчные буквы и цифры.";
+" Minimum password length is 8 symbols." = " Минимальная длина пароля - 8 символов.";
 "Unable to create user. The user with the specified email is already registered" = "Невозможно создать пользователя. Пользователь с указанным email уже зарегистрирован";
 "Unexpected authorization error" = "Непредвиденная ошибка авторизации";
 
