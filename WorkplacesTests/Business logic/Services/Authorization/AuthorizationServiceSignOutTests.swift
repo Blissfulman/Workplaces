@@ -82,4 +82,14 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
             XCTAssertNotNil(self?.tokenStorage.accessToken)
         }
     }
+    
+    func testIsEnteredPinCodeShouldNotBeNilWhenSignOutSuccessful() {
+        tokenStorage.isEnteredPinCode = true
+        client.result = .success(())
+                
+        authorizationService?.signOut { [weak self] _ in
+            guard let self = self else { return }
+            XCTAssertFalse(self.tokenStorage.isEnteredPinCode)
+        }
+    }
 }
