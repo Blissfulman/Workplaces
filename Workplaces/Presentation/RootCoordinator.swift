@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WorkplacesAPI
 
 final class RootCoordinator {
     
@@ -25,21 +26,39 @@ final class RootCoordinator {
     // MARK: - Public methods
     
     func start() {
-        if tokenStorage.accessToken != nil {
-            let tabBarCoordinatingController = TabBarCoordinatingController { [weak self] in
-                self?.start()
-            }
-            tabBarCoordinatingController.start()
-            window?.rootViewController = tabBarCoordinatingController
+        if (tokenStorage.refreshToken == nil) && (TokenStorageImpl.refreshTokenTemp == nil) {
+            startAuthorizationCoordinator()
         } else {
-            let navigationController = NavigationController()
-            authorizationCoordinator = AuthorizationCoordinatorImpl(
-                navigationController: navigationController
-            ) { [weak self] in
-                self?.start()
-            }
-            authorizationCoordinator?.start()
-            window?.rootViewController = navigationController
+            tokenStorage.isEnteredPinCode ? startTabBarCoordinatingController() : startPinCodeCoordinatingController()
         }
+    }
+    
+    // MARK: - Private methods
+    
+    private func startAuthorizationCoordinator() {
+        let navigationController = NavigationController()
+        authorizationCoordinator = AuthorizationCoordinatorImpl(
+            navigationController: navigationController
+        ) { [weak self] in
+            self?.start()
+        }
+        authorizationCoordinator?.start()
+        window?.rootViewController = navigationController
+    }
+    
+    private func startPinCodeCoordinatingController() {
+        let pinCodeCoordinatingController = PinCodeCoordinatingController { [weak self] in
+            self?.start()
+        }
+        pinCodeCoordinatingController.start()
+        window?.rootViewController = pinCodeCoordinatingController
+    }
+    
+    private func startTabBarCoordinatingController() {
+        let tabBarCoordinatingController = TabBarCoordinatingController { [weak self] in
+            self?.start()
+        }
+        tabBarCoordinatingController.start()
+        window?.rootViewController = tabBarCoordinatingController
     }
 }

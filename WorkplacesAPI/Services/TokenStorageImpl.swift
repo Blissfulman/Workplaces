@@ -7,22 +7,24 @@
 
 import Foundation
 
-// Сервис временно основан на UserDefaults
-
 public final class TokenStorageImpl: TokenStorage {
+    
+    // MARK: - Static properties
+    
+    public static var refreshTokenTemp: String?
+    
+    private static var accessToken: String?
     
     // MARK: - Public properties
     
+    public var isEnteredPinCode = false
+    
     public var accessToken: String? {
         get {
-            storage.get(forKey: accessTokenKey)
+            Self.accessToken
         }
         set {
-            guard let accessToken = newValue else {
-                storage.remove(forKey: accessTokenKey)
-                return
-            }
-            storage.save(accessToken, forKey: accessTokenKey)
+            Self.accessToken = newValue
         }
     }
     

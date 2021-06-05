@@ -6,6 +6,8 @@
 //
 
 public protocol TokenStorage: AnyObject {
+    static var refreshTokenTemp: String? { get set }
+    var isEnteredPinCode: Bool { get set }
     var accessToken: String? { get set }
     var refreshToken: String? { get set }
 }

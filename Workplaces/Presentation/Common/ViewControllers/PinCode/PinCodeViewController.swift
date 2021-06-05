@@ -7,11 +7,35 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol PinCodeViewControllerDelegate: AnyObject {
+    func successfulPinCodeSetup()
+    func logOut()
+}
+
 final class PinCodeViewController: BaseViewController {
     
     // MARK: - Outlets
     
     @IBOutlet private var pinCodeTextField: UITextField!
+    
+    // MARK: - Private properties
+    
+    private let pinCodeModel: PinCodeModel
+    private weak var delegate: PinCodeViewControllerDelegate?
+    
+    // MARK: - Initializers
+    
+    init(pinCodeModel: PinCodeModel, delegate: PinCodeViewControllerDelegate) {
+        self.pinCodeModel = pinCodeModel
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UIViewController
     
@@ -26,6 +50,14 @@ final class PinCodeViewController: BaseViewController {
         if let buttonNumber = sender.titleLabel?.text {
             pinCodeTextField.text = "\(pinCodeTextField.text ?? "")\(buttonNumber)"
         }
+    }
+    
+    @IBAction private func cancelButtonTapped() {
+        delegate?.logOut()
+    }
+    
+    @IBAction private func okButtonTapped() {
+        delegate?.successfulPinCodeSetup()
     }
     
     // MARK: - Private methods

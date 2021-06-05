@@ -104,8 +104,13 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="69f-nS-XMZ">
                             <rect key="frame" x="0.0" y="362.00000000000006" width="350" height="104.66666666666669"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-RU-6fq">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-RU-6fq">
                                     <rect key="frame" x="0.0" y="0.0" width="104.66666666666667" height="104.66666666666667"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="xmark.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="cancelButtonTapped" destination="-1" eventType="touchUpInside" id="FqE-vu-5jx"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roe-Qe-jV5" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
                                     <rect key="frame" x="122.66666666666666" y="0.0" width="104.66666666666666" height="104.66666666666667"/>
@@ -114,8 +119,13 @@
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="sLV-Ii-xo4"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxa-N9-d1H">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxa-N9-d1H">
                                     <rect key="frame" x="245.33333333333329" y="0.0" width="104.66666666666666" height="104.66666666666667"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="chevron.right.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="okButtonTapped" destination="-1" eventType="touchUpInside" id="fbk-j4-sHp"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -145,6 +155,8 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.right.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
