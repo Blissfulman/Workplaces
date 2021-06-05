@@ -26,7 +26,7 @@ final class RootCoordinator {
     // MARK: - Public methods
     
     func start() {
-        if (tokenStorage.refreshToken == nil) && (TokenStorageImpl.refreshTokenTemp == nil) {
+        if (tokenStorage.refreshToken == nil) && (tokenStorage.temporaryRefreshToken == nil) {
             startAuthorizationCoordinator()
         } else {
             tokenStorage.isEnteredPinCode ? startTabBarCoordinatingController() : startPinCodeCoordinatingController()

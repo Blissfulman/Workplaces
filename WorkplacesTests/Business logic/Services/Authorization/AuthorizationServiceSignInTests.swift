@@ -65,8 +65,8 @@ final class AuthorizationServiceSignInTests: XCTestCase {
         client.result = .success(authorizationData)
         
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
+            XCTAssertNotNil(self?.tokenStorage.temporaryRefreshToken)
             XCTAssertNotNil(self?.tokenStorage.accessToken)
-            XCTAssertNotNil(self?.tokenStorage.refreshToken)
         }
     }
     
@@ -76,15 +76,15 @@ final class AuthorizationServiceSignInTests: XCTestCase {
         client.result = .failure(error)
                 
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
+            XCTAssertNil(self?.tokenStorage.temporaryRefreshToken)
             XCTAssertNil(self?.tokenStorage.accessToken)
-            XCTAssertNil(self?.tokenStorage.refreshToken)
         }
     }
     
     // MARK: - Private methods
     
     private func deleteTokens() {
-        tokenStorage.refreshToken = nil
+        tokenStorage.temporaryRefreshToken = nil
         tokenStorage.accessToken = nil
     }
 }

@@ -26,7 +26,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
 
     override func tearDown() {
-        tokenStorage.refreshToken = nil
+        tokenStorage.temporaryRefreshToken = nil
         tokenStorage.accessToken = nil
         super.tearDown()
     }
@@ -66,8 +66,8 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
         client.result = .success(())
         
         authorizationService?.signOut { [weak self] _ in
-            XCTAssertNil(self?.tokenStorage.accessToken)
             XCTAssertNil(self?.tokenStorage.refreshToken)
+            XCTAssertNil(self?.tokenStorage.accessToken)
         }
     }
     
@@ -78,8 +78,8 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
         client.result = .failure(error)
                 
         authorizationService?.signOut { [weak self] _ in
-            XCTAssertNotNil(self?.tokenStorage.accessToken)
             XCTAssertNotNil(self?.tokenStorage.refreshToken)
+            XCTAssertNotNil(self?.tokenStorage.accessToken)
         }
     }
 }

@@ -57,8 +57,9 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
 extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     
     func successfulPinCodeSetup() {
-        if let refreshToken = TokenStorageImpl.refreshTokenTemp {
+        if let refreshToken = tokenStorage.temporaryRefreshToken {
             tokenStorage.refreshToken = refreshToken
+            tokenStorage.temporaryRefreshToken = nil
         }
         tokenStorage.isEnteredPinCode = true
         onFinish()

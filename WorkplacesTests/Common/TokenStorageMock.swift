@@ -11,20 +11,10 @@ final class TokenStorageMock: TokenStorage {
     
     // MARK: - Public properties
     
-    public var accessToken: String? {
-        get {
-            storage.get(forKey: accessTokenKey)
-        }
-        set {
-            guard let accessToken = newValue else {
-                storage.remove(forKey: accessTokenKey)
-                return
-            }
-            storage.save(accessToken, forKey: accessTokenKey)
-        }
-    }
-    
-    public var refreshToken: String? {
+    var isEnteredPinCode = false
+    var temporaryRefreshToken: String?
+    var accessToken: String?
+    var refreshToken: String? {
         get {
             storage.get(forKey: refreshTokenKey)
         }
@@ -40,7 +30,6 @@ final class TokenStorageMock: TokenStorage {
     // MARK: - Private properties
     
     private let storage: StringStorage
-    private let accessTokenKey = "AccessTokenTest"
     private let refreshTokenKey = "RefreshTokenTest"
     
     // MARK: - Initializers

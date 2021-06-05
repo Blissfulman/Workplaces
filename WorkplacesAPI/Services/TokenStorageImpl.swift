@@ -9,25 +9,11 @@ import Foundation
 
 public final class TokenStorageImpl: TokenStorage {
     
-    // MARK: - Static properties
-    
-    public static var refreshTokenTemp: String?
-    
-    private static var accessToken: String?
-    
     // MARK: - Public properties
     
     public var isEnteredPinCode = false
-    
-    public var accessToken: String? {
-        get {
-            Self.accessToken
-        }
-        set {
-            Self.accessToken = newValue
-        }
-    }
-    
+    public var temporaryRefreshToken: String?
+    public var accessToken: String?
     public var refreshToken: String? {
         get {
             storage.get(forKey: refreshTokenKey)
@@ -44,7 +30,6 @@ public final class TokenStorageImpl: TokenStorage {
     // MARK: - Private properties
     
     private let storage: StringStorage
-    private let accessTokenKey = "AccessToken"
     private let refreshTokenKey = "RefreshToken"
     
     // MARK: - Initializers
