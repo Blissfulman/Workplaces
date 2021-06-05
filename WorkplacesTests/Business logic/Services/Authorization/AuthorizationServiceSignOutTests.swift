@@ -26,7 +26,8 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
 
     override func tearDown() {
-        tokenStorage.deleteAuthData()
+        tokenStorage.refreshToken = nil
+        tokenStorage.accessToken = nil
         super.tearDown()
     }
     
@@ -60,7 +61,8 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
     
     func testTokenShouldBeRemovedWhenSignOutSuccessful() {
-        tokenStorage.saveAuthData(authorizationData)
+        tokenStorage.refreshToken = authorizationData.refreshToken
+        tokenStorage.accessToken = authorizationData.accessToken
         client.result = .success(())
         
         authorizationService?.signOut { [weak self] _ in
@@ -70,7 +72,8 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
     
     func testTokenShouldNotBeRemovedWhenSignOutFailed() {
-        tokenStorage.saveAuthData(authorizationData)
+        tokenStorage.refreshToken = authorizationData.refreshToken
+        tokenStorage.accessToken = authorizationData.accessToken
         let error = APIError(code: .genericError, message: "")
         client.result = .failure(error)
                 

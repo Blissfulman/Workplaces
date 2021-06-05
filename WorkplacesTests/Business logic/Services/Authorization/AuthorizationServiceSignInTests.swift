@@ -27,7 +27,7 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     }
 
     override func tearDown() {
-        tokenStorage.deleteAuthData()
+        deleteTokens()
         super.tearDown()
     }
     
@@ -61,7 +61,7 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     }
     
     func testTokenShouldBeSavedWhenSignInSuccessful() {
-        tokenStorage.deleteAuthData()
+        deleteTokens()
         client.result = .success(authorizationData)
         
         authorizationService?.signInWithEmail(userCredentials: userCredentials) { [weak self] _ in
@@ -71,7 +71,7 @@ final class AuthorizationServiceSignInTests: XCTestCase {
     }
     
     func testTokenShouldNotBeSavedWhenSignInFailed() {
-        tokenStorage.deleteAuthData()
+        deleteTokens()
         let error = APIError(code: .passwordValidationError, message: "")
         client.result = .failure(error)
                 
@@ -79,5 +79,12 @@ final class AuthorizationServiceSignInTests: XCTestCase {
             XCTAssertNil(self?.tokenStorage.accessToken)
             XCTAssertNil(self?.tokenStorage.refreshToken)
         }
+    }
+    
+    // MARK: - Private methods
+    
+    private func deleteTokens() {
+        tokenStorage.refreshToken = nil
+        tokenStorage.accessToken = nil
     }
 }

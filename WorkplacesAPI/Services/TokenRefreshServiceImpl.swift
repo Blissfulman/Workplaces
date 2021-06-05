@@ -28,7 +28,8 @@ public final class TokenRefreshServiceImpl: TokenRefreshService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.tokenStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.refreshToken = authorizationData.refreshToken
+                self?.tokenStorage.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(error))

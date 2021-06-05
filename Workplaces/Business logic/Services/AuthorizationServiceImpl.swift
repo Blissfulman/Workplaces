@@ -32,7 +32,8 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.tokenStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.refreshToken = authorizationData.refreshToken
+                self?.tokenStorage.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -48,7 +49,8 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.tokenStorage.saveAuthData(authorizationData)
+                self?.tokenStorage.refreshToken = authorizationData.refreshToken
+                self?.tokenStorage.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -73,7 +75,8 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success:
-                self?.tokenStorage.deleteAuthData()
+                self?.tokenStorage.refreshToken = nil
+                self?.tokenStorage.accessToken = nil
                 completion(.success(()))
             case .failure:
                 break

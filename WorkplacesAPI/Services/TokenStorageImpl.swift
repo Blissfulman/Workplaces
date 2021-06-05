@@ -14,11 +14,29 @@ public final class TokenStorageImpl: TokenStorage {
     // MARK: - Public properties
     
     public var accessToken: String? {
-        storage.get(forKey: accessTokenKey)
+        get {
+            storage.get(forKey: accessTokenKey)
+        }
+        set {
+            guard let accessToken = newValue else {
+                storage.remove(forKey: accessTokenKey)
+                return
+            }
+            storage.save(accessToken, forKey: accessTokenKey)
+        }
     }
     
     public var refreshToken: String? {
-        storage.get(forKey: refreshTokenKey)
+        get {
+            storage.get(forKey: refreshTokenKey)
+        }
+        set {
+            guard let refreshToken = newValue else {
+                storage.remove(forKey: refreshTokenKey)
+                return
+            }
+            storage.save(refreshToken, forKey: refreshTokenKey)
+        }
     }
     
     // MARK: - Private properties
@@ -31,18 +49,6 @@ public final class TokenStorageImpl: TokenStorage {
     
     public init(storage: StringStorage) {
         self.storage = storage
-    }
-    
-    // MARK: - Public methods
-    
-    public func saveAuthData(_ data: AuthorizationData) {
-        storage.save(data.accessToken, forKey: accessTokenKey)
-        storage.save(data.refreshToken, forKey: refreshTokenKey)
-    }
-    
-    public func deleteAuthData() {
-        storage.remove(forKey: accessTokenKey)
-        storage.remove(forKey: refreshTokenKey)
     }
 }
 

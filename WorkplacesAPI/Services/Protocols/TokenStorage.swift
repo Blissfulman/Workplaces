@@ -5,9 +5,7 @@
 //  Created by Evgeny Novgorodov on 04.05.2021.
 //
 
-public protocol TokenStorage {
-    var accessToken: String? { get }
-    var refreshToken: String? { get }
-    func saveAuthData(_ data: AuthorizationData)
-    func deleteAuthData()
+public protocol TokenStorage: AnyObject {
+    var accessToken: String? { get set }
+    var refreshToken: String? { get set }
 }

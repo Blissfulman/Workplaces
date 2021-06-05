@@ -16,6 +16,7 @@
 		CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* PinCodeViewController.swift */; };
 		CE09481A26694A040004CD7F /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09481826694A040004CD7F /* PinCodeViewController.xib */; };
 		CE09481C26695C3D0004CD7F /* PinNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481B26695C3D0004CD7F /* PinNumberButton.swift */; };
+		CE09481E266B27770004CD7F /* PinCodeCoordinatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* PinCodeCoordinatingViewController.swift */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */; };
@@ -266,6 +267,7 @@
 		CE09481726694A040004CD7F /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
 		CE09481826694A040004CD7F /* PinCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeViewController.xib; sourceTree = "<group>"; };
 		CE09481B26695C3D0004CD7F /* PinNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNumberButton.swift; sourceTree = "<group>"; };
+		CE09481D266B27770004CD7F /* PinCodeCoordinatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCoordinatingViewController.swift; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatingController.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				CE09481726694A040004CD7F /* PinCodeViewController.swift */,
+				CE09481D266B27770004CD7F /* PinCodeCoordinatingViewController.swift */,
 				CE09481826694A040004CD7F /* PinCodeViewController.xib */,
 			);
 			path = PinCode;
@@ -1808,6 +1811,7 @@
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
+				CE09481E266B27770004CD7F /* PinCodeCoordinatingViewController.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
 				CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */,
