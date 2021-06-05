@@ -15,10 +15,6 @@ protocol SignUpSecondViewControllerDelegate: AnyObject {
 
 final class SignUpSecondViewController: KeyboardNotificationsViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignUpSecondViewControllerDelegate?
-    
     // MARK: - Outlets
     
     @IBOutlet private var nicknameTextField: UITextField!
@@ -31,6 +27,7 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
     // MARK: - Private properties
     
     private let signUpModel: SignUpModel
+    private weak var delegate: SignUpSecondViewControllerDelegate?
     
     // MARK: - Initializers
     

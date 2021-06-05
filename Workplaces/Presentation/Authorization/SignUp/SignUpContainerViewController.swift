@@ -17,14 +17,11 @@ protocol SignUpContainerViewControllerDelegate: AnyObject {
 
 final class SignUpContainerViewController: BaseViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignUpContainerViewControllerDelegate?
-    
     // MARK: - Private properties
     
     private let authorizationService: AuthorizationService
     private let profileService: ProfileService
+    private weak var delegate: SignUpContainerViewControllerDelegate?
     private let signUpModel = SignUpModel()
     private var progressList = [Progress]()
     private lazy var signUpFirstVC = SignUpFirstViewController(signUpModel: signUpModel, delegate: self)

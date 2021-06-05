@@ -15,9 +15,20 @@ protocol SignInDoneScreenDelegate: AnyObject {
 
 final class SignInDoneViewController: BaseViewController {
     
-    // MARK: - Public properties
+    // MARK: - Private properties
     
-    weak var delegate: SignInDoneScreenDelegate?
+    private weak var delegate: SignInDoneScreenDelegate?
+    
+    // MARK: - Initializers
+    
+    init(delegate: SignInDoneScreenDelegate) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Outlets
     

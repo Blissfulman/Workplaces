@@ -17,10 +17,10 @@ public final class APIRequestInterceptor: RequestInterceptor {
     
     // MARK: - Initializers
     
-    /// Создаёт экземпляр `APIRequestInterceptor` с указанным базовым `URL` и токеном доступа.
+    /// Создаёт экземпляр `APIRequestInterceptor`.
     /// - Parameters:
     ///   - baseURL: Базовый `URL` для адаптера.
-    ///   - tokenStorage: Хранилище токена `TokenStorage`.
+    ///   - tokenStorage: Хранилище токенов `TokenStorage`.
     ///   - retryRequestManager: Менеджер обработки повторных запросов `RetryRequestService`.
     public init(
         baseURL: URL,
@@ -32,7 +32,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
         self.retryRequestManager = retryRequestManager
     }
     
-    // MARK: - Alamofire.RequestInterceptor
+    // MARK: - RequestInterceptor
     
     public func adapt(
         _ urlRequest: URLRequest,

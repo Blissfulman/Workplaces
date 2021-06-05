@@ -37,8 +37,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     // MARK: - Private methods
     
     private func showLoginScreen() {
-        let loginVC = LoginViewController()
-        loginVC.delegate = self
+        let loginVC = LoginViewController(delegate: self)
         navigationController?.show(loginVC, sender: nil)
     }
     
@@ -68,8 +67,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
     
     private func showSignInDoneScreen() {
-        let signInDoneVC = SignInDoneViewController()
-        signInDoneVC.delegate = self
+        let signInDoneVC = SignInDoneViewController(delegate: self)
         navigationController?.show(signInDoneVC, sender: nil)
     }
     
