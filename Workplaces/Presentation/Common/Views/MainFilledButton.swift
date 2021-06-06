@@ -34,7 +34,7 @@ final class MainFilledButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             guard oldValue != isHighlighted else { return }
-            isHighlighted ? downscaleAnimation() : resetScaleAnimation()
+            isHighlighted ? downscaleAnimation(duration: 0.08, scale: 0.98) : resetScaleAnimation(duration: 0.08)
         }
     }
     

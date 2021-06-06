@@ -21,26 +21,19 @@ final class PinNumberButton: UIButton {
         commonInit()
     }
     
-    // MARK: - UIView
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.width / 2
-    }
-    
     // MARK: - UIButton
     
     override var isHighlighted: Bool {
         didSet {
             guard oldValue != isHighlighted else { return }
-            isHighlighted ? downscaleAnimation(scale: 0.93) : resetScaleAnimation()
+            isHighlighted ? downscaleAnimation(duration: 0.1, scale: 0.9) : resetScaleAnimation(duration: 0.1)
         }
     }
     
     // MARK: - Private methods
     
     private func commonInit() {
-        backgroundColor = Palette.grey
+        backgroundColor = .clear
         tintColor = Palette.black
         titleLabel?.font = Fonts.title
         isExclusiveTouch = true

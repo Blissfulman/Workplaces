@@ -51,17 +51,17 @@ extension UIView {
     
     /// Анимация уменьшения размера.
     /// - Parameters:
-    ///   - duration: Длительность анимации (по умолчанию равна `0.08`).
-    ///   - scale: Коэффициент масштабирования (по умолчанию равен `0.98`).
-    func downscaleAnimation(duration: TimeInterval = 0.08, scale: CGFloat = 0.98) {
+    ///   - duration: Длительность анимации.
+    ///   - scale: Коэффициент масштабирования.
+    func downscaleAnimation(duration: TimeInterval, scale: CGFloat) {
         UIView.animate(withDuration: duration, delay: 0, options: []) {
             self.transform = CGAffineTransform(scaleX: scale, y: scale)
         }
     }
     
     /// Анимация восстановления исходного размера.
-    /// - Parameter duration: Длительность анимации (по умолчанию равна `0.08`).
-    func resetScaleAnimation(duration: TimeInterval = 0.08) {
+    /// - Parameter duration: Длительность анимации.
+    func resetScaleAnimation(duration: TimeInterval) {
         UIView.animate(withDuration: duration, delay: 0, options: []) {
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
