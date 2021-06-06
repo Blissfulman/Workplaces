@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class TokenStorageImpl: TokenStorage {
+final class TokenStorageImpl: TokenStorage {
     
     // MARK: - Public properties
     
@@ -30,12 +30,14 @@ public final class TokenStorageImpl: TokenStorage {
     // MARK: - Private properties
     
     private let storage: StringStorage
+    private let keychainManager: KeychainManager
     private let refreshTokenKey = "RefreshToken"
     
     // MARK: - Initializers
     
-    public init(storage: StringStorage) {
+    public init(storage: StringStorage, keychainManager: KeychainManager) {
         self.storage = storage
+        self.keychainManager = keychainManager
     }
 }
 

@@ -7,6 +7,7 @@
 
 import LocalAuthentication
 
+// Возможно не понадобится
 final class LocalAuthenticationManager {
     
     // MARK: - Public methods

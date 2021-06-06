@@ -20,7 +20,7 @@
 		CE094820266B4DA50004CD7F /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* PinCodeModel.swift */; };
 		CE094822266BC65B0004CD7F /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094821266BC65B0004CD7F /* KeychainHelper.swift */; };
 		CE094824266CB19D0004CD7F /* LocalAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */; };
-		CE094826266CC0FE0004CD7F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094825266CC0FE0004CD7F /* KeychainManager.swift */; };
+		CE094826266CC0FE0004CD7F /* KeychainManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094825266CC0FE0004CD7F /* KeychainManagerImpl.swift */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
 		CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */; };
@@ -126,6 +126,9 @@
 		CE5E71B82652A47C0028990A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B62652A47C0028990A /* UserCell.swift */; };
 		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
 		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
+		CE775B1D266D408D00C7BF25 /* TokenStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* TokenStorageImpl.swift */; };
+		CE775B21266D46D600C7BF25 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B20266D46D600C7BF25 /* KeychainManager.swift */; };
+		CE775B22266D479E00C7BF25 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */; };
 		CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
@@ -149,8 +152,6 @@
 		CE8F1C182635537400C0C52C /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C172635537400C0C52C /* RootCoordinator.swift */; };
 		CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1C1B263553FC00C0C52C /* Coordinator.swift */; };
 		CE972174263C7ED8006ACEB2 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972173263C7ED8006ACEB2 /* Error+Extension.swift */; };
-		CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
-		CE972178263DB918006ACEB2 /* TokenStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* TokenStorageImpl.swift */; };
 		CE97217D263DC005006ACEB2 /* TokenRefreshService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97217C263DC005006ACEB2 /* TokenRefreshService.swift */; };
 		CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972180263EFC9A006ACEB2 /* FeedCoordinator.swift */; };
 		CE972186263EFCEE006ACEB2 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972184263EFCEE006ACEB2 /* SearchFriendsViewController.swift */; };
@@ -275,7 +276,7 @@
 		CE09481F266B4DA50004CD7F /* PinCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeModel.swift; sourceTree = "<group>"; };
 		CE094821266BC65B0004CD7F /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationManager.swift; sourceTree = "<group>"; };
-		CE094825266CC0FE0004CD7F /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		CE094825266CC0FE0004CD7F /* KeychainManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerImpl.swift; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
 		CE09D766262E8C10009A96B3 /* TabBarCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinatingController.swift; sourceTree = "<group>"; };
@@ -391,6 +392,7 @@
 		CE5E71B62652A47C0028990A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		CE775B20266D46D600C7BF25 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceError.swift; sourceTree = "<group>"; };
 		CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationsViewController.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -664,7 +666,8 @@
 				CEB0751C265050110060E818 /* PasswordValidator.swift */,
 				CE094821266BC65B0004CD7F /* KeychainHelper.swift */,
 				CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */,
-				CE094825266CC0FE0004CD7F /* KeychainManager.swift */,
+				CE094825266CC0FE0004CD7F /* KeychainManagerImpl.swift */,
+				CE775B1F266D46BF00C7BF25 /* Protocols */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */,
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
 				CE5E71A926528B650028990A /* SearchServiceImpl.swift */,
+				CE12A262263733B200EE6549 /* TokenStorageImpl.swift */,
 				CE8F1BDE2635173F00C0C52C /* Protocols */,
 				CE7825AB2654524800CE3291 /* Errors */,
 			);
@@ -1015,6 +1019,14 @@
 			path = UserCell;
 			sourceTree = "<group>";
 		};
+		CE775B1F266D46BF00C7BF25 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE775B20266D46D600C7BF25 /* KeychainManager.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		CE7825AB2654524800CE3291 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -1173,7 +1185,6 @@
 			isa = PBXGroup;
 			children = (
 				CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */,
-				CE12A262263733B200EE6549 /* TokenStorageImpl.swift */,
 				CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */,
 				CE97217B263DBFD8006ACEB2 /* Protocols */,
 			);
@@ -1775,7 +1786,7 @@
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,
 				CEB074FB264D30B70060E818 /* SignUpContainerViewController.swift in Sources */,
 				CEB07514264ED8600060E818 /* SearchFriendsContainerViewController.swift in Sources */,
-				CE094826266CC0FE0004CD7F /* KeychainManager.swift in Sources */,
+				CE094826266CC0FE0004CD7F /* KeychainManagerImpl.swift in Sources */,
 				CE0BE5BA265FC03E00C0DD04 /* MainBarButtonItem.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
@@ -1807,6 +1818,7 @@
 				CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */,
 				CE12A25926371C1A00EE6549 /* Constants.swift in Sources */,
 				CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */,
+				CE775B21266D46D600C7BF25 /* KeychainManager.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */,
@@ -1840,6 +1852,7 @@
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,
 				CE972189263F0BC8006ACEB2 /* ProfileCoordinator.swift in Sources */,
+				CE775B1D266D408D00C7BF25 /* TokenStorageImpl.swift in Sources */,
 				CE0BE5BC26600DFB00C0DD04 /* BirthdayTextField.swift in Sources */,
 				CEE7FBCB262D8F00001D5DAD /* NavigationController.swift in Sources */,
 				CE5223332656DE11005C5075 /* MainTextField.swift in Sources */,
@@ -1857,7 +1870,6 @@
 				CE1F49262639920E00FD117C /* UploadPost.swift in Sources */,
 				CE12A2532637159700EE6549 /* UserCredentials.swift in Sources */,
 				CE12A2012636773600EE6549 /* LikePostEndpoint.swift in Sources */,
-				CE972177263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE12A1E72635F8B600EE6549 /* JsonEndpoint.swift in Sources */,
 				CE12A22F2636AE3700EE6549 /* MyPostListEndpoint.swift in Sources */,
 				CE5E71AF26529AB80028990A /* SearchPostEndpoint.swift in Sources */,
@@ -1866,9 +1878,9 @@
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
+				CE775B22266D479E00C7BF25 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
-				CE972178263DB918006ACEB2 /* TokenStorageImpl.swift in Sources */,
 				CEB2E97F2641617B00132E9B /* TokenStorage.swift in Sources */,
 				CE12A2502637156000EE6549 /* RefreshTokenEndpoint.swift in Sources */,
 				CE12A1F52635F91600EE6549 /* Codable.swift in Sources */,

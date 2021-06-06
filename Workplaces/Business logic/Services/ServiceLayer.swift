@@ -45,7 +45,10 @@ final class ServiceLayer {
         tokenStorage: tokenStorage
     )
     
-    lazy var tokenStorage: TokenStorage = TokenStorageImpl(storage: UserDefaults.standard)
+    lazy var tokenStorage: TokenStorage = TokenStorageImpl(
+        storage: UserDefaults.standard,
+        keychainManager: KeychainManagerImpl()
+    )
     
     // MARK: - Private properties
     
