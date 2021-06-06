@@ -24,7 +24,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
         super.setUp()
         authorizationService = AuthorizationServiceImpl(apiClient: client, tokenStorage: tokenStorage)
     }
-
+    
     override func tearDown() {
         tokenStorage.temporaryRefreshToken = nil
         tokenStorage.accessToken = nil
@@ -76,7 +76,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
         tokenStorage.accessToken = authorizationData.accessToken
         let error = APIError(code: .genericError, message: "")
         client.result = .failure(error)
-                
+        
         authorizationService?.signOut { [weak self] _ in
             XCTAssertNotNil(self?.tokenStorage.refreshToken)
             XCTAssertNotNil(self?.tokenStorage.accessToken)
@@ -86,9 +86,9 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     func testIsEnteredPinCodeShouldNotBeNilWhenSignOutSuccessful() {
         tokenStorage.isEnteredPinCode = true
         client.result = .success(())
-                
+        
         authorizationService?.signOut { [weak self] _ in
-            guard let self = self else { return }
+            guard let self = self else { return XCTAssert(false) }
             XCTAssertFalse(self.tokenStorage.isEnteredPinCode)
         }
     }

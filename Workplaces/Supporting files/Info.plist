@@ -64,6 +64,6 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Используйте лицо для быстрого доступа к приложению!</string>
+	<string>Accessing sample keychain entry</string>
 </dict>
 </plist>

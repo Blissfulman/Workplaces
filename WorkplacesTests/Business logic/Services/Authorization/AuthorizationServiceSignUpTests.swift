@@ -25,7 +25,7 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
         super.setUp()
         authorizationService = AuthorizationServiceImpl(apiClient: client, tokenStorage: tokenStorage)
     }
-
+    
     override func tearDown() {
         deleteTokens()
         super.tearDown()
@@ -74,7 +74,7 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
         deleteTokens()
         let error = APIError(code: .passwordValidationError, message: "")
         client.result = .failure(error)
-                
+        
         authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
             XCTAssertNil(self?.tokenStorage.temporaryRefreshToken)
             XCTAssertNil(self?.tokenStorage.accessToken)
