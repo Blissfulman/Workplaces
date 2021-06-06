@@ -9,12 +9,14 @@ import LocalAuthentication
 
 final class KeychainHelper {
     
+    // MARK: - Public methods
+    
     static func getPasswordSecAccessControl() -> SecAccessControl {
         var access: SecAccessControl?
         var error: Unmanaged<CFError>?
         
         access = SecAccessControlCreateWithFlags(
-            nil,
+            kCFAllocatorDefault,
             kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
             .applicationPassword,
             &error
@@ -36,7 +38,7 @@ final class KeychainHelper {
             )
         } else {
             access = SecAccessControlCreateWithFlags(
-                nil,
+                kCFAllocatorDefault,
                 kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                 .touchIDCurrentSet,
                 &error
