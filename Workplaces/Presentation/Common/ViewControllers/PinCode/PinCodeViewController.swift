@@ -10,8 +10,9 @@ import UIKit
 // MARK: - Protocols
 
 protocol PinCodeViewControllerDelegate: AnyObject {
-    func successfulPinCodeSetup()
     func logOut()
+    func successfulPinCodeSetup()
+    func needCheckPassword()
 }
 
 final class PinCodeViewController: BaseViewController {
@@ -47,11 +48,19 @@ final class PinCodeViewController: BaseViewController {
     
     // MARK: - Actions
     
+    @IBAction private func exitButtonTapped() {
+        delegate?.logOut()
+    }
+    
     @IBAction private func numberButtonTapped(_ sender: UIButton) {
         if let buttonNumber = sender.titleLabel?.text {
             pinCodeTextField.text = "\(pinCodeTextField.text ?? "")\(buttonNumber)"
         }
         pinCodeModel.password = pinCodeTextField.text ?? ""
+        
+        if pinCodeModel.password.count > 3 {
+            delegate?.needCheckPassword()
+        }
     }
     
     @IBAction private func fingerprintButtonTapped() {
@@ -62,10 +71,7 @@ final class PinCodeViewController: BaseViewController {
         if let pinCode = pinCodeTextField.text, !pinCode.isEmpty {
             pinCodeTextField.text = "\(pinCode.dropLast())"
         }
-    }
-    
-    @IBAction private func exitButtonTapped() {
-        delegate?.logOut()
+        pinCodeModel.password = pinCodeTextField.text ?? ""
     }
     
     // MARK: - Private methods

@@ -57,6 +57,13 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
 
 extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     
+    func logOut() {
+        tokenStorage.refreshToken = nil
+        tokenStorage.temporaryRefreshToken = nil
+        tokenStorage.isEnteredPinCode = false
+        onFinish()
+    }
+    
     func successfulPinCodeSetup() {
         if let refreshToken = tokenStorage.temporaryRefreshToken {
             tokenStorage.refreshToken = refreshToken
@@ -66,10 +73,7 @@ extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
         onFinish()
     }
     
-    func logOut() {
-        tokenStorage.refreshToken = nil
-        tokenStorage.temporaryRefreshToken = nil
-        tokenStorage.isEnteredPinCode = false
-        onFinish()
+    func needCheckPassword() {
+        
     }
 }

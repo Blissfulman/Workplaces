@@ -144,18 +144,18 @@
                     </constraints>
                 </stackView>
                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="200" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-yr-gEd">
-                    <rect key="frame" x="20" y="138.33333333333331" width="350" height="238.33333333333331"/>
+                    <rect key="frame" x="20" y="143" width="350" height="233.66666666666663"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-zi-EXW">
-                    <rect key="frame" x="20" y="115" width="350" height="23.333333333333343"/>
+                    <rect key="frame" x="20" y="117" width="350" height="26"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-qe-RAa">
-                    <rect key="frame" x="340" y="64" width="30" height="31"/>
+                    <rect key="frame" x="340" y="64" width="30" height="33"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Exit">
                         <color key="titleColor" name="orange"/>
