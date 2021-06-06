@@ -10,12 +10,12 @@ import Alamofire
 // MARK: - Protocols
 
 public protocol RetryRequestManager {
-    /// Обработка запроса на необходимость выполнения повторных запросов.
+    /// Обработка запроса на необходимость выполнения повторных запросов на основании вернувшейся в ответе ошибки.
     ///
     /// Также в этом методе при необходимости инициируется процесс обновления токена.
     /// - Parameters:
     ///   - request: Запрос `Request`.
-    ///   - error: Ошибка.
+    ///   - error: Ошибка, вернувшаяся в ответе запроса.
     ///   - completion: Замыкание, вызываемое для осуществления повторной попытки запроса.
     func handle(_ request: Request, dueTo error: Error, completion: @escaping (RetryResult) -> Void)
 }

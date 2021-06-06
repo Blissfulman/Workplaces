@@ -44,7 +44,6 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     
     private func createPinCodeModel() {
         let isInstalledProtection = tokenStorage.refreshToken != nil
-        print(isInstalledProtection ? "Done" : "Need new") // TEMP
         pinCodeModel = PinCodeModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
     }
     

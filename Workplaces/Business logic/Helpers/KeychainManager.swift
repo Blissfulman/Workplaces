@@ -15,15 +15,18 @@ protocol KeychainManager {
     /// - Parameters:
     ///   - token: Токен.
     ///   - password: Пароль.
-    func saveTokenWithPassword(token: String, password: String)
+    /// - Returns: Возвращает `true` в случае успешного сохранения и `false` в случае неудачи.
+    func saveTokenWithPassword(token: String, password: String) -> Bool
     
-    /// Получение защищённого паролем токена. В случае успешного получения возвращается токен, в противном случае - `nil`.
+    /// Получение защищённого паролем токена.
     /// - Parameter password: Пароль.
+    /// - Returns: В случае успешного получения возвращается токен, в противном случае - `nil`.
     func getTokenWithPassword(_ password: String) -> String?
     
     /// Сохранение токена с защитой биометрией.
     /// - Parameter token: Токен.
-    func saveTokenWithBiometry(token: String)
+    /// - Returns: Возвращает `true` в случае успешного сохранения и `false` в случае неудачи.
+    func saveTokenWithBiometry(token: String) -> Bool
     
     /// Получение защищённого биометрией токена.
     /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается токен, в противном случае - `nil`.
@@ -71,16 +74,18 @@ final class KeychainManagerImpl: KeychainManager {
     
     // MARK: - Public methods
     
-    func saveTokenWithPassword(token: String, password: String) {
+    func saveTokenWithPassword(token: String, password: String) -> Bool {
         let result = KeychainHelper.createPasswordProtectedEntry(
             key: tokenKey,
             data: Data(token.utf8),
             password: password
         )
         if result == noErr {
-            print("Token successfully created!")
+            print("Token successfully saved!")
+            return true
         } else {
             print("Token saving failed, osstatus=\(result)")
+            return false
         }
     }
     
@@ -92,9 +97,15 @@ final class KeychainManagerImpl: KeychainManager {
         return getTokenFromData(data)
     }
     
-    func saveTokenWithBiometry(token: String) {
+    func saveTokenWithBiometry(token: String) -> Bool {
         let result = KeychainHelper.createBioProtectedEntry(key: tokenKey, data: Data(token.utf8))
-        print(result == noErr ? "Entry created" : "Entry creation failed, osstatus=\(result)")
+        if result == noErr {
+            print("Token successfully saved")
+            return true
+        } else {
+            print("Token saving failed, osstatus=\(result)")
+            return false
+        }
     }
     
     func getTokenWithBiometry(completion: @escaping (String?) -> Void) {
@@ -119,6 +130,7 @@ final class KeychainManagerImpl: KeychainManager {
         print("Token was removed")
     }
     
+    // TEMP?
     func checkBiometry() {
         let entryExists = KeychainHelper.available(key: tokenKey)
         print(entryExists ? "Entry exists" : "Entry doesn't exist")
