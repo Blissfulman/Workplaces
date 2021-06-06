@@ -17,7 +17,7 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     // MARK: - Private properties
     
     private let tokenStorage: TokenStorage
-    private let pinCodeModel = PinCodeModel()
+    private var pinCodeModel: PinCodeModel!
     private lazy var pinCodeVC = PinCodeViewController(pinCodeModel: pinCodeModel, delegate: self)
     
     // MARK: - Initializers
@@ -32,22 +32,23 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
     // MARK: - Public methods
     
     func start() {
+        // Создание модели необходимо сделать перед вызовом метода setupUI
+        createPinCodeModel()
         setupUI()
     }
     
     // MARK: - Private methods
     
+    private func createPinCodeModel() {
+        let isInstalledProtection = tokenStorage.refreshToken != nil
+        print(isInstalledProtection ? "Done" : "Need new") // TEMP
+        pinCodeModel = PinCodeModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
+    }
+    
     private func setupUI() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
         addFullover(pinCodeVC)
     }
 }
@@ -67,6 +68,7 @@ extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     
     func logOut() {
         tokenStorage.refreshToken = nil
+        tokenStorage.temporaryRefreshToken = nil
         tokenStorage.isEnteredPinCode = false
         onFinish()
     }

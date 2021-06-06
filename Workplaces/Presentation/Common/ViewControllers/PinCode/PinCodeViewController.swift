@@ -18,6 +18,7 @@ final class PinCodeViewController: BaseViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet private var messageLabel: UILabel!
     @IBOutlet private var pinCodeTextField: UITextField!
     
     // MARK: - Private properties
@@ -50,19 +51,27 @@ final class PinCodeViewController: BaseViewController {
         if let buttonNumber = sender.titleLabel?.text {
             pinCodeTextField.text = "\(pinCodeTextField.text ?? "")\(buttonNumber)"
         }
+        pinCodeModel.password = pinCodeTextField.text ?? ""
     }
     
-    @IBAction private func cancelButtonTapped() {
+    @IBAction private func fingerprintButtonTapped() {
+        delegate?.successfulPinCodeSetup() // TEMP
+    }
+    
+    @IBAction private func backspaceButtonTapped() {
+        if let pinCode = pinCodeTextField.text, !pinCode.isEmpty {
+            pinCodeTextField.text = "\(pinCode.dropLast())"
+        }
+    }
+    
+    @IBAction private func exitButtonTapped() {
         delegate?.logOut()
-    }
-    
-    @IBAction private func okButtonTapped() {
-        delegate?.successfulPinCodeSetup()
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
+        messageLabel.text = pinCodeModel.message
         pinCodeTextField.font = Fonts.title
     }
 }
