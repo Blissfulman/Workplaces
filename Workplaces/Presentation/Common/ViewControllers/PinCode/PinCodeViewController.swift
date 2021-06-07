@@ -12,7 +12,7 @@ import UIKit
 protocol PinCodeViewControllerDelegate: AnyObject {
     func logOut()
     func successfulPinCodeSetup()
-    func needCheckPassword()
+    func didEnterPassword()
 }
 
 final class PinCodeViewController: BaseViewController {
@@ -53,13 +53,16 @@ final class PinCodeViewController: BaseViewController {
     }
     
     @IBAction private func numberButtonTapped(_ sender: UIButton) {
-        if let buttonNumber = sender.titleLabel?.text {
-            pinCodeTextField.text = "\(pinCodeTextField.text ?? "")\(buttonNumber)"
-        }
-        pinCodeModel.password = pinCodeTextField.text ?? ""
+        guard let enteredPassword = pinCodeTextField.text,
+              enteredPassword.count < 4 else { return }
         
-        if pinCodeModel.password.count > 3 {
-            delegate?.needCheckPassword()
+        if let number = sender.titleLabel?.text {
+            pinCodeModel.password = "\(enteredPassword)\(number)"
+            pinCodeTextField.text = pinCodeModel.password
+        }
+        
+        if pinCodeModel.password.count == 4 {
+            delegate?.didEnterPassword()
         }
     }
     

@@ -14,7 +14,7 @@ public protocol RetryCompletionStorage {
     /// - Parameter state: Новое состояние.
     func switchProgress(to state: Bool)
     
-    /// Добавление комплишен в хранилище.
+    /// Добавление комплишена в хранилище.
     /// - Parameter completion: Комплишен.
     func add(completion: @escaping RetryCompletion)
     

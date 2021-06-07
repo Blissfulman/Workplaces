@@ -16,4 +16,5 @@ typealias User = WorkplacesAPI.User
 typealias Post = WorkplacesAPI.Post
 typealias UserCredentials = WorkplacesAPI.UserCredentials
 typealias AuthorizationData = WorkplacesAPI.AuthorizationData
-typealias TokenStorage = WorkplacesAPI.TokenStorage
+typealias SecurityManager = WorkplacesAPI.SecurityManager
+typealias ProtectionState = WorkplacesAPI.ProtectionState

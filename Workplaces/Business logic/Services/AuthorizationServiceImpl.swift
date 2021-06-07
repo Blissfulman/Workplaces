@@ -13,13 +13,13 @@ final class AuthorizationServiceImpl: AuthorizationService {
     // MARK: - Private properties
     
     private let apiClient: Client
-    private let tokenStorage: TokenStorage
+    private let securityManager: SecurityManager
     
     // MARK: - Initializers
     
-    init(apiClient: Client, tokenStorage: TokenStorage) {
+    init(apiClient: Client, securityManager: SecurityManager) {
         self.apiClient = apiClient
-        self.tokenStorage = tokenStorage
+        self.securityManager = securityManager
     }
     
     // MARK: - Public methods
@@ -32,8 +32,9 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.tokenStorage.temporaryRefreshToken = authorizationData.refreshToken
-                self?.tokenStorage.accessToken = authorizationData.accessToken
+                self?.securityManager.isAuthorized = true
+                self?.securityManager.temporaryRefreshToken = authorizationData.refreshToken
+                self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -49,8 +50,9 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.tokenStorage.temporaryRefreshToken = authorizationData.refreshToken
-                self?.tokenStorage.accessToken = authorizationData.accessToken
+                self?.securityManager.isAuthorized = true
+                self?.securityManager.temporaryRefreshToken = authorizationData.refreshToken
+                self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -75,9 +77,10 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success:
-                self?.tokenStorage.refreshToken = nil
-                self?.tokenStorage.accessToken = nil
-                self?.tokenStorage.isEnteredPinCode = false
+                self?.securityManager.isAuthorized = false
+                self?.securityManager.protectionState = .none
+                self?.securityManager.removeRefreshToken()
+                self?.securityManager.accessToken = nil
                 completion(.success(()))
             case .failure:
                 break

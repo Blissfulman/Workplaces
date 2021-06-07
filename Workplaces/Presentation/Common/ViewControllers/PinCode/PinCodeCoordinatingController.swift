@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WorkplacesAPI
 
 final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     
@@ -16,14 +15,17 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     
     // MARK: - Private properties
     
-    private let tokenStorage: TokenStorage
     private var pinCodeModel: PinCodeModel!
+    private let securityManager: SecurityManager
     private lazy var pinCodeVC = PinCodeViewController(pinCodeModel: pinCodeModel, delegate: self)
     
     // MARK: - Initializers
     
-    init(tokenStorage: TokenStorage = ServiceLayer.shared.tokenStorage, onFinish: @escaping VoidBlock) {
-        self.tokenStorage = tokenStorage
+    init(
+        securityManager: SecurityManager = ServiceLayer.shared.securityManager,
+        onFinish: @escaping VoidBlock
+    ) {
+        self.securityManager = securityManager
         self.onFinish = onFinish
         super.init(nibName: nil, bundle: nil)
     }
@@ -43,7 +45,7 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     // MARK: - Private methods
     
     private func createPinCodeModel() {
-        let isInstalledProtection = tokenStorage.refreshToken != nil
+        let isInstalledProtection = securityManager.protectionState != .none
         pinCodeModel = PinCodeModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
     }
     
@@ -57,22 +59,41 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
 extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     
     func logOut() {
-        tokenStorage.refreshToken = nil
-        tokenStorage.temporaryRefreshToken = nil
-        tokenStorage.isEnteredPinCode = false
+        securityManager.isAuthorized = false
+        securityManager.removeRefreshToken()
+        securityManager.temporaryRefreshToken = nil
         onFinish()
     }
     
     func successfulPinCodeSetup() {
-        if let refreshToken = tokenStorage.temporaryRefreshToken {
-            tokenStorage.refreshToken = refreshToken
-            tokenStorage.temporaryRefreshToken = nil
-        }
-        tokenStorage.isEnteredPinCode = true
-        onFinish()
+//        if let refreshToken = securityManager.temporaryRefreshToken {
+//            _ = securityManager.saveRefreshTokenWithPassword(token: refreshToken, password: "")
+//            securityManager.temporaryRefreshToken = nil
+//            
+//            securityManager.protectionState = .passwordProtected
+//        }
+//        onFinish()
     }
     
-    func needCheckPassword() {
-        
+    func didEnterPassword() {
+        #if targetEnvironment(simulator)
+        if pinCodeModel.state == .protectionInstalled {
+            let token = securityManager.getRefreshTokenWithPassword(pinCodeModel.password)
+            print(token ?? "No token")
+        } else {
+            if let token = securityManager.temporaryRefreshToken {
+                if securityManager.saveRefreshTokenWithPassword(token: token, password: pinCodeModel.password) {
+                    securityManager.isAuthorized = true
+                    securityManager.protectionState = .passwordProtected
+                    onFinish()
+                }
+            }
+        }
+        #else
+        if pinCodeModel.state == .protectionInstalled {
+            let token = securityManager.getRefreshTokenWithPassword(pinCodeModel.password)
+            print(token ?? "No token")
+        }
+        #endif
     }
 }

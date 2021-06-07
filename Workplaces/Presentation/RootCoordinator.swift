@@ -13,23 +13,25 @@ final class RootCoordinator {
     // MARK: - Private properties
     
     private weak var window: UIWindow?
-    private let tokenStorage: TokenStorage
+    private let securityManager: SecurityManager
     private var authorizationCoordinator: AuthorizationCoordinator?
     
     // MARK: - Initializers
     
-    init(window: UIWindow?, tokenStorage: TokenStorage = ServiceLayer.shared.tokenStorage) {
+    init(window: UIWindow?, securityManager: SecurityManager = ServiceLayer.shared.securityManager) {
         self.window = window
-        self.tokenStorage = tokenStorage
+        self.securityManager = securityManager
     }
     
     // MARK: - Public methods
     
     func start() {
-        if (tokenStorage.refreshToken == nil) && (tokenStorage.temporaryRefreshToken == nil) {
-            startAuthorizationCoordinator()
-        } else {
-            tokenStorage.isEnteredPinCode ? startTabBarCoordinatingController() : startPinCodeCoordinatingController()
+        switch securityManager.protectionState {
+        case .none:
+            securityManager.isAuthorized ? startPinCodeCoordinatingController() : startAuthorizationCoordinator()
+        case .passwordProtected, .biometryProtected:
+            securityManager.isAuthorized ? startTabBarCoordinatingController() : startPinCodeCoordinatingController()
+            
         }
     }
     
