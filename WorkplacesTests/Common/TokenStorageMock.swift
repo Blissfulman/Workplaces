@@ -6,7 +6,7 @@
 //
 
 import WorkplacesAPI
-
+/*
 final class TokenStorageMock: TokenStorage {
     
     // MARK: - Public properties
@@ -38,3 +38,4 @@ final class TokenStorageMock: TokenStorage {
         self.storage = storage
     }
 }
+*/

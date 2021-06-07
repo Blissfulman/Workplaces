@@ -4,7 +4,7 @@
 //
 //  Created by Evgeny Novgorodov on 03.05.2021.
 //
-
+/*
 @testable import Workplaces
 import WorkplacesAPI
 import XCTest
@@ -88,3 +88,4 @@ final class AuthorizationServiceSignInTests: XCTestCase {
         tokenStorage.accessToken = nil
     }
 }
+*/
