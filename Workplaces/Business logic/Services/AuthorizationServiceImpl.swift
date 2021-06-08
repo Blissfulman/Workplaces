@@ -33,7 +33,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
             switch result {
             case let .success(authorizationData):
                 self?.securityManager.isAuthorized = true
-                self?.securityManager.temporaryRefreshToken = authorizationData.refreshToken
+                self?.securityManager.refreshToken = authorizationData.refreshToken
                 self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
@@ -51,7 +51,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
             switch result {
             case let .success(authorizationData):
                 self?.securityManager.isAuthorized = true
-                self?.securityManager.temporaryRefreshToken = authorizationData.refreshToken
+                self?.securityManager.refreshToken = authorizationData.refreshToken
                 self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
@@ -75,15 +75,9 @@ final class AuthorizationServiceImpl: AuthorizationService {
     func signOut(completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LogoutEndpoint()
         return apiClient.request(endpoint) { [weak self] result in
-            switch result {
-            case .success:
-                self?.securityManager.isAuthorized = false
-                self?.securityManager.protectionState = .none
-                self?.securityManager.removeRefreshToken()
-                self?.securityManager.accessToken = nil
+            if case .success = result {
+                self?.securityManager.logoutReset()
                 completion(.success(()))
-            case .failure:
-                break
             }
         }
     }

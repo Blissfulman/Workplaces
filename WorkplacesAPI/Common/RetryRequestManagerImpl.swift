@@ -55,8 +55,6 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
             tryToRefreshToken()
         } else {
             guard checkTheNeedToRetry(forError: error) else { return completion(.doNotRetry) }
-            print(request.retryCount, "Description:", request.description) // TEMP
-            print(Date(timeIntervalSinceNow: 0)) // TEMP
             
             request.retryCount < retryDelays.count
                 ? completion(.retryWithDelay(retryDelays[request.retryCount]))
@@ -70,15 +68,13 @@ public final class RetryRequestManagerImpl: RetryRequestManager {
         guard !retryCompletionStorage.getProgressState() else { return }
 
         retryCompletionStorage.switchProgress(to: true)
-        tokenRefreshService().refreshToken { [weak self] result in
+        tokenRefreshService().refreshTokens { [weak self] result in
             self?.retryCompletionStorage.switchProgress(to: false)
 
             switch result {
             case .success:
-                print("Token refresh successfully") // TEMP
                 self?.retryCompletionStorage.extractCompletions().forEach { $0(.retry) }
             case .failure:
-                print("Token refresh error") // TEMP
                 self?.retryCompletionStorage.extractCompletions().forEach { $0(.doNotRetry) }
             }
         }

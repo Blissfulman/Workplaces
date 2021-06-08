@@ -8,13 +8,14 @@
 import WorkplacesAPI
 
 typealias VoidBlock = (() -> Void)
-typealias ResultHandler<T> = (Result<T, Error>) -> Void
+public typealias ResultHandler<T> = (Result<T, Error>) -> Void
 typealias VoidResultHandler = ResultHandler<Void>
 
 // Модели и классы из WorkplacesAPI
 typealias User = WorkplacesAPI.User
 typealias Post = WorkplacesAPI.Post
 typealias UserCredentials = WorkplacesAPI.UserCredentials
-typealias AuthorizationData = WorkplacesAPI.AuthorizationData
-typealias SecurityManager = WorkplacesAPI.SecurityManager
+public typealias AuthorizationData = WorkplacesAPI.AuthorizationData
+public typealias SecurityManager = WorkplacesAPI.SecurityManager
 typealias ProtectionState = WorkplacesAPI.ProtectionState
+public typealias TokenRefreshService = WorkplacesAPI.TokenRefreshService

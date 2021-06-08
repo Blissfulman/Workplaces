@@ -128,7 +128,6 @@
 		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
 		CE775B1D266D408D00C7BF25 /* AppStateStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12A262263733B200EE6549 /* AppStateStorageImpl.swift */; };
 		CE775B21266D46D600C7BF25 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B20266D46D600C7BF25 /* KeychainManager.swift */; };
-		CE775B22266D479E00C7BF25 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CE775B24266D672B00C7BF25 /* SecurityManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */; };
 		CE775B27266DF87500C7BF25 /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B25266DF7E200C7BF25 /* SecurityManager.swift */; };
 		CE775B28266E357700C7BF25 /* AppStateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2E97E2641617B00132E9B /* AppStateStorage.swift */; };
@@ -203,6 +202,7 @@
 		CEB8B881262CAA9E00F030ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B880262CAA9E00F030ED /* Images.swift */; };
 		CECED98F2637B89100619CF3 /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED98E2637B89100619CF3 /* RefreshToken.swift */; };
 		CECED9932637B9CA00619CF3 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED9922637B9CA00619CF3 /* UserID.swift */; };
+		CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
 		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
@@ -684,6 +684,7 @@
 			children = (
 				CE09D75D262E0502009A96B3 /* ServiceLayer.swift */,
 				CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */,
+				CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */,
 				CE8F1C0926352F5E00C0C52C /* FeedServiceImpl.swift */,
 				CE8F1BFF26352EB400C0C52C /* NewPostServiceImpl.swift */,
 				CE8F1C0326352EFC00C0C52C /* ProfileServiceImpl.swift */,
@@ -1193,7 +1194,6 @@
 		CE972175263D4BEB006ACEB2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */,
 				CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */,
 				CE97217B263DBFD8006ACEB2 /* Protocols */,
 			);
@@ -1848,6 +1848,7 @@
 				CE8F1B6126340EAB00C0C52C /* NibInitializable.swift in Sources */,
 				CE8F1C0026352EB400C0C52C /* NewPostServiceImpl.swift in Sources */,
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
+				CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */,
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
 				CE09481E266B27770004CD7F /* PinCodeCoordinatingController.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
@@ -1890,7 +1891,6 @@
 				CE12A21F2636A9C600EE6549 /* UpdateMyProfileEndpoint.swift in Sources */,
 				CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */,
 				CE1F49222639374300FD117C /* HTTPBody+Extension.swift in Sources */,
-				CE775B22266D479E00C7BF25 /* TokenRefreshServiceImpl.swift in Sources */,
 				CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */,
 				CE12A2052636774100EE6549 /* UnlikePostEndpoint.swift in Sources */,
 				CE12A2502637156000EE6549 /* RefreshTokenEndpoint.swift in Sources */,

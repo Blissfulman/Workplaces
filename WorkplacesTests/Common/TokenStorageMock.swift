@@ -12,7 +12,7 @@ final class TokenStorageMock: TokenStorage {
     // MARK: - Public properties
     
     var isEnteredPinCode = false
-    var temporaryRefreshToken: String?
+    var refreshToken: String?
     var accessToken: String?
     var refreshToken: String? {
         get {

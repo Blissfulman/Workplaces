@@ -26,7 +26,7 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     }
     
     override func tearDown() {
-        tokenStorage.temporaryRefreshToken = nil
+        tokenStorage.refreshToken = nil
         tokenStorage.accessToken = nil
         super.tearDown()
     }

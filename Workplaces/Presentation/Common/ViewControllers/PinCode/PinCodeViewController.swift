@@ -11,7 +11,7 @@ import UIKit
 
 protocol PinCodeViewControllerDelegate: AnyObject {
     func logOut()
-    func successfulPinCodeSetup()
+    func didTapFingerprintButton()
     func didEnterPassword()
 }
 
@@ -46,6 +46,16 @@ final class PinCodeViewController: BaseViewController {
         setupUI()
     }
     
+    // MARK: - Public methods
+    
+    /// Отображает анимацию поля пароля, сообщающую о неверно введённом пароле.
+    func indicateToWrongPassword() {
+        pinCodeTextField.shakeAnimation()
+        showAlert(title: "Wrong password".localized(), message: "Try again".localized()) { [weak self] in
+            self?.pinCodeTextField.text = ""
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction private func exitButtonTapped() {
@@ -67,7 +77,7 @@ final class PinCodeViewController: BaseViewController {
     }
     
     @IBAction private func fingerprintButtonTapped() {
-        delegate?.successfulPinCodeSetup() // TEMP
+        delegate?.didTapFingerprintButton()
     }
     
     @IBAction private func backspaceButtonTapped() {

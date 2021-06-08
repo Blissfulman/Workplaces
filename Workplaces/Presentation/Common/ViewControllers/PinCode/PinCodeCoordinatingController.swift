@@ -16,15 +16,18 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     // MARK: - Private properties
     
     private var pinCodeModel: PinCodeModel!
+    private let tokenRefreshService: TokenRefreshService
     private let securityManager: SecurityManager
     private lazy var pinCodeVC = PinCodeViewController(pinCodeModel: pinCodeModel, delegate: self)
     
     // MARK: - Initializers
     
     init(
+        tokenRefreshService: TokenRefreshService = ServiceLayer.shared.tokenRefreshService,
         securityManager: SecurityManager = ServiceLayer.shared.securityManager,
         onFinish: @escaping VoidBlock
     ) {
+        self.tokenRefreshService = tokenRefreshService
         self.securityManager = securityManager
         self.onFinish = onFinish
         super.init(nibName: nil, bundle: nil)
@@ -52,6 +55,37 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     private func setupUI() {
         addFullover(pinCodeVC)
     }
+    
+    private func trySaveRefreshTokenWithPassword() {
+        if let token = securityManager.refreshToken {
+            if securityManager.saveRefreshTokenWithPassword(token: token, password: pinCodeModel.password) {
+                securityManager.isAuthorized = true
+                securityManager.protectionState = .passwordProtected
+                onFinish()
+            }
+        }
+    }
+    
+    private func tryEnterWithPassword() {
+        if let refreshToken = securityManager.getRefreshTokenWithPassword(pinCodeModel.password) {
+            securityManager.refreshToken = refreshToken
+            securityManager.isAuthorized = true
+            refreshTokens(withToken: refreshToken)
+        } else {
+            pinCodeVC.indicateToWrongPassword()
+        }
+    }
+    
+    private func refreshTokens(withToken token: String) {
+        tokenRefreshService.refreshTokens { [weak self] result in
+            switch result {
+            case .success:
+                self?.onFinish()
+            case let .failure(error):
+                self?.showAlert(error: error)
+            }
+        }
+    }
 }
 
 // MARK: - PinCodeViewControllerDelegate
@@ -59,41 +93,19 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
 extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     
     func logOut() {
-        securityManager.isAuthorized = false
-        securityManager.removeRefreshToken()
-        securityManager.temporaryRefreshToken = nil
+        securityManager.logoutReset()
         onFinish()
     }
     
-    func successfulPinCodeSetup() {
-//        if let refreshToken = securityManager.temporaryRefreshToken {
-//            _ = securityManager.saveRefreshTokenWithPassword(token: refreshToken, password: "")
-//            securityManager.temporaryRefreshToken = nil
-//            
-//            securityManager.protectionState = .passwordProtected
-//        }
-//        onFinish()
+    func didTapFingerprintButton() {
+        // Необходимо доработать
     }
     
     func didEnterPassword() {
         #if targetEnvironment(simulator)
-        if pinCodeModel.state == .protectionInstalled {
-            let token = securityManager.getRefreshTokenWithPassword(pinCodeModel.password)
-            print(token ?? "No token")
-        } else {
-            if let token = securityManager.temporaryRefreshToken {
-                if securityManager.saveRefreshTokenWithPassword(token: token, password: pinCodeModel.password) {
-                    securityManager.isAuthorized = true
-                    securityManager.protectionState = .passwordProtected
-                    onFinish()
-                }
-            }
-        }
+        pinCodeModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
         #else
-        if pinCodeModel.state == .protectionInstalled {
-            let token = securityManager.getRefreshTokenWithPassword(pinCodeModel.password)
-            print(token ?? "No token")
-        }
+        pinCodeModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
         #endif
     }
 }

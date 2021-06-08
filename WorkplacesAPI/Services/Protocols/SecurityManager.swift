@@ -19,9 +19,15 @@ public protocol SecurityManager: AnyObject {
     /// При завершении сессии устанавливается в `false`.
     var isAuthorized: Bool { get set }
     
-    /// Переменная для временного хранения refresh токена, пока пользователь не установит защиту входа.
-    var temporaryRefreshToken: String? { get set }
-    //    var refreshToken: String? { get set }
+    /// Refresh токена.
+    var refreshToken: String? { get set }
+    
+    /// Пароль, используемый при последнем сохранении/чтении refresh токена.
+    ///
+    /// Хранение пароля необходимо для реализации фонового обновления токенов.
+    var password: String { get set }
+    
+    /// Access токен.
     var accessToken: String? { get set }
     
     /// Сохранение refresh токена с защитой паролем.
@@ -45,6 +51,6 @@ public protocol SecurityManager: AnyObject {
     /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается refresh токен, в противном случае - `nil`.
     func getRefreshTokenWithBiometry(completion: @escaping (String?) -> Void)
     
-    /// Удаление сохранённого refresh токена.
-    func removeRefreshToken()
+    /// Сброс (удаление) всех данных, необходимое при завершении сессии.
+    func logoutReset()
 }

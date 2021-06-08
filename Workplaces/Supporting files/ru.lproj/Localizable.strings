@@ -47,6 +47,8 @@
 
 "Enter your password" = "Введите ваш пароль";
 "Set a four-digit password to protect the enter to app" = "Установите четырехзначный пароль для защиты входа в приложение";
+"Wrong password" = "Неверный пароль";
+"Try again" = "Попробуйте ввести заново";
 
 // MARK: - Extensions
 

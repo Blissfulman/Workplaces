@@ -18,10 +18,10 @@ final class SecurityManagerImpl: SecurityManager {
     }
     
     var isAuthorized = false
-    var temporaryRefreshToken: String?
-    //    var refreshToken: String? // TEMP
+    var refreshToken: String?
     var accessToken: String?
     var stringStorage: StringStorage
+    var password = ""
     
     // MARK: - Private properties
     
@@ -48,11 +48,13 @@ final class SecurityManagerImpl: SecurityManager {
     // MARK: - Public methods
     
     func saveRefreshTokenWithPassword(token: String, password: String) -> Bool {
-        keychainManager.saveTokenWithPassword(token: token, password: password)
+        self.password = password
+        return keychainManager.saveTokenWithPassword(token: token, password: password)
     }
     
     func getRefreshTokenWithPassword(_ password: String) -> String? {
-        keychainManager.getTokenWithPassword(password)
+        self.password = password
+        return keychainManager.getTokenWithPassword(password)
     }
     
     func saveRefreshTokenWithBiometry(token: String) -> Bool {
@@ -63,7 +65,11 @@ final class SecurityManagerImpl: SecurityManager {
         keychainManager.getTokenWithBiometry(completion: completion)
     }
     
-    func removeRefreshToken() {
+    func logoutReset() {
+        protectionState = .none
+        isAuthorized = false
         keychainManager.removeToken()
+        accessToken = nil
+        refreshToken = nil
     }
 }

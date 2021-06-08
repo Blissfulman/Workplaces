@@ -65,7 +65,7 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
         client.result = .success(authorizationData)
         
         authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
-            XCTAssertNotNil(self?.tokenStorage.temporaryRefreshToken)
+            XCTAssertNotNil(self?.tokenStorage.refreshToken)
             XCTAssertNotNil(self?.tokenStorage.accessToken)
         }
     }
