@@ -80,7 +80,7 @@ extension SignInContainerViewController: SignInViewControllerDelegate {
             case .success:
                 self?.delegate?.successfulSignIn()
             case let .failure(error):
-                self?.showAlert(error)
+                self?.showAlert(error: error)
             }
         }
         progressList.append(progress)

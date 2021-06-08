@@ -69,15 +69,15 @@ final class SignUpContainerViewController: BaseViewController {
         
         switch authError {
         case .emailValidationError, .dublicateUserError:
-            showAlert(authError) { [weak self] in
+            showAlert(error: authError) { [weak self] in
                 self?.signUpFirstVC.indicateToIncorrectEmail()
             }
         case .passwordValidationError:
-            showAlert(authError) { [weak self] in
+            showAlert(error: authError) { [weak self] in
                 self?.signUpFirstVC.indicateToIncorrectPassword()
             }
         default:
-            showAlert(authError)
+            showAlert(error: authError)
         }
     }
 }
