@@ -109,10 +109,6 @@ extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     }
     
     func didEnterPassword() {
-        #if targetEnvironment(simulator)
         pinCodeModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
-        #else
-        pinCodeModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
-        #endif
     }
 }
