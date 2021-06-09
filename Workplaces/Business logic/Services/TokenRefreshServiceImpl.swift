@@ -1,6 +1,6 @@
 //
 //  TokenRefreshService.swift
-//  WorkplacesAPI
+//  Workplaces
 //
 //  Created by Evgeny Novgorodov on 01.05.2021.
 //
@@ -8,7 +8,7 @@
 import Apexy
 import WorkplacesAPI
 
-public final class TokenRefreshServiceImpl: TokenRefreshService {
+final class TokenRefreshServiceImpl: TokenRefreshService {
     
     // MARK: - Private properties
     
@@ -17,14 +17,14 @@ public final class TokenRefreshServiceImpl: TokenRefreshService {
     
     // MARK: - Initializers
     
-    public init(apiClient: Client, securityManager: SecurityManager) {
+    init(apiClient: Client, securityManager: SecurityManager) {
         self.apiClient = apiClient
         self.securityManager = securityManager
     }
     
     // MARK: - Public methods
     
-    public func refreshTokens(completion: @escaping ResultHandler<AuthorizationData>) -> Progress {
+    func refreshTokens(completion: @escaping ResultHandler<AuthorizationData>) -> Progress {
         let endpoint = RefreshTokenEndpoint(refreshToken: securityManager.refreshToken ?? "")
         
         return apiClient.request(endpoint) { [weak self] result in

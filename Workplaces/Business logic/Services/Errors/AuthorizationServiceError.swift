@@ -9,6 +9,7 @@ import Foundation
 import WorkplacesAPI
 
 enum AuthorizationServiceError: Error, LocalizedError {
+    
     case credentialsInvalid
     case emailValidationError
     case passwordValidationError

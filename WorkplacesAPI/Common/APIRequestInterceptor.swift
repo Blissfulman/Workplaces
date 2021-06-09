@@ -12,7 +12,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
     // MARK: - Private properties
     
     private let baseURL: URL
-    private let securityManager: SecurityManager
+    private let accessToken: () -> String
     private let retryRequestManager: RetryRequestManager
     
     // MARK: - Initializers
@@ -22,13 +22,9 @@ public final class APIRequestInterceptor: RequestInterceptor {
     ///   - baseURL: Базовый `URL` для адаптера.
     ///   - securityManager: Менеджер безопасности `SecurityManager`.
     ///   - retryRequestManager: Менеджер обработки повторных запросов `RetryRequestService`.
-    public init(
-        baseURL: URL,
-        securityManager: SecurityManager,
-        retryRequestManager: RetryRequestManager
-    ) {
+    public init(baseURL: URL, accessToken: @escaping () -> String, retryRequestManager: RetryRequestManager) {
         self.baseURL = baseURL
-        self.securityManager = securityManager
+        self.accessToken = accessToken
         self.retryRequestManager = retryRequestManager
     }
     
@@ -46,9 +42,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        if let accessToken = securityManager.accessToken {
-            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        }
+        request.addValue("Bearer \(accessToken())", forHTTPHeaderField: "Authorization")
         completion(.success(request))
     }
     

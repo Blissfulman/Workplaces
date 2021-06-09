@@ -1,11 +1,13 @@
 //
-//  KeychainManager.swift
+//  KeychainStorage.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 06.06.2021.
 //
 
-public protocol KeychainManager {
+public protocol KeychainStorage: AnyObject {
+    
+    var protectionState: String? { get set }
     
     /// Сохранение токена с защитой паролем.
     /// - Parameters:

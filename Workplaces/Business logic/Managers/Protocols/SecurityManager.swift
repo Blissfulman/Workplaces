@@ -5,11 +5,12 @@
 //  Created by Evgeny Novgorodov on 07.06.2021.
 //
 
-public protocol SecurityManager: AnyObject {
+protocol SecurityManager: AnyObject {
     
     /// Состояние защиты входа приложения.
     ///
-    /// Должно сохранияться между запусками работы приложения.
+    /// При изменении сохраняется в постоянное хранилище, гарантируя сохранность между запусками приложения.
+    /// При отсутствии в хранилище сохранённого значения возвращает значение `.none`.
     var protectionState: ProtectionState { get set }
     
     /// Свойство авторизованности пользователя.
@@ -22,13 +23,13 @@ public protocol SecurityManager: AnyObject {
     /// Refresh токена.
     var refreshToken: String? { get set }
     
+    /// Access токен.
+    var accessToken: String? { get set }
+    
     /// Пароль, используемый при последнем сохранении/чтении refresh токена.
     ///
     /// Хранение пароля необходимо для реализации фонового обновления токенов.
     var password: String { get set }
-    
-    /// Access токен.
-    var accessToken: String? { get set }
     
     /// Сохранение refresh токена с защитой паролем.
     /// - Parameters:

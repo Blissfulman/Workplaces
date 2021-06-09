@@ -19,7 +19,7 @@ final class ServiceLayer {
     lazy var apiClient: Client = {
         let interceptor = APIRequestInterceptor(
             baseURL: Constants.apiBaseURL,
-            securityManager: securityManager,
+            accessToken: { self.accessToken },
             retryRequestManager: retryRequestManager
         )
         
@@ -44,7 +44,9 @@ final class ServiceLayer {
         apiClient: apiClient,
         securityManager: securityManager
     )
+    
     lazy var securityManager: SecurityManager = SecurityManagerImpl()
+    lazy var keychainStorage: KeychainStorage = KeychainStorageImpl()
     
     // MARK: - Private properties
     
@@ -54,6 +56,9 @@ final class ServiceLayer {
         retryCompletionStorage: retryCompletionStorage
     )
     private lazy var retryCompletionStorage: RetryCompletionStorage = RetryCompletionStorageImpl()
+    private var accessToken: String {
+        securityManager.accessToken ?? ""
+    }
     
     // MARK: - Initializers
     

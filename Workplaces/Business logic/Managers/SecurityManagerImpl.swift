@@ -5,70 +5,54 @@
 //  Created by Evgeny Novgorodov on 07.06.2021.
 //
 
-import Foundation
-
 final class SecurityManagerImpl: SecurityManager {
     
     // MARK: - Public properties
     
-    lazy var protectionState = ProtectionState.getState(fromValue: storedState) {
+    lazy var protectionState = ProtectionState.getState(fromValue: keychainStorage.protectionState) ?? .none {
         didSet {
-            storedState = protectionState.rawValue
+            keychainStorage.protectionState = protectionState.rawValue
         }
     }
-    
     var isAuthorized = false
     var refreshToken: String?
     var accessToken: String?
-    var stringStorage: StringStorage
     var password = ""
     
     // MARK: - Private properties
     
-    private var storedState: String {
-        get {
-            stringStorage.get(forKey: "storedState") ?? ""
-        }
-        set {
-            stringStorage.save(newValue, forKey: "storedState")
-        }
-    }
-    private let keychainManager: KeychainManager
+    private let keychainStorage: KeychainStorage
     
     // MARK: - Initializers
     
-    init(
-        keychainManager: KeychainManager = KeychainManagerImpl(),
-        stringStorage: StringStorage = UserDefaults.standard
-    ) {
-        self.keychainManager = keychainManager
-        self.stringStorage = stringStorage
+    init(keychainStorage: KeychainStorage = ServiceLayer.shared.keychainStorage) {
+        self.keychainStorage = keychainStorage
     }
     
     // MARK: - Public methods
     
     func saveRefreshTokenWithPassword(token: String, password: String) -> Bool {
         self.password = password
-        return keychainManager.saveTokenWithPassword(token: token, password: password)
+        return keychainStorage.saveTokenWithPassword(token: token, password: password)
     }
     
     func getRefreshTokenWithPassword(_ password: String) -> String? {
         self.password = password
-        return keychainManager.getTokenWithPassword(password)
+        return keychainStorage.getTokenWithPassword(password)
     }
     
     func saveRefreshTokenWithBiometry(token: String) -> Bool {
-        keychainManager.saveTokenWithBiometry(token: token)
+        keychainStorage.saveTokenWithBiometry(token: token)
     }
     
     func getRefreshTokenWithBiometry(completion: @escaping (String?) -> Void) {
-        keychainManager.getTokenWithBiometry(completion: completion)
+        keychainStorage.getTokenWithBiometry(completion: completion)
     }
     
     func logoutReset() {
         protectionState = .none
         isAuthorized = false
-        keychainManager.removeToken()
+        keychainStorage.removeToken()
         accessToken = nil
         refreshToken = nil
     }

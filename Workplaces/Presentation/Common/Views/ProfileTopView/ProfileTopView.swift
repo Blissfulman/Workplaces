@@ -22,6 +22,7 @@ final class ProfileTopView: NibInitializableView {
     // MARK: - Nested types
     
     enum State {
+        
         case posts
         case likes
         case friends

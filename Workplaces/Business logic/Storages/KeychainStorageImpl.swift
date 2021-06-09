@@ -1,17 +1,28 @@
 //
-//  KeychainManagerImpl.swift
+//  KeychainStorageImpl.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 06.06.2021.
 //
 
+import KeychainAccess
 import LocalAuthentication
 
-final class KeychainManagerImpl: KeychainManager {
+final class KeychainStorageImpl: KeychainStorage {
+    
+    var protectionState: String? {
+        get {
+            try? keychain.get(protectionStateKey)
+        }
+        set {
+            try? keychain.set(newValue ?? "", key: protectionStateKey)
+        }
+    }
     
     // MARK: - Nested types
     
     private enum BiometryState: CustomStringConvertible {
+        
         case available, locked, notAvailable
         
         var description: String {
@@ -28,7 +39,9 @@ final class KeychainManagerImpl: KeychainManager {
     
     // MARK: - Private properties
     
-    private let tokenKey = "TokenKey"
+    private let keychain = Keychain()
+    private let tokenKey = "Token"
+    private let protectionStateKey = "ProtectionState"
     
     private var biometryState: BiometryState {
         let authContext = LAContext()
@@ -52,10 +65,10 @@ final class KeychainManagerImpl: KeychainManager {
             password: password
         )
         if result == noErr {
-            print("Token successfully saved!")
+            print("Token successfully saved!") // TEMP
             return true
         } else {
-            print("Token saving failed, osstatus=\(result)")
+            print("Token saving failed, osstatus=\(result)") // TEMP
             return false
         }
     }
@@ -71,10 +84,10 @@ final class KeychainManagerImpl: KeychainManager {
     func saveTokenWithBiometry(token: String) -> Bool {
         let result = KeychainHelper.createBioProtectedEntry(key: tokenKey, data: Data(token.utf8))
         if result == noErr {
-            print("Token successfully saved")
+            print("Token successfully saved") // TEMP
             return true
         } else {
-            print("Token saving failed, osstatus=\(result)")
+            print("Token saving failed, osstatus=\(result)") // TEMP
             return false
         }
     }
@@ -98,7 +111,7 @@ final class KeychainManagerImpl: KeychainManager {
     
     func removeToken() {
         KeychainHelper.remove(key: tokenKey)
-        print("Token was removed")
+        print("Token was removed") // TEMP
     }
     
     // TEMP?
