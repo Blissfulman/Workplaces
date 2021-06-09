@@ -19,6 +19,8 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     private let tokenRefreshService: TokenRefreshService
     private let securityManager: SecurityManager
     private lazy var pinCodeVC = PinCodeViewController(pinCodeModel: pinCodeModel, delegate: self)
+    private var attemptCount = 0
+    private let maxAttemptCount = 5
     
     // MARK: - Initializers
     
@@ -67,12 +69,19 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     }
     
     private func tryEnterWithPassword() {
+        attemptCount += 1
+        let attemptsRemaining = maxAttemptCount - attemptCount
+        
         if let refreshToken = securityManager.getRefreshTokenWithPassword(pinCodeModel.password) {
             securityManager.refreshToken = refreshToken
             securityManager.isAuthorized = true
             refreshTokens(withToken: refreshToken)
         } else {
-            pinCodeVC.indicateToWrongPassword()
+            pinCodeVC.indicateToWrongPassword(attemptsRemaining: attemptsRemaining) { [weak self] in
+                if attemptsRemaining == 0 {
+                    self?.logOut()
+                }
+            }
         }
     }
     

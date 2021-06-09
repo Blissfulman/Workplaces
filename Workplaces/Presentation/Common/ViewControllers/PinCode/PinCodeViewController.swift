@@ -49,10 +49,15 @@ final class PinCodeViewController: BaseViewController {
     // MARK: - Public methods
     
     /// Отображает анимацию поля пароля, сообщающую о неверно введённом пароле.
-    func indicateToWrongPassword() {
+    /// - Parameter attemptsRemaining: Оставшееся количество попыток.
+    func indicateToWrongPassword(attemptsRemaining: Int, completion: @escaping VoidBlock) {
         pinCodeTextField.shakeAnimation()
-        showAlert(title: "Wrong password".localized(), message: "Try again".localized()) { [weak self] in
+        let message = attemptsRemaining > 0
+            ? "Try again. ".localized() + "Attempts remaining: ".localized() + "\(attemptsRemaining)"
+            : "You have used up all password attempts. You will be logged out.".localized()
+        showAlert(title: "Wrong password".localized(), message: message) { [weak self] in
             self?.pinCodeTextField.text = ""
+            completion()
         }
     }
     
