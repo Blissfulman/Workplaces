@@ -14,7 +14,6 @@
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
 		CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* PinCodeViewController.swift */; };
-		CE09481A26694A040004CD7F /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09481826694A040004CD7F /* PinCodeViewController.xib */; };
 		CE09481C26695C3D0004CD7F /* PinNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481B26695C3D0004CD7F /* PinNumberButton.swift */; };
 		CE09481E266B27770004CD7F /* PinCodeCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */; };
 		CE094820266B4DA50004CD7F /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* PinCodeModel.swift */; };
@@ -201,6 +200,7 @@
 		CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CED966E22670B36A002D2671 /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B25266DF7E200C7BF25 /* SecurityManager.swift */; };
 		CED966E32670B36A002D2671 /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B29266E35FD00C7BF25 /* ProtectionState.swift */; };
+		CED966E82670E1C0002D2671 /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */; };
 		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
 		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
@@ -271,7 +271,6 @@
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
 		CE09481726694A040004CD7F /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
-		CE09481826694A040004CD7F /* PinCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeViewController.xib; sourceTree = "<group>"; };
 		CE09481B26695C3D0004CD7F /* PinNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNumberButton.swift; sourceTree = "<group>"; };
 		CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCoordinatingController.swift; sourceTree = "<group>"; };
 		CE09481F266B4DA50004CD7F /* PinCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeModel.swift; sourceTree = "<group>"; };
@@ -472,6 +471,8 @@
 		CECED98E2637B89100619CF3 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		CECED9922637B9CA00619CF3 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		CED6F3862635EF2500096D72 /* Apexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED966EB2670E1C6002D2671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PinCodeViewController.xib; sourceTree = "<group>"; };
+		CED966EC2670E1D0002D2671 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PinCodeViewController.strings; sourceTree = "<group>"; };
 		CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		CEDFF750265D1FF9000A765C /* PostCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellModel.swift; sourceTree = "<group>"; };
 		CEDFF755265E1364000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -573,7 +574,7 @@
 			children = (
 				CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */,
 				CE09481726694A040004CD7F /* PinCodeViewController.swift */,
-				CE09481826694A040004CD7F /* PinCodeViewController.xib */,
+				CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */,
 				CE09481F266B4DA50004CD7F /* PinCodeModel.swift */,
 			);
 			path = PinCode;
@@ -1601,7 +1602,7 @@
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
-				CE09481A26694A040004CD7F /* PinCodeViewController.xib in Resources */,
+				CED966E82670E1C0002D2671 /* PinCodeViewController.xib in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */,
@@ -2049,6 +2050,15 @@
 				CE15087426428D2B00568006 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED966EB2670E1C6002D2671 /* Base */,
+				CED966EC2670E1D0002D2671 /* ru */,
+			);
+			name = PinCodeViewController.xib;
 			sourceTree = "<group>";
 		};
 		CEDFF754265E135E000A765C /* EditProfileViewController.xib */ = {
