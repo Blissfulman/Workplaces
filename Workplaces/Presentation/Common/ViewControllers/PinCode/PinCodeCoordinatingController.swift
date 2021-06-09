@@ -70,6 +70,7 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
         pinCodeModel.attemptCount += 1
         
         if let refreshToken = securityManager.getRefreshTokenWithPassword(pinCodeModel.password) {
+            pinCodeModel.attemptCount = 0
             securityManager.refreshToken = refreshToken
             securityManager.isAuthorized = true
             refreshTokens(withToken: refreshToken)
