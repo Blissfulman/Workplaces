@@ -74,7 +74,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     func signOut(completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LogoutEndpoint()
-        return apiClient.request(endpoint) { [weak self] result in
+        return apiClient.request(endpoint) { [weak self] _ in
             self?.securityManager.logoutReset()
         }
     }
