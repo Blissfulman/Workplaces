@@ -18,7 +18,6 @@
 		CE09481E266B27770004CD7F /* PinCodeCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */; };
 		CE094820266B4DA50004CD7F /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* PinCodeModel.swift */; };
 		CE094822266BC65B0004CD7F /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094821266BC65B0004CD7F /* KeychainHelper.swift */; };
-		CE094824266CB19D0004CD7F /* LocalAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */; };
 		CE094826266CC0FE0004CD7F /* KeychainStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
 		CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */; };
@@ -275,7 +274,6 @@
 		CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCoordinatingController.swift; sourceTree = "<group>"; };
 		CE09481F266B4DA50004CD7F /* PinCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeModel.swift; sourceTree = "<group>"; };
 		CE094821266BC65B0004CD7F /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
-		CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationManager.swift; sourceTree = "<group>"; };
 		CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageImpl.swift; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		CE09D762262E0EDD009A96B3 /* AuthorizationServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceImpl.swift; sourceTree = "<group>"; };
@@ -1378,7 +1376,6 @@
 			isa = PBXGroup;
 			children = (
 				CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */,
-				CE094823266CB19D0004CD7F /* LocalAuthenticationManager.swift */,
 				CE775B1F266D46BF00C7BF25 /* Protocols */,
 			);
 			path = Managers;
@@ -1858,7 +1855,6 @@
 				CE8F1BE32635194400C0C52C /* AuthorizationService.swift in Sources */,
 				CE094822266BC65B0004CD7F /* KeychainHelper.swift in Sources */,
 				CE1508972643D54800568006 /* NibInitializableView.swift in Sources */,
-				CE094824266CB19D0004CD7F /* LocalAuthenticationManager.swift in Sources */,
 				CEB07519264EE7130060E818 /* SignInModel.swift in Sources */,
 				CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */,
 				CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */,

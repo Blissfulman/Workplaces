@@ -65,10 +65,14 @@ final class KeychainStorageImpl: KeychainStorage {
             password: password
         )
         if result == noErr {
-            print("Token successfully saved!") // TEMP
+            #if DEBUG
+            print("Token successfully saved!")
+            #endif
             return true
         } else {
-            print("Token saving failed, osstatus=\(result)") // TEMP
+            #if DEBUG
+            print("Token saving failed, osstatus=\(result)")
+            #endif
             return false
         }
     }
@@ -84,10 +88,14 @@ final class KeychainStorageImpl: KeychainStorage {
     func saveTokenWithBiometry(token: String) -> Bool {
         let result = KeychainHelper.createBioProtectedEntry(key: tokenKey, data: Data(token.utf8))
         if result == noErr {
-            print("Token successfully saved") // TEMP
+            #if DEBUG
+            print("Token successfully saved")
+            #endif
             return true
         } else {
-            print("Token saving failed, osstatus=\(result)") // TEMP
+            #if DEBUG
+            print("Token saving failed, osstatus=\(result)")
+            #endif
             return false
         }
     }
@@ -111,13 +119,16 @@ final class KeychainStorageImpl: KeychainStorage {
     
     func removeToken() {
         KeychainHelper.remove(key: tokenKey)
-        print("Token was removed") // TEMP
+        #if DEBUG
+        print("Token was removed")
+        #endif
     }
     
-    // TEMP?
     func checkBiometry() {
         let entryExists = KeychainHelper.available(key: tokenKey)
+        #if DEBUG
         print(entryExists ? "Entry exists" : "Entry doesn't exist")
+        #endif
     }
     
     // MARK: - Private methods
@@ -128,11 +139,15 @@ final class KeychainStorageImpl: KeychainStorage {
     }
     
     private func checkBiometryState(_ completion: @escaping (Bool) -> Void) {
+        #if DEBUG
         print("Biometry state: " + biometryState.description)
+        #endif
         
         let bioState = biometryState
         guard bioState != .notAvailable else {
+            #if DEBUG
             print("Can't read entry, biometry not available")
+            #endif
             completion(false)
             return
         }
@@ -147,7 +162,9 @@ final class KeychainStorageImpl: KeychainStorage {
                     if success {
                         completion(true)
                     } else {
+                        #if DEBUG
                         print("Can't read entry, error: \(error?.localizedDescription ?? "-")")
+                        #endif
                         completion(false)
                     }
                 }
