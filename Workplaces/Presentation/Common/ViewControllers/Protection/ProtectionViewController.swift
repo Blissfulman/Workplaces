@@ -20,7 +20,7 @@ final class ProtectionViewController: BaseViewController {
     // MARK: - Outlets
     
     @IBOutlet private var messageLabel: UILabel!
-    @IBOutlet private var pinCodeTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     
     // MARK: - Private properties
     
@@ -50,9 +50,9 @@ final class ProtectionViewController: BaseViewController {
     
     /// Отображает анимацию поля пароля, сообщающую о неверно введённом пароле.
     func indicateToWrongPassword(completion: @escaping VoidBlock) {
-        pinCodeTextField.shakeAnimation()
+        passwordTextField.shakeAnimation()
         showAlert(title: "Wrong password".localized(), message: protectionModel.passwordErrorMessage) { [weak self] in
-            self?.pinCodeTextField.text = ""
+            self?.passwordTextField.text = ""
             completion()
         }
     }
@@ -64,12 +64,12 @@ final class ProtectionViewController: BaseViewController {
     }
     
     @IBAction private func numberButtonTapped(_ sender: UIButton) {
-        guard let enteredPassword = pinCodeTextField.text,
+        guard let enteredPassword = passwordTextField.text,
               enteredPassword.count < 4 else { return }
         
         if let number = sender.titleLabel?.text {
             protectionModel.password = "\(enteredPassword)\(number)"
-            pinCodeTextField.text = protectionModel.password
+            passwordTextField.text = protectionModel.password
         }
         
         if protectionModel.password.count == 4 {
@@ -82,16 +82,16 @@ final class ProtectionViewController: BaseViewController {
     }
     
     @IBAction private func backspaceButtonTapped() {
-        if let pinCode = pinCodeTextField.text, !pinCode.isEmpty {
-            pinCodeTextField.text = "\(pinCode.dropLast())"
+        if let password = passwordTextField.text, !password.isEmpty {
+            passwordTextField.text = "\(password.dropLast())"
         }
-        protectionModel.password = pinCodeTextField.text ?? ""
+        protectionModel.password = passwordTextField.text ?? ""
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
         messageLabel.text = protectionModel.screenMessage
-        pinCodeTextField.font = Fonts.title
+        passwordTextField.font = Fonts.title
     }
 }

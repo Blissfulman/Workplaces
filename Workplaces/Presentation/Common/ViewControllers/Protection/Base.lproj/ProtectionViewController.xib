@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -18,7 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProtectionViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="messageLabel" destination="BEA-zi-EXW" id="3Eh-fg-oE6"/>
-                <outlet property="pinCodeTextField" destination="EgU-yr-gEd" id="rNG-Ur-Xel"/>
+                <outlet property="passwordTextField" destination="EgU-yr-gEd" id="rNG-Ur-Xel"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,27 +26,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PSR-QX-cyz">
-                    <rect key="frame" x="40" y="376.66666666666674" width="310" height="413.33333333333326"/>
+                    <rect key="frame" x="40" y="410.5" width="310" height="413.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="R71-n1-mL5">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="91.333333333333329"/>
+                            <rect key="frame" x="0.0" y="0.0" width="310" height="91.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIZ-Jv-7BD" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="91.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="91.5" height="91.5"/>
                                     <state key="normal" title="1"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="udW-A2-a3z"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhW-eh-lah" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="109.33333333333334" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="109.5" y="0.0" width="91" height="91.5"/>
                                     <state key="normal" title="2"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="UEU-Wm-9N7"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubH-zp-mYJ" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="218.66666666666671" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="218.5" y="0.0" width="91.5" height="91.5"/>
                                     <state key="normal" title="3"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="LaM-xq-yfK"/>
@@ -57,24 +55,24 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Vkn-V5-xQZ">
-                            <rect key="frame" x="0.0" y="107.33333333333331" width="310" height="91.333333333333314"/>
+                            <rect key="frame" x="0.0" y="107.5" width="310" height="91.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSz-JW-8pU" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="91.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="91.5" height="91.5"/>
                                     <state key="normal" title="4"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="3Gw-Y1-oyc"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9Z-pB-3rB" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="109.33333333333334" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="109.5" y="0.0" width="91" height="91.5"/>
                                     <state key="normal" title="5"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="Wq0-cg-kjl"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-FI-tzG" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="218.66666666666671" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="218.5" y="0.0" width="91.5" height="91.5"/>
                                     <state key="normal" title="6"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="REW-zw-B7v"/>
@@ -83,24 +81,24 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-5y-DBu">
-                            <rect key="frame" x="0.0" y="214.66666666666671" width="310" height="91.333333333333343"/>
+                            <rect key="frame" x="0.0" y="215" width="310" height="91"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-k3-JeW" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="91.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="91.5" height="91"/>
                                     <state key="normal" title="7"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="5oB-bX-Etk"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upH-FO-lEk" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="109.33333333333334" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="109.5" y="0.0" width="91" height="91"/>
                                     <state key="normal" title="8"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="INK-7H-AGs"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpD-g1-uUK" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="218.66666666666671" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="218.5" y="0.0" width="91.5" height="91"/>
                                     <state key="normal" title="9"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="LCd-nO-8kU"/>
@@ -109,10 +107,10 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="69f-nS-XMZ">
-                            <rect key="frame" x="0.0" y="321.99999999999994" width="310" height="91.333333333333314"/>
+                            <rect key="frame" x="0.0" y="322" width="310" height="91.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-RU-6fq" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="91.333333333333329" height="91.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="91.5" height="91.5"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                     <state key="normal" image="fingerprint"/>
@@ -121,14 +119,14 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roe-Qe-jV5" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="109.33333333333334" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="109.5" y="0.0" width="91" height="91.5"/>
                                     <state key="normal" title="0"/>
                                     <connections>
                                         <action selector="numberButtonTapped:" destination="-1" eventType="touchUpInside" id="sLV-Ii-xo4"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxa-N9-d1H" customClass="PinNumberButton" customModule="Workplaces" customModuleProvider="target">
-                                    <rect key="frame" x="218.66666666666671" y="0.0" width="91.333333333333343" height="91.333333333333329"/>
+                                    <rect key="frame" x="218.5" y="0.0" width="91.5" height="91.5"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
                                     <state key="normal" image="backspace"/>
@@ -144,18 +142,18 @@
                     </constraints>
                 </stackView>
                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="200" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-yr-gEd">
-                    <rect key="frame" x="20" y="143" width="350" height="233.66666666666663"/>
+                    <rect key="frame" x="20" y="94.5" width="350" height="316"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-zi-EXW">
-                    <rect key="frame" x="20" y="117" width="350" height="26"/>
+                    <rect key="frame" x="20" y="71" width="350" height="23.5"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-qe-RAa">
-                    <rect key="frame" x="340" y="64" width="30" height="33"/>
+                    <rect key="frame" x="340" y="20" width="30" height="31"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                     <state key="normal" title="Exit">
                         <color key="titleColor" name="orange"/>
