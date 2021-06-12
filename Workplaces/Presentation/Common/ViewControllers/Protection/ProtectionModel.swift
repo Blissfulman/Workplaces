@@ -1,11 +1,11 @@
 //
-//  PinCodeModel.swift
+//  ProtectionModel.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 05.06.2021.
 //
 
-final class PinCodeModel {
+final class ProtectionModel {
     
     // MARK: - Nested types
     

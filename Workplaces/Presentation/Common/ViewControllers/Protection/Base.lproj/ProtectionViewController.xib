@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinCodeViewController" customModule="Workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProtectionViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="messageLabel" destination="BEA-zi-EXW" id="3Eh-fg-oE6"/>
                 <outlet property="pinCodeTextField" destination="EgU-yr-gEd" id="rNG-Ur-Xel"/>

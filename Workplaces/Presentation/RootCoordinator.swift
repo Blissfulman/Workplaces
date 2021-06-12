@@ -49,11 +49,11 @@ final class RootCoordinator {
     }
     
     private func startPinCodeCoordinatingController() {
-        let pinCodeCoordinatingController = PinCodeCoordinatingController { [weak self] in
+        let protectionCoordinatingController = ProtectionCoordinatingController { [weak self] in
             self?.start()
         }
-        pinCodeCoordinatingController.start()
-        window?.rootViewController = pinCodeCoordinatingController
+        protectionCoordinatingController.start()
+        window?.rootViewController = protectionCoordinatingController
     }
     
     private func startTabBarCoordinatingController() {

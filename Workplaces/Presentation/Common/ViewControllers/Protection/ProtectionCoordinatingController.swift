@@ -1,5 +1,5 @@
 //
-//  PinCodeCoordinatingController.swift
+//  ProtectionCoordinatingController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 05.06.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PinCodeCoordinatingController: BaseViewController, Coordinator {
+final class ProtectionCoordinatingController: BaseViewController, Coordinator {
     
     // MARK: - Public properties
     
@@ -15,10 +15,10 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     
     // MARK: - Private properties
     
-    private var pinCodeModel: PinCodeModel!
+    private var protectionModel: ProtectionModel!
     private let tokenRefreshService: TokenRefreshService
     private let securityManager: SecurityManager
-    private lazy var pinCodeVC = PinCodeViewController(pinCodeModel: pinCodeModel, delegate: self)
+    private lazy var protectionVC = ProtectionViewController(protectionModel: protectionModel, delegate: self)
     
     // MARK: - Initializers
     
@@ -49,16 +49,16 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     
     private func createPinCodeModel() {
         let isInstalledProtection = securityManager.protectionState != .none
-        pinCodeModel = PinCodeModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
+        protectionModel = ProtectionModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
     }
     
     private func setupUI() {
-        addFullover(pinCodeVC)
+        addFullover(protectionVC)
     }
     
     private func trySaveRefreshTokenWithPassword() {
         if let token = securityManager.refreshToken {
-            if securityManager.saveRefreshTokenWithPassword(token: token, password: pinCodeModel.password) {
+            if securityManager.saveRefreshTokenWithPassword(token: token, password: protectionModel.password) {
                 securityManager.isAuthorized = true
                 securityManager.protectionState = .passwordProtected
                 onFinish()
@@ -67,17 +67,17 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     }
     
     private func tryEnterWithPassword() {
-        pinCodeModel.attemptCount += 1
+        protectionModel.attemptCount += 1
         
-        if let refreshToken = securityManager.getRefreshTokenWithPassword(pinCodeModel.password) {
-            pinCodeModel.attemptCount = 0
+        if let refreshToken = securityManager.getRefreshTokenWithPassword(protectionModel.password) {
+            protectionModel.attemptCount = 0
             securityManager.refreshToken = refreshToken
             securityManager.isAuthorized = true
             refreshTokens(withToken: refreshToken)
         } else {
-            pinCodeVC.indicateToWrongPassword { [weak self] in
+            protectionVC.indicateToWrongPassword { [weak self] in
                 guard let self = self else { return }
-                if self.pinCodeModel.needLogOut {
+                if self.protectionModel.needLogOut {
                     self.logOut()
                 }
             }
@@ -96,9 +96,9 @@ final class PinCodeCoordinatingController: BaseViewController, Coordinator {
     }
 }
 
-// MARK: - PinCodeViewControllerDelegate
+// MARK: - ProtectionViewControllerDelegate
 
-extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
+extension ProtectionCoordinatingController: ProtectionViewControllerDelegate {
     
     func logOut() {
         securityManager.logoutReset()
@@ -110,6 +110,6 @@ extension PinCodeCoordinatingController: PinCodeViewControllerDelegate {
     }
     
     func didEnterPassword() {
-        pinCodeModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
+        protectionModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
     }
 }

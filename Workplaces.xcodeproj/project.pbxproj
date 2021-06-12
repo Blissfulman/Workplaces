@@ -13,10 +13,10 @@
 		C68C97F900542DB4CC350EA8 /* Pods_WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE54EBC6CB84E58C4BC722FC /* Pods_WorkplacesAPI.framework */; };
 		CE0748312633FB8C00C628FF /* ZeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0748302633FB8C00C628FF /* ZeroView.swift */; };
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
-		CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* PinCodeViewController.swift */; };
+		CE09481926694A040004CD7F /* ProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* ProtectionViewController.swift */; };
 		CE09481C26695C3D0004CD7F /* PinNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481B26695C3D0004CD7F /* PinNumberButton.swift */; };
-		CE09481E266B27770004CD7F /* PinCodeCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */; };
-		CE094820266B4DA50004CD7F /* PinCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* PinCodeModel.swift */; };
+		CE09481E266B27770004CD7F /* ProtectionCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */; };
+		CE094820266B4DA50004CD7F /* ProtectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* ProtectionModel.swift */; };
 		CE094822266BC65B0004CD7F /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094821266BC65B0004CD7F /* KeychainHelper.swift */; };
 		CE094826266CC0FE0004CD7F /* KeychainStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */; };
 		CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09D75D262E0502009A96B3 /* ServiceLayer.swift */; };
@@ -199,7 +199,7 @@
 		CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CED966E22670B36A002D2671 /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B25266DF7E200C7BF25 /* SecurityManager.swift */; };
 		CED966E32670B36A002D2671 /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B29266E35FD00C7BF25 /* ProtectionState.swift */; };
-		CED966E82670E1C0002D2671 /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */; };
+		CED966E82670E1C0002D2671 /* ProtectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED966EA2670E1C0002D2671 /* ProtectionViewController.xib */; };
 		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
 		CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDFF754265E135E000A765C /* EditProfileViewController.xib */; };
@@ -269,10 +269,10 @@
 		BBA601C45707BE1116334C8C /* Pods-Workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.release.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.release.xcconfig"; sourceTree = "<group>"; };
 		CE0748302633FB8C00C628FF /* ZeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroView.swift; sourceTree = "<group>"; };
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
-		CE09481726694A040004CD7F /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
+		CE09481726694A040004CD7F /* ProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionViewController.swift; sourceTree = "<group>"; };
 		CE09481B26695C3D0004CD7F /* PinNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNumberButton.swift; sourceTree = "<group>"; };
-		CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeCoordinatingController.swift; sourceTree = "<group>"; };
-		CE09481F266B4DA50004CD7F /* PinCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeModel.swift; sourceTree = "<group>"; };
+		CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionCoordinatingController.swift; sourceTree = "<group>"; };
+		CE09481F266B4DA50004CD7F /* ProtectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionModel.swift; sourceTree = "<group>"; };
 		CE094821266BC65B0004CD7F /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageImpl.swift; sourceTree = "<group>"; };
 		CE09D75D262E0502009A96B3 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
@@ -469,8 +469,8 @@
 		CECED98E2637B89100619CF3 /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
 		CECED9922637B9CA00619CF3 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
 		CED6F3862635EF2500096D72 /* Apexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CED966EB2670E1C6002D2671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PinCodeViewController.xib; sourceTree = "<group>"; };
-		CED966EC2670E1D0002D2671 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PinCodeViewController.strings; sourceTree = "<group>"; };
+		CED966EB2670E1C6002D2671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProtectionViewController.xib; sourceTree = "<group>"; };
+		CED966EC2670E1D0002D2671 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProtectionViewController.strings; sourceTree = "<group>"; };
 		CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		CEDFF750265D1FF9000A765C /* PostCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellModel.swift; sourceTree = "<group>"; };
 		CEDFF755265E1364000A765C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -567,15 +567,15 @@
 			path = Zero;
 			sourceTree = "<group>";
 		};
-		CE094816266949D30004CD7F /* PinCode */ = {
+		CE094816266949D30004CD7F /* Protection */ = {
 			isa = PBXGroup;
 			children = (
-				CE09481D266B27770004CD7F /* PinCodeCoordinatingController.swift */,
-				CE09481726694A040004CD7F /* PinCodeViewController.swift */,
-				CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */,
-				CE09481F266B4DA50004CD7F /* PinCodeModel.swift */,
+				CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */,
+				CE09481726694A040004CD7F /* ProtectionViewController.swift */,
+				CED966EA2670E1C0002D2671 /* ProtectionViewController.xib */,
+				CE09481F266B4DA50004CD7F /* ProtectionModel.swift */,
 			);
-			path = PinCode;
+			path = Protection;
 			sourceTree = "<group>";
 		};
 		CE09D765262E8BD9009A96B3 /* TabBar */ = {
@@ -747,7 +747,7 @@
 				CEE7FBCA262D8F00001D5DAD /* NavigationController.swift */,
 				CE0BE5B7265FB43200C0DD04 /* BaseViewController.swift */,
 				CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */,
-				CE094816266949D30004CD7F /* PinCode */,
+				CE094816266949D30004CD7F /* Protection */,
 				CE8F1B5A2633FE7300C0C52C /* Zero */,
 				CEA46B5F2646C19B007C2DCE /* PostList */,
 				CEA46B7326495E23007C2DCE /* FriendList */,
@@ -1599,7 +1599,7 @@
 				CE1508912642A24300568006 /* Localizable.strings in Resources */,
 				CEDFF757265E1560000A765C /* FriendListLastCell.xib in Resources */,
 				CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */,
-				CED966E82670E1C0002D2671 /* PinCodeViewController.xib in Resources */,
+				CED966E82670E1C0002D2671 /* ProtectionViewController.xib in Resources */,
 				CE15088226429C6F00568006 /* SignInDoneViewController.xib in Resources */,
 				CEB8B87E262CA92900F030ED /* Images.xcassets in Resources */,
 				CEA46B5E2646C193007C2DCE /* PostListViewController.xib in Resources */,
@@ -1840,11 +1840,11 @@
 				CEE7FBB7262D5E3D001D5DAD /* SignInViewController.swift in Sources */,
 				CE09D763262E0EDD009A96B3 /* AuthorizationServiceImpl.swift in Sources */,
 				CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */,
-				CE094820266B4DA50004CD7F /* PinCodeModel.swift in Sources */,
+				CE094820266B4DA50004CD7F /* ProtectionModel.swift in Sources */,
 				CE09D768262E8C10009A96B3 /* TabBarCoordinatingController.swift in Sources */,
 				CE972181263EFC9A006ACEB2 /* FeedCoordinator.swift in Sources */,
 				CE12A25926371C1A00EE6549 /* Constants.swift in Sources */,
-				CE09481926694A040004CD7F /* PinCodeViewController.swift in Sources */,
+				CE09481926694A040004CD7F /* ProtectionViewController.swift in Sources */,
 				CE775B21266D46D600C7BF25 /* KeychainStorage.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
@@ -1866,7 +1866,7 @@
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
 				CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */,
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
-				CE09481E266B27770004CD7F /* PinCodeCoordinatingController.swift in Sources */,
+				CE09481E266B27770004CD7F /* ProtectionCoordinatingController.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
 				CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */,
@@ -2048,13 +2048,13 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		CED966EA2670E1C0002D2671 /* PinCodeViewController.xib */ = {
+		CED966EA2670E1C0002D2671 /* ProtectionViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CED966EB2670E1C6002D2671 /* Base */,
 				CED966EC2670E1D0002D2671 /* ru */,
 			);
-			name = PinCodeViewController.xib;
+			name = ProtectionViewController.xib;
 			sourceTree = "<group>";
 		};
 		CEDFF754265E135E000A765C /* EditProfileViewController.xib */ = {

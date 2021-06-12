@@ -1,5 +1,5 @@
 //
-//  PinCodeViewController.swift
+//  ProtectionViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 03.06.2021.
@@ -9,13 +9,13 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol PinCodeViewControllerDelegate: AnyObject {
+protocol ProtectionViewControllerDelegate: AnyObject {
     func logOut()
     func didTapFingerprintButton()
     func didEnterPassword()
 }
 
-final class PinCodeViewController: BaseViewController {
+final class ProtectionViewController: BaseViewController {
     
     // MARK: - Outlets
     
@@ -24,13 +24,13 @@ final class PinCodeViewController: BaseViewController {
     
     // MARK: - Private properties
     
-    private let pinCodeModel: PinCodeModel
-    private weak var delegate: PinCodeViewControllerDelegate?
+    private let protectionModel: ProtectionModel
+    private weak var delegate: ProtectionViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(pinCodeModel: PinCodeModel, delegate: PinCodeViewControllerDelegate) {
-        self.pinCodeModel = pinCodeModel
+    init(protectionModel: ProtectionModel, delegate: ProtectionViewControllerDelegate) {
+        self.protectionModel = protectionModel
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -51,7 +51,7 @@ final class PinCodeViewController: BaseViewController {
     /// Отображает анимацию поля пароля, сообщающую о неверно введённом пароле.
     func indicateToWrongPassword(completion: @escaping VoidBlock) {
         pinCodeTextField.shakeAnimation()
-        showAlert(title: "Wrong password".localized(), message: pinCodeModel.passwordErrorMessage) { [weak self] in
+        showAlert(title: "Wrong password".localized(), message: protectionModel.passwordErrorMessage) { [weak self] in
             self?.pinCodeTextField.text = ""
             completion()
         }
@@ -68,11 +68,11 @@ final class PinCodeViewController: BaseViewController {
               enteredPassword.count < 4 else { return }
         
         if let number = sender.titleLabel?.text {
-            pinCodeModel.password = "\(enteredPassword)\(number)"
-            pinCodeTextField.text = pinCodeModel.password
+            protectionModel.password = "\(enteredPassword)\(number)"
+            pinCodeTextField.text = protectionModel.password
         }
         
-        if pinCodeModel.password.count == 4 {
+        if protectionModel.password.count == 4 {
             delegate?.didEnterPassword()
         }
     }
@@ -85,13 +85,13 @@ final class PinCodeViewController: BaseViewController {
         if let pinCode = pinCodeTextField.text, !pinCode.isEmpty {
             pinCodeTextField.text = "\(pinCode.dropLast())"
         }
-        pinCodeModel.password = pinCodeTextField.text ?? ""
+        protectionModel.password = pinCodeTextField.text ?? ""
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
-        messageLabel.text = pinCodeModel.screenMessage
+        messageLabel.text = protectionModel.screenMessage
         pinCodeTextField.font = Fonts.title
     }
 }
