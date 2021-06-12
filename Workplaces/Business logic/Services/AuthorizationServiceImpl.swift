@@ -13,13 +13,13 @@ final class AuthorizationServiceImpl: AuthorizationService {
     // MARK: - Private properties
     
     private let apiClient: Client
-    private let authDataStorage: AuthDataStorage
+    private let securityManager: SecurityManager
     
     // MARK: - Initializers
     
-    init(apiClient: Client, authDataStorage: AuthDataStorage) {
+    init(apiClient: Client, securityManager: SecurityManager) {
         self.apiClient = apiClient
-        self.authDataStorage = authDataStorage
+        self.securityManager = securityManager
     }
     
     // MARK: - Public methods
@@ -32,7 +32,9 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
+                self?.securityManager.isAuthorized = true
+                self?.securityManager.refreshToken = authorizationData.refreshToken
+                self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -48,7 +50,9 @@ final class AuthorizationServiceImpl: AuthorizationService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.authDataStorage.saveAuthData(authorizationData)
+                self?.securityManager.isAuthorized = true
+                self?.securityManager.refreshToken = authorizationData.refreshToken
+                self?.securityManager.accessToken = authorizationData.accessToken
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(AuthorizationServiceError(error: error.unwrapAFError())))
@@ -70,14 +74,7 @@ final class AuthorizationServiceImpl: AuthorizationService {
     
     func signOut(completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LogoutEndpoint()
-        return apiClient.request(endpoint) { [weak self] result in
-            switch result {
-            case .success:
-                self?.authDataStorage.deleteAuthData()
-                completion(.success(()))
-            case .failure:
-                break
-            }
-        }
+        securityManager.logoutReset()
+        return apiClient.request(endpoint) { _ in }
     }
 }

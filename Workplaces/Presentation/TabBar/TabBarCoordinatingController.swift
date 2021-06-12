@@ -12,7 +12,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     // MARK: - Public properties
     
     var onFinish: VoidBlock
-        
+    
     // MARK: - Private properties
     
     private var feedCoordinator: FeedCoordinator?

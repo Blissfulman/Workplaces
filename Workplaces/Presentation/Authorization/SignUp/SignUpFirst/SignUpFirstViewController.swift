@@ -16,10 +16,6 @@ protocol SignUpFirstViewControllerDelegate: AnyObject {
 
 final class SignUpFirstViewController: KeyboardNotificationsViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignUpFirstViewControllerDelegate?
-    
     // MARK: - Outlets
     
     @IBOutlet private var emailTextField: UITextField!
@@ -30,6 +26,7 @@ final class SignUpFirstViewController: KeyboardNotificationsViewController {
     // MARK: - Private properties
     
     private let signUpModel: SignUpModel
+    private weak var delegate: SignUpFirstViewControllerDelegate?
     
     // MARK: - Initializers
     

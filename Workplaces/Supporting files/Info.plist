@@ -63,5 +63,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Accessing sample keychain entry</string>
 </dict>
 </plist>

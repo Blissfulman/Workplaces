@@ -13,7 +13,7 @@ extension UIViewController {
     /// - Parameters:
     ///   - error: Ошибка.
     ///   - competion: Блок, выполняемый после нажатия кнопки "Ok" в открывшемся `UIAlertController`.
-    func showAlert(_ error: Error?, competion: VoidBlock? = nil) {
+    func showAlert(error: Error?, competion: VoidBlock? = nil) {
         DispatchQueue.main.async { [weak self] in
             LoadingView.hide()
             
@@ -22,6 +22,26 @@ extension UIViewController {
                 message: error?.localizedDescription,
                 preferredStyle: .alert
             )
+            let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+                competion?()
+            }
+            alert.addAction(okAction)
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    /// Отображение всплывающего окна с переданным заголовком и сообщением с помощью `UIAlertController`.
+    ///
+    /// Сообщение не является обязательным.
+    /// - Parameters:
+    ///   - title: Заголовок.
+    ///   - message: Сообщение.
+    ///   - competion: Блок, выполняемый после нажатия кнопки "Ok" в открывшемся `UIAlertController`.
+    func showAlert(title: String, message: String? = nil, competion: VoidBlock? = nil) {
+        DispatchQueue.main.async { [weak self] in
+            LoadingView.hide()
+            
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
                 competion?()
             }

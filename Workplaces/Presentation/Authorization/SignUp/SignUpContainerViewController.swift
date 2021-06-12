@@ -10,21 +10,20 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpContainerViewControllerDelegate: AnyObject {
-    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func goToSignIn()
+    func successfulSignUp(delegate: ProtectionContainerViewControllerDelegate)
+    func didCancelSetUpProtectionOnSignUp()
+    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func didFinishSignUp()
 }
 
 final class SignUpContainerViewController: BaseViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignUpContainerViewControllerDelegate?
-    
     // MARK: - Private properties
     
     private let authorizationService: AuthorizationService
     private let profileService: ProfileService
+    private weak var delegate: SignUpContainerViewControllerDelegate?
     private let signUpModel = SignUpModel()
     private var progressList = [Progress]()
     private lazy var signUpFirstVC = SignUpFirstViewController(signUpModel: signUpModel, delegate: self)
@@ -72,15 +71,15 @@ final class SignUpContainerViewController: BaseViewController {
         
         switch authError {
         case .emailValidationError, .dublicateUserError:
-            showAlert(authError) { [weak self] in
+            showAlert(error: authError) { [weak self] in
                 self?.signUpFirstVC.indicateToIncorrectEmail()
             }
         case .passwordValidationError:
-            showAlert(authError) { [weak self] in
+            showAlert(error: authError) { [weak self] in
                 self?.signUpFirstVC.indicateToIncorrectPassword()
             }
         default:
-            showAlert(authError)
+            showAlert(error: authError)
         }
     }
 }
@@ -99,7 +98,7 @@ extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
             
             switch result {
             case .success:
-                self.delegate?.goToSignUpSecondScreen(signUpModel: self.signUpModel, delegate: self)
+                self.delegate?.successfulSignUp(delegate: self)
             case let .failure(error):
                 self.handleAuthorizationError(error)
             }
@@ -121,4 +120,19 @@ extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
         progressList.append(progress)
         delegate?.didFinishSignUp()
     }
+}
+
+// MARK: - ProtectionContainerViewControllerDelegate
+
+extension SignUpContainerViewController: ProtectionContainerViewControllerDelegate {
+    
+    func didCancelSetUpProtection() {
+        delegate?.didCancelSetUpProtectionOnSignUp()
+    }
+    
+    func didSetProtection() {
+        delegate?.goToSignUpSecondScreen(signUpModel: signUpModel, delegate: self)
+    }
+    
+    func didPassProtectionCheck() {}
 }

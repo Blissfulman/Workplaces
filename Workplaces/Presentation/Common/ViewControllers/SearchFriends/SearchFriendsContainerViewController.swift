@@ -104,7 +104,9 @@ extension SearchFriendsContainerViewController: SearchFriendsViewControllerDeleg
                     ? self?.hideUserList()
                     : self?.showUserList()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -125,7 +127,9 @@ extension SearchFriendsContainerViewController: UserListDataSourceDelegate {
             case .success:
                 self?.fetchFriends()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)

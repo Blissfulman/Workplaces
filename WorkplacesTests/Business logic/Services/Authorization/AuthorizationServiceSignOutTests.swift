@@ -15,18 +15,18 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
     
     private let client = ClientMock<LogoutEndpoint>()
     private var authorizationService: AuthorizationService?
-    private var authDataStorage = AuthDataStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
+    private var securityManager = SecurityManagerFake()
     private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
     
     // MARK: - XCTestCase
     
     override func setUp() {
         super.setUp()
-        authorizationService = AuthorizationServiceImpl(apiClient: client, authDataStorage: authDataStorage)
+        authorizationService = AuthorizationServiceImpl(apiClient: client, securityManager: securityManager)
     }
-
+    
     override func tearDown() {
-        authDataStorage.deleteAuthData()
+        securityManager.logoutReset()
         super.tearDown()
     }
     
@@ -59,24 +59,41 @@ final class AuthorizationServiceSignOutTests: XCTestCase {
         }
     }
     
-    func testTokenShouldBeRemovedWhenSignOutSuccessful() {
-        authDataStorage.saveAuthData(authorizationData)
+    func testTokensShouldBeRemovedWhenSignOutSuccessful() {
+        securityManager.refreshToken = authorizationData.refreshToken
+        securityManager.accessToken = authorizationData.accessToken
         client.result = .success(())
         
-        authorizationService?.signOut { [weak self] _ in
-            XCTAssertNil(self?.authDataStorage.accessToken)
-            XCTAssertNil(self?.authDataStorage.refreshToken)
-        }
+        authorizationService?.signOut { _ in }
+        XCTAssertNil(securityManager.refreshToken)
+        XCTAssertNil(securityManager.accessToken)
     }
     
-    func testTokenShouldNotBeRemovedWhenSignOutFailed() {
-        authDataStorage.saveAuthData(authorizationData)
+    func testTokensShouldBeRemovedWhenSignOutFailed() {
+        securityManager.refreshToken = authorizationData.refreshToken
+        securityManager.accessToken = authorizationData.accessToken
         let error = APIError(code: .genericError, message: "")
         client.result = .failure(error)
-                
-        authorizationService?.signOut { [weak self] _ in
-            XCTAssertNotNil(self?.authDataStorage.accessToken)
-            XCTAssertNotNil(self?.authDataStorage.refreshToken)
-        }
+        
+        authorizationService?.signOut { _ in }
+        XCTAssertNil(securityManager.refreshToken)
+        XCTAssertNil(securityManager.accessToken)
+    }
+    
+    func testIsAuthorizedShouldBeFalseWhenSignOutSuccessful() {
+        securityManager.isAuthorized = true
+        client.result = .success(())
+        
+        authorizationService?.signOut { _ in }
+        XCTAssertFalse(self.securityManager.isAuthorized)
+    }
+    
+    func testIsAuthorizedShouldBeFalseWhenSignOutFailed() {
+        securityManager.isAuthorized = true
+        let error = APIError(code: .genericError, message: "")
+        client.result = .failure(error)
+        
+        authorizationService?.signOut { _ in }
+        XCTAssertFalse(self.securityManager.isAuthorized)
     }
 }

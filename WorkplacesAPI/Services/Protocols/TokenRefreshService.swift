@@ -9,8 +9,8 @@ public protocol TokenRefreshService {
     
     typealias ResultHandler<T> = (Result<T, Error>) -> Void
     
-    /// Обновление токена доступа.
+    /// Обновление токенов.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func refreshToken(completion: @escaping ResultHandler<AuthorizationData>) -> Progress
+    func refreshTokens(completion: @escaping ResultHandler<AuthorizationData>) -> Progress
 }

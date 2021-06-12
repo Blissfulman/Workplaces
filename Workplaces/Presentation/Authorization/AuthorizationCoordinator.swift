@@ -20,25 +20,30 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     // MARK: - Private properties
     
     private weak var navigationController: NavigationController?
+    private let securityManager: SecurityManager
     
     // MARK: - Initializers
     
-    init(navigationController: NavigationController, onFinish: @escaping VoidBlock) {
+    init(
+        navigationController: NavigationController,
+        securityManager: SecurityManager = ServiceLayer.shared.securityManager,
+        onFinish: @escaping VoidBlock
+    ) {
         self.navigationController = navigationController
+        self.securityManager = securityManager
         self.onFinish = onFinish
     }
     
     // MARK: - Public methods
     
     func start() {
-        showLoginScreen()
+        securityManager.isSavedRefreshToken ? showProtectionScreen(delegate: self) : showLoginScreen()
     }
     
     // MARK: - Private methods
     
     private func showLoginScreen() {
-        let loginVC = LoginViewController()
-        loginVC.delegate = self
+        let loginVC = LoginViewController(delegate: self)
         navigationController?.show(loginVC, sender: nil)
     }
     
@@ -50,6 +55,11 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         
         let signInContainerVC = SignInContainerViewController(delegate: self)
         navigationController?.show(signInContainerVC, sender: nil)
+    }
+    
+    private func showProtectionScreen(delegate: ProtectionContainerViewControllerDelegate) {
+        let protectionContainerVC = ProtectionContainerViewController(delegate: delegate)
+        navigationController?.show(protectionContainerVC, sender: nil)
     }
     
     private func showSignUpContainerController() {
@@ -68,8 +78,7 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     }
     
     private func showSignInDoneScreen() {
-        let signInDoneVC = SignInDoneViewController()
-        signInDoneVC.delegate = self
+        let signInDoneVC = SignInDoneViewController(delegate: self)
         navigationController?.show(signInDoneVC, sender: nil)
     }
     
@@ -105,7 +114,15 @@ extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
         showSignUpContainerController()
     }
     
-    func successfulSignIn() {
+    func successfulSignIn(delegate: ProtectionContainerViewControllerDelegate) {
+        showProtectionScreen(delegate: delegate)
+    }
+    
+    func didCancelSetUpProtectionOnSignIn() {
+        onFinish()
+    }
+    
+    func didFinishSignIn() {
         showSignInDoneScreen()
     }
 }
@@ -114,12 +131,20 @@ extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
 
 extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
     
-    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
-        showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)
-    }
-    
     func goToSignIn() {
         showSignInScreen()
+    }
+    
+    func successfulSignUp(delegate: ProtectionContainerViewControllerDelegate) {
+        showProtectionScreen(delegate: delegate)
+    }
+    
+    func didCancelSetUpProtectionOnSignUp() {
+        onFinish()
+    }
+    
+    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)
     }
     
     func didFinishSignUp() {
@@ -133,5 +158,20 @@ extension AuthorizationCoordinatorImpl: SignInDoneScreenDelegate {
     
     func goToFeed() {
         showTabBarController()
+    }
+}
+
+// MARK: - SignInDoneScreenDelegate
+
+extension AuthorizationCoordinatorImpl: ProtectionContainerViewControllerDelegate {
+    
+    func didCancelSetUpProtection() {
+        onFinish()
+    }
+    
+    func didSetProtection() {}
+    
+    func didPassProtectionCheck() {
+        onFinish()
     }
 }

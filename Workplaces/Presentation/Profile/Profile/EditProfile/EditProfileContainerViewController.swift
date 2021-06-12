@@ -73,7 +73,7 @@ extension EditProfileContainerViewController: EditProfileViewControllerDelegate 
             case .success:
                 self?.delegate?.profileDidSave()
             case let .failure(error):
-                self?.showAlert(error)
+                self?.showAlert(error: error)
             }
         }
         progressList.append(progress)

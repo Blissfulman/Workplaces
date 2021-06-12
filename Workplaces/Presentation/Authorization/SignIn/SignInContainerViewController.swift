@@ -11,7 +11,9 @@ import UIKit
 
 protocol SignInContainerViewControllerDelegate: AnyObject {
     func goToSignUp()
-    func successfulSignIn()
+    func successfulSignIn(delegate: ProtectionContainerViewControllerDelegate)
+    func didCancelSetUpProtectionOnSignIn()
+    func didFinishSignIn()
 }
 
 final class SignInContainerViewController: BaseViewController {
@@ -75,14 +77,30 @@ extension SignInContainerViewController: SignInViewControllerDelegate {
         
         let progress = authorizationService.signInWithEmail(userCredentials: userCredentials) { [weak self] result in
             LoadingView.hide()
+            guard let self = self else { return }
             
             switch result {
             case .success:
-                self?.delegate?.successfulSignIn()
+                self.delegate?.successfulSignIn(delegate: self)
             case let .failure(error):
-                self?.showAlert(error)
+                self.showAlert(error: error)
             }
         }
         progressList.append(progress)
     }
+}
+
+// MARK: - ProtectionContainerViewControllerDelegate
+
+extension SignInContainerViewController: ProtectionContainerViewControllerDelegate {
+    
+    func didCancelSetUpProtection() {
+        delegate?.didCancelSetUpProtectionOnSignIn()
+    }
+    
+    func didSetProtection() {
+        delegate?.didFinishSignIn()
+    }
+    
+    func didPassProtectionCheck() {}
 }

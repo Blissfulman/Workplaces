@@ -113,12 +113,9 @@ final class ProfileContainerViewController: BaseViewController {
     // MARK: - Actions
     
     @objc private func logOutBarButtonTapped() {
-        let progress = authorizationService.signOut { [weak self] result in
-            if case .success = result {
-                self?.delegate?.signOut()
-            }
-        }
+        let progress = authorizationService.signOut { _ in }
         progressList.append(progress)
+        delegate?.signOut()
     }
     
     // MARK: - Private methods
@@ -240,7 +237,9 @@ extension ProfileContainerViewController {
                 self?.navigationItem.title = profile.nickname
                 self?.configureProfileTopView()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -256,7 +255,9 @@ extension ProfileContainerViewController {
             case let .success(myPosts):
                 self?.postListDataSource.updateData(posts: myPosts)
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -272,7 +273,9 @@ extension ProfileContainerViewController {
             case let .success(likedPosts):
                 self?.likeListDataSource.updateData(posts: likedPosts)
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -288,7 +291,9 @@ extension ProfileContainerViewController {
             case let .success(friends):
                 self?.friendListDataSource.updateData(friends: friends)
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -353,7 +358,9 @@ extension ProfileContainerViewController: ProfilePostsDataSourceDelegate {
             case .success:
                 self?.fetchMyPosts()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -376,7 +383,9 @@ extension ProfileContainerViewController: ProfileLikesDataSourceDelegate {
             case .success:
                 self?.fetchLikedPosts()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)
@@ -401,7 +410,9 @@ extension ProfileContainerViewController: ProfileFriendsDataSourceDelegate {
             case .success:
                 self?.fetchFriends()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)

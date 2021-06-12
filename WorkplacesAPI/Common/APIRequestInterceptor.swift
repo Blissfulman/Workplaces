@@ -12,27 +12,23 @@ public final class APIRequestInterceptor: RequestInterceptor {
     // MARK: - Private properties
     
     private let baseURL: URL
-    private let authDataStorage: AuthDataStorage
+    private let accessToken: () -> String
     private let retryRequestManager: RetryRequestManager
     
     // MARK: - Initializers
     
-    /// Создаёт экземпляр `APIRequestInterceptor` с указанным базовым `URL` и токеном доступа.
+    /// Создаёт экземпляр `APIRequestInterceptor`.
     /// - Parameters:
     ///   - baseURL: Базовый `URL` для адаптера.
-    ///   - authDataStorage: Хранилище авторизационных данных `AuthDataStorage`.
+    ///   - securityManager: Менеджер безопасности `SecurityManager`.
     ///   - retryRequestManager: Менеджер обработки повторных запросов `RetryRequestService`.
-    public init(
-        baseURL: URL,
-        authDataStorage: AuthDataStorage,
-        retryRequestManager: RetryRequestManager
-    ) {
+    public init(baseURL: URL, accessToken: @escaping () -> String, retryRequestManager: RetryRequestManager) {
         self.baseURL = baseURL
-        self.authDataStorage = authDataStorage
+        self.accessToken = accessToken
         self.retryRequestManager = retryRequestManager
     }
     
-    // MARK: - Alamofire.RequestInterceptor
+    // MARK: - RequestInterceptor
     
     public func adapt(
         _ urlRequest: URLRequest,
@@ -46,9 +42,7 @@ public final class APIRequestInterceptor: RequestInterceptor {
         
         var request = urlRequest
         request.url = appendingBaseURL(to: url)
-        if let accessToken = authDataStorage.accessToken {
-            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        }
+        request.addValue("Bearer \(accessToken())", forHTTPHeaderField: "Authorization")
         completion(.success(request))
     }
     

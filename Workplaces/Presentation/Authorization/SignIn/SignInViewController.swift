@@ -16,10 +16,6 @@ protocol SignInViewControllerDelegate: AnyObject {
 
 final class SignInViewController: KeyboardNotificationsViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignInViewControllerDelegate?
-    
     // MARK: - Outlets
     
     @IBOutlet private var emailTextField: UITextField!
@@ -30,6 +26,7 @@ final class SignInViewController: KeyboardNotificationsViewController {
     // MARK: - Private properties
     
     private let signInModel: SignInModel
+    private weak var delegate: SignInViewControllerDelegate?
     
     // MARK: - Initializers
     

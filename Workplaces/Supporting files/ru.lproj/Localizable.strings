@@ -10,7 +10,8 @@
 
 "Email or password are incorrect" = "Email или пароль указаны неверно";
 "Email is in invalid format" = "Email имеет недопустимый формат";
-"Invalid password. Please, use uppercase, lowercase letters and numbers. Minimum password length is 8 symbols." = "Пароль имеет недопустимый формат. Пожалуйста, используйте прописные, строчные буквы и цифры. Минимальная длина пароля - 8 символов.";
+"Invalid password. Please, use uppercase, lowercase letters and numbers." = "Пароль имеет недопустимый формат. Пожалуйста, используйте прописные, строчные буквы и цифры.";
+" Minimum password length is 8 symbols." = " Минимальная длина пароля - 8 символов.";
 "Unable to create user. The user with the specified email is already registered" = "Невозможно создать пользователя. Пользователь с указанным email уже зарегистрирован";
 "Unexpected authorization error" = "Непредвиденная ошибка авторизации";
 
@@ -41,6 +42,15 @@
 "You haven’t put any likes yet, but you can do it from the feed" = "Вы ещё не поставили ни одного лайка, но можете из ленты";
 "Go to the feed" = "Перейти к ленте";
 "You are still alone in the service, but this can be fixed" = "Вы пока одиноки в сервисе, но это можно исправить";
+
+// MARK: - Protection
+
+"Enter your password" = "Введите ваш пароль";
+"Set a four-digit password to protect the enter to app" = "Установите четырехзначный пароль для защиты входа в приложение";
+"Wrong password" = "Неверный пароль";
+"Try again. " = "Попробуйте ввести заново. ";
+"Attempts remaining: " = "Осталость попыток: ";
+"You have used up all password attempts. You will be logged out." = "Вы израсходовали все попытки ввода пароля. Будет выполнен выход.";
 
 // MARK: - Extensions
 

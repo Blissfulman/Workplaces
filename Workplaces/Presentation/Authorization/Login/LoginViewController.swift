@@ -19,9 +19,20 @@ protocol LoginScreenDelegate: AnyObject {
 
 final class LoginViewController: BaseViewController {
     
-    // MARK: - Public properties
+    // MARK: - Private properties
     
-    weak var delegate: LoginScreenDelegate?
+    private weak var delegate: LoginScreenDelegate?
+    
+    // MARK: - Initializers
+    
+    init(delegate: LoginScreenDelegate) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UIViewController
     

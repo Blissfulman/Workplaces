@@ -15,10 +15,6 @@ protocol SignUpSecondViewControllerDelegate: AnyObject {
 
 final class SignUpSecondViewController: KeyboardNotificationsViewController {
     
-    // MARK: - Public properties
-    
-    weak var delegate: SignUpSecondViewControllerDelegate?
-    
     // MARK: - Outlets
     
     @IBOutlet private var nicknameTextField: UITextField!
@@ -31,6 +27,7 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
     // MARK: - Private properties
     
     private let signUpModel: SignUpModel
+    private weak var delegate: SignUpSecondViewControllerDelegate?
     
     // MARK: - Initializers
     
@@ -109,12 +106,12 @@ final class SignUpSecondViewController: KeyboardNotificationsViewController {
     
     private func setupUI() {
         title = "Sign up".localized()
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func showDatePicker() {
         guard datePicker.isHidden else { return }
-        // По-хорошему реализовать скрытие клавиатуры достаточно в одном этом месте
         datePicker.appear()
     }
 }
@@ -130,7 +127,7 @@ extension SignUpSecondViewController: UITextFieldDelegate {
         case firstNameTextField:
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
-            textField.resignFirstResponder() // В этом случае клавиатура скрывается
+            textField.resignFirstResponder()
             showDatePicker()
         default:
             break

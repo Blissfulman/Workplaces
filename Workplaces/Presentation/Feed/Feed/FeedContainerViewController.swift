@@ -156,7 +156,9 @@ extension FeedContainerViewController: FeedPostsDataSourceDelegate {
             case .success:
                 self?.fetchPosts()
             case let .failure(error):
+                #if DEBUG
                 print(error.localizedDescription)
+                #endif
             }
         }
         progressList.append(progress)

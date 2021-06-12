@@ -1,13 +1,13 @@
 //
-//  MainFilledButton.swift
+//  PinNumberButton.swift
 //  Workplaces
 //
-//  Created by Evgeny Novgorodov on 19.04.2021.
+//  Created by Evgeny Novgorodov on 03.06.2021.
 //
 
-import UIKit.UIButton
+import UIKit
 
-final class MainFilledButton: UIButton {
+final class PinNumberButton: UIButton {
     
     // MARK: - Initializers
     
@@ -21,20 +21,12 @@ final class MainFilledButton: UIButton {
         commonInit()
     }
     
-    // MARK: - UIView
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        backgroundColor = isEnabled ? Palette.orange : Palette.lightGreyBlue
-        titleLabel?.textColor = isEnabled ? Palette.white : Palette.middleGrey
-    }
-    
     // MARK: - UIButton
     
     override var isHighlighted: Bool {
         didSet {
             guard oldValue != isHighlighted else { return }
-            isHighlighted ? downscaleAnimation(duration: 0.08, scale: 0.98) : resetScaleAnimation(duration: 0.08)
+            isHighlighted ? downscaleAnimation(duration: 0.1, scale: 0.9) : resetScaleAnimation(duration: 0.1)
         }
     }
     
@@ -42,7 +34,8 @@ final class MainFilledButton: UIButton {
     
     private func commonInit() {
         backgroundColor = .clear
+        tintColor = Palette.black
+        titleLabel?.font = Fonts.title
         isExclusiveTouch = true
-        setCornerRadius(UIConstants.buttonCornerRadius)
     }
 }
