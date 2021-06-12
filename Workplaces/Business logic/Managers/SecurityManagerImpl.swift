@@ -45,7 +45,7 @@ final class SecurityManagerImpl: SecurityManager {
         keychainStorage.saveTokenWithBiometry(token: token)
     }
     
-    func getRefreshTokenWithBiometry(completion: @escaping (String?) -> Void) {
+    func getPasswordWithBiometry(completion: @escaping (String?) -> Void) {
         keychainStorage.getTokenWithBiometry(completion: completion)
     }
     

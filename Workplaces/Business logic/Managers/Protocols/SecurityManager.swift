@@ -20,7 +20,7 @@ protocol SecurityManager: AnyObject {
     /// При завершении сессии устанавливается в `false`.
     var isAuthorized: Bool { get set }
     
-    /// Refresh токена.
+    /// Refresh токен.
     var refreshToken: String? { get set }
     
     /// Access токен.
@@ -43,14 +43,14 @@ protocol SecurityManager: AnyObject {
     /// - Returns: В случае успешного получения возвращается refresh токен, в противном случае - `nil`.
     func getRefreshTokenWithPassword(_ password: String) -> String?
     
-    /// Сохранение refresh токена с защитой биометрией.
-    /// - Parameter token: Refresh токен.
+    /// Сохранение пароля с защитой биометрией.
+    /// - Parameter password: Пароль.
     /// - Returns: Возвращает `true` в случае успешного сохранения и `false` в случае неудачи.
-    func saveRefreshTokenWithBiometry(token: String) -> Bool
+    func savePasswordWithBiometry(password: String) -> Bool
     
-    /// Получение защищённого биометрией refresh токена.
-    /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается refresh токен, в противном случае - `nil`.
-    func getRefreshTokenWithBiometry(completion: @escaping (String?) -> Void)
+    /// Получение защищённого биометрией пароля.
+    /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается пароль, в противном случае - `nil`.
+    func getPasswordWithBiometry(completion: @escaping (String?) -> Void)
     
     /// Сброс (удаление) всех данных, необходимое при завершении сессии.
     func logoutReset()
