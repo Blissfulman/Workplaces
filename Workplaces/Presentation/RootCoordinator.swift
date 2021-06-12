@@ -26,7 +26,9 @@ final class RootCoordinator {
     // MARK: - Public methods
     
     func start() {
-        securityManager.isSavedRefreshToken ? startTabBarCoordinatingController() : startAuthorizationCoordinator()
+        securityManager.isSavedRefreshToken && securityManager.isAuthorized
+            ? startTabBarCoordinatingController()
+            : startAuthorizationCoordinator()
     }
     
     // MARK: - Private methods

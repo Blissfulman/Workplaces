@@ -20,18 +20,24 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
     // MARK: - Private properties
     
     private weak var navigationController: NavigationController?
+    private let securityManager: SecurityManager
     
     // MARK: - Initializers
     
-    init(navigationController: NavigationController, onFinish: @escaping VoidBlock) {
+    init(
+        navigationController: NavigationController,
+        securityManager: SecurityManager = ServiceLayer.shared.securityManager,
+        onFinish: @escaping VoidBlock
+    ) {
         self.navigationController = navigationController
+        self.securityManager = securityManager
         self.onFinish = onFinish
     }
     
     // MARK: - Public methods
     
     func start() {
-        showLoginScreen()
+        securityManager.isSavedRefreshToken ? showProtectionScreen(delegate: self) : showLoginScreen()
     }
     
     // MARK: - Private methods
@@ -152,5 +158,20 @@ extension AuthorizationCoordinatorImpl: SignInDoneScreenDelegate {
     
     func goToFeed() {
         showTabBarController()
+    }
+}
+
+// MARK: - SignInDoneScreenDelegate
+
+extension AuthorizationCoordinatorImpl: ProtectionContainerViewControllerDelegate {
+    
+    func didCancelSetUpProtection() {
+        onFinish()
+    }
+    
+    func didSetProtection() {}
+    
+    func didPassProtectionCheck() {
+        onFinish()
     }
 }
