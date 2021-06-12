@@ -113,12 +113,9 @@ final class ProfileContainerViewController: BaseViewController {
     // MARK: - Actions
     
     @objc private func logOutBarButtonTapped() {
-        let progress = authorizationService.signOut { [weak self] result in
-            if case .success = result {
-                self?.delegate?.signOut()
-            }
-        }
+        let progress = authorizationService.signOut { _ in }
         progressList.append(progress)
+        delegate?.signOut()
     }
     
     // MARK: - Private methods

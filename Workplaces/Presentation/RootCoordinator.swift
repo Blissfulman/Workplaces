@@ -26,12 +26,10 @@ final class RootCoordinator {
     // MARK: - Public methods
     
     func start() {
-        switch securityManager.protectionState {
-        case .none:
-            securityManager.isAuthorized ? startPinCodeCoordinatingController() : startAuthorizationCoordinator()
-        case .passwordProtected, .biometryProtected:
-            securityManager.isAuthorized ? startTabBarCoordinatingController() : startPinCodeCoordinatingController()
-            
+        if securityManager.isSavedRefreshToken {
+            securityManager.isAuthorized ? startTabBarCoordinatingController() : startProtectionCoordinatingController()
+        } else {
+            securityManager.isAuthorized ? startProtectionCoordinatingController() : startAuthorizationCoordinator()
         }
     }
     
@@ -48,7 +46,7 @@ final class RootCoordinator {
         window?.rootViewController = navigationController
     }
     
-    private func startPinCodeCoordinatingController() {
+    private func startProtectionCoordinatingController() {
         let protectionCoordinatingController = ProtectionCoordinatingController { [weak self] in
             self?.start()
         }

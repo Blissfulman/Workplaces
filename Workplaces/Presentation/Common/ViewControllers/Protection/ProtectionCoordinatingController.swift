@@ -41,14 +41,14 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
     
     func start() {
         // Создание модели необходимо сделать перед вызовом метода setupUI
-        createPinCodeModel()
+        createProtectionModel()
         setupUI()
     }
     
     // MARK: - Private methods
     
-    private func createPinCodeModel() {
-        let isInstalledProtection = securityManager.protectionState != .none
+    private func createProtectionModel() {
+        let isInstalledProtection = securityManager.isSavedRefreshToken
         protectionModel = ProtectionModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
     }
     
@@ -60,7 +60,6 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
         if let token = securityManager.refreshToken {
             if securityManager.saveRefreshTokenWithPassword(token: token, password: protectionModel.password) {
                 securityManager.isAuthorized = true
-                securityManager.protectionState = .passwordProtected
                 onFinish()
             }
         }
@@ -72,7 +71,6 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
         if let refreshToken = securityManager.getRefreshTokenWithPassword(protectionModel.password) {
             protectionModel.attemptCount = 0
             securityManager.refreshToken = refreshToken
-            securityManager.isAuthorized = true
             refreshTokens(withToken: refreshToken)
         } else {
             protectionVC.indicateToWrongPassword { [weak self] in
@@ -88,6 +86,7 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
         tokenRefreshService.refreshTokens { [weak self] result in
             switch result {
             case .success:
+                self?.securityManager.isAuthorized = true
                 self?.onFinish()
             case let .failure(error):
                 self?.showAlert(error: error)

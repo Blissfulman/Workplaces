@@ -30,9 +30,7 @@ final class TokenRefreshServiceImpl: TokenRefreshService {
         return apiClient.request(endpoint) { [weak self] result in
             switch result {
             case let .success(authorizationData):
-                self?.securityManager.refreshToken = authorizationData.refreshToken
-                self?.securityManager.accessToken = authorizationData.accessToken
-                self?.saveToStoreRefreshToken(authorizationData.refreshToken)
+                self?.saveTokens(authorizationData: authorizationData)
                 completion(.success(authorizationData))
             case let .failure(error):
                 completion(.failure(error))
@@ -42,12 +40,12 @@ final class TokenRefreshServiceImpl: TokenRefreshService {
     
     // MARK: - Private methods
     
-    private func saveToStoreRefreshToken(_ token: String) {
-        if securityManager.protectionState == .passwordProtected {
-            _ = securityManager.saveRefreshTokenWithPassword(token: token, password: securityManager.password)
-        }
-        if securityManager.protectionState == .passwordProtected {
-            // Доработать сохранение с помощью биометрии
-        }
+    private func saveTokens(authorizationData: AuthorizationData) {
+        securityManager.refreshToken = authorizationData.refreshToken
+        securityManager.accessToken = authorizationData.accessToken
+        _ = securityManager.saveRefreshTokenWithPassword(
+            token: authorizationData.refreshToken,
+            password: securityManager.password
+        )
     }
 }

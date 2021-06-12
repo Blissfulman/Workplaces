@@ -9,7 +9,7 @@ import LocalAuthentication
 
 final class KeychainHelper {
     
-    // MARK: - Public methods
+    // MARK: - Static methods
     
     static func getPasswordSecAccessControl() -> SecAccessControl {
         var access: SecAccessControl?

@@ -198,7 +198,6 @@
 		CECED9932637B9CA00619CF3 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECED9922637B9CA00619CF3 /* UserID.swift */; };
 		CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE972176263DADBF006ACEB2 /* TokenRefreshServiceImpl.swift */; };
 		CED966E22670B36A002D2671 /* SecurityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B25266DF7E200C7BF25 /* SecurityManager.swift */; };
-		CED966E32670B36A002D2671 /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B29266E35FD00C7BF25 /* ProtectionState.swift */; };
 		CED966E82670E1C0002D2671 /* ProtectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED966EA2670E1C0002D2671 /* ProtectionViewController.xib */; };
 		CEDFF74E265C0BE6000A765C /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF74D265C0BE6000A765C /* UIDevice+Extension.swift */; };
 		CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFF750265D1FF9000A765C /* PostCellModel.swift */; };
@@ -392,7 +391,6 @@
 		CE775B20266D46D600C7BF25 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManagerImpl.swift; sourceTree = "<group>"; };
 		CE775B25266DF7E200C7BF25 /* SecurityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManager.swift; sourceTree = "<group>"; };
-		CE775B29266E35FD00C7BF25 /* ProtectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionState.swift; sourceTree = "<group>"; };
 		CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceError.swift; sourceTree = "<group>"; };
 		CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationsViewController.swift; sourceTree = "<group>"; };
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -669,7 +667,6 @@
 				CE1508942642E1E100568006 /* EmailValidator.swift */,
 				CEB0751C265050110060E818 /* PasswordValidator.swift */,
 				CE094821266BC65B0004CD7F /* KeychainHelper.swift */,
-				CE775B29266E35FD00C7BF25 /* ProtectionState.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1815,7 +1812,6 @@
 				CE0BE5BA265FC03E00C0DD04 /* MainBarButtonItem.swift in Sources */,
 				CE09D777262E8E1C009A96B3 /* ProfileContainerViewController.swift in Sources */,
 				CE8F1C0426352EFC00C0C52C /* ProfileServiceImpl.swift in Sources */,
-				CED966E32670B36A002D2671 /* ProtectionState.swift in Sources */,
 				CE972191263F3881006ACEB2 /* DateFormatter+Extension.swift in Sources */,
 				CED966E22670B36A002D2671 /* SecurityManager.swift in Sources */,
 				CE1508952642E1E100568006 /* EmailValidator.swift in Sources */,

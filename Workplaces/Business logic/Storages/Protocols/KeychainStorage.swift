@@ -7,7 +7,11 @@
 
 public protocol KeychainStorage: AnyObject {
     
-    var protectionState: String? { get set }
+    /// Логическое значение, определяющее, сохранён ли refresh в хранилище.
+    var isSavedRefreshToken: Bool { get }
+    
+    /// Логическое значение, определяющее, сохранён ли пароль в хранилище.
+    var isSavedPassword: Bool { get }
     
     /// Сохранение токена с защитой паролем.
     /// - Parameters:

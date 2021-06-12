@@ -5,19 +5,9 @@
 //  Created by Evgeny Novgorodov on 06.06.2021.
 //
 
-import KeychainAccess
 import LocalAuthentication
 
 final class KeychainStorageImpl: KeychainStorage {
-    
-    var protectionState: String? {
-        get {
-            try? keychain.get(protectionStateKey)
-        }
-        set {
-            try? keychain.set(newValue ?? "", key: protectionStateKey)
-        }
-    }
     
     // MARK: - Nested types
     
@@ -37,11 +27,16 @@ final class KeychainStorageImpl: KeychainStorage {
         }
     }
     
-    // MARK: - Private properties
+    // MARK: - Public properties
     
-    private let keychain = Keychain()
-    private let tokenKey = "Token"
-    private let protectionStateKey = "ProtectionState"
+    var isSavedRefreshToken: Bool {
+        KeychainHelper.available(key: tokenKey)
+    }
+    var isSavedPassword: Bool {
+        KeychainHelper.available(key: passwordKey)
+    }
+    
+    // MARK: - Private properties
     
     private var biometryState: BiometryState {
         let authContext = LAContext()
@@ -55,6 +50,8 @@ final class KeychainStorageImpl: KeychainStorage {
         }
         return biometryAvailable ? .available : .notAvailable
     }
+    private let tokenKey = "Token"
+    private let passwordKey = "Password"
     
     // MARK: - Public methods
     
@@ -101,15 +98,13 @@ final class KeychainStorageImpl: KeychainStorage {
     }
     
     func getPasswordWithBiometry(completion: @escaping (String?) -> Void) {
-        checkBiometryState { success in
-            guard success else {
+        checkBiometryState { [weak self] success in
+            guard let self = self,
+                  success else {
                 completion(nil)
                 return
             }
-            if let data = KeychainHelper.loadBioProtected(
-                key: self.tokenKey,
-                prompt: "Access sample keychain entry"
-            ) {
+            if let data = KeychainHelper.loadBioProtected(key: self.tokenKey, prompt: "Access sample keychain entry") {
                 completion(String(decoding: data, as: UTF8.self))
             } else {
                 completion(nil)
@@ -121,13 +116,6 @@ final class KeychainStorageImpl: KeychainStorage {
         KeychainHelper.remove(key: tokenKey)
         #if DEBUG
         print("Token was removed")
-        #endif
-    }
-    
-    func checkBiometry() {
-        let entryExists = KeychainHelper.available(key: tokenKey)
-        #if DEBUG
-        print(entryExists ? "Entry exists" : "Entry doesn't exist")
         #endif
     }
     

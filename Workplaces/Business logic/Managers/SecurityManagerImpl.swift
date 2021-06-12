@@ -9,10 +9,11 @@ final class SecurityManagerImpl: SecurityManager {
     
     // MARK: - Public properties
     
-    lazy var protectionState = ProtectionState.getState(fromValue: keychainStorage.protectionState) ?? .none {
-        didSet {
-            keychainStorage.protectionState = protectionState.rawValue
-        }
+    var isSavedRefreshToken: Bool {
+        keychainStorage.isSavedRefreshToken
+    }
+    var isSavedPassword: Bool {
+        keychainStorage.isSavedPassword
     }
     var isAuthorized = false
     var refreshToken: String?
@@ -50,7 +51,6 @@ final class SecurityManagerImpl: SecurityManager {
     }
     
     func logoutReset() {
-        protectionState = .none
         isAuthorized = false
         keychainStorage.removeToken()
         accessToken = nil
