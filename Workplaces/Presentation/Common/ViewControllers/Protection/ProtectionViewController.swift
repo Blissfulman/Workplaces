@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocols
 
 protocol ProtectionViewControllerDelegate: AnyObject {
-    func logOut()
+    func didTapExitButton()
     func didTapFingerprintButton()
     func didEnterPassword()
 }
@@ -60,7 +60,7 @@ final class ProtectionViewController: BaseViewController {
     // MARK: - Actions
     
     @IBAction private func exitButtonTapped() {
-        delegate?.logOut()
+        delegate?.didTapExitButton()
     }
     
     @IBAction private func numberButtonTapped(_ sender: UIButton) {

@@ -26,11 +26,7 @@ final class RootCoordinator {
     // MARK: - Public methods
     
     func start() {
-        if securityManager.isSavedRefreshToken {
-            securityManager.isAuthorized ? startTabBarCoordinatingController() : startProtectionCoordinatingController()
-        } else {
-            securityManager.isAuthorized ? startProtectionCoordinatingController() : startAuthorizationCoordinator()
-        }
+        securityManager.isSavedRefreshToken ? startTabBarCoordinatingController() : startAuthorizationCoordinator()
     }
     
     // MARK: - Private methods
@@ -44,14 +40,6 @@ final class RootCoordinator {
         }
         authorizationCoordinator?.start()
         window?.rootViewController = navigationController
-    }
-    
-    private func startProtectionCoordinatingController() {
-        let protectionCoordinatingController = ProtectionCoordinatingController { [weak self] in
-            self?.start()
-        }
-        protectionCoordinatingController.start()
-        window?.rootViewController = protectionCoordinatingController
     }
     
     private func startTabBarCoordinatingController() {

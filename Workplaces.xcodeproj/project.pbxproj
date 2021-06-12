@@ -15,7 +15,7 @@
 		CE0748352633FBB300C628FF /* ZeroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0748342633FBB300C628FF /* ZeroView.xib */; };
 		CE09481926694A040004CD7F /* ProtectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481726694A040004CD7F /* ProtectionViewController.swift */; };
 		CE09481C26695C3D0004CD7F /* PinNumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481B26695C3D0004CD7F /* PinNumberButton.swift */; };
-		CE09481E266B27770004CD7F /* ProtectionCoordinatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */; };
+		CE09481E266B27770004CD7F /* ProtectionContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481D266B27770004CD7F /* ProtectionContainerViewController.swift */; };
 		CE094820266B4DA50004CD7F /* ProtectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09481F266B4DA50004CD7F /* ProtectionModel.swift */; };
 		CE094822266BC65B0004CD7F /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094821266BC65B0004CD7F /* KeychainHelper.swift */; };
 		CE094826266CC0FE0004CD7F /* KeychainStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */; };
@@ -270,7 +270,7 @@
 		CE0748342633FBB300C628FF /* ZeroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroView.xib; sourceTree = "<group>"; };
 		CE09481726694A040004CD7F /* ProtectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionViewController.swift; sourceTree = "<group>"; };
 		CE09481B26695C3D0004CD7F /* PinNumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinNumberButton.swift; sourceTree = "<group>"; };
-		CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionCoordinatingController.swift; sourceTree = "<group>"; };
+		CE09481D266B27770004CD7F /* ProtectionContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionContainerViewController.swift; sourceTree = "<group>"; };
 		CE09481F266B4DA50004CD7F /* ProtectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionModel.swift; sourceTree = "<group>"; };
 		CE094821266BC65B0004CD7F /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		CE094825266CC0FE0004CD7F /* KeychainStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorageImpl.swift; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 		CE094816266949D30004CD7F /* Protection */ = {
 			isa = PBXGroup;
 			children = (
-				CE09481D266B27770004CD7F /* ProtectionCoordinatingController.swift */,
+				CE09481D266B27770004CD7F /* ProtectionContainerViewController.swift */,
 				CE09481726694A040004CD7F /* ProtectionViewController.swift */,
 				CED966EA2670E1C0002D2671 /* ProtectionViewController.xib */,
 				CE09481F266B4DA50004CD7F /* ProtectionModel.swift */,
@@ -1862,7 +1862,7 @@
 				CE8F1C1C263553FC00C0C52C /* Coordinator.swift in Sources */,
 				CED966DE266F4601002D2671 /* TokenRefreshServiceImpl.swift in Sources */,
 				CEA46B7126495BE0007C2DCE /* FriendCell.swift in Sources */,
-				CE09481E266B27770004CD7F /* ProtectionCoordinatingController.swift in Sources */,
+				CE09481E266B27770004CD7F /* ProtectionContainerViewController.swift in Sources */,
 				CEB074F9264B91A60060E818 /* TableViewOffsetConfigurable.swift in Sources */,
 				CE8F1C0A26352F5E00C0C52C /* FeedServiceImpl.swift in Sources */,
 				CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */,

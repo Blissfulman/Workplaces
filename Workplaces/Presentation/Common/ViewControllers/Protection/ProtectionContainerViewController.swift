@@ -1,5 +1,5 @@
 //
-//  ProtectionCoordinatingController.swift
+//  ProtectionContaiterViewController.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 05.06.2021.
@@ -7,17 +7,23 @@
 
 import UIKit
 
-final class ProtectionCoordinatingController: BaseViewController, Coordinator {
-    
-    // MARK: - Public properties
-    
-    var onFinish: VoidBlock
+// MARK: - Protocols
+
+protocol ProtectionContainerViewControllerDelegate: AnyObject {
+    func didCancelSetUpProtection()
+    func didSetProtection()
+    func didPassProtectionCheck()
+}
+
+final class ProtectionContainerViewController: BaseViewController {
     
     // MARK: - Private properties
     
     private var protectionModel: ProtectionModel!
     private let tokenRefreshService: TokenRefreshService
     private let securityManager: SecurityManager
+    private var progressList = [Progress]()
+    private weak var delegate: ProtectionContainerViewControllerDelegate?
     private lazy var protectionVC = ProtectionViewController(protectionModel: protectionModel, delegate: self)
     
     // MARK: - Initializers
@@ -25,11 +31,11 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
     init(
         tokenRefreshService: TokenRefreshService = ServiceLayer.shared.tokenRefreshService,
         securityManager: SecurityManager = ServiceLayer.shared.securityManager,
-        onFinish: @escaping VoidBlock
+        delegate: ProtectionContainerViewControllerDelegate
     ) {
         self.tokenRefreshService = tokenRefreshService
         self.securityManager = securityManager
-        self.onFinish = onFinish
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,9 +43,16 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Deinitializer
+    
+    deinit {
+        progressList.forEach { $0.cancel() }
+    }
+    
     // MARK: - Public methods
     
-    func start() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // Создание модели необходимо сделать перед вызовом метода setupUI
         createProtectionModel()
         setupUI()
@@ -53,6 +66,7 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
     }
     
     private func setupUI() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         addFullover(protectionVC)
     }
     
@@ -60,7 +74,7 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
         if let token = securityManager.refreshToken {
             if securityManager.saveRefreshTokenWithPassword(token: token, password: protectionModel.password) {
                 securityManager.isAuthorized = true
-                onFinish()
+                delegate?.didSetProtection()
             }
         }
     }
@@ -76,32 +90,33 @@ final class ProtectionCoordinatingController: BaseViewController, Coordinator {
             protectionVC.indicateToWrongPassword { [weak self] in
                 guard let self = self else { return }
                 if self.protectionModel.needLogOut {
-                    self.logOut()
+                    self.didTapExitButton()
                 }
             }
         }
     }
     
     private func refreshTokens(withToken token: String) {
-        tokenRefreshService.refreshTokens { [weak self] result in
+        let progress = tokenRefreshService.refreshTokens { [weak self] result in
             switch result {
             case .success:
                 self?.securityManager.isAuthorized = true
-                self?.onFinish()
+                self?.delegate?.didPassProtectionCheck()
             case let .failure(error):
                 self?.showAlert(error: error)
             }
         }
+        progressList.append(progress)
     }
 }
 
 // MARK: - ProtectionViewControllerDelegate
 
-extension ProtectionCoordinatingController: ProtectionViewControllerDelegate {
+extension ProtectionContainerViewController: ProtectionViewControllerDelegate {
     
-    func logOut() {
+    func didTapExitButton() {
         securityManager.logoutReset()
-        onFinish()
+        delegate?.didCancelSetUpProtection()
     }
     
     func didTapFingerprintButton() {

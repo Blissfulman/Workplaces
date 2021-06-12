@@ -51,6 +51,11 @@ final class AuthorizationCoordinatorImpl: AuthorizationCoordinator {
         navigationController?.show(signInContainerVC, sender: nil)
     }
     
+    private func showProtectionScreen(delegate: ProtectionContainerViewControllerDelegate) {
+        let protectionContainerVC = ProtectionContainerViewController(delegate: delegate)
+        navigationController?.show(protectionContainerVC, sender: nil)
+    }
+    
     private func showSignUpContainerController() {
         guard navigationController?.viewControllers.first(where: { $0 is SignUpContainerViewController }) == nil else {
             navigationController?.popViewController(animated: true)
@@ -103,7 +108,15 @@ extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
         showSignUpContainerController()
     }
     
-    func successfulSignIn() {
+    func successfulSignIn(delegate: ProtectionContainerViewControllerDelegate) {
+        showProtectionScreen(delegate: delegate)
+    }
+    
+    func didCancelSetUpProtectionOnSignIn() {
+        onFinish()
+    }
+    
+    func didFinishSignIn() {
         showSignInDoneScreen()
     }
 }
@@ -112,12 +125,20 @@ extension AuthorizationCoordinatorImpl: SignInContainerViewControllerDelegate {
 
 extension AuthorizationCoordinatorImpl: SignUpContainerViewControllerDelegate {
     
-    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
-        showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)
-    }
-    
     func goToSignIn() {
         showSignInScreen()
+    }
+    
+    func successfulSignUp(delegate: ProtectionContainerViewControllerDelegate) {
+        showProtectionScreen(delegate: delegate)
+    }
+    
+    func didCancelSetUpProtectionOnSignUp() {
+        onFinish()
+    }
+    
+    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate) {
+        showSignUpSecondScreen(signUpModel: signUpModel, delegate: delegate)
     }
     
     func didFinishSignUp() {

@@ -143,7 +143,7 @@ final class KeychainStorageImpl: KeychainStorage {
             // To unlock biometric authentication iOS requires user to enter a valid passcode
             let authContext = LAContext()
             authContext.evaluatePolicy(
-                LAPolicy.deviceOwnerAuthentication,
+                .deviceOwnerAuthentication,
                 localizedReason: "Access sample keychain entry"
             ) { success, error in
                 DispatchQueue.main.async {

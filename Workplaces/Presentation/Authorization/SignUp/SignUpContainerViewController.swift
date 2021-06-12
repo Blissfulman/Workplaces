@@ -10,8 +10,10 @@ import UIKit
 // MARK: - Protocols
 
 protocol SignUpContainerViewControllerDelegate: AnyObject {
-    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func goToSignIn()
+    func successfulSignUp(delegate: ProtectionContainerViewControllerDelegate)
+    func didCancelSetUpProtectionOnSignUp()
+    func goToSignUpSecondScreen(signUpModel: SignUpModel, delegate: SignUpSecondViewControllerDelegate)
     func didFinishSignUp()
 }
 
@@ -96,7 +98,7 @@ extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
             
             switch result {
             case .success:
-                self.delegate?.goToSignUpSecondScreen(signUpModel: self.signUpModel, delegate: self)
+                self.delegate?.successfulSignUp(delegate: self)
             case let .failure(error):
                 self.handleAuthorizationError(error)
             }
@@ -118,4 +120,19 @@ extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
         progressList.append(progress)
         delegate?.didFinishSignUp()
     }
+}
+
+// MARK: - ProtectionContainerViewControllerDelegate
+
+extension SignUpContainerViewController: ProtectionContainerViewControllerDelegate {
+    
+    func didCancelSetUpProtection() {
+        delegate?.didCancelSetUpProtectionOnSignUp()
+    }
+    
+    func didSetProtection() {
+        delegate?.goToSignUpSecondScreen(signUpModel: signUpModel, delegate: self)
+    }
+    
+    func didPassProtectionCheck() {}
 }
