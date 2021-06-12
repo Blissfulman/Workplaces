@@ -21,14 +21,14 @@ public protocol KeychainStorage: AnyObject {
     /// - Returns: В случае успешного получения возвращается токен, в противном случае - `nil`.
     func getTokenWithPassword(_ password: String) -> String?
     
-    /// Сохранение токена с защитой биометрией.
-    /// - Parameter token: Токен.
+    /// Сохранение пароля с защитой биометрией.
+    /// - Parameter password: Пароль.
     /// - Returns: Возвращает `true` в случае успешного сохранения и `false` в случае неудачи.
-    func saveTokenWithBiometry(token: String) -> Bool
+    func savePasswordWithBiometry(password: String) -> Bool
     
-    /// Получение защищённого биометрией токена.
-    /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается токен, в противном случае - `nil`.
-    func getTokenWithBiometry(completion: @escaping (String?) -> Void)
+    /// Получение защищённого биометрией пароля.
+    /// - Parameter completion: Обработчик завершения, в который в случае успешного получения возвращается пароль, в противном случае - `nil`.
+    func getPasswordWithBiometry(completion: @escaping (String?) -> Void)
     
     /// Удаление сохранённого токена.
     func removeToken()

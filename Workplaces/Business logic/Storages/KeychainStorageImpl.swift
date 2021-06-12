@@ -85,8 +85,8 @@ final class KeychainStorageImpl: KeychainStorage {
         return getTokenFromData(data)
     }
     
-    func saveTokenWithBiometry(token: String) -> Bool {
-        let result = KeychainHelper.createBioProtectedEntry(key: tokenKey, data: Data(token.utf8))
+    func savePasswordWithBiometry(password: String) -> Bool {
+        let result = KeychainHelper.createBioProtectedEntry(key: tokenKey, data: Data(password.utf8))
         if result == noErr {
             #if DEBUG
             print("Token successfully saved")
@@ -100,7 +100,7 @@ final class KeychainStorageImpl: KeychainStorage {
         }
     }
     
-    func getTokenWithBiometry(completion: @escaping (String?) -> Void) {
+    func getPasswordWithBiometry(completion: @escaping (String?) -> Void) {
         checkBiometryState { success in
             guard success else {
                 completion(nil)

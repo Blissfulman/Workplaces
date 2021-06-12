@@ -41,12 +41,12 @@ final class SecurityManagerImpl: SecurityManager {
         return keychainStorage.getTokenWithPassword(password)
     }
     
-    func saveRefreshTokenWithBiometry(token: String) -> Bool {
-        keychainStorage.saveTokenWithBiometry(token: token)
+    func savePasswordWithBiometry(password: String) -> Bool {
+        keychainStorage.savePasswordWithBiometry(password: password)
     }
     
     func getPasswordWithBiometry(completion: @escaping (String?) -> Void) {
-        keychainStorage.getTokenWithBiometry(completion: completion)
+        keychainStorage.getPasswordWithBiometry(completion: completion)
     }
     
     func logoutReset() {
