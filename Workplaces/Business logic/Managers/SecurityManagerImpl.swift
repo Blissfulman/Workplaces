@@ -72,5 +72,6 @@ final class SecurityManagerImpl: SecurityManager {
         keychainStorage.removeToken()
         accessToken = nil
         refreshToken = nil
+        password = ""
     }
 }

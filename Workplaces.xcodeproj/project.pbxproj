@@ -78,7 +78,7 @@
 		CE1627902640139E00468CDA /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16278F2640139E00468CDA /* UserTests.swift */; };
 		CE16279826406B9D00468CDA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279726406B9D00468CDA /* Date.swift */; };
 		CE16279A2640792200468CDA /* AuthorizationServiceSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */; };
-		CE16279E26407A8200468CDA /* TokenStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* TokenStorageMock.swift */; };
+		CE16279E26407A8200468CDA /* SecurityManagerFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16279D26407A8200468CDA /* SecurityManagerFake.swift */; };
 		CE1627A526412AE500468CDA /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1627A426412AE500468CDA /* EmailValidatorTests.swift */; };
 		CE1786D6265BE7620039B6FB /* RoundedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */; };
 		CE1F48FB26388D3200FD117C /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F48FA26388D3200FD117C /* Asserts.swift */; };
@@ -341,7 +341,7 @@
 		CE16278F2640139E00468CDA /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		CE16279726406B9D00468CDA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		CE1627992640792200468CDA /* AuthorizationServiceSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignInTests.swift; sourceTree = "<group>"; };
-		CE16279D26407A8200468CDA /* TokenStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageMock.swift; sourceTree = "<group>"; };
+		CE16279D26407A8200468CDA /* SecurityManagerFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManagerFake.swift; sourceTree = "<group>"; };
 		CE1627A426412AE500468CDA /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
 		CE1786D5265BE7620039B6FB /* RoundedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBarController.swift; sourceTree = "<group>"; };
 		CE1F48FA26388D3200FD117C /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
@@ -933,7 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				CE29091526456B7A0010CF6C /* ClientMock.swift */,
-				CE16279D26407A8200468CDA /* TokenStorageMock.swift */,
+				CE16279D26407A8200468CDA /* SecurityManagerFake.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1776,7 +1776,7 @@
 				CE2909192645C3490010CF6C /* AuthorizationServiceSignUpTests.swift in Sources */,
 				CEA46B5A26466EA3007C2DCE /* ProfileServiceRemoveFriendTests.swift in Sources */,
 				CEA46B4E26466A05007C2DCE /* ProfileServiceFetchMyProfileTests.swift in Sources */,
-				CE16279E26407A8200468CDA /* TokenStorageMock.swift in Sources */,
+				CE16279E26407A8200468CDA /* SecurityManagerFake.swift in Sources */,
 				CEA46B5226466CC3007C2DCE /* ProfileServiceFetchMyPostsTests.swift in Sources */,
 				CEA46B5826466E45007C2DCE /* ProfileServiceAddFriendTests.swift in Sources */,
 			);

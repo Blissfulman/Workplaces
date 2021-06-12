@@ -4,7 +4,7 @@
 //
 //  Created by Evgeny Novgorodov on 07.05.2021.
 //
-/*
+
 @testable import Workplaces
 import WorkplacesAPI
 import XCTest
@@ -15,7 +15,7 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
     
     private let client = ClientMock<RegistrationEndpoint>()
     private var authorizationService: AuthorizationService?
-    private var tokenStorage = TokenStorageMock(storage: UserDefaults(suiteName: "Test UserDefaults")!)
+    private var securityManager = SecurityManagerFake()
     private let userCredentials = UserCredentials(email: "test", password: "test")
     private let authorizationData = AuthorizationData(accessToken: "test", refreshToken: "test")
     
@@ -23,11 +23,11 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        authorizationService = AuthorizationServiceImpl(apiClient: client, tokenStorage: tokenStorage)
+        authorizationService = AuthorizationServiceImpl(apiClient: client, securityManager: securityManager)
     }
     
     override func tearDown() {
-        deleteTokens()
+        securityManager.logoutReset()
         super.tearDown()
     }
     
@@ -60,32 +60,45 @@ final class AuthorizationServiceSignUpTests: XCTestCase {
         }
     }
     
-    func testTokenShouldBeSavedWhenSignUpSuccessful() {
-        deleteTokens()
+    func testTokensShouldBeSavedWhenSignUpSuccessful() {
+        securityManager.logoutReset()
         client.result = .success(authorizationData)
         
         authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
-            XCTAssertNotNil(self?.tokenStorage.refreshToken)
-            XCTAssertNotNil(self?.tokenStorage.accessToken)
+            XCTAssertNotNil(self?.securityManager.refreshToken)
+            XCTAssertNotNil(self?.securityManager.accessToken)
         }
     }
     
-    func testTokenShouldNotBeSavedWhenSignUpFailed() {
-        deleteTokens()
+    func testTokensShouldNotBeSavedWhenSignUpFailed() {
+        securityManager.logoutReset()
         let error = APIError(code: .passwordValidationError, message: "")
         client.result = .failure(error)
         
         authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
-            XCTAssertNil(self?.tokenStorage.temporaryRefreshToken)
-            XCTAssertNil(self?.tokenStorage.accessToken)
+            XCTAssertNil(self?.securityManager.refreshToken)
+            XCTAssertNil(self?.securityManager.accessToken)
         }
     }
     
-    // MARK: - Private methods
+    func testIsAuthorizedShouldBeTrueWhenSignUpSuccessful() {
+        securityManager.isAuthorized = false
+        client.result = .success(authorizationData)
+        
+        authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
+            guard let self = self else { return XCTAssert(false) }
+            XCTAssertTrue(self.securityManager.isAuthorized)
+        }
+    }
     
-    private func deleteTokens() {
-        tokenStorage.temporaryRefreshToken = nil
-        tokenStorage.accessToken = nil
+    func testIsAuthorizedShouldBeFalseWhenSignUpFailed() {
+        securityManager.isAuthorized = false
+        let error = APIError(code: .passwordValidationError, message: "")
+        client.result = .failure(error)
+        
+        authorizationService?.signUpWithEmail(userCredentials: userCredentials) { [weak self] _ in
+            guard let self = self else { return XCTAssert(false) }
+            XCTAssertFalse(self.securityManager.isAuthorized)
+        }
     }
 }
-*/
