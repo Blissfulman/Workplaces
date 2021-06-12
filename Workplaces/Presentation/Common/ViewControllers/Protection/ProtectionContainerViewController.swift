@@ -19,7 +19,7 @@ final class ProtectionContainerViewController: BaseViewController {
     
     // MARK: - Private properties
     
-    private var protectionModel: ProtectionModel!
+    private lazy var protectionModel = ProtectionModel(isSetProtection: securityManager.isSavedRefreshToken)
     private let tokenRefreshService: TokenRefreshService
     private let securityManager: SecurityManager
     private var progressList = [Progress]()
@@ -53,17 +53,10 @@ final class ProtectionContainerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Создание модели необходимо сделать перед вызовом метода setupUI
-        createProtectionModel()
         setupUI()
     }
     
     // MARK: - Private methods
-    
-    private func createProtectionModel() {
-        let isInstalledProtection = securityManager.isSavedRefreshToken
-        protectionModel = ProtectionModel(state: isInstalledProtection ? .protectionInstalled : .protectionNotInstalled)
-    }
     
     private func setupUI() {
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -80,16 +73,16 @@ final class ProtectionContainerViewController: BaseViewController {
     }
     
     private func tryEnterWithPassword() {
-        protectionModel.attemptCount += 1
+        securityManager.remainingEntryAttemptsCount -= 1
+        protectionModel.remainingEntryAttemptsCount = securityManager.remainingEntryAttemptsCount
         
         if let refreshToken = securityManager.getRefreshTokenWithPassword(protectionModel.password) {
-            protectionModel.attemptCount = 0
             securityManager.refreshToken = refreshToken
             refreshTokens(withToken: refreshToken)
         } else {
             protectionVC.indicateToWrongPassword { [weak self] in
                 guard let self = self else { return }
-                if self.protectionModel.needLogOut {
+                if self.protectionModel.isNeedLogOut {
                     self.didTapExitButton()
                 }
             }
@@ -120,10 +113,10 @@ extension ProtectionContainerViewController: ProtectionViewControllerDelegate {
     }
     
     func didTapFingerprintButton() {
-        // Необходимо доработать
+        // Необходимо доработать (из-за отсутствия реального устройства оставил без реализации)
     }
     
     func didEnterPassword() {
-        protectionModel.state == .protectionInstalled ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
+        protectionModel.isSetProtection ? tryEnterWithPassword() : trySaveRefreshTokenWithPassword()
     }
 }

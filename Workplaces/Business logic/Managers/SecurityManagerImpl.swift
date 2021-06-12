@@ -5,6 +5,8 @@
 //  Created by Evgeny Novgorodov on 07.06.2021.
 //
 
+import KeychainAccess
+
 final class SecurityManagerImpl: SecurityManager {
     
     // MARK: - Public properties
@@ -15,14 +17,29 @@ final class SecurityManagerImpl: SecurityManager {
     var isSavedPassword: Bool {
         keychainStorage.isSavedPassword
     }
-    var isAuthorized = false
+    var isAuthorized = false {
+        didSet {
+            if isAuthorized { remainingEntryAttemptsCount = Constants.maxEntryAttemptsCount }
+        }
+    }
     var refreshToken: String?
     var accessToken: String?
     var password = ""
+    var remainingEntryAttemptsCount: Int {
+        get {
+            guard let stringValue = try? keychain.get("RemainingEntryAttemptsCount"),
+                  let value = Int(stringValue) else { return 0 }
+            return value
+        }
+        set {
+            try? keychain.set("\(newValue)", key: "RemainingEntryAttemptsCount")
+        }
+    }
     
     // MARK: - Private properties
     
     private let keychainStorage: KeychainStorage
+    private let keychain = Keychain()
     
     // MARK: - Initializers
     

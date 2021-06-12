@@ -9,4 +9,5 @@ import Foundation
 
 enum Constants {
     static let apiBaseURL = URL(string: "https://interns2021.redmadrobot.com/")!
+    static let maxEntryAttemptsCount = 5
 }

@@ -7,42 +7,28 @@
 
 final class ProtectionModel {
     
-    // MARK: - Nested types
-    
-    enum State {
-        case protectionInstalled
-        case protectionNotInstalled
-    }
-    
     // MARK: - Public properties
     
-    let state: State
+    let isSetProtection: Bool
     var password = ""
     var screenMessage: String {
-        state == .protectionInstalled
+        isSetProtection
             ? "Enter your password".localized()
             : "Set a four-digit password to protect the enter to app".localized()
     }
-    var attemptCount = 0
     var passwordErrorMessage: String {
-        attemptsRemaining > 0
-            ? "Try again. ".localized() + "Attempts remaining: ".localized() + "\(attemptsRemaining)"
+        remainingEntryAttemptsCount > 0
+            ? "Try again. ".localized() + "Attempts remaining: ".localized() + "\(remainingEntryAttemptsCount)"
             : "You have used up all password attempts. You will be logged out.".localized()
     }
-    var needLogOut: Bool {
-        attemptsRemaining < 1
+    var isNeedLogOut: Bool {
+        remainingEntryAttemptsCount < 1
     }
-    
-    // MARK: - Private properties
-    
-    private let maxAttemptCount = 5
-    private var attemptsRemaining: Int {
-       maxAttemptCount - attemptCount
-    }
+    var remainingEntryAttemptsCount = 0
     
     // MARK: - Initializers
     
-    init(state: State) {
-        self.state = state
+    init(isSetProtection: Bool) {
+        self.isSetProtection = isSetProtection
     }
 }
