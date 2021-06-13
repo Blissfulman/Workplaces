@@ -12,29 +12,16 @@ final class PublishPostEndpointTests: XCTestCase {
     
     // MARK: - Private properties
     
-    private let author = User(
-        id: "test",
-        firstName: "test",
-        lastName: "test",
-        nickname: "test",
-        avatarURL: URL(string: "https://redmadrobot.com/")!,
-        birthday: Date()
-    )
-    private lazy var post = Post(
-        id: "test",
+    private let uploadPost = UploadPost(
         text: "test",
-        imageURL: URL(string: "https://redmadrobot.com/")!,
-        longitude: 0,
-        latitude: 0,
-        author: author,
-        likes: 0,
-        liked: true
+        imageData: Data(),
+        location: UploadPost.Location(longitude: 0, latitude: 0)
     )
     
     // MARK: - Public methods
     
     func testMakeRequest() throws {
-        let endpoint = PublishPostEndpoint(post: post)
+        let endpoint = PublishPostEndpoint(uploadPost: uploadPost)
         let urlRequest = try endpoint.makeRequest()
         
         assertPOST(urlRequest)
@@ -63,7 +50,7 @@ final class PublishPostEndpointTests: XCTestCase {
             }
         """.data(using: .utf8)!
         
-        let endpoint = PublishPostEndpoint(post: post)
+        let endpoint = PublishPostEndpoint(uploadPost: uploadPost)
         let post = try endpoint.content(from: nil, with: jsonData)
         
         XCTAssertEqual(post.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")
