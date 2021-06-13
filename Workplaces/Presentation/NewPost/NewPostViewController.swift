@@ -22,6 +22,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     @IBOutlet private var postImageView: UIImageView!
     @IBOutlet private var deletePostImageButton: UIButton!
     @IBOutlet private var publishPostButton: UIButton!
+    @IBOutlet private var betweenImageViewAndBottomButtonsConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomStackViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
@@ -76,6 +77,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     @IBAction private func deletePostImageButtonTapped() {
         postImageView.disappear { [weak self] in
             self?.postImageView.image = nil
+            self?.betweenImageViewAndBottomButtonsConstraint.isActive = false
         }
         deletePostImageButton.disappear()
     }
@@ -101,6 +103,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .savedPhotosAlbum
+        betweenImageViewAndBottomButtonsConstraint.isActive = false
     }
     
     private func updatePublishPostButtonState() {
@@ -110,6 +113,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     private func showImage() {
         postImageView.appear()
         deletePostImageButton.appear()
+        betweenImageViewAndBottomButtonsConstraint.isActive = true
     }
 }
 

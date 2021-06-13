@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPostViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="betweenImageViewAndBottomButtonsConstraint" destination="MEr-Vo-hEz" id="8N7-DV-HHr"/>
                 <outlet property="bottomStackViewBottomConstraint" destination="ePY-lE-tuw" id="EvK-bV-hLI"/>
                 <outlet property="deletePostImageButton" destination="cNA-D6-Q3V" id="j3e-T4-aqV"/>
                 <outlet property="postImageView" destination="nAv-H7-4gZ" id="gNO-iF-rmJ"/>
@@ -42,7 +43,7 @@
                     <color key="tintColor" name="orange"/>
                     <color key="textColor" name="middleGrey"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-D6-Q3V">
                     <rect key="frame" x="342" y="158" width="20" height="20"/>
@@ -110,6 +111,7 @@
                 <constraint firstItem="5AI-0X-S2y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Mtk-Ff-YjW"/>
                 <constraint firstItem="nAv-H7-4gZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="MxZ-pT-6eU"/>
                 <constraint firstItem="nAv-H7-4gZ" firstAttribute="trailing" secondItem="cNA-D6-Q3V" secondAttribute="trailing" constant="8" id="SuM-Zf-ECA"/>
+                <constraint firstItem="5AI-0X-S2y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ya5-QQ-mPq" secondAttribute="bottom" constant="20" id="ZbZ-DM-BzO"/>
                 <constraint firstAttribute="trailingMargin" secondItem="Ya5-QQ-mPq" secondAttribute="trailing" id="alg-ca-j5d"/>
                 <constraint firstAttribute="trailingMargin" secondItem="5AI-0X-S2y" secondAttribute="trailing" id="bwf-gq-hbL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5AI-0X-S2y" secondAttribute="bottom" priority="500" constant="16" id="ePY-lE-tuw"/>
