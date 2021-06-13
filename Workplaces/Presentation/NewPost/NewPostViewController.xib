@@ -51,6 +51,9 @@
                         <constraint firstAttribute="width" constant="20" id="p5T-p2-xEb"/>
                     </constraints>
                     <state key="normal" image="close_image"/>
+                    <connections>
+                        <action selector="deletePostImageButtonTapped" destination="-1" eventType="touchUpInside" id="QXb-G1-u5V"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5AI-0X-S2y">
                     <rect key="frame" x="20" y="758" width="350" height="36"/>
@@ -65,6 +68,9 @@
                                         <constraint firstAttribute="height" constant="36" id="fgH-Ea-od4"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="36-geo"/>
+                                    <connections>
+                                        <action selector="addLocationButtonTapped" destination="-1" eventType="touchUpInside" id="n7u-sm-EqG"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-VV-jCJ">
                                     <rect key="frame" x="48" y="0.0" width="36" height="36"/>
@@ -73,6 +79,9 @@
                                         <constraint firstAttribute="height" constant="36" id="sXL-HO-egx"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="36-image"/>
+                                    <connections>
+                                        <action selector="addImageButtonTapped" destination="-1" eventType="touchUpInside" id="pFb-io-u5l"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -83,6 +92,9 @@
                                 <constraint firstAttribute="height" constant="36" id="QWx-TR-qGG"/>
                             </constraints>
                             <state key="normal" title="Button" image="36-send"/>
+                            <connections>
+                                <action selector="publishButtonTapped" destination="-1" eventType="touchUpInside" id="1jb-Uo-Voa"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

@@ -48,7 +48,7 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     }
     
     func showNewPostScreen() {
-        let newPostContainerVC = NewPostContainerViewController()
+        let newPostContainerVC = NewPostContainerViewController(delegate: self)
         navigationController?.show(newPostContainerVC, sender: nil)
     }
     
@@ -102,6 +102,15 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
 extension ProfileCoordinatorImpl: EditProfileContainerViewControllerDelegate {
     
     func profileDidSave() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - NewPostContainerViewControllerDelegate
+
+extension ProfileCoordinatorImpl: NewPostContainerViewControllerDelegate {
+    
+    func back() {
         navigationController?.popViewController(animated: true)
     }
 }

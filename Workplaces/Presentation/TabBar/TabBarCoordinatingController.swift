@@ -27,7 +27,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     }()
     
     private lazy var newPostTab: UIViewController = {
-        let newPostContainerVC = NewPostContainerViewController()
+        let newPostContainerVC = NewPostContainerViewController(delegate: nil)
         newPostContainerVC.tabBarItem.image = Icons.newPost
         return newPostContainerVC
     }()

@@ -10,7 +10,9 @@ import UIKit
 // MARK: - Protocols
 
 protocol NewPostViewControllerDelegate: AnyObject {
-    
+    func didTapAddLocationButton()
+    func didTapAddImageButton()
+    func didTapPublishButton()
 }
 
 final class NewPostViewController: KeyboardNotificationsViewController {
@@ -24,11 +26,13 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     
     // MARK: - Private properties
     
+    private let newPostModel: NewPostModel
     private weak var delegate: NewPostViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(delegate: NewPostViewControllerDelegate) {
+    init(newPostModel: NewPostModel, delegate: NewPostViewControllerDelegate) {
+        self.newPostModel = newPostModel
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,6 +45,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        postTextView.delegate = self
         setupUI()
     }
     
@@ -64,10 +69,29 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         }
     }
     
+    // MARK: - Actions
+    
+    @IBAction private func deletePostImageButtonTapped() {
+        postImageView.image = nil
+        postImageView.isHidden = true
+        deletePostImageButton.isHidden = true
+    }
+    
+    @IBAction private func addLocationButtonTapped() {
+        delegate?.didTapAddLocationButton()
+    }
+    
+    @IBAction private func addImageButtonTapped() {
+        delegate?.didTapAddImageButton()
+    }
+    
+    @IBAction private func publishButtonTapped() {
+        delegate?.didTapPublishButton()
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
-        postTextView.delegate = self
         postTextView.tintColor = Palette.orange
         postTextView.tintColorDidChange()
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)

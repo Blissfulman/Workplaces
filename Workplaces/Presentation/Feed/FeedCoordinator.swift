@@ -37,7 +37,7 @@ final class FeedCoordinatorImpl: FeedCoordinator {
     }
     
     func showNewPostScreen() {
-        let newPostContainerVC = NewPostContainerViewController()
+        let newPostContainerVC = NewPostContainerViewController(delegate: self)
         navigationController?.show(newPostContainerVC, sender: nil)
     }
     
@@ -61,5 +61,14 @@ extension FeedCoordinatorImpl: FeedContainerViewControllerDelegate {
     
     func goToSearchFriends() {
         showSearchFriendsScreen()
+    }
+}
+
+// MARK: - NewPostContainerViewControllerDelegate
+
+extension FeedCoordinatorImpl: NewPostContainerViewControllerDelegate {
+    
+    func back() {
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -7,18 +7,30 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol NewPostContainerViewControllerDelegate: AnyObject {
+    func back()
+}
+
 final class NewPostContainerViewController: BaseViewController {
     
     // MARK: - Private properties
     
     private let newPostService: NewPostService
+    private let newPostModel = NewPostModel()
     private var progressList = [Progress]()
-    private lazy var newPostVC = NewPostViewController(delegate: self)
+    private weak var delegate: NewPostContainerViewControllerDelegate?
+    private lazy var newPostVC = NewPostViewController(newPostModel: newPostModel, delegate: self)
     
     // MARK: - Initializers
     
-    init(newPostService: NewPostService = ServiceLayer.shared.newPostService) {
+    init(
+        newPostService: NewPostService = ServiceLayer.shared.newPostService,
+        delegate: NewPostContainerViewControllerDelegate?
+    ) {
         self.newPostService = newPostService
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -65,8 +77,19 @@ final class NewPostContainerViewController: BaseViewController {
     }
 }
 
-// MARK: -
+// MARK: - NewPostViewControllerDelegate
 
 extension NewPostContainerViewController: NewPostViewControllerDelegate {
     
+    func didTapAddLocationButton() {
+        // Необходимо доработать
+    }
+    
+    func didTapAddImageButton() {
+        
+    }
+    
+    func didTapPublishButton() {
+        delegate?.back()
+    }
 }
