@@ -23,7 +23,18 @@ struct ProfileTopViewModel {
     }
     var age: String? {
         let age = profile.birthday.getAgeFromBirthday()
-        return "\(age) " + "years".localized() // Доделать правильную русскую локализацию
+        var resultStringAge = "\(age) "
+        switch age.getRussianTypeOfYear() {
+        case .one:
+            resultStringAge += "Year-One".localizedWithValue("year")
+        case .oneLast:
+            resultStringAge += "Year-OneLast".localizedWithValue("years")
+        case .several:
+            resultStringAge += "Year-Several".localizedWithValue("years")
+        case .other:
+            resultStringAge += "Year-Other".localizedWithValue("years")
+        }
+        return resultStringAge
     }
     
     // MARK: - Private properties
@@ -38,4 +49,28 @@ fileprivate extension Date {
     func getAgeFromBirthday() -> Int {
         max(0, Calendar.current.dateComponents([.year], from: self, to: Date()).year ?? 0)
     }
+}
+
+fileprivate extension Int {
+    
+    func getRussianTypeOfYear() -> RussianTypeOfYear {
+        if self == 1 { return .one }
+        
+        switch self % 10 {
+        case 1 where (self % 100 != 11):
+            return .oneLast
+        case 2...4 where (!(11...14).contains(self % 100)):
+            return .several
+        default:
+            return .other
+        }
+    }
+}
+
+/// Необходим для правильного соотнесения со словами "год", "года" и "лет"  в русской локализации.
+private enum RussianTypeOfYear: String {
+    case one        // 1 год
+    case oneLast    // (оканчивающиеся на 1, кроме оканчивающихся на 11) год
+    case several    // (оканчивающиеся на 2...4, кроме оканчивающихся на 12..14) года
+    case other      // (все остальные) лет
 }

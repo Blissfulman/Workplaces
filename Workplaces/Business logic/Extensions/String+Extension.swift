@@ -12,4 +12,8 @@ extension String {
     func localized() -> String {
         NSLocalizedString(self, comment: "")
     }
+    
+    func localizedWithValue(_ value: String) -> String {
+        NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: value, comment: "")
+    }
 }

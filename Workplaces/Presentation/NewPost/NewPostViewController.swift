@@ -94,6 +94,6 @@ extension NewPostViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        return newText.count <= 80
+        return newText.count <= UIConstants.postTextMaxLength
     }
 }

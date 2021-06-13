@@ -30,6 +30,13 @@
 "Log out" = "Выйти";
 "What do you want to share?" = "Чем хотите поделиться?";
 
+// MARK: - ProfileTopView
+
+"Year-One" = "год";
+"Year-OneLast" = "год";
+"Year-Several" = "года";
+"Year-Other" = "лет";
+
 // MARK: - ZeroView
 
 "Oops..." = "Упс...";

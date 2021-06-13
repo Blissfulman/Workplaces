@@ -19,4 +19,6 @@ enum UIConstants {
     static let keyboardAppearAnimationDuration: TimeInterval = 0.5
     
     static let textFieldPadding = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 40)
+    
+    static let postTextMaxLength = 80
 }
