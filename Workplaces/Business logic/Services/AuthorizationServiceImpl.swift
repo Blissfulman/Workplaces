@@ -60,18 +60,6 @@ final class AuthorizationServiceImpl: AuthorizationService {
         }
     }
     
-    func signInWithGoogle() {
-        
-    }
-    
-    func signInWithFacebook() {
-        
-    }
-    
-    func signInWithVK() {
-        
-    }
-    
     func signOut(completion: @escaping VoidResultHandler) -> Progress {
         let endpoint = LogoutEndpoint()
         securityManager.logoutReset()

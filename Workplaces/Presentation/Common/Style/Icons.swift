@@ -29,9 +29,5 @@ enum Icons {
     static let like = #imageLiteral(resourceName: "like")
     static let liked = #imageLiteral(resourceName: "liked")
     
-    static let googleButton = #imageLiteral(resourceName: "google_button")
-    static let facebookButton = #imageLiteral(resourceName: "facebook_button")
-    static let vkButton = #imageLiteral(resourceName: "vk_button")
-    
     static let avatar = #imageLiteral(resourceName: "avatar")
 }

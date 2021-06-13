@@ -95,12 +95,6 @@ extension AuthorizationCoordinatorImpl: LoginScreenDelegate {
         showSignInScreen()
     }
     
-    func didTapSignInWithGoogleButton() {}
-    
-    func didTapSignInWithFacebookButton() {}
-    
-    func didTapSignInWithVKButton() {}
-    
     func didTapSignUpWithEmail() {
         showSignUpContainerController()
     }
