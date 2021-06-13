@@ -11,7 +11,6 @@ import UIKit
 
 protocol NewPostViewControllerDelegate: AnyObject {
     func didTapAddLocationButton()
-    func didTapAddImageButton()
     func didTapPublishPostButton()
 }
 
@@ -29,6 +28,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     
     private let newPostModel: NewPostModel
     private weak var delegate: NewPostViewControllerDelegate?
+    private let imagePickerController = UIImagePickerController()
     
     // MARK: - Initializers
     
@@ -47,6 +47,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         postTextView.delegate = self
+        imagePickerController.delegate = self
         setupUI()
     }
     
@@ -73,9 +74,10 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     // MARK: - Actions
     
     @IBAction private func deletePostImageButtonTapped() {
-        postImageView.image = nil
-        postImageView.isHidden = true
-        deletePostImageButton.isHidden = true
+        postImageView.disappear { [weak self] in
+            self?.postImageView.image = nil
+        }
+        deletePostImageButton.disappear()
     }
     
     @IBAction private func addLocationButtonTapped() {
@@ -83,7 +85,8 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func addImageButtonTapped() {
-        delegate?.didTapAddImageButton()
+        view.endEditing(true)
+        present(imagePickerController, animated: true)
     }
     
     @IBAction private func publishPostButtonTapped() {
@@ -96,10 +99,17 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         postTextView.tintColor = Palette.orange
         postTextView.tintColorDidChange()
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .savedPhotosAlbum
     }
     
     private func updatePublishPostButtonState() {
         publishPostButton.isEnabled = newPostModel.isPossibleToPublishPost
+    }
+    
+    private func showImage() {
+        postImageView.appear()
+        deletePostImageButton.appear()
     }
 }
 
@@ -129,5 +139,22 @@ extension NewPostViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         newPostModel.text = postTextView.text
         updatePublishPostButtonState()
+    }
+}
+
+// MARK: - Image picker controller delegate
+
+extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        defer { imagePickerController.dismiss(animated: true) }
+        guard let image = info[.editedImage] as? UIImage else { return }
+        
+        newPostModel.imageData = image.pngData()
+        postImageView.image = image
+        showImage()
     }
 }

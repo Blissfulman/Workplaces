@@ -30,23 +30,22 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_screen" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
-                    <rect key="frame" x="20" y="147" width="350" height="233.33333333333337"/>
-                    <color key="backgroundColor" red="0.13289019460000001" green="0.84258010790000004" blue="0.3717532362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
+                    <rect key="frame" x="20" y="149" width="350" height="233.33333333333337"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nAv-H7-4gZ" secondAttribute="height" multiplier="3:2" id="2oa-ZK-rgk"/>
                     </constraints>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What do you want to share?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ya5-QQ-mPq">
-                    <rect key="frame" x="20" y="76" width="350" height="40"/>
+                    <rect key="frame" x="20" y="76" width="350" height="42"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="tintColor" name="orange"/>
                     <color key="textColor" name="middleGrey"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-D6-Q3V">
-                    <rect key="frame" x="342" y="155" width="20" height="20"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-D6-Q3V">
+                    <rect key="frame" x="342" y="157" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="VMb-Id-4yi"/>
                         <constraint firstAttribute="width" constant="20" id="p5T-p2-xEb"/>
@@ -86,7 +85,7 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-fE-Trc">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-fE-Trc">
                             <rect key="frame" x="314" y="0.0" width="36" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="36" id="DtO-2Q-Qrf"/>
@@ -124,7 +123,6 @@
         <image name="36-image" width="36" height="36"/>
         <image name="36-send" width="36" height="36"/>
         <image name="close_image" width="20" height="20"/>
-        <image name="login_screen" width="226" height="170"/>
         <namedColor name="middleGrey">
             <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

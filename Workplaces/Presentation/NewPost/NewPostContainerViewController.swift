@@ -67,10 +67,6 @@ extension NewPostContainerViewController: NewPostViewControllerDelegate {
         // Необходимо доработать
     }
     
-    func didTapAddImageButton() {
-        
-    }
-    
     func didTapPublishPostButton() {
         LoadingView.show()
         

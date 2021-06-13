@@ -97,7 +97,8 @@ extension UIView {
     ///   - fromValue: Изначальное значение параметра `alpha` (по умолчанию равно `0`).
     ///   - toValue: Конечное значение параметра `alpha` (по умолчанию равно `1`).
     ///   - duration: Длительность анимации (по умолчанию равна `0.4`).
-    func appear(fromValue: CGFloat = 0, toValue: CGFloat = 1, duration: Double = 0.4) {
+    ///   - completion: Блок, выполняемый после окончания анимации.
+    func appear(fromValue: CGFloat = 0, toValue: CGFloat = 1, duration: Double = 0.4, completion: VoidBlock? = nil) {
         isHidden = false
         alpha = fromValue
         UIView.animate(withDuration: duration) {
@@ -105,6 +106,7 @@ extension UIView {
         } completion: { isEnded in
             if isEnded {
                 self.alpha = toValue
+                completion?()
             }
         }
     }
@@ -114,7 +116,8 @@ extension UIView {
     ///   - fromValue: Изначальное значение параметра `alpha` (по умолчанию равно `1`).
     ///   - toValue: Конечное значение параметра `alpha` (по умолчанию равно `0`).
     ///   - duration: Длительность анимации (по умолчанию равна `0.4`).
-    func disappear(fromValue: CGFloat = 1, toValue: CGFloat = 0, duration: Double = 0.4) {
+    ///   - completion: Блок, выполняемый после окончания анимации.
+    func disappear(fromValue: CGFloat = 1, toValue: CGFloat = 0, duration: Double = 0.4, completion: VoidBlock? = nil) {
         alpha = fromValue
         UIView.animate(withDuration: duration) {
             self.alpha = toValue
@@ -122,6 +125,7 @@ extension UIView {
             if isEnded {
                 self.alpha = toValue
                 self.isHidden = true
+                completion?()
             }
         }
     }
