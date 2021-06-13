@@ -39,6 +39,9 @@ final class EditProfileModel {
             birthday: editedProfile.birthday
         )
     }
+    var stringBirthday: String {
+        DateFormatter.profileDateFormatter.string(from: editedProfile.birthday)
+    }
     var isPossibleToSaveProfile: Bool {
         !hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty
     }

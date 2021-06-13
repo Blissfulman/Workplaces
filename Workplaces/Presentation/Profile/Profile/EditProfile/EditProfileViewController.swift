@@ -95,8 +95,8 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func datePickerValueChanged() {
-        birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: datePicker.date)
         editProfileModel.editedProfile.birthday = datePicker.date
+        birthdayTextField.text = editProfileModel.stringBirthday
         updateSaveButtonState()
     }
     
@@ -111,7 +111,7 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
         nicknameTextField.text = editProfileModel.profile.nickname
         firstNameTextField.text = editProfileModel.profile.firstName
         lastNameTextField.text = editProfileModel.profile.lastName
-        birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: editProfileModel.profile.birthday)
+        birthdayTextField.text = editProfileModel.stringBirthday
         datePicker.date = editProfileModel.profile.birthday
     }
     
