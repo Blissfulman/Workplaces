@@ -18,21 +18,21 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     private var feedCoordinator: FeedCoordinator?
     private var profileCoordinator: ProfileCoordinator?
     
-    private var feedTab: UIViewController {
+    private lazy var feedTab: UIViewController = {
         let navigationController = NavigationController()
         feedCoordinator = FeedCoordinatorImpl(navigationController: navigationController, onFinish: onFinish)
         navigationController.tabBarItem.image = Icons.feed
         feedCoordinator?.start()
         return navigationController
-    }
+    }()
     
-    private var newPostTab: UIViewController {
-        let newPostVC = NewPostViewController()
-        newPostVC.tabBarItem.image = Icons.newPost
-        return newPostVC
-    }
+    private lazy var newPostTab: UIViewController = {
+        let newPostContainerVC = NewPostContainerViewController()
+        newPostContainerVC.tabBarItem.image = Icons.newPost
+        return newPostContainerVC
+    }()
     
-    private var profileTab: UIViewController {
+    private lazy var profileTab: UIViewController = {
         let navigationController = NavigationController()
         profileCoordinator = ProfileCoordinatorImpl(
             navigationController: navigationController,
@@ -42,7 +42,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
         navigationController.tabBarItem.image = Icons.profile
         profileCoordinator?.start()
         return navigationController
-    }
+    }()
     
     // MARK: - Initializers
     
@@ -58,6 +58,7 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
     // MARK: - Public methods
     
     func start() {
+        delegate = self
         viewControllers = [feedTab, newPostTab, profileTab]
         setupUI()
     }
@@ -71,6 +72,26 @@ final class TabBarCoordinatingController: RoundedTabBarController, Coordinator {
             tabBar.backgroundColor = Palette.white
             tabBar.barTintColor = Palette.white
         }
+    }
+}
+
+// MARK: - Tab bar controller delegate
+
+extension TabBarCoordinatingController: UITabBarControllerDelegate {
+    
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        shouldSelect viewController: UIViewController
+    ) -> Bool {
+        guard viewController is NewPostContainerViewController else { return true }
+        
+        if selectedIndex == 0 {
+            feedCoordinator?.showNewPostScreen()
+        }
+        if selectedIndex == 2 {
+            profileCoordinator?.showNewPostScreen()
+        }
+        return false
     }
 }
 

@@ -9,7 +9,9 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ProfileCoordinator: Coordinator {}
+protocol ProfileCoordinator: Coordinator {
+    func showNewPostScreen()
+}
 
 protocol ProfileCoordinatorDelegate: AnyObject {
     func goToFeed()
@@ -43,6 +45,11 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
     
     func start() {
         showProfileScreen()
+    }
+    
+    func showNewPostScreen() {
+        let newPostContainerVC = NewPostContainerViewController()
+        navigationController?.show(newPostContainerVC, sender: nil)
     }
     
     // MARK: - Private methods

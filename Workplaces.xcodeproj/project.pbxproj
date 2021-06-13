@@ -105,6 +105,7 @@
 		CE29091B2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */; };
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE3F834F2664F97600120439 /* RetryRequestManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryRequestManagerImpl.swift */; };
+		CE439FE02675F04C00649390 /* NewPostContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE439FDF2675F04C00649390 /* NewPostContainerViewController.swift */; };
 		CE442BA526654AF100EB1E93 /* RetryCompletionStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */; };
 		CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */; };
 		CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BAB26656BA400EB1E93 /* Error+Extension.swift */; };
@@ -368,6 +369,7 @@
 		CE29091A2645C3D60010CF6C /* AuthorizationServiceSignOutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceSignOutTests.swift; sourceTree = "<group>"; };
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE3F834E2664F97600120439 /* RetryRequestManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryRequestManagerImpl.swift; sourceTree = "<group>"; };
+		CE439FDF2675F04C00649390 /* NewPostContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostContainerViewController.swift; sourceTree = "<group>"; };
 		CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorageImpl.swift; sourceTree = "<group>"; };
 		CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorage.swift; sourceTree = "<group>"; };
 		CE442BAB26656BA400EB1E93 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
@@ -785,6 +787,7 @@
 		CE1331A8262C2D630086433C /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
+				CE439FDF2675F04C00649390 /* NewPostContainerViewController.swift */,
 				CE09D770262E8E0B009A96B3 /* NewPostViewController.swift */,
 				CE09D771262E8E0B009A96B3 /* NewPostViewController.xib */,
 			);
@@ -1788,6 +1791,7 @@
 			files = (
 				CEB0750E264E7D690060E818 /* EditProfileContainerViewController.swift in Sources */,
 				CE97218E263F111B006ACEB2 /* EditProfileViewController.swift in Sources */,
+				CE439FE02675F04C00649390 /* NewPostContainerViewController.swift in Sources */,
 				CE150860264241A000568006 /* NibTableViewCell.swift in Sources */,
 				CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */,
 				CEB07511264E82940060E818 /* EditProfileModel.swift in Sources */,

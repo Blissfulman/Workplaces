@@ -7,28 +7,27 @@
 
 import UIKit
 
+// MARK: - Protocols
+
+protocol NewPostViewControllerDelegate: AnyObject {
+    
+}
+
 final class NewPostViewController: BaseViewController {
     
     // MARK: - Private properties
     
-    private let newPostService: NewPostService
-    private var progressList = [Progress]()
+    private weak var delegate: NewPostViewControllerDelegate?
     
     // MARK: - Initializers
     
-    init(newPostService: NewPostService = ServiceLayer.shared.newPostService) {
-        self.newPostService = newPostService
+    init(delegate: NewPostViewControllerDelegate) {
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Deinitializer
-    
-    deinit {
-        progressList.forEach { $0.cancel() }
     }
     
     // MARK: - UIViewController
