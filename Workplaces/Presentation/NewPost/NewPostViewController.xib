@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
-                    <rect key="frame" x="20" y="149" width="350" height="233.33333333333337"/>
+                    <rect key="frame" x="20" y="150" width="350" height="233.33333333333337"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nAv-H7-4gZ" secondAttribute="height" multiplier="3:2" id="2oa-ZK-rgk"/>
                     </constraints>
@@ -42,10 +42,10 @@
                     <color key="tintColor" name="orange"/>
                     <color key="textColor" name="middleGrey"/>
                     <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-D6-Q3V">
-                    <rect key="frame" x="342" y="157" width="20" height="20"/>
+                    <rect key="frame" x="342" y="158" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="VMb-Id-4yi"/>
                         <constraint firstAttribute="width" constant="20" id="p5T-p2-xEb"/>
@@ -105,14 +105,15 @@
                 <constraint firstAttribute="trailingMargin" secondItem="nAv-H7-4gZ" secondAttribute="trailing" id="0Ko-6a-70P"/>
                 <constraint firstItem="cNA-D6-Q3V" firstAttribute="top" secondItem="nAv-H7-4gZ" secondAttribute="top" constant="8" id="Fqo-w5-KWN"/>
                 <constraint firstItem="Ya5-QQ-mPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="IbY-K9-j6a"/>
+                <constraint firstItem="5AI-0X-S2y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nAv-H7-4gZ" secondAttribute="bottom" constant="20" id="MEr-Vo-hEz"/>
                 <constraint firstItem="Ya5-QQ-mPq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="MfS-77-Pef"/>
                 <constraint firstItem="5AI-0X-S2y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Mtk-Ff-YjW"/>
                 <constraint firstItem="nAv-H7-4gZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="MxZ-pT-6eU"/>
                 <constraint firstItem="nAv-H7-4gZ" firstAttribute="trailing" secondItem="cNA-D6-Q3V" secondAttribute="trailing" constant="8" id="SuM-Zf-ECA"/>
                 <constraint firstAttribute="trailingMargin" secondItem="Ya5-QQ-mPq" secondAttribute="trailing" id="alg-ca-j5d"/>
                 <constraint firstAttribute="trailingMargin" secondItem="5AI-0X-S2y" secondAttribute="trailing" id="bwf-gq-hbL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5AI-0X-S2y" secondAttribute="bottom" constant="16" id="ePY-lE-tuw"/>
-                <constraint firstItem="nAv-H7-4gZ" firstAttribute="top" secondItem="Ya5-QQ-mPq" secondAttribute="bottom" constant="31" id="ydc-Op-8KW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5AI-0X-S2y" secondAttribute="bottom" priority="500" constant="16" id="ePY-lE-tuw"/>
+                <constraint firstItem="nAv-H7-4gZ" firstAttribute="top" secondItem="Ya5-QQ-mPq" secondAttribute="bottom" constant="32" id="ydc-Op-8KW"/>
             </constraints>
             <directionalEdgeInsets key="directionalLayoutMargins" top="20" leading="20" bottom="20" trailing="20"/>
             <point key="canvasLocation" x="128.98550724637681" y="93.75"/>
