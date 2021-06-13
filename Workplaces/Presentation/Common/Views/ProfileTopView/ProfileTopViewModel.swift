@@ -23,18 +23,7 @@ struct ProfileTopViewModel {
     }
     var age: String? {
         let age = profile.birthday.getAgeFromBirthday()
-        var resultStringAge = "\(age) "
-        switch age.getRussianTypeOfYear() {
-        case .one:
-            resultStringAge += "Year-One".localizedWithValue("year")
-        case .oneLast:
-            resultStringAge += "Year-OneLast".localizedWithValue("years")
-        case .several:
-            resultStringAge += "Year-Several".localizedWithValue("years")
-        case .other:
-            resultStringAge += "Year-Other".localizedWithValue("years")
-        }
-        return resultStringAge
+        return "\(age) " + age.getRussianTypeOfYear().localized
     }
     
     // MARK: - Private properties
@@ -69,8 +58,22 @@ fileprivate extension Int {
 
 /// Необходим для правильного соотнесения со словами "год", "года" и "лет"  в русской локализации.
 private enum RussianTypeOfYear: String {
+    
     case one        // 1 год
     case oneLast    // (оканчивающиеся на 1, кроме оканчивающихся на 11) год
     case several    // (оканчивающиеся на 2...4, кроме оканчивающихся на 12..14) года
     case other      // (все остальные) лет
+    
+    var localized: String {
+        switch self {
+        case .one:
+            return "Year-One".localizedWithValue("year")
+        case .oneLast:
+            return "Year-OneLast".localizedWithValue("years")
+        case .several:
+            return "Year-Several".localizedWithValue("years")
+        case .other:
+            return "Year-Other".localizedWithValue("years")
+        }
+    }
 }
