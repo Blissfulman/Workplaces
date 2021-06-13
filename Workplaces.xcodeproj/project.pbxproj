@@ -106,6 +106,7 @@
 		CE29091F26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */; };
 		CE3F834F2664F97600120439 /* RetryRequestManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F834E2664F97600120439 /* RetryRequestManagerImpl.swift */; };
 		CE439FE02675F04C00649390 /* NewPostContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE439FDF2675F04C00649390 /* NewPostContainerViewController.swift */; };
+		CE439FE22675FE8400649390 /* NewPostTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE439FE12675FE8400649390 /* NewPostTextView.swift */; };
 		CE442BA526654AF100EB1E93 /* RetryCompletionStorageImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */; };
 		CE442BA9266569D800EB1E93 /* RetryCompletionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */; };
 		CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BAB26656BA400EB1E93 /* Error+Extension.swift */; };
@@ -370,6 +371,7 @@
 		CE29091E26465AEC0010CF6C /* FeedServiceFetchFeedPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceFetchFeedPostsTests.swift; sourceTree = "<group>"; };
 		CE3F834E2664F97600120439 /* RetryRequestManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryRequestManagerImpl.swift; sourceTree = "<group>"; };
 		CE439FDF2675F04C00649390 /* NewPostContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostContainerViewController.swift; sourceTree = "<group>"; };
+		CE439FE12675FE8400649390 /* NewPostTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostTextView.swift; sourceTree = "<group>"; };
 		CE442BA426654AF100EB1E93 /* RetryCompletionStorageImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorageImpl.swift; sourceTree = "<group>"; };
 		CE442BA8266569D800EB1E93 /* RetryCompletionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryCompletionStorage.swift; sourceTree = "<group>"; };
 		CE442BAB26656BA400EB1E93 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 				CE0BE5B9265FC03E00C0DD04 /* MainBarButtonItem.swift */,
 				CEA46B6C2648F51B007C2DCE /* ProfileSegmentedControl.swift */,
 				CE09481B26695C3D0004CD7F /* PinNumberButton.swift */,
+				CE439FE12675FE8400649390 /* NewPostTextView.swift */,
 				CE0748332633FB9700C628FF /* Zero */,
 				CE1508662642601200568006 /* ProfileTopView */,
 			);
@@ -1807,6 +1810,7 @@
 				CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */,
 				CE09D75E262E0502009A96B3 /* ServiceLayer.swift in Sources */,
 				CEB0751D265050110060E818 /* PasswordValidator.swift in Sources */,
+				CE439FE22675FE8400649390 /* NewPostTextView.swift in Sources */,
 				CE15086D264274F800568006 /* UIConstants.swift in Sources */,
 				CE573784262DC4A900A6DC20 /* AuthorizationCoordinator.swift in Sources */,
 				CEB07507264DA8A90060E818 /* ProfilePostsDataSource.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 enum UIConstants {
     static let postImageCornerRadius: CGFloat = 12
     static let buttonCornerRadius: CGFloat = 14
+    static let newPostImageCornerRadius: CGFloat = 14
     static let avatarCornerRadius: CGFloat = 16
     static let cellCornerRadius: CGFloat = 20
     

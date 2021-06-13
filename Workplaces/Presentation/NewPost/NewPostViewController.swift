@@ -13,7 +13,14 @@ protocol NewPostViewControllerDelegate: AnyObject {
     
 }
 
-final class NewPostViewController: BaseViewController {
+final class NewPostViewController: KeyboardNotificationsViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet private var postTextView: UITextView!
+    @IBOutlet private var postImageView: UIImageView!
+    @IBOutlet private var deletePostImageButton: UIButton!
+    @IBOutlet private var bottomStackViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -37,9 +44,56 @@ final class NewPostViewController: BaseViewController {
         setupUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    // MARK: - KeyboardNotificationsViewController
+    
+    override func keyboardWillShow(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { keyboardFrame in
+            self.bottomStackViewBottomConstraint.constant = keyboardFrame.height
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+        }
+    }
+    
+    override func keyboardWillHide(_ notification: Notification) {
+        animateWithKeyboard(notification: notification) { _ in
+            self.bottomStackViewBottomConstraint.constant = 16
+        }
+    }
+    
     // MARK: - Private methods
     
     private func setupUI() {
-        
+        postTextView.delegate = self
+        postTextView.tintColor = Palette.orange
+        postTextView.tintColorDidChange()
+        postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
+    }
+}
+
+// MARK: - Text view delegate
+
+extension NewPostViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == Palette.middleGrey && textView.isFirstResponder {
+            textView.text = nil
+            textView.textColor = Palette.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.textColor = Palette.middleGrey
+            textView.text = "What do you want to share?".localized()
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        return newText.count <= 80
     }
 }
