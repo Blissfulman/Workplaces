@@ -21,6 +21,7 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     @IBOutlet private var firstNameTextField: UITextField!
     @IBOutlet private var lastNameTextField: UITextField!
     @IBOutlet private var birthdayTextField: UITextField!
+    @IBOutlet private var datePicker: UIDatePicker!
     @IBOutlet private var saveButton: UIButton!
     @IBOutlet private var saveButtonBottomConstraint: NSLayoutConstraint!
     
@@ -78,13 +79,24 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
             editProfileModel.editedProfile.firstName = sender.text ?? ""
         case lastNameTextField:
             editProfileModel.editedProfile.lastName = sender.text ?? ""
-        case birthdayTextField:
-            // Временно. Позже дата будет выбираться в DatePicker
-            editProfileModel.editedProfile.birthday = DateFormatter.profileDateFormatter
-                .date(from: sender.text ?? "") ?? Date()
         default:
             break
         }
+        updateSaveButtonState()
+    }
+    
+    @IBAction private func textFieldsEditingDidBegin(_ sender: UITextField) {
+        if sender != birthdayTextField {
+            datePicker.disappear()
+        } else {
+            view.endEditing(true)
+            showDatePicker()
+        }
+    }
+    
+    @IBAction private func datePickerValueChanged() {
+        birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: datePicker.date)
+        editProfileModel.editedProfile.birthday = datePicker.date
         updateSaveButtonState()
     }
     
@@ -99,12 +111,17 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
         nicknameTextField.text = editProfileModel.profile.nickname
         firstNameTextField.text = editProfileModel.profile.firstName
         lastNameTextField.text = editProfileModel.profile.lastName
-        // Нужно будет вынести логику в модель
         birthdayTextField.text = DateFormatter.profileDateFormatter.string(from: editProfileModel.profile.birthday)
+        datePicker.date = editProfileModel.profile.birthday
     }
     
     private func updateSaveButtonState() {
         saveButton.isEnabled = editProfileModel.isPossibleToSaveProfile
+    }
+    
+    private func showDatePicker() {
+        guard datePicker.isHidden else { return }
+        datePicker.appear()
     }
 }
 
@@ -120,9 +137,18 @@ extension EditProfileViewController: UITextFieldDelegate {
             lastNameTextField.becomeFirstResponder()
         case lastNameTextField:
             textField.resignFirstResponder()
-//            pickDateButtonTapped() // Добавится, когда будет DatePicker
+            showDatePicker()
         default:
             break
+        }
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == birthdayTextField {
+            view.endEditing(true)
+            showDatePicker()
+            return false
         }
         return true
     }

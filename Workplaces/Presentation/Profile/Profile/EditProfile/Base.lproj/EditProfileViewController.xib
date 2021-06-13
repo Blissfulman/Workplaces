@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="birthdayTextField" destination="yC5-VZ-Nif" id="NUC-Nh-yMd"/>
+                <outlet property="datePicker" destination="yRu-TR-wtJ" id="u6g-gB-fOD"/>
                 <outlet property="firstNameTextField" destination="J90-uD-xdO" id="OIp-uz-rVI"/>
                 <outlet property="lastNameTextField" destination="5Sz-uE-9ar" id="GgV-Mg-A6R"/>
                 <outlet property="nicknameTextField" destination="OEW-WN-88S" id="EaJ-uY-Ky8"/>
@@ -31,6 +32,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="200" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="yRu-TR-wtJ">
+                    <rect key="frame" x="20" y="235" width="374" height="216"/>
+                    <date key="minimumDate" timeIntervalSinceReferenceDate="-3187310553">
+                        <!--1899-12-31 19:57:27 +0000-->
+                    </date>
+                    <date key="maximumDate" timeIntervalSinceReferenceDate="946666799">
+                        <!--2030-12-31 18:59:59 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="datePickerValueChanged" destination="-1" eventType="valueChanged" id="y5D-Fu-dpA"/>
+                    </connections>
+                </datePicker>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-jY-QXB">
                     <rect key="frame" x="20" y="75" width="374" height="140"/>
                     <subviews>
@@ -40,6 +53,7 @@
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="nickname"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="E2J-nK-kw3"/>
+                                <action selector="textFieldsEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="jRc-vf-WNF"/>
                                 <outlet property="delegate" destination="-1" id="4cL-2G-q7f"/>
                             </connections>
                         </textField>
@@ -49,6 +63,7 @@
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="5yG-XX-PUU"/>
+                                <action selector="textFieldsEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="ahU-gn-0iR"/>
                                 <outlet property="delegate" destination="-1" id="6NG-od-NBF"/>
                             </connections>
                         </textField>
@@ -58,6 +73,7 @@
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
                             <connections>
                                 <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="GAh-xz-rec"/>
+                                <action selector="textFieldsEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="6rP-Nt-zl3"/>
                                 <outlet property="delegate" destination="-1" id="NI3-h9-EZ7"/>
                             </connections>
                         </textField>
@@ -66,7 +82,7 @@
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <action selector="textFieldsEditingChanged:" destination="-1" eventType="editingChanged" id="U1S-Rw-fmv"/>
+                                <action selector="textFieldsEditingDidBegin:" destination="-1" eventType="editingDidBegin" id="AAN-j0-glH"/>
                                 <outlet property="delegate" destination="-1" id="r4k-5k-NlN"/>
                             </connections>
                         </textField>
@@ -90,11 +106,16 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="yRu-TR-wtJ" firstAttribute="top" secondItem="XmE-jY-QXB" secondAttribute="bottom" constant="20" id="0jT-4j-pGl"/>
                 <constraint firstAttribute="trailingMargin" secondItem="Hdy-Ef-yQW" secondAttribute="trailing" id="3XM-fC-2H9"/>
+                <constraint firstItem="yRu-TR-wtJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="7m7-KQ-Hro"/>
+                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="yRu-TR-wtJ" secondAttribute="trailing" id="90f-Rj-Ars"/>
                 <constraint firstAttribute="trailingMargin" secondItem="XmE-jY-QXB" secondAttribute="trailing" id="C9Z-NM-E7i"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" priority="250" constant="44" id="VIv-7G-jMG"/>
+                <constraint firstItem="yRu-TR-wtJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JBl-vo-EYR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hdy-Ef-yQW" secondAttribute="bottom" priority="400" constant="44" id="VIv-7G-jMG"/>
                 <constraint firstItem="Hdy-Ef-yQW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XmE-jY-QXB" secondAttribute="bottom" priority="500" constant="16" id="YVJ-YF-23m"/>
                 <constraint firstItem="Hdy-Ef-yQW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="d4v-fG-Sfw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yRu-TR-wtJ" secondAttribute="bottom" priority="250" constant="116" id="jv0-pb-6xZ"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="31" id="o3D-nl-gxo"/>
                 <constraint firstItem="XmE-jY-QXB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="wRF-oq-Wuk"/>
             </constraints>

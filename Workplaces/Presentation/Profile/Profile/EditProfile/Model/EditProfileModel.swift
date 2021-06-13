@@ -52,7 +52,7 @@ final class EditProfileModel {
             && profile.birthday == editedProfile.birthday
     }
     private var isEmptyAtLeastOneProperty: Bool {
-        // Поле birthday не проверяется, т.к. оно не должно получаться пустым (будет заполняться на основе DatePicker)
+        // Поле birthday не проверяется, т.к. оно не должно получаться пустым (заполняется через DatePicker)
         editedProfile.nickname.isEmpty || editedProfile.firstName.isEmpty || editedProfile.lastName.isEmpty
     }
     
