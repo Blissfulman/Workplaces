@@ -12,7 +12,7 @@ import UIKit
 protocol NewPostViewControllerDelegate: AnyObject {
     func didTapAddLocationButton()
     func didTapAddImageButton()
-    func didTapPublishButton()
+    func didTapPublishPostButton()
 }
 
 final class NewPostViewController: KeyboardNotificationsViewController {
@@ -22,6 +22,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     @IBOutlet private var postTextView: UITextView!
     @IBOutlet private var postImageView: UIImageView!
     @IBOutlet private var deletePostImageButton: UIButton!
+    @IBOutlet private var publishPostButton: UIButton!
     @IBOutlet private var bottomStackViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Private properties
@@ -85,8 +86,8 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         delegate?.didTapAddImageButton()
     }
     
-    @IBAction private func publishButtonTapped() {
-        delegate?.didTapPublishButton()
+    @IBAction private func publishPostButtonTapped() {
+        delegate?.didTapPublishPostButton()
     }
     
     // MARK: - Private methods
@@ -95,6 +96,10 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         postTextView.tintColor = Palette.orange
         postTextView.tintColorDidChange()
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
+    }
+    
+    private func updatePublishPostButtonState() {
+        publishPostButton.isEnabled = newPostModel.isPossibleToPublishPost
     }
 }
 
@@ -119,5 +124,10 @@ extension NewPostViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         return newText.count <= UIConstants.postTextMaxLength
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        newPostModel.text = postTextView.text
+        updatePublishPostButtonState()
     }
 }

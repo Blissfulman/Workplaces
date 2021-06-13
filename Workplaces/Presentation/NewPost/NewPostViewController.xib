@@ -21,6 +21,7 @@
                 <outlet property="deletePostImageButton" destination="cNA-D6-Q3V" id="j3e-T4-aqV"/>
                 <outlet property="postImageView" destination="nAv-H7-4gZ" id="gNO-iF-rmJ"/>
                 <outlet property="postTextView" destination="Ya5-QQ-mPq" id="tlO-be-HzV"/>
+                <outlet property="publishPostButton" destination="Pi0-fE-Trc" id="z8C-sy-GZa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -93,7 +94,7 @@
                             </constraints>
                             <state key="normal" title="Button" image="36-send"/>
                             <connections>
-                                <action selector="publishButtonTapped" destination="-1" eventType="touchUpInside" id="1jb-Uo-Voa"/>
+                                <action selector="publishPostButtonTapped" destination="-1" eventType="touchUpInside" id="1jb-Uo-Voa"/>
                             </connections>
                         </button>
                     </subviews>

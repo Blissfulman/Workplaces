@@ -57,24 +57,6 @@ final class NewPostContainerViewController: BaseViewController {
         tabBarController?.tabBar.isHidden = true
         addFullover(newPostVC)
     }
-    
-    private func publishPost() {
-//        let progress = newPostService.publishPost(post: post) { result in
-//            switch result {
-//            case let .success(post):
-//                print(post)
-//
-//                if let imageURL = post.imageURL,
-//                   let data = try? Data(contentsOf: imageURL),
-//                   let imageData = Data(base64Encoded: data) {
-//                    self.imageView.image = UIImage(data: imageData)
-//                }
-//            case let .failure(error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//        progressList.append(progress)
-    }
 }
 
 // MARK: - NewPostViewControllerDelegate
@@ -89,7 +71,21 @@ extension NewPostContainerViewController: NewPostViewControllerDelegate {
         
     }
     
-    func didTapPublishButton() {
-        delegate?.back()
+    func didTapPublishPostButton() {
+        LoadingView.show()
+        
+        let progress = newPostService.publishPost(uploadPost: newPostModel.post) { [weak self] result in
+            LoadingView.hide()
+            
+            // TEMP
+            switch result {
+            case let .success(post):
+                print(post)
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+            self?.delegate?.back()
+        }
+        progressList.append(progress)
     }
 }

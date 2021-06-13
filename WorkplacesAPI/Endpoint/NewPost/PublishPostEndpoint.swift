@@ -20,8 +20,8 @@ public struct PublishPostEndpoint: JsonEndpoint {
     
     // MARK: - Initializers
     
-    public init(post: Post) {
-        self.uploadPost = UploadPost(post: post)
+    public init(uploadPost: UploadPost) {
+        self.uploadPost = uploadPost
     }
     
     // MARK: - Public methods
