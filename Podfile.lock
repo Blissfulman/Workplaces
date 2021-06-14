@@ -7,11 +7,13 @@ PODS:
     - Apexy/Core
   - Apexy/Core (1.3.0)
   - KeychainAccess (4.2.2)
+  - Kingfisher (6.3.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Apexy
   - KeychainAccess
+  - Kingfisher
   - SwiftLint
 
 SPEC REPOS:
@@ -19,14 +21,16 @@ SPEC REPOS:
     - Alamofire
     - Apexy
     - KeychainAccess
+    - Kingfisher
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Apexy: f6d81271bf1228dd10ddd86c24fb4f1a0fdc85fd
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 25580500e7db11b3227885d5f1f568bd13c7edcb
+PODFILE CHECKSUM: 99d03ccba7bbd9b96efd6b3961ae6df3eed09a0e
 
 COCOAPODS: 1.10.1

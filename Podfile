@@ -7,6 +7,7 @@ target 'Workplaces' do
   pod 'SwiftLint'
   pod 'Apexy'
   pod 'KeychainAccess'
+  pod 'Kingfisher'
 
   target 'WorkplacesTests' do
     inherit! :search_paths

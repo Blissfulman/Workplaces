@@ -12,7 +12,6 @@ final class NewPostModel {
     // MARK: - Public properties
     
     var text = ""
-    var locationData: Data?
     var imageData: Data?
     var isPossibleToPublishPost: Bool {
         !text.isEmpty
