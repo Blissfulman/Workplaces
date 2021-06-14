@@ -111,6 +111,7 @@
 		CE442BAC26656BA400EB1E93 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BAB26656BA400EB1E93 /* Error+Extension.swift */; };
 		CE442BAE266636BD00EB1E93 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE442BAD266636BD00EB1E93 /* APIConstants.swift */; };
 		CE45EF54267664E8000D6390 /* NewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45EF53267664E8000D6390 /* NewPostModel.swift */; };
+		CE4BBF422677DED0004EBB43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4BBF412677DED0004EBB43 /* Assets.xcassets */; };
 		CE4EFC92265A2EEA00CE17B0 /* ProfileTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */; };
 		CE5223312656B6E6005C5075 /* MainUnfilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */; };
 		CE5223332656DE11005C5075 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5223322656DE11005C5075 /* MainTextField.swift */; };
@@ -132,7 +133,6 @@
 		CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AE2655150000CE3291 /* KeyboardNotificationsViewController.swift */; };
 		CE7C4951262B58E4007FA94E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4950262B58E4007FA94E /* AppDelegate.swift */; };
 		CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C4952262B58E4007FA94E /* SceneDelegate.swift */; };
-		CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7C4959262B58E5007FA94E /* Assets.xcassets */; };
 		CE7C495D262B58E5007FA94E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7C495B262B58E5007FA94E /* LaunchScreen.storyboard */; };
 		CE8953F9262EE4E20082D200 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */; };
 		CE8F1B5C2633FEA200C0C52C /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8F1B5B2633FEA200C0C52C /* ZeroViewController.swift */; };
@@ -376,6 +376,7 @@
 		CE442BAB26656BA400EB1E93 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		CE442BAD266636BD00EB1E93 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		CE45EF53267664E8000D6390 /* NewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostModel.swift; sourceTree = "<group>"; };
+		CE4BBF412677DED0004EBB43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4EFC91265A2EEA00CE17B0 /* ProfileTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopViewModel.swift; sourceTree = "<group>"; };
 		CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUnfilledButton.swift; sourceTree = "<group>"; };
 		CE5223322656DE11005C5075 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -400,7 +401,6 @@
 		CE7C494D262B58E4007FA94E /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7C4950262B58E4007FA94E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE7C4952262B58E4007FA94E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE7C4959262B58E5007FA94E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7C495C262B58E5007FA94E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE7C495E262B58E5007FA94E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8953F8262EE4E20082D200 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -635,7 +635,7 @@
 		CE133199262C25C60086433C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				CE7C4959262B58E5007FA94E /* Assets.xcassets */,
+				CE4BBF412677DED0004EBB43 /* Assets.xcassets */,
 				CE1331B5262C45C80086433C /* Icons.xcassets */,
 				CE1331AE262C40550086433C /* Palette.xcassets */,
 				CEB8B87D262CA92900F030ED /* Images.xcassets */,
@@ -1645,12 +1645,12 @@
 				CEA46B7226495BE0007C2DCE /* FriendCell.xib in Resources */,
 				CEDFF752265E135E000A765C /* EditProfileViewController.xib in Resources */,
 				CE09D773262E8E0B009A96B3 /* NewPostViewController.xib in Resources */,
+				CE4BBF422677DED0004EBB43 /* Assets.xcassets in Resources */,
 				CE1508652642597700568006 /* PostCell.xib in Resources */,
 				CE1331B6262C45C80086433C /* Icons.xcassets in Resources */,
 				CE15089D264467F200568006 /* SignUpSecondViewController.xib in Resources */,
 				CEDFF75C265E15F4000A765C /* SearchFriendsContainerViewController.xib in Resources */,
 				CEE7FBA8262D4709001D5DAD /* IBMPlexSans-Medium.ttf in Resources */,
-				CE7C495A262B58E5007FA94E /* Assets.xcassets in Resources */,
 				CE15086F26428C5700568006 /* LoginViewController.xib in Resources */,
 				CE5E71B92652A47C0028990A /* UserCell.xib in Resources */,
 				CE0748352633FBB300C628FF /* ZeroView.xib in Resources */,
