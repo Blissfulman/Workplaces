@@ -69,6 +69,12 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
         }
     }
     
+    // MARK: - Public methods
+    
+    func updateSaveButtonState() {
+        saveButton.isEnabled = editProfileModel.isPossibleToSaveProfile
+    }
+    
     // MARK: - Actions
     
     @IBAction private func textFieldsEditingChanged(_ sender: UITextField) {
@@ -113,10 +119,6 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
         lastNameTextField.text = editProfileModel.profile.lastName
         birthdayTextField.text = editProfileModel.stringBirthday
         datePicker.date = editProfileModel.profile.birthday
-    }
-    
-    private func updateSaveButtonState() {
-        saveButton.isEnabled = editProfileModel.isPossibleToSaveProfile
     }
     
     private func showDatePicker() {

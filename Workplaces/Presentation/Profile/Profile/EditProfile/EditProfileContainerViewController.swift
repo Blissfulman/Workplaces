@@ -110,5 +110,7 @@ extension EditProfileContainerViewController: UIImagePickerControllerDelegate, U
     ) {
         defer { imagePickerController.dismiss(animated: true) }
         editProfileModel.avatarURL = info[.imageURL] as? URL
+        editProfileModel.isChangedAvatar = true
+        editProfileVC.updateSaveButtonState()
     }
 }

@@ -42,8 +42,9 @@ final class EditProfileModel {
     var stringBirthday: String {
         DateFormatter.profileDateFormatter.string(from: editedProfile.birthday)
     }
+    var isChangedAvatar = false
     var isPossibleToSaveProfile: Bool {
-        !hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty
+        (!hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty) || isChangedAvatar
     }
     
     // MARK: - Private properties
