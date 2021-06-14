@@ -656,13 +656,6 @@
 			path = "Business logic";
 			sourceTree = "<group>";
 		};
-		CE13319C262C26150086433C /* Client */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Client;
-			sourceTree = "<group>";
-		};
 		CE13319E262C26340086433C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,7 +1100,6 @@
 			isa = PBXGroup;
 			children = (
 				CE133198262C25A90086433C /* Resources */,
-				CE13319C262C26150086433C /* Client */,
 				CE13319B262C26000086433C /* Business logic */,
 				CE133197262C25900086433C /* Presentation */,
 				CE573798262DF96100A6DC20 /* Supporting files */,

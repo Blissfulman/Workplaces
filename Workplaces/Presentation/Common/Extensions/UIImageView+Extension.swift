@@ -9,9 +9,10 @@ import Kingfisher
 
 extension UIImageView {
     
-    /// Загрузка изображения по `URL`.
+    /// Установка изображения, полученного  по переданному `URL`.
     /// - Parameter url: `URL` изображения.
-    func fetchImage(byURL url: URL) {
+    func setImage(byURL url: URL?) {
+        guard let url = url else { return }
         kf.indicatorType = .activity
         kf.setImage(with: url)
     }

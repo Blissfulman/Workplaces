@@ -53,9 +53,7 @@ final class UserCell: UITableViewCell {
         self.user = user
         self.delegate = delegate
         
-        if let avatarURL = user.avatarURL {
-            avatarImageView.fetchImage(byURL: avatarURL)
-        }
+        avatarImageView.setImage(byURL: user.avatarURL)
         fullNameLabel.text = "\(user.firstName) \(user.lastName)"
         nicknameLabel.text = user.nickname
         addFriendButton.isHidden = !isAddable

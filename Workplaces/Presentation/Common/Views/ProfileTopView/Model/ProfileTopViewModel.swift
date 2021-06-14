@@ -11,13 +11,6 @@ struct ProfileTopViewModel {
     
     // MARK: - Public properties
     
-    var avatarImageData: Data? {
-        // Временная реализация получения картинки
-        guard let avatarURL = profile.avatarURL,
-              let data = try? Data(contentsOf: avatarURL),
-              let imageData = Data(base64Encoded: data) else { return nil }
-        return imageData
-    }
     var fullName: String {
         "\(profile.firstName) \(profile.lastName)"
     }

@@ -22,10 +22,6 @@ struct PostCellModel {
     var isHiddenLocation: Bool {
         location == nil
     }
-    var postImageData: Data? {
-        guard let url = post.imageURL else { return nil }
-        return try? Data(contentsOf: url)
-    }
     var isHiddenPostImage: Bool {
         post.imageURL == nil
     }
