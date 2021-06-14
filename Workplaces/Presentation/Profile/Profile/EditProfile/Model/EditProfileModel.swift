@@ -29,12 +29,14 @@ final class EditProfileModel {
     
     let profile: User
     var editedProfile: EditingUser
+    var avatarURL: URL?
     var uploadUser: UploadUser {
         UploadUser(
             firstName: editedProfile.firstName,
             lastName: editedProfile.lastName,
             nickname: editedProfile.nickname,
-            birthday: editedProfile.birthday
+            birthday: editedProfile.birthday,
+            avatarFileURL: avatarURL
         )
     }
     var stringBirthday: String {
