@@ -29,8 +29,8 @@ final class ProfileServiceImpl: ProfileService {
         }
     }
     
-    func updateMyProfile(user: User, completion: @escaping UserResultHandler) -> Progress {
-        let endpoint = UpdateMyProfileEndpoint(user: user)
+    func updateMyProfile(uploadUser: UploadUser, completion: @escaping UserResultHandler) -> Progress {
+        let endpoint = UpdateMyProfileEndpoint(uploadUser: uploadUser)
         return apiClient.request(endpoint) { result in
             completion(result.mapError { $0.unwrapAFError() })
         }

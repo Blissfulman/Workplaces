@@ -20,10 +20,10 @@ protocol ProfileService {
     
     /// Обновление своего профиля.
     /// - Parameters:
-    ///   - user: Профиль.
+    ///   - uploadUser: Обновлённый профиль пользователя `UploadUser`.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func updateMyProfile(user: User, completion: @escaping UserResultHandler) -> Progress
+    func updateMyProfile(uploadUser: UploadUser, completion: @escaping UserResultHandler) -> Progress
     
     /// Получение своих постов.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.

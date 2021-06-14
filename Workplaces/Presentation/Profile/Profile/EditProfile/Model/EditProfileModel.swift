@@ -29,13 +29,11 @@ final class EditProfileModel {
     
     let profile: User
     var editedProfile: EditingUser
-    var updatedProfile: User {
-        User(
-            id: profile.id,
+    var uploadUser: UploadUser {
+        UploadUser(
             firstName: editedProfile.firstName,
             lastName: editedProfile.lastName,
             nickname: editedProfile.nickname,
-            avatarURL: profile.avatarURL,
             birthday: editedProfile.birthday
         )
     }

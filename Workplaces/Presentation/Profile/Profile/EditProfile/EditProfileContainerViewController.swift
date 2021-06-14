@@ -66,7 +66,7 @@ extension EditProfileContainerViewController: EditProfileViewControllerDelegate 
     func didTapSaveButton() {
         LoadingView.show()
         
-        let progress = profileService.updateMyProfile(user: editProfileModel.updatedProfile) { [weak self] result in
+        let progress = profileService.updateMyProfile(uploadUser: editProfileModel.uploadUser) { [weak self] result in
             LoadingView.hide()
             
             switch result {

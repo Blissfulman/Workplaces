@@ -116,7 +116,7 @@ extension SignUpContainerViewController: SignUpFirstViewControllerDelegate {
 extension SignUpContainerViewController: SignUpSecondViewControllerDelegate {
     
     func didTapSaveButton() {
-        let progress = profileService.updateMyProfile(user: signUpModel.updatedProfile) { _ in }
+        let progress = profileService.updateMyProfile(uploadUser: signUpModel.uploadUser) { _ in }
         progressList.append(progress)
         delegate?.didFinishSignUp()
     }

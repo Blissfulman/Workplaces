@@ -16,5 +16,6 @@ typealias User = WorkplacesAPI.User
 typealias Post = WorkplacesAPI.Post
 typealias UserCredentials = WorkplacesAPI.UserCredentials
 typealias AuthorizationData = WorkplacesAPI.AuthorizationData
+typealias UploadUser = WorkplacesAPI.UploadUser
 typealias UploadPost = WorkplacesAPI.UploadPost
 typealias TokenRefreshService = WorkplacesAPI.TokenRefreshService

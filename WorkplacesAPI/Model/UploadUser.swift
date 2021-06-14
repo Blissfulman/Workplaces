@@ -5,43 +5,26 @@
 //  Created by Evgeny Novgorodov on 28.04.2021.
 //
 
-import UIKit
+import Foundation
 
-public struct UploadUser: Encodable {
-    
-    // MARK: - Nested types
-    
-    private enum CodingKeys: String, CodingKey {
-        case firstName
-        case lastName
-        case nickname
-        case avatarFile
-        case birthday = "birthDay"
-    }
+public struct UploadUser {
     
     // MARK: - Public properties
     
     let firstName: String
     let lastName: String
     let nickname: String
-    let avatarFile: String
     let birthday: String
+    let avatarFileURL: URL?
     
     // MARK: - Initializers
     
-    // Временный инициализатор
-    init(user: User) {
-        firstName = user.firstName
-        lastName = user.lastName
-        nickname = user.nickname ?? ""
-        if let url = user.avatarURL,
-           let imageData = try? Data(contentsOf: url),
-           let jpegData = UIImage(data: imageData)?.jpegData(compressionQuality: 1) {
-            avatarFile = jpegData.base64EncodedString()
-        } else {
-            avatarFile = ""
-        }
-        birthday = DateFormatter.uploadDateFormatter.string(from: user.birthday)
+    public init(firstName: String, lastName: String, nickname: String, birthday: Date, avatarFileURL: URL? = nil) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.nickname = nickname
+        self.birthday = DateFormatter.uploadDateFormatter.string(from: birthday)
+        self.avatarFileURL = avatarFileURL
     }
 }
 
