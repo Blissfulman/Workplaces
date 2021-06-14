@@ -233,9 +233,11 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(profile):
-                self?.profile = profile
-                self?.navigationItem.title = profile.nickname
-                self?.configureProfileTopView()
+                if profile != self?.profile {
+                    self?.profile = profile
+                    self?.navigationItem.title = profile.nickname
+                    self?.configureProfileTopView()
+                }
             case let .failure(error):
                 #if DEBUG
                 print(error.localizedDescription)
