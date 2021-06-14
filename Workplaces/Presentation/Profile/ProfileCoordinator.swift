@@ -15,7 +15,6 @@ protocol ProfileCoordinator: Coordinator {
 
 protocol ProfileCoordinatorDelegate: AnyObject {
     func goToFeed()
-    func goToNewPost()
 }
 
 final class ProfileCoordinatorImpl: ProfileCoordinator {
@@ -81,7 +80,7 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     }
     
     func goToNewPost() {
-        delegate?.goToNewPost()
+        showNewPostScreen()
     }
     
     func goToFeed() {

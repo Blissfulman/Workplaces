@@ -80,6 +80,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
             self?.betweenImageViewAndBottomButtonsConstraint.isActive = false
         }
         deletePostImageButton.disappear()
+        newPostModel.imageURL = nil
     }
     
     @IBAction private func addLocationButtonTapped() {

@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
                     <rect key="frame" x="20" y="150" width="350" height="233.33333333333337"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nAv-H7-4gZ" secondAttribute="height" multiplier="3:2" id="2oa-ZK-rgk"/>

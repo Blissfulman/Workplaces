@@ -102,8 +102,4 @@ extension TabBarCoordinatingController: ProfileCoordinatorDelegate {
     func goToFeed() {
         selectedIndex = 0
     }
-    
-    func goToNewPost() {
-        selectedIndex = 1
-    }
 }
