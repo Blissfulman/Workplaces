@@ -64,7 +64,8 @@ final class NewPostContainerViewController: BaseViewController {
 extension NewPostContainerViewController: NewPostViewControllerDelegate {
     
     func didTapAddLocationButton() {
-        // Необходимо доработать
+        // Временно. Необходимо доработать
+        showAlert(title: "Not available".localized(), message: "Functionality is under development".localized())
     }
     
     func didTapPublishPostButton() {
@@ -73,14 +74,12 @@ extension NewPostContainerViewController: NewPostViewControllerDelegate {
         let progress = newPostService.publishPost(uploadPost: newPostModel.uploadPost) { [weak self] result in
             LoadingView.hide()
             
-            // TEMP
             switch result {
-            case let .success(post):
-                print(post)
+            case .success:
+                self?.delegate?.back()
             case let .failure(error):
-                print(error.localizedDescription)
+                self?.showAlert(error: error)
             }
-            self?.delegate?.back()
         }
         progressList.append(progress)
     }

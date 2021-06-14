@@ -101,6 +101,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     private func setupUI() {
         postTextView.tintColor = Palette.orange
         postTextView.tintColorDidChange()
+        postTextView.text = "What do you want to share?".localized()
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
         imagePickerController.sourceType = .savedPhotosAlbum
         betweenImageViewAndBottomButtonsConstraint.isActive = false

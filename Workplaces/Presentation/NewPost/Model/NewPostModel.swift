@@ -17,7 +17,8 @@ final class NewPostModel {
         !text.isEmpty
     }
     var uploadPost: UploadPost {
-        let location = UploadPost.Location(longitude: 10.3, latitude: 20.6) // TEMP
+        // Временно передаю захардкоженные данные. Нужно будет доработать.
+        let location = UploadPost.Location(longitude: 10.3, latitude: 20.6)
         return UploadPost(text: text, imageURL: imageURL, location: location)
     }
 }

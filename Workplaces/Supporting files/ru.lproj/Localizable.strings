@@ -26,9 +26,11 @@
 "Popular" = "Популярное";
 "Search friends" = "Поиск друзей";
 "Name or nickname" = "Имя или никнейм";
-"years" = "лет";
 "Log out" = "Выйти";
 "What do you want to share?" = "Чем хотите поделиться?";
+"Change avatar" = "Сменить аватар";
+"Not available" = "Недоступно";
+"Functionality is under development" = "Функционал находится в разработке";
 
 // MARK: - ProfileTopView
 
