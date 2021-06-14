@@ -253,7 +253,7 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(myPosts):
-                self?.postListDataSource.updateData(posts: myPosts)
+                self?.postListDataSource.updateData(posts: myPosts.reversed())
             case let .failure(error):
                 #if DEBUG
                 print(error.localizedDescription)
@@ -271,7 +271,7 @@ extension ProfileContainerViewController {
             
             switch result {
             case let .success(likedPosts):
-                self?.likeListDataSource.updateData(posts: likedPosts)
+                self?.likeListDataSource.updateData(posts: likedPosts.reversed())
             case let .failure(error):
                 #if DEBUG
                 print(error.localizedDescription)
