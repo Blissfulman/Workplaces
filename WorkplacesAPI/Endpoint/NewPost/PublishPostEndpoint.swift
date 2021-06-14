@@ -30,13 +30,17 @@ public struct PublishPostEndpoint: JsonEndpoint {
         let multipartFormData = MultipartFormData()
         
         multipartFormData.append(uploadPost.text.data(using: .utf8) ?? Data(), withName: "text")
-        multipartFormData.append(
-            uploadPost.imageFile.data(using: .utf8) ?? Data(),
-            withName: "image_file",
-            fileName: "image.png"
-        )
-        multipartFormData.append(uploadPost.longitude.data(using: .utf8) ?? Data(), withName: "lon")
-        multipartFormData.append(uploadPost.latitude.data(using: .utf8) ?? Data(), withName: "lat")
+        if let imageURL = uploadPost.imageURL {
+            multipartFormData.append(imageURL, withName: "image_file")
+        }
+        if let location = uploadPost.location {
+            multipartFormData.append(
+                String(describing: location.longitude).data(using: .utf8) ?? Data(), withName: "lon"
+            )
+            multipartFormData.append(
+                String(describing: location.latitude).data(using: .utf8) ?? Data(), withName: "lat"
+            )
+        }
         
         return post(
             URL(string: "me/posts")!,

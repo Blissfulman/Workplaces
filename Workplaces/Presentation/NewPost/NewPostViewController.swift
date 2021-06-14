@@ -92,6 +92,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
     }
     
     @IBAction private func publishPostButtonTapped() {
+        view.endEditing(true)
         delegate?.didTapPublishPostButton()
     }
     
@@ -101,7 +102,6 @@ final class NewPostViewController: KeyboardNotificationsViewController {
         postTextView.tintColor = Palette.orange
         postTextView.tintColorDidChange()
         postImageView.setCornerRadius(UIConstants.newPostImageCornerRadius)
-        imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .savedPhotosAlbum
         betweenImageViewAndBottomButtonsConstraint.isActive = false
     }
@@ -155,10 +155,9 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
         defer { imagePickerController.dismiss(animated: true) }
-        guard let image = info[.editedImage] as? UIImage else { return }
         
-        newPostModel.imageData = image.pngData()
-        postImageView.image = image
+        newPostModel.imageURL = info[.imageURL] as? URL
+        postImageView.image = info[.originalImage] as? UIImage
         showImage()
     }
 }

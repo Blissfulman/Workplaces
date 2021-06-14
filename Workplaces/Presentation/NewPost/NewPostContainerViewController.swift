@@ -70,7 +70,7 @@ extension NewPostContainerViewController: NewPostViewControllerDelegate {
     func didTapPublishPostButton() {
         LoadingView.show()
         
-        let progress = newPostService.publishPost(uploadPost: newPostModel.post) { [weak self] result in
+        let progress = newPostService.publishPost(uploadPost: newPostModel.uploadPost) { [weak self] result in
             LoadingView.hide()
             
             // TEMP

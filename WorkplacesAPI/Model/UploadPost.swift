@@ -7,16 +7,9 @@
 
 import UIKit
 
-public struct UploadPost: Encodable {
+public struct UploadPost {
     
     // MARK: - Nested types
-    
-    private enum CodingKeys: String, CodingKey {
-        case text
-        case imageFile
-        case longitude = "lon"
-        case latitude = "lat"
-    }
     
     public struct Location {
         let longitude: Double
@@ -31,27 +24,14 @@ public struct UploadPost: Encodable {
     // MARK: - Public properties
     
     let text: String
-    let imageFile: String
-    let longitude: String
-    let latitude: String
+    let imageURL: URL?
+    let location: Location?
     
     // MARK: - Initializers
     
-    public init(text: String, imageData: Data?, location: Location?) {
+    public init(text: String, imageURL: URL?, location: Location?) {
         self.text = text
-        if let imageData = imageData,
-           let base64Data = UIImage(data: imageData)?.pngData()?.base64EncodedData(),
-           let stringData = String(data: base64Data, encoding: .utf8) {
-            imageFile = stringData
-        } else {
-            imageFile = ""
-        }
-        if let location = location {
-            self.longitude = String(describing: location.longitude)
-            self.latitude = String(describing: location.longitude)
-        } else {
-            self.longitude = ""
-            self.latitude = ""
-        }
+        self.imageURL = imageURL
+        self.location = location
     }
 }
