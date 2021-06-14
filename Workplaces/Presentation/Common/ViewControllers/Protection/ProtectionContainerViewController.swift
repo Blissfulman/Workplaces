@@ -114,6 +114,7 @@ extension ProtectionContainerViewController: ProtectionViewControllerDelegate {
     
     func didTapFingerprintButton() {
         // Необходимо доработать (из-за отсутствия реального устройства оставил без реализации)
+        showAlert(title: "Not available".localized(), message: "Functionality is under development".localized())
     }
     
     func didEnterPassword() {

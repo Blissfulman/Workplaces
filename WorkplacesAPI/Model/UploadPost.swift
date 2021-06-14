@@ -24,14 +24,14 @@ public struct UploadPost {
     // MARK: - Public properties
     
     let text: String
-    let imageURL: URL?
+    let imageFileURL: URL?
     let location: Location?
     
     // MARK: - Initializers
     
-    public init(text: String, imageURL: URL?, location: Location?) {
+    public init(text: String, imageFileURL: URL?, location: Location?) {
         self.text = text
-        self.imageURL = imageURL
+        self.imageFileURL = imageFileURL
         self.location = location
     }
 }

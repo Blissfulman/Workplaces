@@ -17,7 +17,7 @@ final class NewPostServicePublishPostTests: XCTestCase {
     private var newPostService: NewPostService?
     private let uploadPost = UploadPost(
         text: "test",
-        imageData: Data(),
+        imageFileURL: nil,
         location: UploadPost.Location(longitude: 0, latitude: 0)
     )
     private let author = User(

@@ -30,8 +30,8 @@ public struct PublishPostEndpoint: JsonEndpoint {
         let multipartFormData = MultipartFormData()
         
         multipartFormData.append(uploadPost.text.data(using: .utf8) ?? Data(), withName: "text")
-        if let imageURL = uploadPost.imageURL {
-            multipartFormData.append(imageURL, withName: "image_file")
+        if let imageFileURL = uploadPost.imageFileURL {
+            multipartFormData.append(imageFileURL, withName: "image_file")
         }
         if let location = uploadPost.location {
             multipartFormData.append(

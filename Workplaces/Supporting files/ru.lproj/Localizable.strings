@@ -29,8 +29,6 @@
 "Log out" = "Выйти";
 "What do you want to share?" = "Чем хотите поделиться?";
 "Change avatar" = "Сменить аватар";
-"Not available" = "Недоступно";
-"Functionality is under development" = "Функционал находится в разработке";
 
 // MARK: - ProfileTopView
 
@@ -65,3 +63,8 @@
 // MARK: - Extensions
 
 "Error" = "Ошибка";
+
+// MARK: - Different places
+
+"Not available" = "Недоступно";
+"Functionality is under development" = "Функционал находится в разработке";

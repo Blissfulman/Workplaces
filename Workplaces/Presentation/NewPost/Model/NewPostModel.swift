@@ -12,13 +12,13 @@ final class NewPostModel {
     // MARK: - Public properties
     
     var text = ""
-    var imageURL: URL?
+    var imageFileURL: URL?
     var isPossibleToPublishPost: Bool {
         !text.isEmpty
     }
     var uploadPost: UploadPost {
         // Временно передаю захардкоженные данные. Нужно будет доработать.
         let location = UploadPost.Location(longitude: 10.3, latitude: 20.6)
-        return UploadPost(text: text, imageURL: imageURL, location: location)
+        return UploadPost(text: text, imageFileURL: imageFileURL, location: location)
     }
 }

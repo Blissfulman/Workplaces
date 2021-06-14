@@ -274,6 +274,8 @@ extension ProfileContainerViewController {
             switch result {
             case let .success(likedPosts):
                 self?.likeListDataSource.updateData(posts: likedPosts.reversed())
+                // Необходимо, чтобы экран обновился при случае, когда был убран лайк с последнего поста в списке
+                if likedPosts.isEmpty { self?.updateScreen() }
             case let .failure(error):
                 #if DEBUG
                 print(error.localizedDescription)

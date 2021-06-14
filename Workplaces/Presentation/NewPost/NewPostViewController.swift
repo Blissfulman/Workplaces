@@ -80,7 +80,7 @@ final class NewPostViewController: KeyboardNotificationsViewController {
             self?.betweenImageViewAndBottomButtonsConstraint.isActive = false
         }
         deletePostImageButton.disappear()
-        newPostModel.imageURL = nil
+        newPostModel.imageFileURL = nil
     }
     
     @IBAction private func addLocationButtonTapped() {
@@ -158,7 +158,7 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
     ) {
         defer { imagePickerController.dismiss(animated: true) }
         
-        newPostModel.imageURL = info[.imageURL] as? URL
+        newPostModel.imageFileURL = info[.imageURL] as? URL
         postImageView.image = info[.originalImage] as? UIImage
         showImage()
     }
