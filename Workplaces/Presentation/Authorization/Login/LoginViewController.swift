@@ -11,9 +11,6 @@ import UIKit
 
 protocol LoginScreenDelegate: AnyObject {
     func didTapSignInWithEmailButton()
-    func didTapSignInWithGoogleButton()
-    func didTapSignInWithFacebookButton()
-    func didTapSignInWithVKButton()
     func didTapSignUpWithEmail()
 }
 
@@ -45,18 +42,6 @@ final class LoginViewController: BaseViewController {
     
     @IBAction private func signInWithEmailButtonTapped() {
         delegate?.didTapSignInWithEmailButton()
-    }
-    
-    @IBAction private func signInWithGoogleTapped() {
-        delegate?.didTapSignInWithGoogleButton()
-    }
-    
-    @IBAction private func signInWithFacebookTapped() {
-        delegate?.didTapSignInWithFacebookButton()
-    }
-    
-    @IBAction private func signInWithVKTapped() {
-        delegate?.didTapSignInWithVKButton()
     }
     
     @IBAction private func signUpWithEmailTapped() {

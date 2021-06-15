@@ -111,7 +111,7 @@ final class FeedContainerViewController: BaseViewController {
             case let .success(posts):
                 self?.state = posts.isEmpty
                     ? .noFriends
-                    : .data(posts: posts)
+                    : .data(posts: posts.reversed())
             case .failure:
                 self?.state = .error
             }

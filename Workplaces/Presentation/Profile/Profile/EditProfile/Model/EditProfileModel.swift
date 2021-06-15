@@ -29,18 +29,22 @@ final class EditProfileModel {
     
     let profile: User
     var editedProfile: EditingUser
-    var updatedProfile: User {
-        User(
-            id: profile.id,
+    var avatarURL: URL?
+    var uploadUser: UploadUser {
+        UploadUser(
             firstName: editedProfile.firstName,
             lastName: editedProfile.lastName,
             nickname: editedProfile.nickname,
-            avatarURL: profile.avatarURL,
-            birthday: editedProfile.birthday
+            birthday: editedProfile.birthday,
+            avatarFileURL: avatarURL
         )
     }
+    var stringBirthday: String {
+        DateFormatter.profileDateFormatter.string(from: editedProfile.birthday)
+    }
+    var isChangedAvatar = false
     var isPossibleToSaveProfile: Bool {
-        !hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty
+        (!hasNotBeenEditedProfile && !isEmptyAtLeastOneProperty) || isChangedAvatar
     }
     
     // MARK: - Private properties
@@ -52,7 +56,7 @@ final class EditProfileModel {
             && profile.birthday == editedProfile.birthday
     }
     private var isEmptyAtLeastOneProperty: Bool {
-        // Поле birthday не проверяется, т.к. оно не должно получаться пустым (будет заполняться на основе DatePicker)
+        // Поле birthday не проверяется, т.к. оно не должно получаться пустым (заполняется через DatePicker)
         editedProfile.nickname.isEmpty || editedProfile.firstName.isEmpty || editedProfile.lastName.isEmpty
     }
     

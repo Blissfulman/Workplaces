@@ -31,15 +31,6 @@ protocol AuthorizationService {
         completion: @escaping AuthorizationDataResultHandler
     ) -> Progress
     
-    /// Авторизация с помощью аккаунта Google.
-    func signInWithGoogle()
-    
-    /// Авторизация с помощью аккаунта Facebook.
-    func signInWithFacebook()
-    
-    /// Авторизация с помощью аккаунта VK.
-    func signInWithVK()
-    
     /// Завершение сессии пользователя.
     /// - Parameter completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult

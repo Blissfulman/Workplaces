@@ -15,6 +15,11 @@ final class NewPostServicePublishPostTests: XCTestCase {
     
     private let client = ClientMock<PublishPostEndpoint>()
     private var newPostService: NewPostService?
+    private let uploadPost = UploadPost(
+        text: "test",
+        imageFileURL: nil,
+        location: UploadPost.Location(longitude: 0, latitude: 0)
+    )
     private let author = User(
         id: "test",
         firstName: "test",
@@ -46,7 +51,7 @@ final class NewPostServicePublishPostTests: XCTestCase {
     func testPublishPostSuccess() {
         client.result = .success(post)
         
-        newPostService?.publishPost(post: post) { result in
+        newPostService?.publishPost(uploadPost: uploadPost) { result in
             var boolResult = false
             if case .success = result {
                 boolResult = true
@@ -59,7 +64,7 @@ final class NewPostServicePublishPostTests: XCTestCase {
         let expectedError = APIError(code: .genericError, message: "")
         client.result = .failure(expectedError)
         
-        newPostService?.publishPost(post: post) { result in
+        newPostService?.publishPost(uploadPost: uploadPost) { result in
             var boolResult = false
             if case let .failure(error) = result,
                let apiError = error as? APIError,

@@ -45,7 +45,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJF-fZ-8Sc" customClass="MainFilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="538.5" width="382" height="56"/>
+                    <rect key="frame" x="16" y="618.5" width="382" height="56"/>
                     <color key="backgroundColor" name="orange"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="3pm-Jb-nkq"/>
@@ -58,38 +58,8 @@
                         <action selector="signInWithEmailButtonTapped" destination="-1" eventType="touchUpInside" id="tRx-BG-R5z"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3my-r6-Dg9">
-                    <rect key="frame" x="44.5" y="614.5" width="325" height="54"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-TP-BrT">
-                            <rect key="frame" x="0.0" y="0.0" width="103" height="54"/>
-                            <state key="normal" title="Button" image="google_button"/>
-                            <connections>
-                                <action selector="signInWithGoogleTapped" destination="-1" eventType="touchUpInside" id="r5R-iZ-BMI"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgE-yP-44B">
-                            <rect key="frame" x="111" y="0.0" width="103" height="54"/>
-                            <state key="normal" title="Button" image="facebook_button"/>
-                            <connections>
-                                <action selector="signInWithFacebookTapped" destination="-1" eventType="touchUpInside" id="LXk-E6-o2g"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RR-BI-qA0">
-                            <rect key="frame" x="222" y="0.0" width="103" height="54"/>
-                            <state key="normal" title="Button" image="vk_button"/>
-                            <connections>
-                                <action selector="signInWithVKTapped" destination="-1" eventType="touchUpInside" id="HUx-SE-3Ff"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="54" id="bdH-TQ-du5"/>
-                        <constraint firstAttribute="width" constant="325" id="f2A-qf-aea"/>
-                    </constraints>
-                </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzR-0V-Ma0" customClass="MainUnfilledButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="16" y="688.5" width="382" height="56"/>
+                    <rect key="frame" x="16" y="694.5" width="382" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="06C-gK-pZt"/>
                     </constraints>
@@ -106,28 +76,23 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uJF-fZ-8Sc" secondAttribute="trailing" constant="16" id="3On-Q9-bJ2"/>
-                <constraint firstItem="RzR-0V-Ma0" firstAttribute="top" secondItem="3my-r6-Dg9" secondAttribute="bottom" constant="20" id="4TN-Bt-raP"/>
                 <constraint firstItem="RzR-0V-Ma0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ArY-Mw-MN1"/>
                 <constraint firstItem="Lw1-Mc-pjL" firstAttribute="top" secondItem="vVH-ho-YA3" secondAttribute="bottom" id="J6O-pT-95B"/>
                 <constraint firstItem="Lw1-Mc-pjL" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LtY-nI-qyW"/>
                 <constraint firstItem="XzP-Bt-1IQ" firstAttribute="top" secondItem="Lw1-Mc-pjL" secondAttribute="bottom" constant="8" id="SXI-hl-y6O"/>
                 <constraint firstItem="XzP-Bt-1IQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tb2-oG-0FA"/>
-                <constraint firstItem="3my-r6-Dg9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="TmU-Fc-gKE"/>
-                <constraint firstItem="uJF-fZ-8Sc" firstAttribute="top" secondItem="XzP-Bt-1IQ" secondAttribute="bottom" constant="80" id="URQ-5R-lXX"/>
+                <constraint firstItem="uJF-fZ-8Sc" firstAttribute="top" secondItem="XzP-Bt-1IQ" secondAttribute="bottom" constant="160" id="URQ-5R-lXX"/>
                 <constraint firstItem="XzP-Bt-1IQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ypf-Mg-5lw"/>
                 <constraint firstItem="vVH-ho-YA3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ZU2-44-FoK"/>
-                <constraint firstItem="3my-r6-Dg9" firstAttribute="top" secondItem="uJF-fZ-8Sc" secondAttribute="bottom" constant="20" id="g58-Fh-2Yx"/>
                 <constraint firstItem="uJF-fZ-8Sc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="kVv-CH-n7g"/>
+                <constraint firstItem="RzR-0V-Ma0" firstAttribute="top" secondItem="uJF-fZ-8Sc" secondAttribute="bottom" constant="20" id="lif-RK-D4m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RzR-0V-Ma0" secondAttribute="trailing" constant="16" id="s83-Ol-U4f"/>
             </constraints>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </view>
     </objects>
     <resources>
-        <image name="facebook_button" width="103" height="54"/>
-        <image name="google_button" width="103" height="54"/>
         <image name="login_screen" width="226" height="170"/>
-        <image name="vk_button" width="104" height="54"/>
         <namedColor name="middleGrey">
             <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

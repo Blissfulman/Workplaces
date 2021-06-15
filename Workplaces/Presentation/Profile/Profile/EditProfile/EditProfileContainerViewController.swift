@@ -24,6 +24,7 @@ final class EditProfileContainerViewController: BaseViewController {
     private let profileService: ProfileService
     private let editProfileModel: EditProfileModel
     private var progressList = [Progress]()
+    private let imagePickerController = UIImagePickerController()
     private lazy var editProfileVC = EditProfileViewController(editProfileModel: editProfileModel, delegate: self)
     
     // MARK: - Initializers
@@ -48,14 +49,33 @@ final class EditProfileContainerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePickerController.delegate = self
         setupUI()
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func changeAvatarBarButtonTapped() {
+        view.endEditing(true)
+        present(imagePickerController, animated: true)
     }
     
     // MARK: - Private methods
     
     private func setupUI() {
         tabBarController?.tabBar.isHidden = true
+        addChangeAvatarButton()
+        imagePickerController.sourceType = .savedPhotosAlbum
         addFullover(editProfileVC)
+    }
+    
+    private func addChangeAvatarButton() {
+        navigationItem.rightBarButtonItem = MainBarButtonItem(
+            title: "Change avatar".localized(),
+            style: .plain,
+            target: self,
+            action: #selector(changeAvatarBarButtonTapped)
+        )
     }
 }
 
@@ -66,7 +86,7 @@ extension EditProfileContainerViewController: EditProfileViewControllerDelegate 
     func didTapSaveButton() {
         LoadingView.show()
         
-        let progress = profileService.updateMyProfile(user: editProfileModel.updatedProfile) { [weak self] result in
+        let progress = profileService.updateMyProfile(uploadUser: editProfileModel.uploadUser) { [weak self] result in
             LoadingView.hide()
             
             switch result {
@@ -77,5 +97,20 @@ extension EditProfileContainerViewController: EditProfileViewControllerDelegate 
             }
         }
         progressList.append(progress)
+    }
+}
+
+// MARK: - Image picker controller delegate
+
+extension EditProfileContainerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        defer { imagePickerController.dismiss(animated: true) }
+        editProfileModel.avatarURL = info[.imageURL] as? URL
+        editProfileModel.isChangedAvatar = true
+        editProfileVC.updateSaveButtonState()
     }
 }

@@ -9,11 +9,12 @@ import UIKit
 
 // MARK: - Protocols
 
-protocol ProfileCoordinator: Coordinator {}
+protocol ProfileCoordinator: Coordinator {
+    func showNewPostScreen()
+}
 
 protocol ProfileCoordinatorDelegate: AnyObject {
     func goToFeed()
-    func goToNewPost()
 }
 
 final class ProfileCoordinatorImpl: ProfileCoordinator {
@@ -45,6 +46,11 @@ final class ProfileCoordinatorImpl: ProfileCoordinator {
         showProfileScreen()
     }
     
+    func showNewPostScreen() {
+        let newPostContainerVC = NewPostContainerViewController(delegate: self)
+        navigationController?.show(newPostContainerVC, sender: nil)
+    }
+    
     // MARK: - Private methods
     
     private func showProfileScreen() {
@@ -74,7 +80,7 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
     }
     
     func goToNewPost() {
-        delegate?.goToNewPost()
+        showNewPostScreen()
     }
     
     func goToFeed() {
@@ -95,6 +101,15 @@ extension ProfileCoordinatorImpl: ProfileContainerViewControllerDelegate {
 extension ProfileCoordinatorImpl: EditProfileContainerViewControllerDelegate {
     
     func profileDidSave() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - NewPostContainerViewControllerDelegate
+
+extension ProfileCoordinatorImpl: NewPostContainerViewControllerDelegate {
+    
+    func back() {
         navigationController?.popViewController(animated: true)
     }
 }

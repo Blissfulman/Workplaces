@@ -20,8 +20,8 @@ public struct UpdateMyProfileEndpoint: JsonEndpoint {
     
     // MARK: - Initializers
     
-    public init(user: User) {
-        self.uploadUser = UploadUser(user: user)
+    public init(uploadUser: UploadUser) {
+        self.uploadUser = uploadUser
     }
     
     // MARK: - Public methods
@@ -32,12 +32,10 @@ public struct UpdateMyProfileEndpoint: JsonEndpoint {
         multipartFormData.append(uploadUser.firstName.data(using: .utf8) ?? Data(), withName: "first_name")
         multipartFormData.append(uploadUser.lastName.data(using: .utf8) ?? Data(), withName: "last_name")
         multipartFormData.append(uploadUser.nickname.data(using: .utf8) ?? Data(), withName: "nickname")
-        multipartFormData.append(
-            uploadUser.avatarFile.data(using: .utf8, allowLossyConversion: false) ?? Data(),
-            withName: "avatar_file",
-            fileName: "avatar.jpg"
-        )
         multipartFormData.append(uploadUser.birthday.data(using: .utf8) ?? Data(), withName: "birth_day")
+        if let avatarFileURL = uploadUser.avatarFileURL {
+            multipartFormData.append(avatarFileURL, withName: "avatar_file")
+        }
 
         return patch(
             URL(string: "me")!,

@@ -13,8 +13,8 @@ protocol NewPostService {
     
     /// Публикация нового поста.
     /// - Parameters:
-    ///   - post: Публикуемый пост.
+    ///   - uploadPost: Публикуемый пост.
     ///   - completion: Обработчик завершения, в который возвращается результат запроса.
     @discardableResult
-    func publishPost(post: Post, completion: @escaping PostResultHandler) -> Progress
+    func publishPost(uploadPost: UploadPost, completion: @escaping PostResultHandler) -> Progress
 }

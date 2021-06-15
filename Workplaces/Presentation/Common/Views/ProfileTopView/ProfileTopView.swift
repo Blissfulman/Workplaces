@@ -78,7 +78,7 @@ final class ProfileTopView: NibInitializableView {
     
     func configure(model: ProfileTopViewModel) {
         self.model = model
-        avatarImageView.image = UIImage(data: model.avatarImageData ?? Data())
+        avatarImageView.setImage(byURL: model.profile.avatarURL)
         fullNameLabel.text = model.fullName
         ageLabel.text = model.age
     }

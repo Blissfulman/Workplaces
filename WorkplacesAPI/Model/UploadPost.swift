@@ -7,38 +7,31 @@
 
 import UIKit
 
-public struct UploadPost: Encodable {
+public struct UploadPost {
     
     // MARK: - Nested types
     
-    private enum CodingKeys: String, CodingKey {
-        case text
-        case imageFile
-        case longitude = "lon"
-        case latitude = "lat"
+    public struct Location {
+        let longitude: Double
+        let latitude: Double
+        
+        public init(longitude: Double, latitude: Double) {
+            self.longitude = longitude
+            self.latitude = latitude
+        }
     }
     
     // MARK: - Public properties
     
     let text: String
-    let imageFile: String
-    let longitude: String
-    let latitude: String
+    let imageFileURL: URL?
+    let location: Location?
     
     // MARK: - Initializers
     
-    // Временный инициализатор
-    init(post: Post) {
-        text = post.text ?? ""
-        if let url = post.imageURL,
-           let imageData = try? Data(contentsOf: url),
-           let base64Data = UIImage(data: imageData)?.pngData()?.base64EncodedData(),
-           let stringData = String(data: base64Data, encoding: .utf8) {
-            imageFile = stringData
-        } else {
-            imageFile = ""
-        }
-        longitude = String(describing: post.longitude ?? 0)
-        latitude = String(describing: post.latitude ?? 0)
+    public init(text: String, imageFileURL: URL?, location: Location?) {
+        self.text = text
+        self.imageFileURL = imageFileURL
+        self.location = location
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit.UIBarButtonItem
 
-class MainBarButtonItem: UIBarButtonItem {
+final class MainBarButtonItem: UIBarButtonItem {
     
     // MARK: - Initializers
     

@@ -15,6 +15,13 @@ final class ProfileServiceUpdateMyProfileTests: XCTestCase {
     
     private let client = ClientMock<UpdateMyProfileEndpoint>()
     private var profileService: ProfileService?
+    private let uploadUser = UploadUser(
+        firstName: "test",
+        lastName: "test",
+        nickname: "test",
+        birthday: Date(),
+        avatarFileURL: nil
+    )
     private let profile = User(
         id: "test",
         firstName: "test",
@@ -36,7 +43,7 @@ final class ProfileServiceUpdateMyProfileTests: XCTestCase {
     func testPublishPostSuccess() {
         client.result = .success(profile)
         
-        profileService?.updateMyProfile(user: profile) { result in
+        profileService?.updateMyProfile(uploadUser: uploadUser) { result in
             var boolResult = false
             if case .success = result {
                 boolResult = true
@@ -49,7 +56,7 @@ final class ProfileServiceUpdateMyProfileTests: XCTestCase {
         let expectedError = APIError(code: .genericError, message: "")
         client.result = .failure(expectedError)
         
-        profileService?.updateMyProfile(user: profile) { result in
+        profileService?.updateMyProfile(uploadUser: uploadUser) { result in
             var boolResult = false
             if case let .failure(error) = result,
                let apiError = error as? APIError,

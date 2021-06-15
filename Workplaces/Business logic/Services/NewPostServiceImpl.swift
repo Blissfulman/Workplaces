@@ -22,8 +22,8 @@ final class NewPostServiceImpl: NewPostService {
     
     // MARK: - Public methods
     
-    func publishPost(post: Post, completion: @escaping PostResultHandler) -> Progress {
-        let endpoint = PublishPostEndpoint(post: post)
+    func publishPost(uploadPost: UploadPost, completion: @escaping PostResultHandler) -> Progress {
+        let endpoint = PublishPostEndpoint(uploadPost: uploadPost)
         return apiClient.request(endpoint) { result in
             completion(result.mapError { $0.unwrapAFError() })
         }

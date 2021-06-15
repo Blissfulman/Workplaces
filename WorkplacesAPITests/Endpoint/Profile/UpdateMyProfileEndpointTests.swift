@@ -12,17 +12,16 @@ final class UpdateMyProfileEndpointTests: XCTestCase {
     
     // MARK: - Private properties
     
-    private let user = User(
-        id: "test",
+    private let uploadUser = UploadUser(
         firstName: "test",
         lastName: "test",
         nickname: "test",
-        avatarURL: URL(string: "https://redmadrobot.com/")!,
-        birthday: Date()
+        birthday: Date(),
+        avatarFileURL: nil
     )
     
     func testMakeRequest() throws {
-        let endpoint = UpdateMyProfileEndpoint(user: user)
+        let endpoint = UpdateMyProfileEndpoint(uploadUser: uploadUser)
         let urlRequest = try endpoint.makeRequest()
         
         assertPATCH(urlRequest)
@@ -44,7 +43,7 @@ final class UpdateMyProfileEndpointTests: XCTestCase {
             }
         """.data(using: .utf8)!
         
-        let endpoint = UpdateMyProfileEndpoint(user: user)
+        let endpoint = UpdateMyProfileEndpoint(uploadUser: uploadUser)
         let user = try endpoint.content(from: nil, with: jsonData)
         
         XCTAssertEqual(user.id, "8feed535-5ca5-464e-862d-0de124800aa3", "Error \"id\" decoding")

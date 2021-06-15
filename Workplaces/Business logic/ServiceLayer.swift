@@ -67,7 +67,9 @@ final class ServiceLayer {
     // MARK: - Private methods
     
     private func validateSession(responseError: Error?) {
-        // ? Добавить выход из сессии
-        if let error = responseError as? APIError, error.code == .tokenInvalid {}
+        if let error = responseError as? APIError, error.code == .tokenInvalid {
+            // ? Добавить выход на сценарий авторизации
+            securityManager.logoutReset()
+        }
     }
 }

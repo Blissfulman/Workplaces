@@ -56,7 +56,7 @@ final class PostCell: UITableViewCell {
         locationStackView.isHidden = model.isHiddenLocation
         locationLabel.text = model.location
         postImageView.isHidden = model.isHiddenPostImage
-        postImageView.image = UIImage(data: model.postImageData ?? Data())
+        postImageView.setImage(byURL: model.post.imageURL)
         authorLabel.text = model.nickname
         likeButton.setImage(model.post.liked ? Icons.liked : Icons.like, for: .normal)
     }

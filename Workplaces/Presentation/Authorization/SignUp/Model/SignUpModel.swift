@@ -24,13 +24,11 @@ final class SignUpModel {
     var userCredentials: UserCredentials {
         UserCredentials(email: email, password: password)
     }
-    var updatedProfile: User {
-        User(
-            id: "",
+    var uploadUser: UploadUser {
+        UploadUser(
             firstName: firstName ?? "",
             lastName: lastName ?? "",
-            nickname: nickname,
-            avatarURL: nil,
+            nickname: nickname ?? "",
             birthday: birthday ?? Date()
         )
     }

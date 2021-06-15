@@ -21,16 +21,13 @@ enum Icons {
     static let search = #imageLiteral(resourceName: "24-search")
     static let geoSmall = #imageLiteral(resourceName: "geo_small")
     static let plus = #imageLiteral(resourceName: "plus")
+    static let closeImage = #imageLiteral(resourceName: "close_image")
     
     static let feed = #imageLiteral(resourceName: "feed")
     static let newPost = #imageLiteral(resourceName: "new_post")
     static let profile = #imageLiteral(resourceName: "profile")
     static let like = #imageLiteral(resourceName: "like")
     static let liked = #imageLiteral(resourceName: "liked")
-    
-    static let googleButton = #imageLiteral(resourceName: "google_button")
-    static let facebookButton = #imageLiteral(resourceName: "facebook_button")
-    static let vkButton = #imageLiteral(resourceName: "vk_button")
     
     static let avatar = #imageLiteral(resourceName: "avatar")
 }

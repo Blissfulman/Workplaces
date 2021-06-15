@@ -1,29 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPostViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="betweenImageViewAndBottomButtonsConstraint" destination="MEr-Vo-hEz" id="8N7-DV-HHr"/>
+                <outlet property="bottomStackViewBottomConstraint" destination="ePY-lE-tuw" id="EvK-bV-hLI"/>
+                <outlet property="deletePostImageButton" destination="cNA-D6-Q3V" id="j3e-T4-aqV"/>
+                <outlet property="postImageView" destination="nAv-H7-4gZ" id="gNO-iF-rmJ"/>
+                <outlet property="postTextView" destination="Ya5-QQ-mPq" id="tlO-be-HzV"/>
+                <outlet property="publishPostButton" destination="Pi0-fE-Trc" id="z8C-sy-GZa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAv-H7-4gZ">
+                    <rect key="frame" x="20" y="150" width="350" height="233.33333333333337"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nAv-H7-4gZ" secondAttribute="height" multiplier="3:2" id="2oa-ZK-rgk"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="What do you want to share?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ya5-QQ-mPq">
+                    <rect key="frame" x="20" y="76" width="350" height="42"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="tintColor" name="orange"/>
+                    <color key="textColor" name="middleGrey"/>
+                    <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="20"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-D6-Q3V">
+                    <rect key="frame" x="342" y="158" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="VMb-Id-4yi"/>
+                        <constraint firstAttribute="width" constant="20" id="p5T-p2-xEb"/>
+                    </constraints>
+                    <state key="normal" image="close_image"/>
+                    <connections>
+                        <action selector="deletePostImageButtonTapped" destination="-1" eventType="touchUpInside" id="QXb-G1-u5V"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5AI-0X-S2y">
+                    <rect key="frame" x="20" y="758" width="350" height="36"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="K0i-iE-frS">
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="36"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gk-gJ-shN">
+                                    <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="36" id="UnZ-g2-w5g"/>
+                                        <constraint firstAttribute="height" constant="36" id="fgH-Ea-od4"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="36-geo"/>
+                                    <connections>
+                                        <action selector="addLocationButtonTapped" destination="-1" eventType="touchUpInside" id="n7u-sm-EqG"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-VV-jCJ">
+                                    <rect key="frame" x="48" y="0.0" width="36" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="36" id="fzI-1G-5rZ"/>
+                                        <constraint firstAttribute="height" constant="36" id="sXL-HO-egx"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="36-image"/>
+                                    <connections>
+                                        <action selector="addImageButtonTapped" destination="-1" eventType="touchUpInside" id="pFb-io-u5l"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-fE-Trc">
+                            <rect key="frame" x="314" y="0.0" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="DtO-2Q-Qrf"/>
+                                <constraint firstAttribute="height" constant="36" id="QWx-TR-qGG"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="36-send"/>
+                            <connections>
+                                <action selector="publishPostButtonTapped" destination="-1" eventType="touchUpInside" id="1jb-Uo-Voa"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="129" y="94"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="nAv-H7-4gZ" secondAttribute="trailing" id="0Ko-6a-70P"/>
+                <constraint firstItem="cNA-D6-Q3V" firstAttribute="top" secondItem="nAv-H7-4gZ" secondAttribute="top" constant="8" id="Fqo-w5-KWN"/>
+                <constraint firstItem="Ya5-QQ-mPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="IbY-K9-j6a"/>
+                <constraint firstItem="5AI-0X-S2y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nAv-H7-4gZ" secondAttribute="bottom" constant="20" id="MEr-Vo-hEz"/>
+                <constraint firstItem="Ya5-QQ-mPq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="MfS-77-Pef"/>
+                <constraint firstItem="5AI-0X-S2y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Mtk-Ff-YjW"/>
+                <constraint firstItem="nAv-H7-4gZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="MxZ-pT-6eU"/>
+                <constraint firstItem="nAv-H7-4gZ" firstAttribute="trailing" secondItem="cNA-D6-Q3V" secondAttribute="trailing" constant="8" id="SuM-Zf-ECA"/>
+                <constraint firstItem="5AI-0X-S2y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ya5-QQ-mPq" secondAttribute="bottom" constant="20" id="ZbZ-DM-BzO"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Ya5-QQ-mPq" secondAttribute="trailing" id="alg-ca-j5d"/>
+                <constraint firstAttribute="trailingMargin" secondItem="5AI-0X-S2y" secondAttribute="trailing" id="bwf-gq-hbL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5AI-0X-S2y" secondAttribute="bottom" priority="500" constant="16" id="ePY-lE-tuw"/>
+                <constraint firstItem="nAv-H7-4gZ" firstAttribute="top" secondItem="Ya5-QQ-mPq" secondAttribute="bottom" constant="32" id="ydc-Op-8KW"/>
+            </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="20" leading="20" bottom="20" trailing="20"/>
+            <point key="canvasLocation" x="128.98550724637681" y="93.75"/>
         </view>
     </objects>
     <resources>
+        <image name="36-geo" width="36" height="36"/>
+        <image name="36-image" width="36" height="36"/>
+        <image name="36-send" width="36" height="36"/>
+        <image name="close_image" width="20" height="20"/>
+        <namedColor name="middleGrey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

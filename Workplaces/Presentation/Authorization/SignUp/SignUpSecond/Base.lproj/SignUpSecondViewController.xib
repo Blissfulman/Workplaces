@@ -31,8 +31,8 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-8F-JFH">
-                    <rect key="frame" x="16" y="227" width="358" height="216"/>
+                <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="200" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-8F-JFH">
+                    <rect key="frame" x="16" y="234" width="358" height="216"/>
                     <date key="minimumDate" timeIntervalSinceReferenceDate="-3187310553">
                         <!--1899-12-31 19:57:27 +0000-->
                     </date>
@@ -63,10 +63,10 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="snE-5f-5qE">
-                    <rect key="frame" x="16" y="75" width="358" height="132"/>
+                    <rect key="frame" x="16" y="75" width="358" height="139"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="107-Pl-FFH" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="358" height="18"/>
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="nickname"/>
                             <connections>
@@ -76,7 +76,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Os-rp-pcN" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="38" width="358" height="18"/>
+                            <rect key="frame" x="0.0" y="39" width="358" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             <connections>
@@ -86,7 +86,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-tD-sUg" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="76" width="358" height="18"/>
+                            <rect key="frame" x="0.0" y="79" width="358" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
                             <connections>
@@ -96,7 +96,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-H0-W4S" customClass="BirthdayTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="114" width="358" height="18"/>
+                            <rect key="frame" x="0.0" y="119" width="358" height="20"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             <connections>
@@ -116,13 +116,12 @@
                 <constraint firstItem="S8u-nc-WXc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="snE-5f-5qE" secondAttribute="bottom" priority="500" constant="16" id="Cco-CW-czP"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Crc-ES-PEK"/>
                 <constraint firstItem="S8u-nc-WXc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Try-wm-yRk"/>
-                <constraint firstItem="wpI-8F-JFH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="coH-Fu-D6P"/>
                 <constraint firstItem="wpI-8F-JFH" firstAttribute="top" secondItem="snE-5f-5qE" secondAttribute="bottom" constant="20" id="cyg-h1-Jtm"/>
                 <constraint firstAttribute="trailingMargin" secondItem="snE-5f-5qE" secondAttribute="trailing" id="gZv-HC-Ts5"/>
                 <constraint firstItem="7L2-Ow-d4M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oV1-R0-JJ6"/>
                 <constraint firstItem="snE-5f-5qE" firstAttribute="top" secondItem="7L2-Ow-d4M" secondAttribute="bottom" constant="27" id="rNW-wF-xJy"/>
-                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="wpI-8F-JFH" secondAttribute="trailing" id="sn2-9R-Epj"/>
-                <constraint firstItem="wpI-8F-JFH" firstAttribute="leading" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ufd-1n-cz0"/>
+                <constraint firstAttribute="trailingMargin" secondItem="wpI-8F-JFH" secondAttribute="trailing" id="sn2-9R-Epj"/>
+                <constraint firstItem="wpI-8F-JFH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ufd-1n-cz0"/>
                 <constraint firstAttribute="trailingMargin" secondItem="S8u-nc-WXc" secondAttribute="trailing" id="vot-wB-ZtY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wpI-8F-JFH" secondAttribute="bottom" priority="250" constant="116" id="wvd-yB-3C9"/>
             </constraints>
