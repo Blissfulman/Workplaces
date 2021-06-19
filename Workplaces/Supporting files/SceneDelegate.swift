@@ -35,4 +35,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootCoordinator.start()
         window?.makeKeyAndVisible()
     }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        BlurView.show()
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        BlurView.hide()
+    }
 }
