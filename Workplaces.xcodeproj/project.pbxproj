@@ -127,6 +127,9 @@
 		CE5E71B82652A47C0028990A /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71B62652A47C0028990A /* UserCell.swift */; };
 		CE5E71B92652A47C0028990A /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5E71B72652A47C0028990A /* UserCell.xib */; };
 		CE5E71BB2652A6AE0028990A /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */; };
+		CE70192C267DDB7400998C54 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70192B267DDB7400998C54 /* BlurView.swift */; };
+		CE70192E267DE4A300998C54 /* TimeManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70192D267DE4A300998C54 /* TimeManagerImpl.swift */; };
+		CE701930267DEB9D00998C54 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70192F267DEB9D00998C54 /* TimeManager.swift */; };
 		CE775B21266D46D600C7BF25 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B20266D46D600C7BF25 /* KeychainStorage.swift */; };
 		CE775B24266D672B00C7BF25 /* SecurityManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */; };
 		CE7825AD2654526B00CE3291 /* AuthorizationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7825AC2654526B00CE3291 /* AuthorizationServiceError.swift */; };
@@ -393,6 +396,9 @@
 		CE5E71B62652A47C0028990A /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		CE5E71B72652A47C0028990A /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		CE5E71BA2652A6AE0028990A /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		CE70192B267DDB7400998C54 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		CE70192D267DE4A300998C54 /* TimeManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerImpl.swift; sourceTree = "<group>"; };
+		CE70192F267DEB9D00998C54 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		CE775B20266D46D600C7BF25 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManagerImpl.swift; sourceTree = "<group>"; };
 		CE775B25266DF7E200C7BF25 /* SecurityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityManager.swift; sourceTree = "<group>"; };
@@ -722,6 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				CE09D782262EC90D009A96B3 /* LoadingView.swift */,
+				CE70192B267DDB7400998C54 /* BlurView.swift */,
 				CEE7FBC7262D826B001D5DAD /* MainFilledButton.swift */,
 				CE5223302656B6E6005C5075 /* MainUnfilledButton.swift */,
 				CE5223322656DE11005C5075 /* MainTextField.swift */,
@@ -1060,6 +1067,7 @@
 			isa = PBXGroup;
 			children = (
 				CE775B25266DF7E200C7BF25 /* SecurityManager.swift */,
+				CE70192F267DEB9D00998C54 /* TimeManager.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1411,6 +1419,7 @@
 			isa = PBXGroup;
 			children = (
 				CE775B23266D672B00C7BF25 /* SecurityManagerImpl.swift */,
+				CE70192D267DE4A300998C54 /* TimeManagerImpl.swift */,
 				CE775B1F266D46BF00C7BF25 /* Protocols */,
 			);
 			path = Managers;
@@ -1868,6 +1877,7 @@
 				CE8F1BEA263519BA00C0C52C /* FeedService.swift in Sources */,
 				CE09D780262EBA13009A96B3 /* Typealiases.swift in Sources */,
 				CEA46B6D2648F51B007C2DCE /* ProfileSegmentedControl.swift in Sources */,
+				CE701930267DEB9D00998C54 /* TimeManager.swift in Sources */,
 				CE1508642642597700568006 /* PostCell.swift in Sources */,
 				CEE7FBB1262D4F29001D5DAD /* LoginViewController.swift in Sources */,
 				CE7825AF2655150000CE3291 /* KeyboardNotificationsViewController.swift in Sources */,
@@ -1883,6 +1893,7 @@
 				CE09481926694A040004CD7F /* ProtectionViewController.swift in Sources */,
 				CE775B21266D46D600C7BF25 /* KeychainStorage.swift in Sources */,
 				CE7C4953262B58E4007FA94E /* SceneDelegate.swift in Sources */,
+				CE70192C267DDB7400998C54 /* BlurView.swift in Sources */,
 				CE57378F262DEEC700A6DC20 /* SignUpSecondViewController.swift in Sources */,
 				CEB07516264EE5B40060E818 /* SignInContainerViewController.swift in Sources */,
 				CEE7FBC3262D805D001D5DAD /* SignInDoneViewController.swift in Sources */,
@@ -1911,6 +1922,7 @@
 				CEDFF751265D1FF9000A765C /* PostCellModel.swift in Sources */,
 				CE09481C26695C3D0004CD7F /* PinNumberButton.swift in Sources */,
 				CE1331B9262C4B340086433C /* Icons.swift in Sources */,
+				CE70192E267DE4A300998C54 /* TimeManagerImpl.swift in Sources */,
 				CE09D772262E8E0B009A96B3 /* NewPostViewController.swift in Sources */,
 				CE1331B3262C431D0086433C /* Palette.swift in Sources */,
 				CEB07509264DA96D0060E818 /* ProfileLikesDataSource.swift in Sources */,

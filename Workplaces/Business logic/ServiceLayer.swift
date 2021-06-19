@@ -56,8 +56,8 @@ final class ServiceLayer {
         retryCompletionStorage: retryCompletionStorage
     )
     private lazy var retryCompletionStorage: RetryCompletionStorage = RetryCompletionStorageImpl()
-    private var accessToken: String {
-        securityManager.accessToken ?? ""
+    private var accessToken: String? {
+        securityManager.accessToken
     }
     
     // MARK: - Initializers

@@ -13,7 +13,9 @@ final class KeychainStorageImpl: KeychainStorage {
     
     private enum BiometryState: CustomStringConvertible {
         
-        case available, locked, notAvailable
+        case available
+        case locked
+        case notAvailable
         
         var description: String {
             switch self {

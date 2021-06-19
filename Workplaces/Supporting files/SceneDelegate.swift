@@ -19,6 +19,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     var rootCoordinator: RootCoordinator!
+    let timeManager: TimeManager = TimeManagerImpl()
     
     // MARK: - UIWindowSceneDelegate
     
@@ -34,5 +35,23 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootCoordinator = RootCoordinator(window: window)
         rootCoordinator.start()
         window?.makeKeyAndVisible()
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        BlurView.show()
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        BlurView.hide()
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        timeManager.saveTime()
+    }
+    
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        if timeManager.getElapsedTime() > 120 {
+            rootCoordinator.forcedLogOutIfAuthorized()
+        }
     }
 }

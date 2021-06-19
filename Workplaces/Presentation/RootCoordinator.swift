@@ -31,6 +31,13 @@ final class RootCoordinator {
             : startAuthorizationCoordinator()
     }
     
+    func forcedLogOutIfAuthorized() {
+        if securityManager.isAuthorized {
+            securityManager.logoutReset()
+            start()
+        }
+    }
+    
     // MARK: - Private methods
     
     private func startAuthorizationCoordinator() {
