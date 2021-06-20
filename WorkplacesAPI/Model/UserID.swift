@@ -5,7 +5,7 @@
 //  Created by Evgeny Novgorodov on 27.04.2021.
 //
 
-public struct UserID: Encodable {
+struct UserID: Encodable {
     
     // MARK: - Nested types
     
