@@ -8,8 +8,8 @@
 import UIKit
 
 enum Fonts {
-    static let title = UIFont(name: "IBM Plex Sans", size: 36.0)!
-    static let subTitle = UIFont(name: "IBM Plex Sans Medium", size: 28.0)!
-    static let bodyLarge = UIFont(name: "IBM Plex Sans", size: 16.0)!
-    static let bodySmall = UIFont(name: "IBM Plex Sans", size: 14.0)!
+    static let title = UIFont(name: "IBM Plex Sans", size: 36)!
+    static let subTitle = UIFont(name: "IBM Plex Sans Medium", size: 28)!
+    static let bodyLarge = UIFont(name: "IBM Plex Sans", size: 16)!
+    static let bodySmall = UIFont(name: "IBM Plex Sans", size: 14)!
 }

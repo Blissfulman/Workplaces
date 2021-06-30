@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+Extension.swift
+//  NibTableViewCell.swift
 //  Workplaces
 //
 //  Created by Evgeny Novgorodov on 05.05.2021.
