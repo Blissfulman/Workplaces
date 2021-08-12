@@ -18,7 +18,6 @@ enum UIConstants {
     // не соответствует действетельной высоте, и поднимаемые при появлении клавиатуры элементы, уезжали слишком высоко
     static let defaultSpacingBetweenContentAndKeyboard: CGFloat = UIDevice.isSquareScreen() ? 16 : -16
     static let defaultLowerButtonsBottomSpacing: CGFloat = 44
-    static let keyboardAppearAnimationDuration: TimeInterval = 0.5
     
     static let textFieldPadding = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 40)
     

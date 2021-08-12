@@ -7,9 +7,10 @@
 
 import UIKit
 
-class KeyboardNotificationsViewController: BaseViewController {
+/// Сабкласс `UIViewController`, помогающий обрабатывать события появления/скрытия клавиатуры.
+class KeyboardNotificationsViewController: UIViewController {
     
-    // MARK: - Deinitializer
+    // MARK: - Deinitialization
     
     deinit {
         removeKeyboardNotifications()
@@ -24,10 +25,18 @@ class KeyboardNotificationsViewController: BaseViewController {
     
     // MARK: - Public methods
     
+    /// Метод, вызываемый при появлении клавиатуры.
+    /// - Parameter notification: Объект `Notification`, наблюдателя появления клавиатуры.
     @objc func keyboardWillShow(_ notification: Notification) {}
     
+    /// Метод, вызываемый при скрытии клавиатуры.
+    /// - Parameter notification: Объект `Notification`, наблюдателя скрытия клавиатуры.
     @objc func keyboardWillHide(_ notification: Notification) {}
     
+    /// Метод, анимирующий констрейнты при появлении/скрытии клавиатуры.
+    /// - Parameters:
+    ///   - notification: Объект `Notification`, получаемый как параметр в методах `keyboardWillShow` и `keyboardWillHide`.
+    ///   - animations: Блок, в который следует передать требуетмые для данной анимации новые значения констрейнтов.
     func animateWithKeyboard(notification: Notification, animations: ((_ keyboardFrame: CGRect) -> Void)?) {
         guard let userInfo = notification.userInfo,
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,

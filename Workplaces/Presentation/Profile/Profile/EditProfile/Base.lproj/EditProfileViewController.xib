@@ -33,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="200" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="yRu-TR-wtJ">
-                    <rect key="frame" x="20" y="234" width="374" height="216"/>
+                    <rect key="frame" x="20" y="227" width="374" height="216"/>
                     <date key="minimumDate" timeIntervalSinceReferenceDate="-3187310553">
                         <!--1899-12-31 19:57:27 +0000-->
                     </date>
@@ -45,10 +45,10 @@
                     </connections>
                 </datePicker>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XmE-jY-QXB">
-                    <rect key="frame" x="20" y="75" width="374" height="139"/>
+                    <rect key="frame" x="20" y="75" width="374" height="132"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OEW-WN-88S" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="19"/>
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="nickname"/>
                             <connections>
@@ -58,7 +58,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="J90-uD-xdO" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="39" width="374" height="20"/>
+                            <rect key="frame" x="0.0" y="38" width="374" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             <connections>
@@ -68,7 +68,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="5Sz-uE-9ar" customClass="MainTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="79" width="374" height="20"/>
+                            <rect key="frame" x="0.0" y="76" width="374" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
                             <connections>
@@ -78,7 +78,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="yC5-VZ-Nif" customClass="BirthdayTextField" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="119" width="374" height="20"/>
+                            <rect key="frame" x="0.0" y="114" width="374" height="18"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
