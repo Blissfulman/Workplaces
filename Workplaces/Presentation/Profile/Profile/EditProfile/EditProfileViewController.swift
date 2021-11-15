@@ -57,9 +57,10 @@ final class EditProfileViewController: KeyboardNotificationsViewController {
     // MARK: - KeyboardNotificationsViewController
     
     override func keyboardWillShow(_ notification: Notification) {
+        let safeAreaBottomInset = view.safeAreaInsets.bottom
         animateWithKeyboard(notification: notification) { keyboardFrame in
             self.saveButtonBottomConstraint.constant = keyboardFrame.height
-                + UIConstants.defaultSpacingBetweenContentAndKeyboard
+                + UIConstants.defaultSpacingBetweenContentAndKeyboard - safeAreaBottomInset
         }
     }
     
